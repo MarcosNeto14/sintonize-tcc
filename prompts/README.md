@@ -100,7 +100,7 @@ Cada linha representa **uma função × três estratégias = três rodadas**. To
 
 | Categoria | Métricas |
 |---|---|
-| **Execução** | Compilou? / Testes gerados / Passaram / Falharam / Ajuste manual de import? |
+| **Execução** | Compilou? / Testes gerados / Passaram / Falharam |
 | **Reparo** | Nº de iterações até passar (0 a 3) |
 | **Qualitativa** | Alucinações / Omissões / Redundâncias / Qualidade dos nomes / Cobertura de casos de borda |
 | **Contexto** | Versão do modelo / Data e hora / Versão do Flutter |

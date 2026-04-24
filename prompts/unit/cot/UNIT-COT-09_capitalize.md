@@ -36,7 +36,6 @@ preencher com a resposta completa do ChatGPT
 | **Testes gerados** | _preencher_ |
 | **Testes passaram** | _preencher_ |
 | **Testes falharam** | _preencher_ |
-| **Ajuste manual de import?** | _preencher_ |
 
 ### Saída do terminal
 preencher com a saída do flutter test

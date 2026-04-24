@@ -19,12 +19,123 @@
 ---
 
 ## Prompt Enviado
-preencher com o prompt exato enviado ao ChatGPT
+Gere testes unitários em Dart usando o pacote flutter_test para a função abaixo.
+
+Antes, veja dois exemplos de testes bem escritos para funções similares:
+
+**Exemplo 1 — teste de validação de campo obrigatório:**
+\```dart
+group('validateCampoObrigatorio', () {
+  test('deve retornar mensagem de erro quando valor é null', () {
+    expect(Validators.validateCampoObrigatorio(null), isNotNull);
+  });
+
+  test('deve retornar mensagem de erro quando valor é vazio', () {
+    expect(Validators.validateCampoObrigatorio(''), isNotNull);
+  });
+
+  test('deve retornar null quando valor é preenchido', () {
+    expect(Validators.validateCampoObrigatorio('abc'), isNull);
+  });
+});
+\```
+
+**Exemplo 2 — teste de validação com regex:**
+\```dart
+group('validateTelefone', () {
+  test('deve aceitar telefone com 11 dígitos', () {
+    expect(Validators.validateTelefone('81999998888'), isNull);
+  });
+
+  test('deve rejeitar telefone com letras', () {
+    expect(Validators.validateTelefone('8199abc8888'), isNotNull);
+  });
+
+  test('deve rejeitar telefone com poucos dígitos', () {
+    expect(Validators.validateTelefone('8199'), isNotNull);
+  });
+});
+\```
+
+Agora, gere testes para esta função, seguindo o mesmo padrão dos exemplos:
+
+\```dart
+  static String? validateEmailEdit(String? value) {
+    if (value != null && value.isNotEmpty) {
+      const emailRegex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
+      if (!RegExp(emailRegex).hasMatch(value)) {
+        return 'Formato de e-mail inválido';
+      }
+    }
+    return null;
+  } 
+\```
+
+A função faz parte da classe Validators em lib/utils/validators.dart de um projeto Flutter chamado "sintonize".
 
 ---
 
 ## Resposta do LLM
-preencher com a resposta completa do ChatGPT
+Aqui está um conjunto de testes unitários seguindo exatamente o padrão dos exemplos que você forneceu, usando o pacote flutter_test:
+
+import 'package:flutter_test/flutter_test.dart';
+import 'package:sintonize/utils/validators.dart';
+
+void main() {
+  group('validateEmailEdit', () {
+    test('deve retornar null quando valor é null', () {
+      expect(Validators.validateEmailEdit(null), isNull);
+    });
+
+    test('deve retornar null quando valor é vazio', () {
+      expect(Validators.validateEmailEdit(''), isNull);
+    });
+
+    test('deve aceitar e-mail válido simples', () {
+      expect(Validators.validateEmailEdit('teste@email.com'), isNull);
+    });
+
+    test('deve aceitar e-mail com subdomínio', () {
+      expect(Validators.validateEmailEdit('user@mail.example.com'), isNull);
+    });
+
+    test('deve aceitar e-mail com caracteres especiais válidos', () {
+      expect(Validators.validateEmailEdit('user.name+tag@email.co'), isNull);
+    });
+
+    test('deve rejeitar e-mail sem @', () {
+      expect(Validators.validateEmailEdit('testeemail.com'), isNotNull);
+    });
+
+    test('deve rejeitar e-mail sem domínio', () {
+      expect(Validators.validateEmailEdit('teste@'), isNotNull);
+    });
+
+    test('deve rejeitar e-mail sem TLD', () {
+      expect(Validators.validateEmailEdit('teste@email'), isNotNull);
+    });
+
+    test('deve rejeitar e-mail com caracteres inválidos', () {
+      expect(Validators.validateEmailEdit('teste@ema!l.com'), isNotNull);
+    });
+
+    test('deve retornar mensagem de erro para e-mail inválido', () {
+      expect(
+        Validators.validateEmailEdit('email_invalido'),
+        'Formato de e-mail inválido',
+      );
+    });
+  });
+}
+
+Esse conjunto cobre:
+
+Casos neutros (null e vazio)
+Casos válidos (simples, subdomínio, caracteres especiais permitidos)
+Casos inválidos (estrutura incorreta)
+Verificação explícita da mensagem de erro
+
+Se quiser, posso também sugerir testes de borda mais extremos (como emails muito longos ou unicode), mas para a maioria dos cenários de app Flutter isso já está bem completo.
 
 ---
 
@@ -32,14 +143,13 @@ preencher com a resposta completa do ChatGPT
 
 | Métrica | Valor |
 |---|---|
-| **Compilou?** | _preencher_ |
-| **Testes gerados** | _preencher_ |
-| **Testes passaram** | _preencher_ |
-| **Testes falharam** | _preencher_ |
-| **Ajuste manual de import?** | _preencher_ |
+| **Compilou?** | Sim |
+| **Testes gerados** | 10 |
+| **Testes passaram** | 10 |
+| **Testes falharam** | 0 |
 
 ### Saída do terminal
-preencher com a saída do flutter test
+00:03 +10: All tests passed!  
 
 ---
 

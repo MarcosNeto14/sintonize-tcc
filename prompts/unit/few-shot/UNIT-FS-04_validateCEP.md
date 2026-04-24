@@ -19,12 +19,91 @@
 ---
 
 ## Prompt Enviado
-preencher com o prompt exato enviado ao ChatGPT
+Gere testes unitários em Dart usando o pacote flutter_test para a função abaixo. Antes, veja dois exemplos de testes bem escritos para funções similares: **Exemplo 1 — teste de validação de campo obrigatório:** \
+dart
+group('validateCampoObrigatorio', () {
+  test('deve retornar mensagem de erro quando valor é null', () {
+    expect(Validators.validateCampoObrigatorio(null), isNotNull);
+  });
+
+  test('deve retornar mensagem de erro quando valor é vazio', () {
+    expect(Validators.validateCampoObrigatorio(''), isNotNull);
+  });
+
+  test('deve retornar null quando valor é preenchido', () {
+    expect(Validators.validateCampoObrigatorio('abc'), isNull);
+  });
+});
+\
+**Exemplo 2 — teste de validação com regex:** \
+dart
+group('validateTelefone', () {
+  test('deve aceitar telefone com 11 dígitos', () {
+    expect(Validators.validateTelefone('81999998888'), isNull);
+  });
+
+  test('deve rejeitar telefone com letras', () {
+    expect(Validators.validateTelefone('8199abc8888'), isNotNull);
+  });
+
+  test('deve rejeitar telefone com poucos dígitos', () {
+    expect(Validators.validateTelefone('8199'), isNotNull);
+  });
+});
+\
+Agora, gere testes para esta função, seguindo o mesmo padrão dos exemplos: \
+dart
+  static String? validateCEP(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'O CEP é obrigatório';
+    }
+    if (value.length != 9 || !RegExp(r'^\d{5}-\d{3}$').hasMatch(value)) {
+      return 'CEP inválido. Formato correto: XXXXX-XXX';
+    }
+    return null;
+  } 
+\
+A função faz parte da classe Validators em lib/utils/validators.dart de um projeto Flutter chamado "sintonize".
 
 ---
 
 ## Resposta do LLM
-preencher com a resposta completa do ChatGPT
+Aqui estão os testes unitários para a função validateCEP, seguindo o mesmo padrão dos exemplos fornecidos:
+
+import 'package:flutter_test/flutter_test.dart';
+import 'package:sintonize/utils/validators.dart';
+
+void main() {
+  group('validateCEP', () {
+    test('deve retornar mensagem de erro quando valor é null', () {
+      expect(Validators.validateCEP(null), isNotNull);
+    });
+
+    test('deve retornar mensagem de erro quando valor é vazio', () {
+      expect(Validators.validateCEP(''), isNotNull);
+    });
+
+    test('deve aceitar CEP no formato válido XXXXX-XXX', () {
+      expect(Validators.validateCEP('50740-540'), isNull);
+    });
+
+    test('deve rejeitar CEP sem hífen', () {
+      expect(Validators.validateCEP('50740540'), isNotNull);
+    });
+
+    test('deve rejeitar CEP com letras', () {
+      expect(Validators.validateCEP('50A40-540'), isNotNull);
+    });
+
+    test('deve rejeitar CEP com tamanho incorreto', () {
+      expect(Validators.validateCEP('50740-54'), isNotNull);
+    });
+
+    test('deve rejeitar CEP com formato incorreto', () {
+      expect(Validators.validateCEP('5074-0540'), isNotNull);
+    });
+  });
+}
 
 ---
 
@@ -32,14 +111,13 @@ preencher com a resposta completa do ChatGPT
 
 | Métrica | Valor |
 |---|---|
-| **Compilou?** | _preencher_ |
-| **Testes gerados** | _preencher_ |
-| **Testes passaram** | _preencher_ |
-| **Testes falharam** | _preencher_ |
-| **Ajuste manual de import?** | _preencher_ |
+| **Compilou?** | Sim   |
+| **Testes gerados** | 7 |
+| **Testes passaram** | 7 |
+| **Testes falharam** | 0 |
 
 ### Saída do terminal
-preencher com a saída do flutter test
+00:04 +7: All tests passed!
 
 ---
 

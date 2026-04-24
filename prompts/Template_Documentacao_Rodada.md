@@ -47,8 +47,6 @@ Use este template para CADA rodada do experimento (prompt + response + result nu
 | **Testes gerados**           | X                             |
 | **Testes passaram**          | X                             |
 | **Testes falharam**          | X                             |
-| **Ajuste manual de import?** | Sim / Não (se sim, descrever) |
-
 ### Saída do terminal
 
 ```

@@ -11,7 +11,7 @@
 | **Estratégia de prompt** | Few-shot |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.6 |
-| **Data de acesso** | _preencher_ |
+| **Data de acesso** | 2026-04-24 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
 | **Versão do Flutter** | 3.41.7 |

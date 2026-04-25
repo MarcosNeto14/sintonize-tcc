@@ -142,13 +142,16 @@ class Validators {
   ///
   /// INCONSISTÊNCIA: diverge de capitalize (mapa.dart), que aplica
   /// toLowerCase ao restante da palavra.
-  static String formatName(String name) {
-    if (name.isEmpty) return name;
-    return name
-        .split(' ')
-        .map((word) => word[0].toUpperCase() + word.substring(1))
-        .join(' ');
-  }
+static String formatName(String name) {
+  return name
+      .trim()
+      .split(RegExp(r'\s+'))
+      .where((word) => word.isNotEmpty)
+      .map((word) {
+        return word[0].toUpperCase() + word.substring(1).toLowerCase();
+      })
+      .join(' ');
+}
 
   /// Origem: lib/mapa.dart (_capitalize)
   /// Capitaliza a primeira letra E aplica toLowerCase no restante —

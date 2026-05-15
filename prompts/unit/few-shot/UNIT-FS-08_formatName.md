@@ -224,9 +224,7 @@ Se quiser evoluir a função depois, o ideal seria ignorar palavras vazias — a
 - **Resultado:** Passou
 
 ### Iteração 2
-- **Necessária?** _preencher (Sim/Não)_
-- _(preencher se necessário)_
+- **Necessária?** Não
 
 ### Iteração 3
-- **Necessária?** _preencher (Sim/Não)_
-- _(preencher se necessário)_
+- **Necessária?** Não

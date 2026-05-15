@@ -16,7 +16,6 @@ Use este template para CADA rodada do experimento (prompt + response + result nu
 | **LLM utilizado**        | ChatGPT                                                        |
 | **Versão do modelo**     | GPT-4o (ou GPT-4-turbo — verificar no ChatGPT qual está ativo) |
 | **Data de acesso**       | 2026-04-20                                                     |
-| **Hora de acesso**       | 18:30 (horário de Recife)                                      |
 | **Conversa nova?**       | Sim (cada rodada em conversa limpa)                            |
 | **Framework de teste**   | flutter_test                                                   |
 | **Versão do Flutter**    | X.X.X (rodar `flutter --version` e anotar)                     |

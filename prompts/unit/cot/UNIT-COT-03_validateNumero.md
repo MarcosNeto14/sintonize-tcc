@@ -11,7 +11,7 @@
 | **Estratégia de prompt** | Chain-of-Thought |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.6 |
-| **Data de acesso** | _preencher_ |
+| **Data de acesso** | 2026-04-30 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
 | **Versão do Flutter** | 3.41.7 |
@@ -128,8 +128,8 @@ Se quiser, posso também sugerir melhorias na função (por exemplo, tratar trim
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 10 |
-| **Testes passaram** | 10 |
-| **Testes falharam** | 01 |
+| **Testes passaram** | 9 |
+| **Testes falharam** | 1 |
 
 ### Saída do terminal
 00:02 +8 -1: Validators.validateNumero deve retornar erro para número com espaços [E]                                                                                                                         
@@ -151,7 +151,7 @@ To run this test again: C:\Users\marcos.neto\flutter\bin\cache\dart-sdk\bin\dart
 
 ### Iteração 1
 - **Necessária?** Sim
-- **Motivo da falha:** _preencher_
+- **Motivo da falha:** o teste "deve retornar erro para número com espaços" assumiu que `int.tryParse(' 123 ')` retornaria `null` (rejeitando espaços), mas em Dart o método aceita strings com espaços nas extremidades e retorna o inteiro normalmente. Como resultado, `validateNumero(' 123 ')` retorna `null` (válido) em vez da mensagem `'O número deve ser numérico'` que o teste esperava. A premissa do teste estava errada, não a função.
 - **Prompt de correção:**
 O teste falhou com o seguinte erro:
 
@@ -204,9 +204,7 @@ Se quiser, posso te ajudar a deixar a função mais rígida (por exemplo, rejeit
 - **Resultado:** Passou
 
 ### Iteração 2
-- **Necessária?** _preencher (Sim/Não)_
-- _(preencher se necessário)_
+- **Necessária?** Não
 
 ### Iteração 3
-- **Necessária?** _preencher (Sim/Não)_
-- _(preencher se necessário)_
+- **Necessária?** Não

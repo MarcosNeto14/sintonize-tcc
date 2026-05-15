@@ -14,13 +14,13 @@ sintonize/
 │       └── validators.dart          ← funções-alvo extraídas do código original
 ├── prompts/                         ← documentação do experimento (ESTA PASTA)
 │   ├── README.md                    ← este arquivo (índice + rastreabilidade)
-│   ├── PROMPT_TEMPLATES.md          ← templates dos 3 prompts-base
+│   ├── PROMPT_TEMPLATE_UNIT.md          ← templates dos 3 prompts-base
 │   ├── Template_Documentacao_Rodada.md  ← template de cada rodada
 │   ├── unit/
 │   │   ├── zero-shot/               ← 10 docs UNIT-ZS-NN_*.md
 │   │   ├── few-shot/                ← 10 docs UNIT-FS-NN_*.md
 │   │   └── cot/                     ← 10 docs UNIT-COT-NN_*.md
-│   └── integration/                 ← (rodadas de integration test — TBD)
+│   └── integration/                 ← 9 docs WIDGET-*-NN_*.md (login, cadastro, criarPlaylist × 3 estratégias)
 ├── test/
 │   └── unit/                        ← 30 arquivos .dart (um por rodada)
 └── results/                         ← saídas do flutter test por rodada
@@ -87,12 +87,12 @@ Cada linha representa **uma função × três estratégias = três rodadas**. To
 ## Workflow de cada Rodada
 
 1. **Abrir o arquivo de doc correspondente** (ex: `unit/zero-shot/UNIT-ZS-01_validateNome.md`).
-2. **Copiar o prompt-base** da estratégia em `PROMPT_TEMPLATES.md` e substituir o marcador pelo código da função de `lib/utils/validators.dart`.
+2. **Copiar o prompt-base** da estratégia em `PROMPT_TEMPLATE_UNIT.md` e substituir o marcador pelo código da função de `lib/utils/validators.dart`.
 3. **Abrir uma conversa nova no ChatGPT** e colar o prompt.
 4. **Colar o código gerado** no arquivo de teste correspondente em `test/unit/` (substituindo o placeholder).
 5. **Rodar** `flutter test test/unit/{arquivo}_test.dart` e **salvar a saída** em `results/unit/{estratégia}/`.
 6. **Preencher o arquivo de doc** com: prompt exato, resposta completa, métricas, e iterações de reparo (se houver).
-7. Se houve falha: usar o **prompt de reparo** de `PROMPT_TEMPLATES.md` (máximo 3 iterações por rodada).
+7. Se houve falha: usar o **prompt de reparo** de `PROMPT_TEMPLATE_UNIT.md` (máximo 3 iterações por rodada).
 
 ---
 
@@ -112,12 +112,12 @@ Cada linha representa **uma função × três estratégias = três rodadas**. To
 | Nível | Funções | Estratégias | Rodadas |
 |---|---|---|---|
 | Unitário | 10 | 3 (ZS, FS, CoT) | **30** |
+| Widget | 3 | 3 (ZS, FS, CoT) | **9** |
 | Integration | TBD | TBD | TBD |
-| Widget | TBD | TBD | TBD |
 
 ---
 
 ## Referências Internas
 
-- [`PROMPT_TEMPLATES.md`](PROMPT_TEMPLATES.md) — prompts-base das 3 estratégias + prompt de reparo.
+- [`PROMPT_TEMPLATE_UNIT.md`](PROMPT_TEMPLATE_UNIT.md) — prompts-base das 3 estratégias + prompt de reparo.
 - [`Template_Documentacao_Rodada.md`](Template_Documentacao_Rodada.md) — template canônico de uma rodada (reproduzido em cada arquivo UNIT-*-NN).

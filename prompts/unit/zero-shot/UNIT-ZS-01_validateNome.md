@@ -1,4 +1,4 @@
-# Template de Documentação por Rodada
+# UNIT-ZS-01
 
 ---
 
@@ -6,7 +6,7 @@
 
 | Campo                    | Valor                                                 |
 | ------------------------ | ----------------------------------------------------- |
-| **ID da Rodada**         | UNIT-ZS-01 (formato: NÍVEL-ESTRATÉGIA-NÚMERO)         |
+| **ID da Rodada**         | UNIT-ZS-01                                            |
 | **Função testada**       | validateNome                                          |
 | **Arquivo de origem**    | lib/utils/validators.dart (extraída de cadastro.dart) |
 | **Nível da pirâmide**    | Unitário                                              |
@@ -14,7 +14,7 @@
 | **LLM utilizado**        | ChatGPT                                               |
 | **Versão do modelo**     | GPT-5.6                                               |
 | **Data de acesso**       | 2026-04-20                                            |
-| **Conversa nova?**       | Sim (cada rodada em conversa limpa)                   |
+| **Conversa nova?**       | Sim                                                   |
 | **Framework de teste**   | flutter_test                                          |
 | **Versão do Flutter**    | 3.41.7                                                |
 
@@ -79,18 +79,12 @@ Se quiser, posso sugerir melhorias na função para tratar melhor casos reais de
 ## Iterative Repair Loop (se necessário)
 
 ### Iteração 1
+- **Necessária?** Não (testes passaram de primeira)
 
-- **Necessária?** _preencher (Sim/Não)_
-- _(preencher se necessário)_
+### Iteração 2
+- **Necessária?** Não
 
-### Iteração 2 (se necessário)
-
-- **Necessária?** _preencher (Sim/Não)_
-- _(preencher se necessário)_
-
-### Iteração 3 (máximo)
-
-- **Necessária?** _preencher (Sim/Não)_
-- _(preencher se necessário)_
+### Iteração 3
+- **Necessária?** Não
 
 ---

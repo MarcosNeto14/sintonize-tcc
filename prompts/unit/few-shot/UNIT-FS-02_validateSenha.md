@@ -61,7 +61,15 @@ group('validateTelefone', () {
 Agora, gere testes para esta função, seguindo o mesmo padrão dos exemplos:
 
 \```dart
-[COLAR O CÓDIGO DA FUNÇÃO AQUI]
+  static String? validateSenha(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Por favor, insira sua senha';
+    }
+    if (value.length < 6) {
+      return 'A senha deve ter pelo menos 6 caracteres';
+    }
+    return null;
+  }
 \```
 
 A função faz parte da classe Validators em lib/utils/validators.dart de um projeto Flutter chamado "sintonize".
@@ -118,18 +126,10 @@ Se quiser deixar os testes ainda mais rigorosos, dá pra validar também as mens
 ## Iterative Repair Loop
 
 ### Iteração 1
-- **Necessária?** _preencher (Sim/Não)_
-- **Motivo da falha:** _preencher_
-- **Prompt de correção:**
-preencher
-- **Resposta do LLM:**
-preencher
-- **Resultado:** _preencher (Passou/Falhou)_
+- **Necessária?** Não (testes passaram de primeira)
 
 ### Iteração 2
-- **Necessária?** _preencher (Sim/Não)_
-- _(preencher se necessário)_
+- **Necessária?** Não
 
 ### Iteração 3
-- **Necessária?** _preencher (Sim/Não)_
-- _(preencher se necessário)_
+- **Necessária?** Não

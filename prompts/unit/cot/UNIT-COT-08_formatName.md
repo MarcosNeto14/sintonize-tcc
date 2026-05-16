@@ -11,7 +11,7 @@
 | **Estratégia de prompt** | Chain-of-Thought |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.6 |
-| **Data de acesso** | _preencher_ |
+| **Data de acesso** | 2026-04-30 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
 | **Versão do Flutter** | 3.41.7 |
@@ -135,9 +135,9 @@ Se quiser, posso sugerir melhorias na função (por exemplo, tratar múltiplos e
 | Métrica | Valor |
 |---|---|
 | **Compilou?** | Sim |
-| **Testes gerados** | 8 |
-| **Testes passaram** | 0 |
-| **Testes falharam** | 0 |
+| **Testes gerados** | 12 |
+| **Testes passaram** | 8 |
+| **Testes falharam** | 4 |
 
 ### Saída do terminal
 00:02 +5 -1: Validators.formatName Deve lidar com string contendo apenas espaços [E]
@@ -188,7 +188,7 @@ To run this test again: C:\src\flutter\bin\cache\dart-sdk\bin\dart.exe test C:/U
 
 ### Iteração 1
 - **Necessária?** Sim
-- **Motivo da falha:** _preencher_
+- **Motivo da falha:** 4 testes falharam com `RangeError (index): Invalid value: Valid value range is empty: 0` em `validators.dart:149` ao acessar `word[0]`. Os cenários afetados — string só com espaços, múltiplos espaços entre palavras, espaço no início, espaço no final — geram elementos vazios após `split(' ')`, e a implementação original não filtrava esses elementos antes de indexar `word[0].toUpperCase()`. Os testes esperavam tratamento gracioso (retorno limpo) desses casos de borda, mas a função crashava.
 - **Prompt de correção:**
 
 O teste falhou com o seguinte erro:
@@ -300,7 +300,7 @@ Se quiser, posso revisar seus testes completos para garantir cobertura de edge c
 ### Iteração 2
 - **Necessária?** Sim
 
-- **Prompt enviado** 
+- **Prompt de correção:**
 
 O teste falhou com o seguinte erro: \
 PS C:\Users\Marcos\Desktop\Sintonize> flutter test test\unit\format_name_cot_test.dart
@@ -374,7 +374,7 @@ To run this test again: C:\src\flutter\bin\cache\dart-sdk\bin\dart.exe test C:/U
 00:02 +7 -5: Some tests failed.\
 Corrija o teste para que ele compile e passe corretamente.
 
-**Resposta de llm**:
+- **Resposta do LLM:**
 
 Agora ficou claro: os testes estão esperando um comportamento diferente da implementação atual.
 
@@ -450,12 +450,10 @@ normaliza casing ✔️
 
 Se quiser, posso te ajudar a definir um contrato claro para formatName (tipo padrão de API) pra evitar esse tipo de inconsistência no futuro.
 
-**Resultado**: Passou
+- **Resultado:** Passou
 
 
 
 ### Iteração 3
-- **Necessária?** preencher
-
-
+- **Necessária?** Não (iteração 2 já passou — limite de 3 iterações não foi atingido)
 

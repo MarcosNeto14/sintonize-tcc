@@ -129,18 +129,10 @@ void main() {
 ## Iterative Repair Loop
 
 ### Iteração 1
-- **Necessária?** _preencher (Sim/Não)_
-- **Motivo da falha:** _preencher_
-- **Prompt de correção:**
-preencher
-- **Resposta do LLM:**
-preencher
-- **Resultado:** _preencher (Passou/Falhou)_
+- **Necessária?** Não (testes passaram de primeira)
 
 ### Iteração 2
-- **Necessária?** _preencher (Sim/Não)_
-- _(preencher se necessário)_
+- **Necessária?** Não
 
 ### Iteração 3
-- **Necessária?** _preencher (Sim/Não)_
-- _(preencher se necessário)_
+- **Necessária?** Não

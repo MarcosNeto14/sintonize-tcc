@@ -11,7 +11,7 @@
 | **Estratégia de prompt** | Zero-shot |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.6 |
-| **Data de acesso** | 20/04/2026 |
+| **Data de acesso** | 2026-04-20 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
 | **Versão do Flutter** | 3.41.7 |
@@ -128,16 +128,10 @@ Se quiser, posso também sugerir melhorias na função (ex: exigir números, let
 ## Iterative Repair Loop
 
 ### Iteração 1
-
-- **Necessária?** _preencher (Sim/Não)_
-- _(preencher se necessário)_
+- **Necessária?** Não (testes passaram de primeira)
 
 ### Iteração 2
-
-- **Necessária?** _preencher (Sim/Não)_
-- _(preencher se necessário)_
+- **Necessária?** Não
 
 ### Iteração 3
-
-- **Necessária?** _preencher (Sim/Não)_
-- _(preencher se necessário)_
+- **Necessária?** Não

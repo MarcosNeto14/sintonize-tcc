@@ -11,7 +11,7 @@
 | **Estratégia de prompt** | Zero-shot |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.6 |
-| **Data de acesso** | _preencher_ |
+| **Data de acesso** | 2026-04-21 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
 | **Versão do Flutter** | 3.41.7 |
@@ -244,9 +244,7 @@ Se quiser, posso te entregar também a versão ideal dos testes considerando ess
 - **Resultado:** 00:00 +10: All tests passed!_
 
 ### Iteração 2
-- **Necessária?** _preencher (Sim/Não)_
-- _(preencher se necessário)_
+- **Necessária?** Não
 
 ### Iteração 3
-- **Necessária?** _preencher (Sim/Não)_
-- _(preencher se necessário)_
+- **Necessária?** Não

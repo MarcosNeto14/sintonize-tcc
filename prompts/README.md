@@ -14,21 +14,34 @@ sintonize/
 │       └── validators.dart          ← funções-alvo extraídas do código original
 ├── prompts/                         ← documentação do experimento (ESTA PASTA)
 │   ├── README.md                    ← este arquivo (índice + rastreabilidade)
-│   ├── PROMPT_TEMPLATES.md          ← templates dos 3 prompts-base
+│   ├── PROMPT_TEMPLATES.md          ← templates dos prompts-base
 │   ├── Template_Documentacao_Rodada.md  ← template de cada rodada
-│   ├── unit/
+│   ├── unit/                        ← nível unitário (concluído)
 │   │   ├── zero-shot/               ← 10 docs UNIT-ZS-NN_*.md
 │   │   ├── few-shot/                ← 10 docs UNIT-FS-NN_*.md
 │   │   └── cot/                     ← 10 docs UNIT-COT-NN_*.md
-│   └── integration/                 ← (rodadas de integration test — TBD)
+│   ├── widget/                      ← nível widget test (em andamento)
+│   │   ├── zero-shot/               ← 3 docs WIDGET-ZS-NN_*.md
+│   │   ├── few-shot/                ← 3 docs WIDGET-FS-NN_*.md
+│   │   └── cot/                     ← 3 docs WIDGET-COT-NN_*.md
+│   ├── integration/                 ← nível integration test (planejado)
+│   │   ├── zero-shot/               ← placeholder
+│   │   ├── few-shot/                ← placeholder
+│   │   ├── cot/                     ← placeholder
+│   │   ├── multi-step/              ← placeholder (estratégia MS)
+│   │   └── context-enrichment/      ← placeholder (estratégia CE)
+│   └── e2e/                         ← E2E manual (planejado, sem código de teste)
 ├── test/
-│   └── unit/                        ← 30 arquivos .dart (um por rodada)
+│   ├── unit/                        ← 30 arquivos .dart unitários
+│   └── widget/                      ← 9 arquivos .dart de widget test
 └── results/                         ← saídas do flutter test por rodada
-    └── unit/
-        ├── zero-shot/
-        ├── few-shot/
-        └── cot/
+    ├── unit/{zero-shot,few-shot,cot}/    ← 30 resultados (concluído)
+    ├── widget/{zero-shot,few-shot,cot}/  ← placeholders para fase em andamento
+    ├── integration/{...}/                 ← placeholders para fase futura
+    └── e2e/                               ← placeholder para E2E manual
 ```
+
+> **Convenção de pastas:** o nome da pasta sob `prompts/`, `test/` e `results/` sempre corresponde ao **nível da pirâmide** (unit/widget/integration/e2e), nunca à estratégia. Estratégias são subpastas. Os arquivos `WIDGET-*` moram em `prompts/widget/`, **não** em `prompts/integration/` — `widget test` e `integration test` são níveis distintos da pirâmide de testes do Flutter.
 
 ---
 
@@ -109,11 +122,12 @@ Cada linha representa **uma função × três estratégias = três rodadas**. To
 
 ## Totais do Experimento
 
-| Nível | Funções | Estratégias | Rodadas |
-|---|---|---|---|
-| Unitário | 10 | 3 (ZS, FS, CoT) | **30** |
-| Integration | TBD | TBD | TBD |
-| Widget | TBD | TBD | TBD |
+| Nível | Funções/Widgets | Estratégias | Rodadas | Status |
+|---|---|---|---|---|
+| Unitário | 10 funções | 3 (ZS, FS, CoT) | **30** | Concluído |
+| Widget | 3 widgets (login, criarPlaylist, cadastro) | 3 (ZS, FS, CoT) | **9** | Em andamento |
+| Integration | TBD | TBD (inclui MS e CE reservados) | TBD | Planejado |
+| E2E manual | TBD | N/A (sem LLM) | TBD | Planejado |
 
 ---
 

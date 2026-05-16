@@ -1,0 +1,20 @@
+=== UNIT-ZS-07 | validate_email_edit | zero-shot ===
+Arquivo: test/unit/validate_email_edit_zs_test.dart
+Executado em: 2026-04-25T13:01:12-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/validate_email_edit_zs_test.dart
+00:00 +0: Validators.validateEmailEdit Deve retornar null para e-mail válido simples
+00:00 +1: Validators.validateEmailEdit Deve retornar null para e-mail com subdomínio
+00:00 +2: Validators.validateEmailEdit Deve retornar null para e-mail com caracteres especiais válidos
+00:00 +3: Validators.validateEmailEdit Deve retornar null quando valor é null
+00:00 +4: Validators.validateEmailEdit Deve retornar null quando valor é string vazia
+00:00 +5: Validators.validateEmailEdit Deve retornar erro para e-mail sem @
+00:00 +6: Validators.validateEmailEdit Deve retornar erro para e-mail sem domínio
+00:00 +7: Validators.validateEmailEdit Deve retornar erro para e-mail sem TLD
+00:00 +8: Validators.validateEmailEdit Deve retornar erro para e-mail com espaços
+00:00 +9: Validators.validateEmailEdit Deve retornar erro para e-mail com caracteres inválidos
+00:00 +10: Validators.validateEmailEdit Deve retornar erro para e-mail com TLD de 1 caractere
+00:00 +11: Validators.validateEmailEdit Deve aceitar TLD com 2 caracteres (mínimo válido)
+00:00 +12: Validators.validateEmailEdit Deve retornar erro para múltiplos @
+00:00 +13: All tests passed!

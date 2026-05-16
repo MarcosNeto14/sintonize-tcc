@@ -1,0 +1,17 @@
+=== UNIT-ZS-08 | format_name | zero-shot ===
+Arquivo: test/unit/format_name_zs_test.dart
+Executado em: 2026-04-25T13:00:05-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/format_name_zs_test.dart
+00:00 +0: Validators.formatName Deve capitalizar uma única palavra
+00:00 +1: Validators.formatName Deve capitalizar múltiplas palavras
+00:00 +2: Validators.formatName Deve manter palavras já capitalizadas
+00:00 +3: Validators.formatName Deve normalizar caixa mista para Title Case
+00:00 +4: Validators.formatName Deve retornar string vazia quando input for vazio
+00:00 +5: Validators.formatName Deve normalizar múltiplos espaços entre palavras para um só
+00:00 +6: Validators.formatName Deve remover espaços no início e fim
+00:00 +7: Validators.formatName Deve retornar vazio para string contendo apenas espaços
+00:00 +8: Validators.formatName Deve lidar com nomes com acentos
+00:00 +9: Validators.formatName Deve lidar com nomes com hífen (palavra única)
+00:00 +10: All tests passed!

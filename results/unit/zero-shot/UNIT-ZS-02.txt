@@ -1,0 +1,14 @@
+=== UNIT-ZS-02 | validate_senha | zero-shot ===
+Arquivo: test/unit/validate_senha_zs_test.dart
+Executado em: 2026-04-25T13:03:31-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/validate_senha_zs_test.dart
+00:00 +0: Validators.validateSenha deve retornar erro quando valor for null
+00:00 +1: Validators.validateSenha deve retornar erro quando valor for vazio
+00:00 +2: Validators.validateSenha deve retornar erro quando senha tiver menos de 6 caracteres
+00:00 +3: Validators.validateSenha deve aceitar senha com exatamente 6 caracteres (caso de borda)
+00:00 +4: Validators.validateSenha deve aceitar senha com mais de 6 caracteres
+00:00 +5: Validators.validateSenha deve aceitar senha com caracteres especiais
+00:00 +6: Validators.validateSenha deve tratar espaços como caracteres válidos
+00:00 +7: All tests passed!

@@ -1,0 +1,19 @@
+=== UNIT-COT-05 | validate_email | cot ===
+Arquivo: test/unit/validate_email_cot_test.dart
+Executado em: 2026-04-25T13:03:25-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/validate_email_cot_test.dart
+00:00 +0: Validators.validateEmail Retorna null para e-mail válido simples
+00:00 +1: Validators.validateEmail Retorna null para e-mail com subdomínio
+00:00 +2: Validators.validateEmail Retorna null para e-mail com caracteres especiais válidos
+00:00 +3: Validators.validateEmail Retorna erro quando valor é null
+00:00 +4: Validators.validateEmail Retorna erro quando valor é vazio
+00:00 +5: Validators.validateEmail Retorna erro para e-mail sem @
+00:00 +6: Validators.validateEmail Retorna erro para e-mail sem domínio
+00:00 +7: Validators.validateEmail Retorna erro para domínio inválido
+00:00 +8: Validators.validateEmail Retorna erro para TLD inválido
+00:00 +9: Validators.validateEmail Retorna erro para e-mail com espaços
+00:00 +10: Validators.validateEmail Retorna erro para e-mail com espaço no meio
+00:00 +11: Validators.validateEmail Valida e-mail muito longo
+00:00 +12: All tests passed!

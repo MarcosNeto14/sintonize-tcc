@@ -1,0 +1,20 @@
+=== UNIT-FS-10 | validate_date | few-shot ===
+Arquivo: test/unit/validate_date_fs_test.dart
+Executado em: 2026-04-25T12:59:46-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/validate_date_fs_test.dart
+00:00 +0: validateDate deve retornar erro quando valor é null
+00:00 +1: validateDate deve retornar erro quando valor é vazio
+00:00 +2: validateDate deve retornar erro quando formato é inválido
+00:00 +3: validateDate deve retornar erro quando contém valores não numéricos
+00:00 +4: validateDate deve retornar erro quando mês é menor que 1
+00:00 +5: validateDate deve retornar erro quando mês é maior que 12
+00:00 +6: validateDate deve retornar erro quando dia é inválido para o mês
+00:00 +7: validateDate deve retornar erro quando dia é menor que 1
+00:00 +8: validateDate deve retornar erro quando data está no futuro
+00:00 +9: validateDate deve aceitar data válida
+00:00 +10: validateDate deve aceitar último dia válido do mês
+00:00 +11: validateDate deve aceitar 29 de fevereiro em ano bissexto
+00:00 +12: validateDate deve rejeitar 29 de fevereiro em ano não bissexto
+00:00 +13: All tests passed!

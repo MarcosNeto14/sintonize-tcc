@@ -1,0 +1,17 @@
+=== UNIT-COT-09 | capitalize | cot ===
+Arquivo: test/unit/capitalize_cot_test.dart
+Executado em: 2026-04-25T13:00:44-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/capitalize_cot_test.dart
+00:00 +0: Validators.capitalize Deve capitalizar uma única palavra
+00:00 +1: Validators.capitalize Deve capitalizar múltiplas palavras
+00:00 +2: Validators.capitalize Deve manter texto já capitalizado corretamente
+00:00 +3: Validators.capitalize Deve corrigir palavras com letras misturadas
+00:00 +4: Validators.capitalize Deve retornar string vazia quando input for vazio
+00:00 +5: Validators.capitalize Deve preservar múltiplos espaços entre palavras
+00:00 +6: Validators.capitalize Deve preservar espaços no início e no fim
+00:00 +7: Validators.capitalize Deve lidar com palavras vazias (espaços consecutivos)
+00:00 +8: Validators.capitalize Deve lidar com caracteres especiais
+00:00 +9: Validators.capitalize Deve lidar com números no texto
+00:00 +10: All tests passed!

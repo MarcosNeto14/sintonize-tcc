@@ -10,7 +10,7 @@
 | **Nível da pirâmide** | Unitário |
 | **Estratégia de prompt** | Chain-of-Thought |
 | **LLM utilizado** | ChatGPT |
-| **Versão do modelo** | GPT-5.6 |
+| **Versão do modelo** | GPT-5.5 |
 | **Data de acesso** | 2026-04-30 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |

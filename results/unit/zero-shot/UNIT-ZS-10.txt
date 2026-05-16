@@ -1,0 +1,26 @@
+=== UNIT-ZS-10 | validate_date | zero-shot ===
+Arquivo: test/unit/validate_date_zs_test.dart
+Executado em: 2026-04-25T12:59:35-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/validate_date_zs_test.dart
+00:00 +0: Validators.validateDate Casos válidos Deve retornar null para uma data válida
+00:00 +1: Validators.validateDate Casos válidos Deve aceitar ano bissexto (29/02/2020)
+00:00 +2: Validators.validateDate Casos válidos Deve aceitar último dia do mês corretamente
+00:00 +3: Validators.validateDate Campos obrigatórios Deve retornar erro quando valor é null
+00:00 +4: Validators.validateDate Campos obrigatórios Deve retornar erro quando valor é vazio
+00:00 +5: Validators.validateDate Formato inválido Deve retornar erro quando formato não tem 3 partes
+00:00 +6: Validators.validateDate Formato inválido Deve retornar erro quando separador é incorreto
+00:00 +7: Validators.validateDate Valores não numéricos Deve retornar erro quando dia não é número
+00:00 +8: Validators.validateDate Valores não numéricos Deve retornar erro quando mês não é número
+00:00 +9: Validators.validateDate Valores não numéricos Deve retornar erro quando ano não é número
+00:00 +10: Validators.validateDate Validação de mês Deve falhar para mês menor que 1
+00:00 +11: Validators.validateDate Validação de mês Deve falhar para mês maior que 12
+00:00 +12: Validators.validateDate Validação de dia Deve falhar para dia menor que 1
+00:00 +13: Validators.validateDate Validação de dia Deve falhar para dia maior que o permitido no mês
+00:00 +14: Validators.validateDate Validação de dia Deve falhar para 29/02 em ano não bissexto
+00:00 +15: Validators.validateDate Datas futuras Deve falhar para data no futuro
+00:00 +16: Validators.validateDate Casos de borda Deve aceitar data de hoje
+00:00 +17: Validators.validateDate Casos de borda Deve aceitar dia 1 e mês 1
+00:00 +18: Validators.validateDate Casos de borda Deve aceitar 31/12
+00:00 +19: All tests passed!

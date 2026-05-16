@@ -1,0 +1,18 @@
+=== UNIT-COT-04 | validate_cep | cot ===
+Arquivo: test/unit/validate_cep_cot_test.dart
+Executado em: 2026-04-25T13:02:25-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/validate_cep_cot_test.dart
+00:00 +0: validateCEP Deve retornar null para CEP válido
+00:00 +1: validateCEP Deve retornar erro quando valor é null
+00:00 +2: validateCEP Deve retornar erro quando valor é vazio
+00:00 +3: validateCEP Deve retornar erro quando CEP não tem hífen
+00:00 +4: validateCEP Deve retornar erro quando formato está incorreto
+00:00 +5: validateCEP Deve retornar erro quando contém letras
+00:00 +6: validateCEP Deve retornar erro quando possui caracteres extras
+00:00 +7: validateCEP Deve retornar erro quando tamanho é 9 mas formato inválido
+00:00 +8: validateCEP Deve retornar erro quando possui espaço no início
+00:00 +9: validateCEP Deve retornar erro quando possui espaço no final
+00:00 +10: validateCEP Deve retornar erro quando contém caractere especial
+00:00 +11: All tests passed!

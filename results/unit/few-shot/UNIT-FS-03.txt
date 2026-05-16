@@ -1,0 +1,13 @@
+=== UNIT-FS-03 | validate_numero | few-shot ===
+Arquivo: test/unit/validate_numero_fs_test.dart
+Executado em: 2026-04-25T13:00:57-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/validate_numero_fs_test.dart
+00:00 +0: validateNumero deve retornar mensagem de erro quando valor é null
+00:00 +1: validateNumero deve retornar mensagem de erro quando valor é vazio
+00:00 +2: validateNumero deve retornar mensagem de erro quando valor não é numérico
+00:00 +3: validateNumero deve retornar mensagem de erro quando valor contém caracteres mistos
+00:00 +4: validateNumero deve retornar null quando valor é numérico válido
+00:00 +5: validateNumero deve aceitar números negativos
+00:00 +6: All tests passed!

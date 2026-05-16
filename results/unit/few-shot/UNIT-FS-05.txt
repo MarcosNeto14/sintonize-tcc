@@ -1,0 +1,17 @@
+=== UNIT-FS-05 | validate_email | few-shot ===
+Arquivo: test/unit/validate_email_fs_test.dart
+Executado em: 2026-04-25T13:03:15-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/validate_email_fs_test.dart
+00:00 +0: validateEmail deve retornar mensagem de erro quando valor é null
+00:00 +1: validateEmail deve retornar mensagem de erro quando valor é vazio
+00:00 +2: validateEmail deve aceitar e-mail válido simples
+00:00 +3: validateEmail deve aceitar e-mail com subdomínio
+00:00 +4: validateEmail deve aceitar e-mail com caracteres especiais válidos
+00:00 +5: validateEmail deve rejeitar e-mail sem @
+00:00 +6: validateEmail deve rejeitar e-mail sem domínio
+00:00 +7: validateEmail deve rejeitar e-mail sem sufixo do domínio
+00:00 +8: validateEmail deve rejeitar e-mail com caracteres inválidos
+00:00 +9: validateEmail deve rejeitar e-mail com espaço
+00:00 +10: All tests passed!

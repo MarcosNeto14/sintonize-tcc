@@ -1,0 +1,14 @@
+=== UNIT-FS-04 | validate_cep | few-shot ===
+Arquivo: test/unit/validate_cep_fs_test.dart
+Executado em: 2026-04-25T13:02:14-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/validate_cep_fs_test.dart
+00:00 +0: validateCEP deve retornar mensagem de erro quando valor é null
+00:00 +1: validateCEP deve retornar mensagem de erro quando valor é vazio
+00:00 +2: validateCEP deve aceitar CEP no formato válido XXXXX-XXX
+00:00 +3: validateCEP deve rejeitar CEP sem hífen
+00:00 +4: validateCEP deve rejeitar CEP com letras
+00:00 +5: validateCEP deve rejeitar CEP com tamanho incorreto
+00:00 +6: validateCEP deve rejeitar CEP com formato incorreto
+00:00 +7: All tests passed!

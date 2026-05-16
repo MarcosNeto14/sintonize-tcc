@@ -1,0 +1,15 @@
+=== UNIT-FS-09 | capitalize | few-shot ===
+Arquivo: test/unit/capitalize_fs_test.dart
+Executado em: 2026-04-25T13:00:34-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/capitalize_fs_test.dart
+00:00 +0: capitalize deve retornar string vazia quando texto é vazio
+00:00 +1: capitalize deve capitalizar primeira letra de uma única palavra
+00:00 +2: capitalize deve converter resto da palavra para minúsculo
+00:00 +3: capitalize deve capitalizar múltiplas palavras
+00:00 +4: capitalize deve lidar com múltiplos espaços entre palavras
+00:00 +5: capitalize deve manter espaços no início e fim
+00:00 +6: capitalize deve lidar com palavras já capitalizadas corretamente
+00:00 +7: capitalize deve lidar com mistura de maiúsculas e minúsculas
+00:00 +8: All tests passed!

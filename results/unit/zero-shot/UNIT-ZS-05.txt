@@ -1,0 +1,21 @@
+=== UNIT-ZS-05 | validate_email | zero-shot ===
+Arquivo: test/unit/validate_email_zs_test.dart
+Executado em: 2026-04-25T13:03:06-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/validate_email_zs_test.dart
+00:00 +0: Validators.validateEmail retorna erro quando valor é null
+00:00 +1: Validators.validateEmail retorna erro quando valor é vazio
+00:00 +2: Validators.validateEmail retorna erro quando não possui @
+00:00 +3: Validators.validateEmail retorna erro quando não possui domínio
+00:00 +4: Validators.validateEmail retorna erro quando domínio não tem TLD
+00:00 +5: Validators.validateEmail retorna erro com caracteres inválidos
+00:00 +6: Validators.validateEmail retorna null para e-mail válido simples
+00:00 +7: Validators.validateEmail retorna null para e-mail com subdomínio
+00:00 +8: Validators.validateEmail retorna null para e-mail com caracteres especiais válidos
+00:00 +9: Validators.validateEmail retorna erro para e-mail com espaço
+00:00 +10: Validators.validateEmail retorna erro para e-mail com TLD de 1 caractere
+00:00 +11: Validators.validateEmail retorna null para e-mail com TLD longo
+00:00 +12: Validators.validateEmail retorna erro para múltiplos @
+00:00 +13: Validators.validateEmail retorna erro para string com apenas espaços
+00:00 +14: All tests passed!

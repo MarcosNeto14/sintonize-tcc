@@ -1,0 +1,22 @@
+=== UNIT-COT-10 | validate_date | cot ===
+Arquivo: test/unit/validate_date_cot_test.dart
+Executado em: 2026-04-25T12:59:54-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/validate_date_cot_test.dart
+00:00 +0: Validators.validateDate Deve retornar null para data válida
+00:00 +1: Validators.validateDate Deve aceitar data no limite do mês
+00:00 +2: Validators.validateDate Deve aceitar 29/02 em ano bissexto
+00:00 +3: Validators.validateDate Deve aceitar a data de hoje
+00:00 +4: Validators.validateDate Deve retornar erro se valor for null
+00:00 +5: Validators.validateDate Deve retornar erro se valor for vazio
+00:00 +6: Validators.validateDate Deve retornar erro para formato inválido
+00:00 +7: Validators.validateDate Deve retornar erro para formato incompleto
+00:00 +8: Validators.validateDate Deve retornar erro para valores não numéricos
+00:00 +9: Validators.validateDate Deve retornar erro para mês menor que 1
+00:00 +10: Validators.validateDate Deve retornar erro para mês maior que 12
+00:00 +11: Validators.validateDate Deve retornar erro para dia menor que 1
+00:00 +12: Validators.validateDate Deve retornar erro para dia maior que o permitido no mês
+00:00 +13: Validators.validateDate Deve retornar erro para 29/02 em ano não bissexto
+00:00 +14: Validators.validateDate Deve retornar erro para data futura
+00:00 +15: All tests passed!

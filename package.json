@@ -4,13 +4,27 @@
   "description": "Atalhos npm para comandos Flutter do projeto Sintonize",
   "scripts": {
     "get": "flutter pub get",
+    "upgrade": "flutter pub upgrade",
+    "outdated": "flutter pub outdated",
     "clean": "flutter clean && flutter pub get",
     "doctor": "flutter doctor -v",
+    "devices": "flutter devices",
     "analyze": "flutter analyze",
+    "format": "dart format lib test",
+    "fix": "dart fix --apply",
     "test": "flutter test",
+    "test:coverage": "flutter test --coverage",
+    "generate": "dart run build_runner build --delete-conflicting-outputs",
     "run": "flutter run",
     "web": "flutter run -d chrome",
+    "web:edge": "flutter run -d edge",
+    "web:port": "flutter run -d chrome --web-port=5000",
+    "web:host": "flutter run -d chrome --web-port=5000 --web-hostname=0.0.0.0",
+    "web:release": "flutter run -d chrome --release",
+    "web:profile": "flutter run -d chrome --profile",
     "build:apk": "flutter build apk --release",
-    "build:web": "flutter build web --release"
+    "build:web": "flutter build web --release",
+    "build:web:profile": "flutter build web --profile",
+    "serve:web": "npx --yes serve build/web -l 5000"
   }
 }

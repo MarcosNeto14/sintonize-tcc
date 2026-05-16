@@ -1,0 +1,14 @@
+=== UNIT-FS-08 | format_name | few-shot ===
+Arquivo: test/unit/format_name_fs_test.dart
+Executado em: 2026-04-25T13:00:13-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/format_name_fs_test.dart
+00:00 +0: formatName deve retornar string vazia quando nome for vazio
+00:00 +1: formatName deve capitalizar primeira letra de uma única palavra
+00:00 +2: formatName deve capitalizar cada palavra separada por espaço
+00:00 +3: formatName deve manter palavras já capitalizadas corretamente
+00:00 +4: formatName deve normalizar mistura de maiúsculas e minúsculas
+00:00 +5: formatName deve normalizar múltiplos espaços para um só
+00:00 +6: formatName deve funcionar com apenas uma letra
+00:00 +7: All tests passed!

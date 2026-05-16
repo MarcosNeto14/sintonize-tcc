@@ -1,0 +1,16 @@
+=== UNIT-COT-02 | validate_senha | cot ===
+Arquivo: test/unit/validate_senha_cot_test.dart
+Executado em: 2026-04-25T13:03:46-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/validate_senha_cot_test.dart
+00:00 +0: Validators.validateSenha deve retornar erro quando senha for null
+00:00 +1: Validators.validateSenha deve retornar erro quando senha for vazia
+00:00 +2: Validators.validateSenha deve retornar erro quando senha tiver menos de 6 caracteres
+00:00 +3: Validators.validateSenha deve retornar erro para senha com 1 caractere
+00:00 +4: Validators.validateSenha deve aceitar senha com exatamente 6 caracteres
+00:00 +5: Validators.validateSenha deve rejeitar senha com 5 caracteres (limite inferior inválido)
+00:00 +6: Validators.validateSenha deve aceitar senha com 6 espaços (regra atual permite)
+00:00 +7: Validators.validateSenha deve aceitar senha com mais de 6 caracteres
+00:00 +8: Validators.validateSenha deve aceitar senha longa
+00:00 +9: All tests passed!

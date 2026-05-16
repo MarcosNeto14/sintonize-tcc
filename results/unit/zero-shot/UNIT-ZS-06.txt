@@ -1,0 +1,18 @@
+=== UNIT-ZS-06 | validate_email_login | zero-shot ===
+Arquivo: test/unit/validate_email_login_zs_test.dart
+Executado em: 2026-04-25T13:01:39-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/validate_email_login_zs_test.dart
+00:00 +0: Validators.validateEmailLogin retorna erro quando o valor é null
+00:00 +1: Validators.validateEmailLogin retorna erro quando o valor é vazio
+00:00 +2: Validators.validateEmailLogin retorna erro quando o valor contém apenas espaços
+00:00 +3: Validators.validateEmailLogin retorna erro para e-mail sem @
+00:00 +4: Validators.validateEmailLogin retorna erro para e-mail sem domínio
+00:00 +5: Validators.validateEmailLogin retorna erro para e-mail sem ponto no domínio
+00:00 +6: Validators.validateEmailLogin retorna erro para formato inválido com múltiplos @
+00:00 +7: Validators.validateEmailLogin retorna null para e-mail válido simples
+00:00 +8: Validators.validateEmailLogin retorna null para e-mail com subdomínio
+00:00 +9: Validators.validateEmailLogin retorna null para e-mail com números e caracteres válidos
+00:00 +10: Validators.validateEmailLogin retorna null para e-mail com caracteres especiais válidos
+00:00 +11: All tests passed!

@@ -1,0 +1,13 @@
+=== UNIT-FS-01 | validate_nome | few-shot ===
+Arquivo: test/unit/validate_nome_fs_test.dart
+Executado em: 2026-04-25T13:02:47-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/validate_nome_fs_test.dart
+00:00 +0: validateNome deve retornar mensagem de erro quando valor é null
+00:00 +1: validateNome deve retornar mensagem de erro quando valor é vazio
+00:00 +2: validateNome deve retornar mensagem de erro quando contém números
+00:00 +3: validateNome deve retornar mensagem de erro quando contém caracteres especiais
+00:00 +4: validateNome deve aceitar nome com letras e espaços
+00:00 +5: validateNome deve aceitar nome com acentuação
+00:00 +6: All tests passed!

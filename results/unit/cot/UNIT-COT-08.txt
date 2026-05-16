@@ -1,0 +1,15 @@
+=== UNIT-COT-08 | format_name | cot ===
+Arquivo: test/unit/format_name_cot_test.dart
+Executado em: 2026-04-25T13:00:20-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/format_name_cot_test.dart
+00:00 +0: Validators.formatName Deve capitalizar apenas a primeira letra de cada palavra
+00:00 +1: Validators.formatName Deve funcionar com uma única palavra
+00:00 +2: Validators.formatName Deve lidar com string contendo apenas espaços
+00:00 +3: Validators.formatName Deve lidar com múltiplos espaços entre palavras
+00:00 +4: Validators.formatName Deve lidar com espaço no início
+00:00 +5: Validators.formatName Deve lidar com espaço no final
+00:00 +6: Validators.formatName Deve lidar com espaços mistos (início, meio e fim)
+00:00 +7: Validators.formatName Deve manter string vazia como vazia
+00:00 +8: All tests passed!

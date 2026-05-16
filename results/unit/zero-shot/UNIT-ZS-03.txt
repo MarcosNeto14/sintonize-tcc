@@ -1,0 +1,17 @@
+=== UNIT-ZS-03 | validate_numero | zero-shot ===
+Arquivo: test/unit/validate_numero_zs_test.dart
+Executado em: 2026-04-25T13:00:51-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/validate_numero_zs_test.dart
+00:00 +0: Validators.validateNumero deve retornar erro quando valor é null
+00:00 +1: Validators.validateNumero deve retornar erro quando valor é vazio
+00:00 +2: Validators.validateNumero deve retornar erro quando valor não é numérico
+00:00 +3: Validators.validateNumero deve retornar erro para string com caracteres mistos
+00:00 +4: Validators.validateNumero deve aceitar número inteiro válido
+00:00 +5: Validators.validateNumero deve aceitar número negativo
+00:00 +6: Validators.validateNumero deve aceitar zero
+00:00 +7: Validators.validateNumero deve aceitar número com espaço (int.tryParse permite)
+00:00 +8: Validators.validateNumero deve rejeitar número decimal
+00:00 +9: Validators.validateNumero deve rejeitar apenas espaços
+00:00 +10: All tests passed!

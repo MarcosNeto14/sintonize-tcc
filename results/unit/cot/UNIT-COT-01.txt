@@ -1,0 +1,17 @@
+=== UNIT-COT-01 | validate_nome | cot ===
+Arquivo: test/unit/validate_nome_cot_test.dart
+Executado em: 2026-04-25T13:02:56-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/unit/validate_nome_cot_test.dart
+00:00 +0: Validators.validateNome deve retornar null para nome válido simples
+00:00 +1: Validators.validateNome deve retornar null para nome com espaço
+00:00 +2: Validators.validateNome deve retornar null para nome com acentos
+00:00 +3: Validators.validateNome deve retornar null para nome com caracteres acentuados extremos
+00:00 +4: Validators.validateNome deve retornar null para string com apenas espaços
+00:00 +5: Validators.validateNome deve retornar erro quando valor é null
+00:00 +6: Validators.validateNome deve retornar erro quando valor é vazio
+00:00 +7: Validators.validateNome deve retornar erro quando contém números
+00:00 +8: Validators.validateNome deve retornar erro quando contém caracteres especiais
+00:00 +9: Validators.validateNome deve retornar erro quando contém mistura de válido e inválido
+00:00 +10: All tests passed!

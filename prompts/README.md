@@ -15,6 +15,7 @@ sintonize/
 ├── prompts/                         ← documentação do experimento (ESTA PASTA)
 │   ├── README.md                    ← este arquivo (índice + rastreabilidade)
 │   ├── PROMPT_TEMPLATE_UNIT.md      ← templates dos prompts-base do nível unitário
+│   ├── PROMPT_TEMPLATE_WIDGET.md    ← templates dos prompts-base do nível widget
 │   ├── Template_Documentacao_Rodada.md  ← template de cada rodada
 │   ├── unit/                        ← nível unitário (concluído)
 │   │   ├── zero-shot/               ← 10 docs UNIT-ZS-NN_*.md
@@ -133,5 +134,6 @@ Cada linha representa **uma função × três estratégias = três rodadas**. To
 
 ## Referências Internas
 
-- [`PROMPT_TEMPLATE_UNIT.md`](PROMPT_TEMPLATE_UNIT.md) — prompts-base das 3 estratégias + prompt de reparo.
-- [`Template_Documentacao_Rodada.md`](Template_Documentacao_Rodada.md) — template canônico de uma rodada (reproduzido em cada arquivo UNIT-*-NN).
+- [`PROMPT_TEMPLATE_UNIT.md`](PROMPT_TEMPLATE_UNIT.md) — prompts-base das 3 estratégias para nível unitário + prompt de reparo.
+- [`PROMPT_TEMPLATE_WIDGET.md`](PROMPT_TEMPLATE_WIDGET.md) — prompts-base das 3 estratégias para nível widget (inclui setup de mocks Firebase) + prompt de reparo.
+- [`Template_Documentacao_Rodada.md`](Template_Documentacao_Rodada.md) — template canônico de uma rodada (reproduzido em cada arquivo UNIT-*-NN e WIDGET-*-NN).

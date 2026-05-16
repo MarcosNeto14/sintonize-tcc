@@ -1,0 +1,54 @@
+=== WIDGET-ZS-02 | criar_playlist | zero-shot ===
+Arquivo: test/widget/criar_playlist_zs_test.dart
+Executado em: 2026-05-15T21:42:00-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+
+=== 1ª EXECUÇÃO ===
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/widget/criar_playlist_zs_test.dart
+test/widget/criar_playlist_zs_test.dart:9:8: Error: Error when reading 'lib/screens/criar_playlist_screen.dart': O sistema não pode encontrar o caminho especificado
+import 'package:sintonize/screens/criar_playlist_screen.dart';
+       ^
+test/widget/criar_playlist_zs_test.dart:48:19: Error: Couldn't find constructor 'CriarPlaylistScreen'.
+      home: const CriarPlaylistScreen(
+                  ^^^^^^^^^^^^^^^^^^^
+test/widget/criar_playlist_zs_test.dart:149:47: Error: Couldn't find constructor 'CriarPlaylistScreen'.
+                        builder: (_) => const CriarPlaylistScreen(
+                                              ^^^^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize/test/widget/criar_playlist_zs_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize/test/widget/criar_playlist_zs_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize/test/widget/criar_playlist_zs_test.dart: test/widget/criar_playlist_zs_test.dart:9:8: Error: Error when reading 'lib/screens/criar_playlist_screen.dart': O sistema não pode encontrar o caminho especificado
+  import 'package:sintonize/screens/criar_playlist_screen.dart';
+         ^
+  test/widget/criar_playlist_zs_test.dart:48:19: Error: Couldn't find constructor 'CriarPlaylistScreen'.
+        home: const CriarPlaylistScreen(
+                    ^^^^^^^^^^^^^^^^^^^
+  test/widget/criar_playlist_zs_test.dart:149:47: Error: Couldn't find constructor 'CriarPlaylistScreen'.
+                          builder: (_) => const CriarPlaylistScreen(
+                                                ^^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+=== ITERAÇÃO 1 (repair) — 2026-05-15T21:48:00-03:00 ===
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/widget/criar_playlist_zs_test.dart
+test/widget/criar_playlist_zs_test.dart:11:8: Error: Error when reading 'lib/view/criar_playlist_screen.dart': O sistema não pode encontrar o caminho especificado
+import 'package:sintonize/view/criar_playlist_screen.dart';
+       ^
+test/widget/criar_playlist_zs_test.dart:39:13: Error: Method not found: 'CriarPlaylistScreen'.
+      home: CriarPlaylistScreen(
+            ^^^^^^^^^^^^^^^^^^^
+test/widget/criar_playlist_zs_test.dart:156:39: Error: Couldn't find constructor 'CriarPlaylistScreen'.
+                                const CriarPlaylistScreen(
+                                      ^^^^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize/test/widget/criar_playlist_zs_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize/test/widget/criar_playlist_zs_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize/test/widget/criar_playlist_zs_test.dart: test/widget/criar_playlist_zs_test.dart:11:8: Error: Error when reading 'lib/view/criar_playlist_screen.dart': O sistema não pode encontrar o caminho especificado
+  import 'package:sintonize/view/criar_playlist_screen.dart';
+         ^
+  test/widget/criar_playlist_zs_test.dart:39:13: Error: Method not found: 'CriarPlaylistScreen'.
+        home: CriarPlaylistScreen(
+              ^^^^^^^^^^^^^^^^^^^
+  test/widget/criar_playlist_zs_test.dart:156:39: Error: Couldn't find constructor 'CriarPlaylistScreen'.
+                                  const CriarPlaylistScreen(
+                                        ^^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

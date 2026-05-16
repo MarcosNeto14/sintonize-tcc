@@ -1,0 +1,42 @@
+=== WIDGET-FS-01 | login | few-shot ===
+Arquivo: test/widget/login_fs_test.dart
+Executado em: 2026-05-15T22:04:00-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+
+=== 1ª EXECUÇÃO ===
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/widget/login_fs_test.dart
+test/widget/login_fs_test.dart:6:8: Error: Error when reading 'lib/login_screen.dart': O sistema não pode encontrar o arquivo especificado
+import 'package:sintonize/login_screen.dart';
+       ^
+test/widget/login_fs_test.dart:19:17: Error: Method not found: 'LoginScreen'.
+          home: LoginScreen(),
+                ^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize/test/widget/login_fs_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize/test/widget/login_fs_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize/test/widget/login_fs_test.dart: test/widget/login_fs_test.dart:6:8: Error: Error when reading 'lib/login_screen.dart': O sistema não pode encontrar o arquivo especificado
+  import 'package:sintonize/login_screen.dart';
+         ^
+  test/widget/login_fs_test.dart:19:17: Error: Method not found: 'LoginScreen'.
+            home: LoginScreen(),
+                  ^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+=== ITERAÇÃO 1 (repair) — 2026-05-15T22:07:00-03:00 ===
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/widget/login_fs_test.dart
+test/widget/login_fs_test.dart:4:8: Error: Error when reading 'lib/login_screen.dart': O sistema não pode encontrar o arquivo especificado
+import '../../lib/login_screen.dart'; // <- CORREÇÃO AQUI
+       ^
+test/widget/login_fs_test.dart:11:17: Error: Method not found: 'LoginScreen'.
+          home: LoginScreen(),
+                ^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize/test/widget/login_fs_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize/test/widget/login_fs_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize/test/widget/login_fs_test.dart: test/widget/login_fs_test.dart:4:8: Error: Error when reading 'lib/login_screen.dart': O sistema não pode encontrar o arquivo especificado
+  import '../../lib/login_screen.dart'; // <- CORREÇÃO AQUI
+         ^
+  test/widget/login_fs_test.dart:11:17: Error: Method not found: 'LoginScreen'.
+            home: LoginScreen(),
+                  ^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

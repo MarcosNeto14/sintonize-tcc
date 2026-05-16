@@ -1,0 +1,146 @@
+=== WIDGET-FS-02 | criar_playlist | few-shot ===
+Arquivo: test/widget/criar_playlist_fs_test.dart
+Executado em: 2026-05-15T22:12:00-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+
+=== 1ª EXECUÇÃO ===
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/widget/criar_playlist_fs_test.dart
+test/widget/criar_playlist_fs_test.dart:7:8: Error: Error when reading 'lib/criar_playlist_screen.dart': O sistema não pode encontrar o arquivo especificado
+import 'package:sintonize/criar_playlist_screen.dart';
+       ^
+test/widget/criar_playlist_fs_test.dart:9:37: Error: Type 'Mock' not found.
+class MockNavigatorObserver extends Mock implements NavigatorObserver {}
+                                    ^^^^
+test/widget/criar_playlist_fs_test.dart:9:7: Error: The non-abstract class 'MockNavigatorObserver' is missing implementations for these members:
+ - NavigatorObserver.didChangeTop
+ - NavigatorObserver.didPop
+ - NavigatorObserver.didPush
+ - NavigatorObserver.didRemove
+ - NavigatorObserver.didReplace
+ - NavigatorObserver.didStartUserGesture
+ - NavigatorObserver.didStopUserGesture
+ - NavigatorObserver.navigator
+Try to either
+ - provide an implementation,
+ - inherit an implementation from a superclass or mixin,
+ - mark the class as abstract, or
+ - provide a 'noSuchMethod' implementation.
+class MockNavigatorObserver extends Mock implements NavigatorObserver {}
+      ^^^^^^^^^^^^^^^^^^^^^
+/C:/src/flutter/packages/flutter/lib/src/widgets/navigator.dart:805:8: Context: 'NavigatorObserver.didChangeTop' is defined here.
+  void didChangeTop(Route<dynamic> topRoute, Route<dynamic>? previousTopRoute) {}
+       ^^^^^^^^^^^^
+/C:/src/flutter/packages/flutter/lib/src/widgets/navigator.dart:780:8: Context: 'NavigatorObserver.didPop' is defined here.
+  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {}
+       ^^^^^^
+/C:/src/flutter/packages/flutter/lib/src/widgets/navigator.dart:774:8: Context: 'NavigatorObserver.didPush' is defined here.
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {}
+       ^^^^^^^
+/C:/src/flutter/packages/flutter/lib/src/widgets/navigator.dart:791:8: Context: 'NavigatorObserver.didRemove' is defined here.
+  void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) {}
+       ^^^^^^^^^
+/C:/src/flutter/packages/flutter/lib/src/widgets/navigator.dart:794:8: Context: 'NavigatorObserver.didReplace' is defined here.
+  void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {}
+       ^^^^^^^^^^
+/C:/src/flutter/packages/flutter/lib/src/widgets/navigator.dart:811:8: Context: 'NavigatorObserver.didStartUserGesture' is defined here.
+  void didStartUserGesture(Route<dynamic> route, Route<dynamic>? previousRoute) {}
+       ^^^^^^^^^^^^^^^^^^^
+/C:/src/flutter/packages/flutter/lib/src/widgets/navigator.dart:816:8: Context: 'NavigatorObserver.didStopUserGesture' is defined here.
+  void didStopUserGesture() {}
+       ^^^^^^^^^^^^^^^^^^
+/C:/src/flutter/packages/flutter/lib/src/widgets/navigator.dart:757:23: Context: 'NavigatorObserver.navigator' is defined here.
+  NavigatorState? get navigator => _navigators[this];
+                      ^^^^^^^^^
+test/widget/criar_playlist_fs_test.dart:40:15: Error: Method not found: 'CriarPlaylistScreen'.
+        home: CriarPlaylistScreen(editPlaylist: const {}),
+              ^^^^^^^^^^^^^^^^^^^
+test/widget/criar_playlist_fs_test.dart:110:39: Error: Undefined name 'any'.
+      verify(navigatorObserver.didPop(any, any)).called(1);
+                                      ^^^
+test/widget/criar_playlist_fs_test.dart:110:44: Error: Undefined name 'any'.
+      verify(navigatorObserver.didPop(any, any)).called(1);
+                                           ^^^
+test/widget/criar_playlist_fs_test.dart:110:7: Error: Method not found: 'verify'.
+      verify(navigatorObserver.didPop(any, any)).called(1);
+      ^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize/test/widget/criar_playlist_fs_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize/test/widget/criar_playlist_fs_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize/test/widget/criar_playlist_fs_test.dart: test/widget/criar_playlist_fs_test.dart:7:8: Error: Error when reading 'lib/criar_playlist_screen.dart': O sistema não pode encontrar o arquivo especificado
+  import 'package:sintonize/criar_playlist_screen.dart';
+         ^
+  test/widget/criar_playlist_fs_test.dart:9:37: Error: Type 'Mock' not found.
+  class MockNavigatorObserver extends Mock implements NavigatorObserver {}
+                                      ^^^^
+  test/widget/criar_playlist_fs_test.dart:9:7: Error: The non-abstract class 'MockNavigatorObserver' is missing implementations for these members:
+   - NavigatorObserver.didChangeTop
+   - NavigatorObserver.didPop
+   - NavigatorObserver.didPush
+   - NavigatorObserver.didRemove
+   - NavigatorObserver.didReplace
+   - NavigatorObserver.didStartUserGesture
+   - NavigatorObserver.didStopUserGesture
+   - NavigatorObserver.navigator
+  Try to either
+   - provide an implementation,
+   - inherit an implementation from a superclass or mixin,
+   - mark the class as abstract, or
+   - provide a 'noSuchMethod' implementation.
+  class MockNavigatorObserver extends Mock implements NavigatorObserver {}
+        ^^^^^^^^^^^^^^^^^^^^^
+  /C:/src/flutter/packages/flutter/lib/src/widgets/navigator.dart:805:8: Context: 'NavigatorObserver.didChangeTop' is defined here.
+    void didChangeTop(Route<dynamic> topRoute, Route<dynamic>? previousTopRoute) {}
+         ^^^^^^^^^^^^
+  /C:/src/flutter/packages/flutter/lib/src/widgets/navigator.dart:780:8: Context: 'NavigatorObserver.didPop' is defined here.
+    void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {}
+         ^^^^^^
+  /C:/src/flutter/packages/flutter/lib/src/widgets/navigator.dart:774:8: Context: 'NavigatorObserver.didPush' is defined here.
+    void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {}
+         ^^^^^^^
+  /C:/src/flutter/packages/flutter/lib/src/widgets/navigator.dart:791:8: Context: 'NavigatorObserver.didRemove' is defined here.
+    void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) {}
+         ^^^^^^^^^
+  /C:/src/flutter/packages/flutter/lib/src/widgets/navigator.dart:794:8: Context: 'NavigatorObserver.didReplace' is defined here.
+    void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {}
+         ^^^^^^^^^^
+  /C:/src/flutter/packages/flutter/lib/src/widgets/navigator.dart:811:8: Context: 'NavigatorObserver.didStartUserGesture' is defined here.
+    void didStartUserGesture(Route<dynamic> route, Route<dynamic>? previousRoute) {}
+         ^^^^^^^^^^^^^^^^^^^
+  /C:/src/flutter/packages/flutter/lib/src/widgets/navigator.dart:816:8: Context: 'NavigatorObserver.didStopUserGesture' is defined here.
+    void didStopUserGesture() {}
+         ^^^^^^^^^^^^^^^^^^
+  /C:/src/flutter/packages/flutter/lib/src/widgets/navigator.dart:757:23: Context: 'NavigatorObserver.navigator' is defined here.
+    NavigatorState? get navigator => _navigators[this];
+                        ^^^^^^^^^
+  test/widget/criar_playlist_fs_test.dart:40:15: Error: Method not found: 'CriarPlaylistScreen'.
+          home: CriarPlaylistScreen(editPlaylist: const {}),
+                ^^^^^^^^^^^^^^^^^^^
+  test/widget/criar_playlist_fs_test.dart:110:39: Error: Undefined name 'any'.
+        verify(navigatorObserver.didPop(any, any)).called(1);
+                                        ^^^
+  test/widget/criar_playlist_fs_test.dart:110:44: Error: Undefined name 'any'.
+        verify(navigatorObserver.didPop(any, any)).called(1);
+                                             ^^^
+  test/widget/criar_playlist_fs_test.dart:110:7: Error: Method not found: 'verify'.
+        verify(navigatorObserver.didPop(any, any)).called(1);
+        ^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+=== ITERAÇÃO 1 (repair) — 2026-05-15T22:18:00-03:00 ===
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/widget/criar_playlist_fs_test.dart
+test/widget/criar_playlist_fs_test.dart:8:8: Error: Error when reading 'lib/criar_playlist_screen.dart': O sistema não pode encontrar o arquivo especificado
+import 'package:sintonize/criar_playlist_screen.dart';
+       ^
+test/widget/criar_playlist_fs_test.dart:41:15: Error: Method not found: 'CriarPlaylistScreen'.
+        home: CriarPlaylistScreen(editPlaylist: const {}),
+              ^^^^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize/test/widget/criar_playlist_fs_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize/test/widget/criar_playlist_fs_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize/test/widget/criar_playlist_fs_test.dart: test/widget/criar_playlist_fs_test.dart:8:8: Error: Error when reading 'lib/criar_playlist_screen.dart': O sistema não pode encontrar o arquivo especificado
+  import 'package:sintonize/criar_playlist_screen.dart';
+         ^
+  test/widget/criar_playlist_fs_test.dart:41:15: Error: Method not found: 'CriarPlaylistScreen'.
+          home: CriarPlaylistScreen(editPlaylist: const {}),
+                ^^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

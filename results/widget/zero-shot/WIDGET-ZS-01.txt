@@ -1,0 +1,161 @@
+=== WIDGET-ZS-01 | login | zero-shot ===
+Arquivo: test/widget/login_zs_test.dart
+Executado em: 2026-05-15T21:35:00-03:00
+Flutter: Flutter 3.41.7 • channel stable • https://github.com/flutter/flutter.git
+---
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize/test/widget/login_zs_test.dart
+00:00 +0: LoginScreen Widget Tests Deve renderizar os campos e botões corretamente
+00:00 +1: LoginScreen Widget Tests Deve mostrar erro quando campos estiverem vazios
+00:00 +2: LoginScreen Widget Tests Deve mostrar erro para e-mail inválido
+00:00 +3: LoginScreen Widget Tests Deve mostrar erro para senha menor que 6 caracteres
+00:01 +4: LoginScreen Widget Tests Deve permitir digitação nos campos
+00:01 +5: LoginScreen Widget Tests Deve navegar para TelaInicialScreen após login válido
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following FirebaseException was thrown running a test:
+[core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+
+When the exception was thrown, this was the stack:
+#0      MethodChannelFirebase.app (package:firebase_core_platform_interface/src/method_channel/method_channel_firebase.dart:195:5)
+#1      Firebase.app (package:firebase_core/src/firebase.dart:79:41)
+#2      FirebaseAuth.instance (package:firebase_auth/src/firebase_auth.dart:38:47)
+#3      LoginScreen.build.login (package:sintonize/login.dart:25:28)
+#4      LoginScreen.build.<anonymous closure> (package:sintonize/login.dart:164:48)
+#5      _InkResponseState.handleTap (package:flutter/src/material/ink_well.dart:1224:21)
+#6      GestureRecognizer.invokeCallback (package:flutter/src/gestures/recognizer.dart:345:24)
+#7      TapGestureRecognizer.handleTapUp (package:flutter/src/gestures/tap.dart:758:11)
+#8      BaseTapGestureRecognizer._checkUp (package:flutter/src/gestures/tap.dart:383:5)
+#9      BaseTapGestureRecognizer.acceptGesture (package:flutter/src/gestures/tap.dart:353:7)
+#10     GestureArenaManager.sweep (package:flutter/src/gestures/arena.dart:173:27)
+#11     GestureBinding.handleEvent (package:flutter/src/gestures/binding.dart:532:20)
+#12     GestureBinding.dispatchEvent (package:flutter/src/gestures/binding.dart:498:22)
+#13     RendererBinding.dispatchEvent (package:flutter/src/rendering/binding.dart:473:11)
+#14     GestureBinding._handlePointerEventImmediately (package:flutter/src/gestures/binding.dart:437:7)
+#15     GestureBinding.handlePointerEvent (package:flutter/src/gestures/binding.dart:394:5)
+#16     TestWidgetsFlutterBinding.handlePointerEventForSource.<anonymous closure> (package:flutter_test/src/binding.dart:1301:42)
+#17     TestWidgetsFlutterBinding.withPointerEventSource (package:flutter_test/src/binding.dart:1311:11)
+#18     TestWidgetsFlutterBinding.handlePointerEventForSource (package:flutter_test/src/binding.dart:1301:5)
+#19     WidgetTester.sendEventToBinding.<anonymous closure> (package:flutter_test/src/widget_tester.dart:869:15)
+#22     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#23     WidgetTester.sendEventToBinding (package:flutter_test/src/widget_tester.dart:868:27)
+#24     TestGesture.up.<anonymous closure> (package:flutter_test/src/test_pointer.dart:587:26)
+#27     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#28     TestGesture.up (package:flutter_test/src/test_pointer.dart:580:27)
+#29     WidgetController.tapAt.<anonymous closure> (package:flutter_test/src/controller.dart:1150:21)
+<asynchronous suspension>
+#30     TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#31     main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize/test/widget/login_zs_test.dart:146:7)
+<asynchronous suspension>
+#32     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#33     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The test description was:
+  Deve navegar para TelaInicialScreen após login válido
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +5 -1: LoginScreen Widget Tests Deve navegar para TelaInicialScreen após login válido [E]
+  Test failed. See exception logs above.
+  The test description was: Deve navegar para TelaInicialScreen após login válido
+  
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test (but after the test had completed):
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "TelaInicialScreen": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#0      fail (package:matcher/src/expect/expect.dart:187:31)
+#1      _expect (package:matcher/src/expect/expect.dart:182:3)
+#2      expect (package:matcher/src/expect/expect.dart:65:3)
+#3      expect (package:flutter_test/src/widget_tester.dart:473:18)
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize/test/widget/login_zs_test.dart:150:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  Test failed. See exception logs above.
+  The test description was: Deve navegar para TelaInicialScreen após login válido
+  
+00:01 +5 -1: LoginScreen Widget Tests Deve exibir SnackBar para credenciais inválidas
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following FirebaseException was thrown running a test:
+[core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+
+When the exception was thrown, this was the stack:
+#0      MethodChannelFirebase.app (package:firebase_core_platform_interface/src/method_channel/method_channel_firebase.dart:195:5)
+#1      Firebase.app (package:firebase_core/src/firebase.dart:79:41)
+#2      FirebaseAuth.instance (package:firebase_auth/src/firebase_auth.dart:38:47)
+#3      LoginScreen.build.login (package:sintonize/login.dart:25:28)
+#4      LoginScreen.build.<anonymous closure> (package:sintonize/login.dart:164:48)
+#5      _InkResponseState.handleTap (package:flutter/src/material/ink_well.dart:1224:21)
+#6      GestureRecognizer.invokeCallback (package:flutter/src/gestures/recognizer.dart:345:24)
+#7      TapGestureRecognizer.handleTapUp (package:flutter/src/gestures/tap.dart:758:11)
+#8      BaseTapGestureRecognizer._checkUp (package:flutter/src/gestures/tap.dart:383:5)
+#9      BaseTapGestureRecognizer.acceptGesture (package:flutter/src/gestures/tap.dart:353:7)
+#10     GestureArenaManager.sweep (package:flutter/src/gestures/arena.dart:173:27)
+#11     GestureBinding.handleEvent (package:flutter/src/gestures/binding.dart:532:20)
+#12     GestureBinding.dispatchEvent (package:flutter/src/gestures/binding.dart:498:22)
+#13     RendererBinding.dispatchEvent (package:flutter/src/rendering/binding.dart:473:11)
+#14     GestureBinding._handlePointerEventImmediately (package:flutter/src/gestures/binding.dart:437:7)
+#15     GestureBinding.handlePointerEvent (package:flutter/src/gestures/binding.dart:394:5)
+#16     TestWidgetsFlutterBinding.handlePointerEventForSource.<anonymous closure> (package:flutter_test/src/binding.dart:1301:42)
+#17     TestWidgetsFlutterBinding.withPointerEventSource (package:flutter_test/src/binding.dart:1311:11)
+#18     TestWidgetsFlutterBinding.handlePointerEventForSource (package:flutter_test/src/binding.dart:1301:5)
+#19     WidgetTester.sendEventToBinding.<anonymous closure> (package:flutter_test/src/widget_tester.dart:869:15)
+#22     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#23     WidgetTester.sendEventToBinding (package:flutter_test/src/widget_tester.dart:868:27)
+#24     TestGesture.up.<anonymous closure> (package:flutter_test/src/test_pointer.dart:587:26)
+#27     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#28     TestGesture.up (package:flutter_test/src/test_pointer.dart:580:27)
+#29     WidgetController.tapAt.<anonymous closure> (package:flutter_test/src/controller.dart:1150:21)
+<asynchronous suspension>
+#30     TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#31     main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize/test/widget/login_zs_test.dart:178:7)
+<asynchronous suspension>
+#32     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#33     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The test description was:
+  Deve exibir SnackBar para credenciais inválidas
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +5 -2: LoginScreen Widget Tests Deve exibir SnackBar para credenciais inválidas [E]
+  Test failed. See exception logs above.
+  The test description was: Deve exibir SnackBar para credenciais inválidas
+  
+00:01 +5 -2: LoginScreen Widget Tests Deve navegar para recuperação de senha
+00:01 +6 -2: LoginScreen Widget Tests Deve navegar para cadastro
+
+Warning: A call to tap() with finder "Found 1 widget with text "Não tem cadastro? Cadastre-se!": [
+  Text("Não tem cadastro? Cadastre-se!", inherit: true, color: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), size: 16.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(400.0, 664.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 664.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#eb5da relayoutBoundary=up35
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#ad91e(_ReusableRenderView#199f1), HitTestEntry<HitTestTarget>#255b3(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize/test/widget/login_zs_test.dart:207:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:01 +7 -2: Some tests failed.

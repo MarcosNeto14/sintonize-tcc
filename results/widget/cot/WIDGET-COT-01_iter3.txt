@@ -1,0 +1,8 @@
+00:00 +0: loading C:/Users/marcos.neto/desktop/sintonize-tcc/test/widget/login_cot_test.dart
+00:00 +0: (setUpAll)
+00:00 +0 -1: (setUpAll) [E]
+  PlatformException(channel-error, Unable to establish connection on channel., null, null)
+  package:firebase_core_platform_interface/src/pigeon/messages.pigeon.dart 210:7  FirebaseCoreHostApi.initializeCore
+
+00:00 +0 -1: (tearDownAll)
+00:00 +0 -1: Some tests failed.

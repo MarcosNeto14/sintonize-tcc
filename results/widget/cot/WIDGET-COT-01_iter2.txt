@@ -1,0 +1,16 @@
+00:00 +0: loading C:/Users/marcos.neto/desktop/sintonize-tcc/test/widget/login_cot_test.dart
+test/widget/login_cot_test.dart:224:7: Error: Method not found: 'whenCalling'.
+      whenCalling(Invocation.method(
+      ^^^^^^^^^^^
+test/widget/login_cot_test.dart:264:7: Error: Method not found: 'whenCalling'.
+      whenCalling(Invocation.method(
+      ^^^^^^^^^^^
+test/widget/login_cot_test.dart:304:7: Error: Method not found: 'whenCalling'.
+      whenCalling(Invocation.method(
+      ^^^^^^^^^^^
+test/widget/login_cot_test.dart:344:7: Error: Method not found: 'whenCalling'.
+      whenCalling(Invocation.method(
+      ^^^^^^^^^^^
+00:00 +0 -1: loading [E]
+  Failed to load: Compilation failed.
+00:00 +0 -1: Some tests failed.

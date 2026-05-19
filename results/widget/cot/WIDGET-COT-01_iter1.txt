@@ -1,0 +1,28 @@
+00:00 +0: loading C:/Users/marcos.neto/desktop/sintonize-tcc/test/widget/login_cot_test.dart
+test/widget/login_cot_test.dart:224:9: Error: No named parameter with the name 'authExceptions'.
+        authExceptions: {
+        ^^^^^^^^^^^^^^
+../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+  MockFirebaseAuth(
+  ^^^^^^^^^^^^^^^^
+test/widget/login_cot_test.dart:258:9: Error: No named parameter with the name 'authExceptions'.
+        authExceptions: {
+        ^^^^^^^^^^^^^^
+../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+  MockFirebaseAuth(
+  ^^^^^^^^^^^^^^^^
+test/widget/login_cot_test.dart:292:9: Error: No named parameter with the name 'authExceptions'.
+        authExceptions: {
+        ^^^^^^^^^^^^^^
+../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+  MockFirebaseAuth(
+  ^^^^^^^^^^^^^^^^
+test/widget/login_cot_test.dart:326:9: Error: No named parameter with the name 'authExceptions'.
+        authExceptions: {
+        ^^^^^^^^^^^^^^
+../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+  MockFirebaseAuth(
+  ^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading [E]
+  Failed to load: Compilation failed.
+00:00 +0 -1: Some tests failed.

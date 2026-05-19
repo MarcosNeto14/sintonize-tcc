@@ -14,7 +14,7 @@ Use este template para CADA rodada do experimento (prompt + response + result nu
 | **Nível da pirâmide**    | Unitário                                                       |
 | **Estratégia de prompt** | Zero-shot                                                      |
 | **LLM utilizado**        | ChatGPT                                                        |
-| **Versão do modelo**     | GPT-4o (ou GPT-4-turbo — verificar no ChatGPT qual está ativo) |
+| **Versão do modelo**     | GPT-5.5 |
 | **Data de acesso**       | 2026-04-20                                                     |
 | **Conversa nova?**       | Sim (cada rodada em conversa limpa)                            |
 | **Framework de teste**   | flutter_test                                                   |

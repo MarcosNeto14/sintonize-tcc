@@ -1,0 +1,8 @@
+00:00 +0: loading test/widget/criar_playlist_cot_test.dart
+test/widget/criar_playlist_cot_test.dart:181:39: Error: The argument type 'Null' can't be assigned to the parameter type 'Route<dynamic>'.
+ - 'Route' is from 'package:flutter/src/widgets/navigator.dart'
+      verify(navigatorObserver.didPop(any, any)).called(1);
+                                      ^
+00:00 +0 -1: loading [E]
+  Failed to load: Compilation failed.
+00:00 +0 -1: Some tests failed.

@@ -1,0 +1,13 @@
+00:00 +0: loading test/widget/criar_playlist_cot_test.dart
+test/widget/criar_playlist_cot_test.dart:6:8: Error: Error when reading 'lib/screens/criar_playlist_screen.dart': O sistema não pode encontrar o caminho especificado
+import 'package:sintonize/screens/criar_playlist_screen.dart';
+       ^
+test/widget/criar_playlist_cot_test.dart:31:19: Error: Couldn't find constructor 'CriarPlaylistScreen'.
+      home: const CriarPlaylistScreen(
+                  ^^^^^^^^^^^^^^^^^^^
+test/widget/criar_playlist_cot_test.dart:89:39: Error: The argument type 'Null' can't be assigned to the parameter type 'Route<dynamic>'.
+      verify(navigatorObserver.didPop(any, any)).called(1);
+                                      ^
+00:00 +0 -1: loading [E]
+  Failed to load: Compilation failed.
+00:00 +0 -1: Some tests failed.

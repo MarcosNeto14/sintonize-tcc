@@ -1,0 +1,43 @@
+00:00 +0: CriarPlaylistScreen renderiza elementos básicos da tela
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+pumpAndSettle timed out
+00:09 +0 -1: renderiza elementos básicos da tela [E]
+
+00:09 +0 -1: CriarPlaylistScreen carrega músicas do firestore
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+pumpAndSettle timed out
+00:13 +0 -2: carrega músicas do firestore [E]
+
+00:13 +0 -2: CriarPlaylistScreen filtra músicas pela busca
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+pumpAndSettle timed out
+00:17 +0 -3: filtra músicas pela busca [E]
+
+00:17 +0 -3: CriarPlaylistScreen seleciona e desseleciona música
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+pumpAndSettle timed out
+00:21 +0 -4: seleciona e desseleciona música [E]
+
+00:21 +0 -4: CriarPlaylistScreen exibe snackbar ao salvar sem nome
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+pumpAndSettle timed out
+00:21 +0 -5: exibe snackbar ao salvar sem nome [E]
+
+00:21 +0 -5: CriarPlaylistScreen digita nome da playlist corretamente
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+pumpAndSettle timed out
+00:25 +0 -6: digita nome da playlist corretamente [E]
+
+00:25 +0 -6: CriarPlaylistScreen seleciona música e salva playlist
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+pumpAndSettle timed out
+00:27 +0 -7: seleciona música e salva playlist [E]
+
+00:27 +0 -7: CriarPlaylistScreen botão voltar realiza pop
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+pumpAndSettle timed out
+00:30 +0 -8: botão voltar realiza pop [E]
+
+00:30 +0 -8: CriarPlaylistScreen mostra loading quando lista está vazia
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:30 +1 -8: Some tests failed.

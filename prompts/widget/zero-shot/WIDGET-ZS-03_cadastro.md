@@ -8,7 +8,7 @@
 | **Widget testado** | CadastroScreen |
 | **Arquivo de origem** | lib/cadastro.dart |
 | **Complexidade** | Alta |
-| **Nível da pirâmide** | Integração (Widget Test) |
+| **Nível da pirâmide** | Widget |
 | **Estratégia de prompt** | Zero-shot |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.5 |
@@ -77,13 +77,11 @@ O LLM também sugeriu criar um `test/flutter_test_config.dart` para `WidgetsFlut
 | **Testes gerados** | 11 |
 | **Testes passaram (1ª execução)** | 4 |
 | **Testes falharam (1ª execução)** | 7 |
-| **Testes passaram (pós-repair)** | 10 (após 2 iterações de reparo) |
-| **Testes falharam (pós-repair)** | 1 (somente o teste do dropdown — `find.byWidgetPredicate` para `DropdownMenuItem<String>` retorna 0 mesmo após `ensureVisible + pumpAndSettle`) |
-| **Setup correto de mocks?** | Parcial — criou `MockFirebaseAuth` e `FakeFirebaseFirestore`, mas não injetou (mesmo padrão de ZS-01 e ZS-02; widget acopla `FirebaseAuth.instance` e `FirebaseFirestore.instance` direto). Como nenhum teste tenta efetivamente submeter um formulário **válido** com tap real no botão (ver achado abaixo), a falta de DI não chegou a quebrar testes por `FirebaseException` — eles falham antes, por outro motivo. |
-| **MaterialApp wrapper?** | Sim — `MaterialApp(home: CadastroScreen())`. |
-| **Tratou assets?** | Não — não tratou o `Image.asset('assets/logo-sintoniza.png')`. Não causou falha porque nenhum teste verifica o conteúdo da imagem. |
-| **Tipos de teste gerados** | Renderização (1), Submit form vazio (1), Validação de regra por campo (5 — email, senha, confirmação, CEP, número), Submit form preenchido (1), Navegação (1), DropdownButtonFormField (1), Entrada de texto (1) |
-| **Nota metodológica** | Os campos "1ª execução" refletem a saída do `flutter test` antes de qualquer iteração de repair. Os campos "pós-repair" refletem o estado final após todas as iterações. |
+| **Testes passaram (pós-repair)** | 10 |
+| **Testes falharam (pós-repair)** | 1 |
+| **Setup correto de mocks?** | Parcial |
+| **MaterialApp wrapper?** | Sim |
+| **Tratou assets?** | Não |
 
 ### Saída do terminal
 
@@ -153,7 +151,7 @@ O teste "Deve aceitar preenchimento válido" passou por **coincidência** — el
 
 ## Achados consolidados — WIDGET-ZS-03
 
-1. **Zero-shot subestima o viewport de teste:** o LLM gerou taps no botão "Cadastrar" sem prever que ele estaria fora do viewport 800×600. Falha sistemática em 6 dos 11 testes na 1ª execução, todos pela mesma raiz.
-2. **Repair loop resolve problemas observáveis no erro:** quando o erro vem com warning explícito ("would not hit test"), o LLM corrige com `ensureVisible()` em uma iteração. Resultado: salto de 4 para 10 testes.
-3. **Limite estrutural não diagnosticável pelo erro:** o overlay do `DropdownButtonFormField` em viewport apertado é um problema cujo erro ("Found 0 widgets") **não revela** a causa raiz (espaço insuficiente para o overlay). O LLM trocou de estratégia (`find.text` → `find.byWidgetPredicate`) sem entender o problema real, e iter2 falhou igualmente. **Achado-chave:** o repair loop tem rendimento decrescente quando a causa raiz não está visível no log de erro.
-4. **Falso positivo em "Deve aceitar preenchimento válido":** o teste passou na 1ª execução por motivo errado (o tap em "Cadastrar" não atingia o botão, então o submit nunca rodava, então não havia mensagens de erro — o `findsNothing` passava trivialmente). Após a correção da Iteração 1, o teste continuou passando porque agora o submit **roda** mas falha com `FirebaseException` antes de mostrar qualquer mensagem de erro visível — outro tipo de falso positivo (mesmo assert, motivo diferente). Vale considerar essa categoria de teste como **assert fraco** na análise qualitativa do TCC.
+- Viewport 800×600 causou falha sistemática em 6/11 testes na 1ª execução (botão "Cadastrar" em y≈870 fora do viewport) — falha de modelo mental do LLM sobre o ambiente de teste.
+- Repair com warning explícito é eficaz: `ensureVisible()` corrigiu o scroll em 1 iteração, saltando de 4 para 10 testes passando.
+- Overlay do `DropdownButtonFormField` em viewport apertado não é diagnosticável pelo log ("Found 0 widgets" não revela falta de espaço); LLM tentou `find.byWidgetPredicate` na iter2 sem resolver — repair tem rendimento decrescente quando a causa raiz não aparece no erro.
+- Falso positivo em "Deve aceitar preenchimento válido": passou trivialmente na 1ª execução (submit nunca acionado) e continuou passando pós-repair (submit falhou silenciosamente com `FirebaseException`). Categoria de assert fraco relevante para análise qualitativa.

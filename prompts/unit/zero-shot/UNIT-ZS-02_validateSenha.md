@@ -11,7 +11,7 @@
 | **Estratégia de prompt** | Zero-shot |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.5 |
-| **Data de acesso** | 2026-04-20 |
+| **Data de acesso** | 2026-04-23 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
 | **Versão do Flutter** | 3.41.7 |
@@ -116,8 +116,10 @@ Se quiser, posso também sugerir melhorias na função (ex: exigir números, let
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 7 |
-| **Testes passaram** | 7 |
-| **Testes falharam** | 0 |
+| **Testes passaram (1ª execução)** | 7 |
+| **Testes falharam (1ª execução)** | 0 |
+| **Testes passaram (pós-repair)** | 7 |
+| **Testes falharam (pós-repair)** | 0 |
 
 ### Saída do terminal
 

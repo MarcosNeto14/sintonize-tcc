@@ -11,7 +11,7 @@
 | **Estratégia de prompt** | Zero-shot |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.5 |
-| **Data de acesso** | 2026-04-21 |
+| **Data de acesso** | 2026-04-24 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
 | **Versão do Flutter** | 3.41.7 |
@@ -112,8 +112,10 @@ Se quiser, posso também ajustar a função para evitar o RangeError no caso de 
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 10 |
-| **Testes passaram** | 8 |
-| **Testes falharam** | 2 |
+| **Testes passaram (1ª execução)** | 8 |
+| **Testes falharam (1ª execução)** | 2 |
+| **Testes passaram (pós-repair)** | 10 |
+| **Testes falharam (pós-repair)** | 0 |
 
 
 ### Saída do terminal

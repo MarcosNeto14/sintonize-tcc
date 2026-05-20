@@ -11,7 +11,7 @@
 | **Estratégia de prompt** | Zero-shot |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.5 |
-| **Data de acesso** | 2026-04-21 |
+| **Data de acesso** | 2026-04-24 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
 | **Versão do Flutter** | 3.41.7 |
@@ -147,8 +147,10 @@ Se quiser, posso adaptar isso pra usar setUp, tearDown ou até gerar testes base
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 13 |
-| **Testes passaram** | 13 |
-| **Testes falharam** | 0 |
+| **Testes passaram (1ª execução)** | 13 |
+| **Testes falharam (1ª execução)** | 0 |
+| **Testes passaram (pós-repair)** | 13 |
+| **Testes falharam (pós-repair)** | 0 |
 
 
 ### Saída do terminal

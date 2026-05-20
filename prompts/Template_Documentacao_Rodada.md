@@ -4,7 +4,7 @@ Use este template para CADA rodada do experimento (prompt + response + result nu
 
 ---
 
-## Metadados da Rodada
+## Metadados
 
 | Campo                    | Valor                                                          |
 | ------------------------ | -------------------------------------------------------------- |
@@ -54,7 +54,7 @@ Use este template para CADA rodada do experimento (prompt + response + result nu
 
 ---
 
-## Iterative Repair Loop (se necessário)
+## Iterative Repair Loop
 
 ### Iteração 1
 

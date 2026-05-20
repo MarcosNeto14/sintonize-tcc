@@ -129,8 +129,10 @@ Se quiser, posso sugerir melhorias na função (ex: normalizar para "Joao Silva"
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 7 |
-| **Testes passaram** | 6 |
-| **Testes falharam** | 1 |
+| **Testes passaram (1ª execução)** | 6 |
+| **Testes falharam (1ª execução)** | 1 |
+| **Testes passaram (pós-repair)** | 7 |
+| **Testes falharam (pós-repair)** | 0 |
 
 ### Saída do terminal
 00:04 +5 -1: formatName deve funcionar com múltiplos espaços entre palavras [E]                                                                                                                               

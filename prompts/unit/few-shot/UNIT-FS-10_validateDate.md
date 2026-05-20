@@ -171,8 +171,10 @@ Se quiser, posso também refatorar esses testes para ficarem ainda mais descriti
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 13 |
-| **Testes passaram** | 13 |
-| **Testes falharam** | 0 |
+| **Testes passaram (1ª execução)** | 13 |
+| **Testes falharam (1ª execução)** | 0 |
+| **Testes passaram (pós-repair)** | 13 |
+| **Testes falharam (pós-repair)** | 0 |
 
 ### Saída do terminal
 00:04 +13: All tests passed!  

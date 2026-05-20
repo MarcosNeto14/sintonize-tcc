@@ -140,8 +140,10 @@ Se quiser, posso adaptar os testes para cobrir casos com caracteres especiais (a
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 8 |
-| **Testes passaram** | 8 |
-| **Testes falharam** | 0 |
+| **Testes passaram (1ª execução)** | 8 |
+| **Testes falharam (1ª execução)** | 0 |
+| **Testes passaram (pós-repair)** | 8 |
+| **Testes falharam (pós-repair)** | 0 |
 
 ### Saída do terminal
 00:03 +8: All tests passed!

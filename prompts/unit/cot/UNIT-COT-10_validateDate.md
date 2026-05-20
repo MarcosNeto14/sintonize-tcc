@@ -230,8 +230,10 @@ Se quiser, posso também adaptar esses testes para usar mockito ou congelar o te
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 15 |
-| **Testes passaram** | 15 |
-| **Testes falharam** | 0 |
+| **Testes passaram (1ª execução)** | 15 |
+| **Testes falharam (1ª execução)** | 0 |
+| **Testes passaram (pós-repair)** | 15 |
+| **Testes falharam (pós-repair)** | 0 |
 
 ### Saída do terminal
 00:02 +15: All tests passed!

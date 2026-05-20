@@ -8,14 +8,14 @@
 | **Widget testado** | CriarPlaylistScreen |
 | **Arquivo de origem** | lib/criar_playlist.dart |
 | **Complexidade** | Média |
-| **Nível da pirâmide** | Integração (Widget Test) |
+| **Nível da pirâmide** | Widget |
 | **Estratégia de prompt** | Chain-of-Thought |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.5 |
 | **Data de acesso** | 2026-05-19 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
-| **Versão do Flutter** | 3.41.6 |
+| **Versão do Flutter** | 3.41.7 |
 
 ---
 
@@ -83,14 +83,15 @@ import 'package:sintonize/screens/criar_playlist_screen.dart'; // import errado
 
 | Métrica | Valor |
 |---|---|
-| **Compilou?** | Não (iter inicial) → Não (iter 1, tipo Route) → Não (iter 2, import + setupFirebaseAuthMocks) → Não (iter 3, import reincidente + tipo Route regredido) |
-| **Testes gerados** | 9 (inicial) → 5 (iter 3) |
-| **Testes passaram** | 0 |
-| **Testes falharam** | Não executaram — falha de compilação em todas as iterações |
-| **Setup correto de mocks?** | Não — widget usa `FirebaseFirestore.instance` e `FirebaseAuth.instance` diretamente; mock local não é injetado |
+| **Compilou?** | Não |
+| **Testes gerados** | 9 |
+| **Testes passaram (1ª execução)** | 0 |
+| **Testes falharam (1ª execução)** | 9 |
+| **Testes passaram (pós-repair)** | 0 |
+| **Testes falharam (pós-repair)** | 9 |
+| **Setup correto de mocks?** | Não |
 | **MaterialApp wrapper?** | Sim |
-| **Tratou assets?** | N/A |
-| **Tipos de teste gerados** | Renderização, Interação, Validação, Loading |
+| **Tratou assets?** | N.A. |
 
 ### Saída do terminal (iteração 3 — resultado final)
 

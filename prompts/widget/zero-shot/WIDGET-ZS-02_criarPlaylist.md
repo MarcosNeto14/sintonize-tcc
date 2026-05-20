@@ -8,7 +8,7 @@
 | **Widget testado** | CriarPlaylistScreen |
 | **Arquivo de origem** | lib/criar_playlist.dart |
 | **Complexidade** | Média |
-| **Nível da pirâmide** | Integração (Widget Test) |
+| **Nível da pirâmide** | Widget |
 | **Estratégia de prompt** | Zero-shot |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.5 |
@@ -121,17 +121,15 @@ void main() {
 
 | Métrica | Valor |
 |---|---|
-| **Compilou?** | **Não** |
+| **Compilou?** | Não |
 | **Testes gerados** | 7 |
 | **Testes passaram (1ª execução)** | 0 |
-| **Testes falharam (1ª execução)** | 7 (não chegaram a rodar — falha de compilação) |
-| **Testes passaram (pós-repair)** | 0 (loop encerrado na Iteração 1 — ver discussão metodológica) |
-| **Testes falharam (pós-repair)** | 7 (todos por falha de compilação; LLM persistiu em path alucinado) |
-| **Setup correto de mocks?** | Parcial — criou `FakeFirebaseFirestore` e `MockFirebaseAuth` corretamente e até popula a collection `musica` com dois docs no `setUp`. Mas igual ao ZS-01: não injeta as instâncias no widget (não há DI). Adicionalmente, tenta inicializar `Firebase.initializeApp()` no `setUpAll` sem `FirebaseTestingPlatform`, o que falharia em runtime se compilasse. |
-| **MaterialApp wrapper?** | Sim — `MaterialApp(home: const CriarPlaylistScreen(editPlaylist: {}))`. |
-| **Tratou assets?** | N/A — `CriarPlaylistScreen` não usa `Image.asset`. |
-| **Tipos de teste gerados** | Renderização (1), Validação de form/SnackBar (1), Interação/digitação (1), Pesquisa filtrada (1), Seleção/toggle de item (1), Navegação back (1), Combinação digitação+pesquisa (1) |
-| **Nota metodológica** | Os campos "1ª execução" refletem a saída do `flutter test` antes de qualquer iteração de repair. Os campos "pós-repair" refletem o estado final após todas as iterações. |
+| **Testes falharam (1ª execução)** | 7 |
+| **Testes passaram (pós-repair)** | 0 |
+| **Testes falharam (pós-repair)** | 7 |
+| **Setup correto de mocks?** | Parcial |
+| **MaterialApp wrapper?** | Sim |
+| **Tratou assets?** | N.A. |
 
 ### Saída do terminal
 
@@ -193,8 +191,4 @@ Corrija o teste para que compile e passe corretamente. Não modifique o código 
 
 ## Discussão metodológica — limite do repair loop em zero-shot
 
-O experimento expõe um **limite estrutural do zero-shot + repair loop**: quando a causa raiz da falha é **falta de informação sobre o projeto** (estrutura de pastas), repetir o erro não ajuda — o LLM não tem nada novo para inferir. Cada iteração apenas testa diferentes adivinhações.
-
-Duas saídas válidas:
-1. **Encerrar após Iteração 1** — finding: ZS é incapaz de recuperar de alucinações de estrutura.
-2. **Continuar Iteração 2 com o erro novamente** — finding mais forte (3 iterações seguidas confirmariam padrão), mas é trabalho redundante.
+Limite estrutural do zero-shot + repair loop: quando a causa raiz é falta de informação sobre o projeto (estrutura de pastas), repetir o erro não ajuda — o LLM apenas alterna entre convenções plausíveis (`screens/`, `view/`, `pages/`) sem convergir. Rodada encerrada após Iteração 1 por decisão metodológica.

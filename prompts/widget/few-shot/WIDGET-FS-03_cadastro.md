@@ -8,7 +8,7 @@
 | **Widget testado** | CadastroScreen |
 | **Arquivo de origem** | lib/cadastro.dart |
 | **Complexidade** | Alta |
-| **Nível da pirâmide** | Integração (Widget Test) |
+| **Nível da pirâmide** | Widget |
 | **Estratégia de prompt** | Few-shot |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.5 |
@@ -68,13 +68,11 @@ void main() {
 | **Testes gerados** | 8 |
 | **Testes passaram (1ª execução)** | 0 |
 | **Testes falharam (1ª execução)** | 8 |
-| **Testes passaram (pós-repair)** | 6 (após 1 iteração de reparo) |
-| **Testes falharam (pós-repair)** | 2 (data inválida + número não numérico — falhas por modelo mental incorreto do widget, não diagnosticáveis pelo log) |
-| **Setup correto de mocks?** | Parcial — criou `MockFirebaseAuth` e `FakeFirebaseFirestore`, mas sem DI no widget; nenhum teste depende de fato dos mocks (não chega a chamar `_submit()` com sucesso). |
-| **MaterialApp wrapper?** | Sim — via helper `pumpCadastro()`. |
-| **Tratou assets?** | Não — não previu o `Image.asset` (mas não causou falha nesta rodada). |
-| **Tipos de teste gerados** | Validação de form completa (1 — todos os campos vazios), Validação por campo (6 — email, senha, confirmação, CEP, data, número), Caso de sucesso (1 — nome válido sem erro) |
-| **Nota metodológica** | Os campos "1ª execução" refletem a saída do `flutter test` antes de qualquer iteração de repair. Os campos "pós-repair" refletem o estado final após todas as iterações. |
+| **Testes passaram (pós-repair)** | 6 |
+| **Testes falharam (pós-repair)** | 2 |
+| **Setup correto de mocks?** | Parcial |
+| **MaterialApp wrapper?** | Sim |
+| **Tratou assets?** | Não |
 
 ### Saída do terminal
 
@@ -119,14 +117,7 @@ Resumo das falhas:
 
 ## Achados consolidados — WIDGET-FS-03
 
-1. **FS quebrou o padrão de path errado** — terceira ocorrência do widget mais complexo, e o LLM acertou (`sintonize/cadastro.dart`). Provável: classe já se chama `CadastroScreen` (sufixo `Screen` no nome da classe), então o LLM não duplicou o sufixo no nome do arquivo. ZS também acertou em ZS-03 — então cadastro é um caso onde ambas estratégias convergem para o path correto, enquanto login e criarPlaylist (classes `LoginScreen` e `CriarPlaylistScreen` igualmente com sufixo) divergiram em FS. **Necessita amostra maior para confirmar.**
-
-2. **Repair loop é eficaz contra falhas estruturais comuns** — em uma única iteração o LLM diagnosticou 3 problemas distintos (foco/teclado, finder semântico inadequado, viewport) e aplicou 4 correções coerentes (setSurfaceSize, ensureVisible, troca de finder, pumpAndSettle). Saltou de 0 para 6 testes.
-
-3. **Repair loop falha contra erros de modelo mental** — as 2 falhas residuais exigem raciocínio sobre:
-   - **Efeito do formatter** no campo data: o LLM enviou `'999999'`, mas o `TextInputFormatter` do widget transforma em `'99/99/99'` antes do validator ver, gerando erro de mês (`'Mês deve ser entre 01 e 12'`) em vez do erro esperado de formato.
-   - **Índice off-by-one** para Número: LLM usou `.at(8)` (Bairro) em vez de `.at(7)` (Número). ZS-03 acertou esse mesmo índice — sugere que o exemplo do few-shot pode ter distraído o LLM da contagem cuidadosa.
-
-4. **Trade-off ZS vs FS para Cadastro: ZS > FS na 1ª execução** — ZS-03 gerou tests com `find.byType(TextFormField).at(N)` direto (10/11 pós-repair); FS-03 gerou com `find.widgetWithText(TextFormField, 'Label')` (0/8 → 6/8 pós-repair). O exemplo do few-shot induziu uma escolha de finder semanticamente mais elegante mas estruturalmente incompatível com o widget — um caso onde o exemplo **atrapalha**.
-
-5. **Cobertura conceitual de FS-03 inclui campos que ZS-03 não testou** — data e confirmação de senha. Mas a maior cobertura veio com qualidade técnica menor (índice errado, finder inadequado).
+1. Path correto em FS-03 (`sintonize/cadastro.dart`): classe já se chama `CadastroScreen` — LLM não adicionou segundo sufixo. ZS-03 também acertou; login e criarPlaylist divergiram. Necessita amostra maior.
+2. Repair eficaz contra falhas estruturais: 1 iteração diagnosticou 3 problemas (viewport, finder semântico, foco) e saltou de 0 para 6 testes.
+3. Repair falha contra erros de modelo mental: efeito do `TextInputFormatter` (data `'999999'` → `'99/99/99'` pelo formatter → erro de mês, não de formato) e índice off-by-one em `.at(8)` vs `.at(7)` para o campo Número.
+4. Trade-off ZS vs FS em Cadastro: ZS gerou finder posicional direto (funcional); FS gerou finder semântico por label (mais legível, mas incompatível com a estrutura real do widget).

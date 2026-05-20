@@ -128,8 +128,10 @@ Se quiser, posso também sugerir melhorias na função (por exemplo, tratar trim
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 10 |
-| **Testes passaram** | 9 |
-| **Testes falharam** | 1 |
+| **Testes passaram (1ª execução)** | 9 |
+| **Testes falharam (1ª execução)** | 1 |
+| **Testes passaram (pós-repair)** | 10 |
+| **Testes falharam (pós-repair)** | 0 |
 
 ### Saída do terminal
 00:02 +8 -1: Validators.validateNumero deve retornar erro para número com espaços [E]                                                                                                                         

@@ -11,7 +11,7 @@
 | **Estratégia de prompt** | Zero-shot |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.5 |
-| **Data de acesso** | 2026-04-21 |
+| **Data de acesso** | 2026-04-24 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
 | **Versão do Flutter** | 3.41.7 |
@@ -142,8 +142,10 @@ Se quiser, posso expandir com testes parametrizados (forEach) ou usar setUp() pa
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 14 |
-| **Testes passaram** | 14 |
-| **Testes falharam** | 0 |
+| **Testes passaram (1ª execução)** | 14 |
+| **Testes falharam (1ª execução)** | 0 |
+| **Testes passaram (pós-repair)** | 14 |
+| **Testes falharam (pós-repair)** | 0 |
 
 
 ### Saída do terminal

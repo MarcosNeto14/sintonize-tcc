@@ -8,14 +8,14 @@
 | **Widget testado** | LoginScreen |
 | **Arquivo de origem** | lib/login.dart |
 | **Complexidade** | Baixa |
-| **Nível da pirâmide** | Integração (Widget Test) |
+| **Nível da pirâmide** | Widget |
 | **Estratégia de prompt** | Chain-of-Thought |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.5 |
 | **Data de acesso** | 2026-05-19 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
-| **Versão do Flutter** | 3.41.6 |
+| **Versão do Flutter** | 3.41.7 |
 
 ---
 
@@ -112,14 +112,15 @@ void main() {
 
 | Métrica | Valor |
 |---|---|
-| **Compilou?** | Não (iteração inicial) → Não (iter 1) → Sim (iter 3) |
+| **Compilou?** | Sim |
 | **Testes gerados** | 14 |
-| **Testes passaram** | 0 |
-| **Testes falharam** | 14 (setUpAll falhou — nenhum executou) |
-| **Setup correto de mocks?** | Não — `Firebase.initializeApp()` falha sem `setupFirebaseAuthMocks()` |
+| **Testes passaram (1ª execução)** | 0 |
+| **Testes falharam (1ª execução)** | 14 |
+| **Testes passaram (pós-repair)** | 0 |
+| **Testes falharam (pós-repair)** | 14 |
+| **Setup correto de mocks?** | Não |
 | **MaterialApp wrapper?** | Sim |
 | **Tratou assets?** | Não |
-| **Tipos de teste gerados** | Renderização, Validação de formulário, Interação, Fluxo de sucesso, Cenários de erro (degradados) |
 
 ### Saída do terminal (iteração 3 — resultado final)
 

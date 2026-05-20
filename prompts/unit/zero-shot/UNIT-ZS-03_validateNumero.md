@@ -11,7 +11,7 @@
 | **Estratégia de prompt** | Zero-shot |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.5 |
-| **Data de acesso** | 2026-04-20 |
+| **Data de acesso** | 2026-04-23 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
 | **Versão do Flutter** | 3.41.7 |
@@ -128,8 +128,10 @@ Se quiser, posso também sugerir melhorias na função (por exemplo, trim() ou s
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 10 |
-| **Testes passaram** | 9 |
-| **Testes falharam** | 1 |
+| **Testes passaram (1ª execução)** | 9 |
+| **Testes falharam (1ª execução)** | 1 |
+| **Testes passaram (pós-repair)** | 10 |
+| **Testes falharam (pós-repair)** | 0 |
 
 ### Saída do terminal
 00:02 +7 -1: Validators.validateNumero deve rejeitar número com espaço [E]

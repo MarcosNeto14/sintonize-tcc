@@ -8,7 +8,7 @@
 | **Widget testado** | LoginScreen |
 | **Arquivo de origem** | lib/login.dart |
 | **Complexidade** | Baixa |
-| **Nível da pirâmide** | Integração (Widget Test) |
+| **Nível da pirâmide** | Widget |
 | **Estratégia de prompt** | Zero-shot |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.5 |
@@ -555,13 +555,11 @@ Isso torna os testes mais confiáveis e totalmente isolados do Firebase real.
 | **Testes gerados** | 9 |
 | **Testes passaram (1ª execução)** | 7 |
 | **Testes falharam (1ª execução)** | 2 |
-| **Testes passaram (pós-repair)** | 7 (idem 1ª execução — repair loop não concluído, ver nota metodológica abaixo) |
-| **Testes falharam (pós-repair)** | 2 (idem 1ª execução) |
-| **Setup correto de mocks?** | Parcial — criou `MockFirebaseAuth` e `MockUser` corretamente, mas não conseguiu injetá-los (widget usa `FirebaseAuth.instance` hardcoded). O LLM reconheceu a limitação na observação final e sugeriu refatoração com DI. |
-| **MaterialApp wrapper?** | Sim — usou `const MaterialApp(home: LoginScreen())` via helper `createWidgetUnderTest()`. |
-| **Tratou assets?** | Não — não tratou o `Image.asset('assets/logo-sintoniza.png')`. Não causou falha porque a imagem é renderizada (mesmo que sem o asset real) e nenhum teste verifica o conteúdo dela. |
-| **Tipos de teste gerados** | Renderização (1), Validação de formulário (3 — vazio, email inválido, senha curta), Interação/digitação (1), Navegação (3 — tela inicial após login, recup senha, cadastro), SnackBar de erro (1) |
-| **Nota metodológica** | Os campos "1ª execução" refletem a saída do `flutter test` antes de qualquer iteração de repair. Os campos "pós-repair" refletem o estado final após todas as iterações. |
+| **Testes passaram (pós-repair)** | 7 |
+| **Testes falharam (pós-repair)** | 2 |
+| **Setup correto de mocks?** | Parcial |
+| **MaterialApp wrapper?** | Sim |
+| **Tratou assets?** | Não |
 
 ### Saída do terminal
 

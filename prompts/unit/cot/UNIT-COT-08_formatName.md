@@ -136,8 +136,10 @@ Se quiser, posso sugerir melhorias na função (por exemplo, tratar múltiplos e
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 12 |
-| **Testes passaram** | 8 |
-| **Testes falharam** | 4 |
+| **Testes passaram (1ª execução)** | 8 |
+| **Testes falharam (1ª execução)** | 4 |
+| **Testes passaram (pós-repair)** | 12 |
+| **Testes falharam (pós-repair)** | 0 |
 
 ### Saída do terminal
 00:02 +5 -1: Validators.formatName Deve lidar com string contendo apenas espaços [E]

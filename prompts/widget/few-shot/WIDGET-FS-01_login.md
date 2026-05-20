@@ -8,7 +8,7 @@
 | **Widget testado** | LoginScreen |
 | **Arquivo de origem** | lib/login.dart |
 | **Complexidade** | Baixa |
-| **Nível da pirâmide** | Integração (Widget Test) |
+| **Nível da pirâmide** | Widget |
 | **Estratégia de prompt** | Few-shot |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.5 |
@@ -69,17 +69,15 @@ Sem observações metodológicas extras nesta rodada — o LLM apenas listou as 
 
 | Métrica | Valor |
 |---|---|
-| **Compilou?** | **Não** |
+| **Compilou?** | Não |
 | **Testes gerados** | 7 |
 | **Testes passaram (1ª execução)** | 0 |
-| **Testes falharam (1ª execução)** | 7 (todos por falha de compilação) |
-| **Testes passaram (pós-repair)** | 0 (loop encerrado na Iteração 1 por decisão metodológica — padrão idêntico ao ZS-02) |
-| **Testes falharam (pós-repair)** | 7 (continuam por falha de compilação; LLM em loop de adivinhação de nome de arquivo) |
-| **Setup correto de mocks?** | Parcial — segue o padrão do exemplo (cria `MockFirebaseAuth` no `setUp`), mas não injeta (mesma limitação dos ZS porque o widget usa `FirebaseAuth.instance` direto). |
-| **MaterialApp wrapper?** | Sim — `MaterialApp(home: LoginScreen())` via helper `pumpLoginScreen`. |
-| **Tratou assets?** | N/A — falha de compilação não chegou a renderizar; não há tratamento explícito de assets no código. |
-| **Tipos de teste gerados** | Validação de form (4 — email vazio, email inválido, senha vazia, senha curta), Renderização (1), Digitação (1), Caso de sucesso "sem erros" (1) |
-| **Nota metodológica** | Os campos "1ª execução" refletem a saída do `flutter test` antes de qualquer iteração de repair. Os campos "pós-repair" refletem o estado final após todas as iterações. |
+| **Testes falharam (1ª execução)** | 7 |
+| **Testes passaram (pós-repair)** | 0 |
+| **Testes falharam (pós-repair)** | 7 |
+| **Setup correto de mocks?** | Parcial |
+| **MaterialApp wrapper?** | Sim |
+| **Tratou assets?** | N.A. |
 
 ### Saída do terminal
 
@@ -124,6 +122,6 @@ Mesmo widget, mesmo modelo, mesma temperatura aparente — o **few-shot piorou**
 
 ## Achados consolidados — WIDGET-FS-01
 
-1. **Few-shot piorou a inferência de path em relação ao zero-shot:** ZS-01 acertou (`sintonize/login.dart`); FS-01 errou (`sintonize/login_screen.dart`). Hipótese: o exemplo no prompt mostra `MeuFormulario` como widget fictício, e o LLM pode ter inferido uma convenção `<Feature>Screen` em `<feature>_screen.dart` ao misturar o padrão do exemplo com o widget-alvo.
-2. **LLM regrediu na qualidade do mock durante o repair:** removeu o import de `firebase_auth_mocks` e o `MockFirebaseAuth` do `setUp` ao reescrever o teste na Iteração 1, mesmo o erro sendo apenas de path. Indica que o repair loop pode degradar partes do código que **não estavam quebradas**.
-3. **Padrão de loop de adivinhação confirmado:** mesmo comportamento do ZS-02 — sem informação sobre a estrutura real do projeto, o LLM alterna entre convenções estatisticamente plausíveis (package import com nome alucinado → import relativo com mesmo nome alucinado). O prompt de reparo "só o erro" não tem como interromper isso.
+1. Few-shot piorou a inferência de path: ZS-01 acertou (`sintonize/login.dart`); FS-01 errou (`sintonize/login_screen.dart`) — o exemplo fictício introduziu viés de convenção `<Feature>Screen`.
+2. Repair loop regrediu os mocks: LLM removeu `MockFirebaseAuth` na Iteração 1 ao corrigir apenas o path — partes não quebradas foram degradadas.
+3. Loop de adivinhação confirmado: sem informação da estrutura real do projeto, o LLM alterna entre convenções plausíveis sem convergir.

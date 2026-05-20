@@ -8,14 +8,14 @@
 | **Widget testado** | CadastroScreen |
 | **Arquivo de origem** | lib/cadastro.dart |
 | **Complexidade** | Alta |
-| **Nível da pirâmide** | Integração (Widget Test) |
+| **Nível da pirâmide** | Widget |
 | **Estratégia de prompt** | Chain-of-Thought |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-4o (2026-05-20) |
 | **Data de acesso** | 2026-05-20 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
-| **Versão do Flutter** | 3.41.6 |
+| **Versão do Flutter** | 3.41.7 |
 
 ---
 
@@ -73,12 +73,13 @@ Arquivo gerado: `test/widget/cadastro_cot_test.dart`
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 13 |
-| **Testes passaram** | 3 (inicial) → 12 (após 3 iterações de reparo) |
-| **Testes falharam** | 10 (inicial) → 1 (após 3 iterações de reparo) |
-| **Setup correto de mocks?** | Parcial (declarados, não injetados) |
+| **Testes passaram (1ª execução)** | 3 |
+| **Testes falharam (1ª execução)** | 10 |
+| **Testes passaram (pós-repair)** | 3 |
+| **Testes falharam (pós-repair)** | 10 |
+| **Setup correto de mocks?** | Parcial |
 | **MaterialApp wrapper?** | Sim |
-| **Tratou assets?** | Não (Image.asset não mockado) |
-| **Tipos de teste gerados** | Renderização, validação, interação, sucesso, erro |
+| **Tratou assets?** | Não |
 
 ### Saída do terminal
 

@@ -162,8 +162,10 @@ void main() {
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 13 |
-| **Testes passaram** | 13 |
-| **Testes falharam** | 0 |
+| **Testes passaram (1ª execução)** | 13 |
+| **Testes falharam (1ª execução)** | 0 |
+| **Testes passaram (pós-repair)** | 13 |
+| **Testes falharam (pós-repair)** | 0 |
 
 ### Saída do terminal
 00:02 +13: All tests passed!

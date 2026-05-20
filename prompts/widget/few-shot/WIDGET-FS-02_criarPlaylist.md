@@ -8,7 +8,7 @@
 | **Widget testado** | CriarPlaylistScreen |
 | **Arquivo de origem** | lib/criar_playlist.dart |
 | **Complexidade** | Média |
-| **Nível da pirâmide** | Integração (Widget Test) |
+| **Nível da pirâmide** | Widget |
 | **Estratégia de prompt** | Few-shot |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.5 |
@@ -67,17 +67,15 @@ void main() {
 
 | Métrica | Valor |
 |---|---|
-| **Compilou?** | **Não** |
+| **Compilou?** | Não |
 | **Testes gerados** | 6 |
 | **Testes passaram (1ª execução)** | 0 |
-| **Testes falharam (1ª execução)** | 6 (todos por falha de compilação) |
-| **Testes passaram (pós-repair)** | 0 (loop encerrado na Iteração 1 — LLM admitiu não saber o path correto) |
-| **Testes falharam (pós-repair)** | 6 (continuam por falha de compilação no import) |
-| **Setup correto de mocks?** | Não — múltiplas falhas: (1) `Mock` usado sem `import 'package:mockito/mockito.dart'`; (2) `verify`/`any` usados sem import do mockito; (3) `MockNavigatorObserver extends Mock implements NavigatorObserver` falha porque `NavigatorObserver` tem métodos que precisariam ser stubados. Mesmo que o path estivesse correto, ainda não compilaria. |
-| **MaterialApp wrapper?** | Sim — `MaterialApp(home: CriarPlaylistScreen(editPlaylist: const {}), navigatorObservers: [navigatorObserver])`. |
-| **Tratou assets?** | N/A — falha de compilação; widget não tem `Image.asset`. |
-| **Tipos de teste gerados** | Loading state (1), Carregamento async/Firestore (1), Filtro/busca (1), Toggle UI (1), Validação form (1), Persistência + Navegação (1) |
-| **Nota metodológica** | Os campos "1ª execução" refletem a saída do `flutter test` antes de qualquer iteração de repair. Os campos "pós-repair" refletem o estado final após todas as iterações. |
+| **Testes falharam (1ª execução)** | 6 |
+| **Testes passaram (pós-repair)** | 0 |
+| **Testes falharam (pós-repair)** | 6 |
+| **Setup correto de mocks?** | Não |
+| **MaterialApp wrapper?** | Sim |
+| **Tratou assets?** | N.A. |
 
 ### Saída do terminal
 
@@ -134,7 +132,7 @@ test/widget/criar_playlist_fs_test.dart:110:7: Error: Method not found: 'verify'
 
 ## Achados consolidados — WIDGET-FS-02
 
-1. **Repair loop parcialmente eficaz em erros heterogêneos** — diferente de FS-01 (loop puro de adivinhação), aqui o LLM **resolveu 3 dos 4 problemas** na Iteração 1 (import de mockito, remoção de `verify`/`any` problemáticos, classe Mock funcional). O repair tem rendimento quando o erro descreve um problema diagnosticável (falta de import, símbolo undefined).
-2. **Path continua sendo o limite intransponível** — repair loop não tem como resolver alucinação de path sem informação adicional. Confirma o padrão observado em ZS-02, FS-01 e agora FS-02.
-3. **LLM evoluiu de "chutar" para "admitir"** — em FS-02 a Iteração 1 incluiu o comentário `// ⚠️ ajuste o path abaixo para o arquivo REAL do seu projeto`, devolvendo explicitamente a responsabilidade ao usuário. Trade-off interessante: o LLM **sabe que não sabe** o path, mas não tem mecanismo (no protocolo zero/few-shot) para descobrir.
-4. **Sufixo `_screen.dart` é viés do few-shot** — terceira ocorrência do mesmo viés (FS-01: `login_screen`, FS-02: `criar_playlist_screen`, e provavelmente FS-03 vai produzir `cadastro_screen`). Forte evidência de que o exemplo `MeuFormulario` no prompt induz uma convenção `<Feature>Screen` em `<feature>_screen.dart` que o LLM aplica acriticamente ao widget-alvo.
+1. Repair parcialmente eficaz em erros heterogêneos: LLM resolveu 3 dos 4 problemas na Iteração 1 (import mockito, remoção de `verify`/`any`, classe Mock) — repair rende quando o erro é diagnosticável.
+2. Path continua intransponível sem informação adicional: confirma padrão de ZS-02 e FS-01.
+3. LLM admitiu desconhecer o path (`// ⚠️ ajuste o path...`) — evoluiu de chutar para devolver o problema ao usuário.
+4. Sufixo `_screen.dart` é viés do few-shot: FS-01 (`login_screen`), FS-02 (`criar_playlist_screen`) — padrão consistente induzido pelo exemplo `MeuFormulario` no prompt.

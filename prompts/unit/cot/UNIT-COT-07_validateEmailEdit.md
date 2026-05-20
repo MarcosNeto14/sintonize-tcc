@@ -145,8 +145,10 @@ Se quiser, posso também sugerir melhorias na função (por exemplo, tratar espa
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 11 |
-| **Testes passaram** | 11 |
-| **Testes falharam** | 0 |
+| **Testes passaram (1ª execução)** | 11 |
+| **Testes falharam (1ª execução)** | 0 |
+| **Testes passaram (pós-repair)** | 11 |
+| **Testes falharam (pós-repair)** | 0 |
 
 ### Saída do terminal
 00:02 +11: All tests passed!

@@ -145,8 +145,10 @@ Se quiser, posso também sugerir testes de borda mais extremos (como emails muit
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 10 |
-| **Testes passaram** | 10 |
-| **Testes falharam** | 0 |
+| **Testes passaram (1ª execução)** | 10 |
+| **Testes falharam (1ª execução)** | 0 |
+| **Testes passaram (pós-repair)** | 10 |
+| **Testes falharam (pós-repair)** | 0 |
 
 ### Saída do terminal
 00:03 +10: All tests passed!  

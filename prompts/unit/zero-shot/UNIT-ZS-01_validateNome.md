@@ -2,7 +2,7 @@
 
 ---
 
-## Metadados da Rodada
+## Metadados
 
 | Campo                    | Valor                                                 |
 | ------------------------ | ----------------------------------------------------- |
@@ -13,7 +13,7 @@
 | **Estratégia de prompt** | Zero-shot                                             |
 | **LLM utilizado**        | ChatGPT                                               |
 | **Versão do modelo**     | GPT-5.5                                               |
-| **Data de acesso**       | 2026-04-20                                            |
+| **Data de acesso**       | 2026-04-23                                            |
 | **Conversa nova?**       | Sim                                                   |
 | **Framework de teste**   | flutter_test                                          |
 | **Versão do Flutter**    | 3.41.7                                                |
@@ -66,8 +66,10 @@ Se quiser, posso sugerir melhorias na função para tratar melhor casos reais de
 | ---------------------------- | ----------------------------- |
 | **Compilou?**                | Sim                           |
 | **Testes gerados**           | 12                            |
-| **Testes passaram**          | 12                            |
-| **Testes falharam**          | 0                             |
+| **Testes passaram (1ª execução)** | 12                            |
+| **Testes falharam (1ª execução)** | 0                             |
+| **Testes passaram (pós-repair)** | 12                            |
+| **Testes falharam (pós-repair)** | 0                             |
 
 ### Saída do terminal
 
@@ -76,7 +78,7 @@ Se quiser, posso sugerir melhorias na função para tratar melhor casos reais de
 
 ---
 
-## Iterative Repair Loop (se necessário)
+## Iterative Repair Loop
 
 ### Iteração 1
 - **Necessária?** Não (testes passaram de primeira)

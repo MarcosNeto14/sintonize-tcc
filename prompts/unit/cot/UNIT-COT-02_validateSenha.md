@@ -137,8 +137,10 @@ Se quiser, posso também sugerir melhorias na função (por exemplo, impedir sen
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 9 |
-| **Testes passaram** | 9 |
-| **Testes falharam** | 0 |
+| **Testes passaram (1ª execução)** | 9 |
+| **Testes falharam (1ª execução)** | 0 |
+| **Testes passaram (pós-repair)** | 9 |
+| **Testes falharam (pós-repair)** | 0 |
 
 ### Saída do terminal
 00:03 +9: All tests passed!  

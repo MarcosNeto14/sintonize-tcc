@@ -114,8 +114,10 @@ Se quiser deixar os testes ainda mais rigorosos, dá pra validar também as mens
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 5 |
-| **Testes passaram** | 5 |
-| **Testes falharam** | 0 |
+| **Testes passaram (1ª execução)** | 5 |
+| **Testes falharam (1ª execução)** | 0 |
+| **Testes passaram (pós-repair)** | 5 |
+| **Testes falharam (pós-repair)** | 0 |
 
 
 ### Saída do terminal

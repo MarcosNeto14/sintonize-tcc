@@ -11,7 +11,7 @@
 | **Estratégia de prompt** | Zero-shot |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.5 |
-| **Data de acesso** | 2026-04-21 |
+| **Data de acesso** | 2026-04-24 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
 | **Versão do Flutter** | 3.41.7 |
@@ -119,8 +119,10 @@ Se quiser, posso adicionar testes com dados parametrizados (forEach) ou separar 
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 10 |
-| **Testes passaram** | 10 |
-| **Testes falharam** | 0 |
+| **Testes passaram (1ª execução)** | 10 |
+| **Testes falharam (1ª execução)** | 0 |
+| **Testes passaram (pós-repair)** | 10 |
+| **Testes falharam (pós-repair)** | 0 |
 
 
 ### Saída do terminal

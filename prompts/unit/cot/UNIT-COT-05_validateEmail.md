@@ -147,8 +147,10 @@ Se quiser, posso adaptar os testes para usar setUp, tearDown ou até gerar mocks
 |---|---|
 | **Compilou?** | Sim |
 | **Testes gerados** | 12 |
-| **Testes passaram** | 12 |
-| **Testes falharam** | 0 |
+| **Testes passaram (1ª execução)** | 12 |
+| **Testes falharam (1ª execução)** | 0 |
+| **Testes passaram (pós-repair)** | 12 |
+| **Testes falharam (pós-repair)** | 0 |
 
 ### Saída do terminal
 00:01 +12: All tests passed!

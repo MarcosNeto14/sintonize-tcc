@@ -127,7 +127,7 @@ Cada linha representa **uma função × três estratégias = três rodadas**. To
 |---|---|---|---|---|
 | Unitário | 10 funções | 3 (ZS, FS, CoT) | **30** | Concluído |
 | Widget | 3 widgets (login, criarPlaylist, cadastro) | 3 (ZS, FS, CoT) | **9** | Concluído |
-| Integration | 3 fluxos (login, cadastro, criar playlist) | 3 (ZS, FS, CoT) | **9** | Em andamento |
+| Integration | 3 fluxos (login, cadastro, adicionar música) | 3 (ZS, FS, CoT) | **9** | Em andamento |
 | E2E manual | TBD | N/A (sem LLM) | TBD | Planejado |
 
 ---
@@ -136,11 +136,11 @@ Cada linha representa **uma função × três estratégias = três rodadas**. To
 
 Cada linha representa **um fluxo × três estratégias = três rodadas**. Total: **9 rodadas**.
 
-| # | Fluxo | Arquivos de origem (lib/) | Doc Zero-shot | Doc Few-shot | Doc CoT | Arquivo de teste (test/integration/) | Resultado (results/) |
-|---|---|---|---|---|---|---|---|
-| 01 | Login | `login.dart` + `tela-inicial.dart` | [INT-ZS-01](integration/zero-shot/INT-ZS-01_login.md) | [INT-FS-01](integration/few-shot/INT-FS-01_login.md) | [INT-COT-01](integration/cot/INT-COT-01_login.md) | `login_{zs,fs,cot}_test.dart` | `results/integration/{estratégia}/` |
-| 02 | Cadastro | `cadastro.dart` + `tela-inicial.dart` | [INT-ZS-02](integration/zero-shot/INT-ZS-02_cadastro.md) | [INT-FS-02](integration/few-shot/INT-FS-02_cadastro.md) | [INT-COT-02](integration/cot/INT-COT-02_cadastro.md) | `cadastro_{zs,fs,cot}_test.dart` | `results/integration/{estratégia}/` |
-| 03 | Criar Playlist | `criar_playlist.dart` | [INT-ZS-03](integration/zero-shot/INT-ZS-03_criar_playlist.md) | [INT-FS-03](integration/few-shot/INT-FS-03_criar_playlist.md) | [INT-COT-03](integration/cot/INT-COT-03_criar_playlist.md) | `criar_playlist_{zs,fs,cot}_test.dart` | `results/integration/{estratégia}/` |
+| # | Fluxo | Telas envolvidas | Doc Zero-shot | Doc Few-shot | Doc CoT | Arquivo de teste (test/integration/) |
+|---|---|---|---|---|---|---|
+| 01 | Login | `login.dart` → `tela-inicial.dart` | [INT-ZS-01](integration/zero-shot/INT-ZS-01_login_flow.md) | [INT-FS-01](integration/few-shot/INT-FS-01_login_flow.md) | [INT-COT-01](integration/cot/INT-COT-01_login_flow.md) | `login_flow_{zs,fs,cot}_test.dart` |
+| 02 | Cadastro | `cadastro.dart` → `generos-cadastro.dart` | [INT-ZS-02](integration/zero-shot/INT-ZS-02_cadastro_flow.md) | [INT-FS-02](integration/few-shot/INT-FS-02_cadastro_flow.md) | [INT-COT-02](integration/cot/INT-COT-02_cadastro_flow.md) | `cadastro_flow_{zs,fs,cot}_test.dart` |
+| 03 | Adicionar música | `adicionar-musica.dart` → `criar_playlist.dart` | [INT-ZS-03](integration/zero-shot/INT-ZS-03_adicionar_musica_flow.md) | [INT-FS-03](integration/few-shot/INT-FS-03_adicionar_musica_flow.md) | [INT-COT-03](integration/cot/INT-COT-03_adicionar_musica_flow.md) | `adicionar_musica_flow_{zs,fs,cot}_test.dart` |
 
 ---
 
@@ -148,5 +148,5 @@ Cada linha representa **um fluxo × três estratégias = três rodadas**. Total:
 
 - [`PROMPT_TEMPLATE_UNIT.md`](PROMPT_TEMPLATE_UNIT.md) — prompts-base das 3 estratégias para nível unitário + prompt de reparo.
 - [`PROMPT_TEMPLATE_WIDGET.md`](PROMPT_TEMPLATE_WIDGET.md) — prompts-base das 3 estratégias para nível widget (inclui setup de mocks Firebase) + prompt de reparo.
-- [`PROMPT_TEMPLATE_INTEGRATION.md`](PROMPT_TEMPLATE_INTEGRATION.md) — prompts-base das 3 estratégias para nível integration (fluxos multi-tela com navegação) + prompt de reparo.
+- [`PROMPT_TEMPLATE_INT.md`](PROMPT_TEMPLATE_INT.md) — prompts-base das 3 estratégias para nível integration (fluxos multi-tela com navegação) + prompt de reparo.
 - [`Template_Documentacao_Rodada.md`](Template_Documentacao_Rodada.md) — template canônico de uma rodada (reproduzido em cada arquivo UNIT-*-NN, WIDGET-*-NN e INT-*-NN).

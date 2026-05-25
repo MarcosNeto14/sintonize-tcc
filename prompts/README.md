@@ -127,7 +127,7 @@ Cada linha representa **uma função × três estratégias = três rodadas**. To
 |---|---|---|---|---|
 | Unitário | 10 funções | 3 (ZS, FS, CoT) | **30** | Concluído |
 | Widget | 3 widgets (login, criarPlaylist, cadastro) | 3 (ZS, FS, CoT) | **9** | Concluído |
-| Integration | 3 fluxos (login, cadastro, adicionar música) | 3 (ZS, FS, CoT) | **9** | Em andamento |
+| Integration | 3 fluxos (login, cadastro, playlist) | 3 (ZS, FS, CoT) | **9** | Concluído |
 | E2E manual | TBD | N/A (sem LLM) | TBD | Planejado |
 
 ---
@@ -138,9 +138,9 @@ Cada linha representa **um fluxo × três estratégias = três rodadas**. Total:
 
 | # | Fluxo | Telas envolvidas | Doc Zero-shot | Doc Few-shot | Doc CoT | Arquivo de teste (test/integration/) |
 |---|---|---|---|---|---|---|
-| 01 | Login | `login.dart` → `tela-inicial.dart` | [INT-ZS-01](integration/zero-shot/INT-ZS-01_login_flow.md) | [INT-FS-01](integration/few-shot/INT-FS-01_login_flow.md) | [INT-COT-01](integration/cot/INT-COT-01_login_flow.md) | `login_flow_{zs,fs,cot}_test.dart` |
-| 02 | Cadastro | `cadastro.dart` → `generos-cadastro.dart` | [INT-ZS-02](integration/zero-shot/INT-ZS-02_cadastro_flow.md) | [INT-FS-02](integration/few-shot/INT-FS-02_cadastro_flow.md) | [INT-COT-02](integration/cot/INT-COT-02_cadastro_flow.md) | `cadastro_flow_{zs,fs,cot}_test.dart` |
-| 03 | Adicionar música | `adicionar-musica.dart` → `criar_playlist.dart` | [INT-ZS-03](integration/zero-shot/INT-ZS-03_adicionar_musica_flow.md) | [INT-FS-03](integration/few-shot/INT-FS-03_adicionar_musica_flow.md) | [INT-COT-03](integration/cot/INT-COT-03_adicionar_musica_flow.md) | `adicionar_musica_flow_{zs,fs,cot}_test.dart` |
+| 01 | Login | `login.dart` → `recup-senha.dart` / `cadastro.dart` | [INT-ZS-01](integration/zero-shot/INT-ZS-01_login_flow.md) | [INT-FS-01](integration/few-shot/INT-FS-01_login_flow.md) | [INT-COT-01](integration/cot/INT-COT-01_login.md) | `login_flow_{zs,fs,cot}_test.dart` |
+| 02 | Cadastro | `cadastro.dart` → `generos-cadastro.dart` | [INT-ZS-02](integration/zero-shot/INT-ZS-02_cadastro_flow.md) | [INT-FS-02](integration/few-shot/INT-FS-02_cadastro.md) | [INT-COT-02](integration/cot/INT-COT-02_cadastro.md) | `cadastro_flow_{zs,fs,cot}_test.dart` |
+| 03 | Playlist | `criar_playlist.dart` + `adicionar-musica.dart` | [INT-ZS-03](integration/zero-shot/INT-ZS-03_adicionar_musica_flow.md) | [INT-FS-03](integration/few-shot/INT-FS-03_playlist.md) | [INT-COT-03](integration/cot/INT-COT-03_playlist.md) | `playlist_flow_{zs,fs,cot}_test.dart` |
 
 ---
 

@@ -10,11 +10,11 @@
 | **Nível da pirâmide** | Integration |
 | **Estratégia de prompt** | Zero-shot |
 | **LLM utilizado** | ChatGPT |
-| **Versão do modelo** | _preencher_ |
+| **Versão do modelo** | GPT-5.5 |
 | **Data de acesso** | 2026-05-21 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
-| **Versão do Flutter** | _preencher_ |
+| **Versão do Flutter** | GPT-5.5 |
 
 ---
 

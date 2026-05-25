@@ -10,7 +10,7 @@
 | **Nível da pirâmide**    | Integration test                                               |
 | **Estratégia de prompt** | Zero-shot                                                      |
 | **LLM utilizado**        | ChatGPT                                                        |
-| **Versão do modelo**     | [preencher]                                                    |
+| **Versão do modelo**     | GPT-4.5                                                    |
 | **Data de acesso**       | [preencher]                                                    |
 | **Conversa nova?**       | Sim (cada rodada em conversa limpa)                            |
 | **Framework de teste**   | flutter_test                                                   |

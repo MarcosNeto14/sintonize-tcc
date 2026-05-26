@@ -8,8 +8,8 @@
 | **Fluxo** | Login de usuário existente |
 | **Telas envolvidas** | LoginScreen → TelaInicialScreen |
 | **Tipo** | Manual |
-| **Data de execução** | [preencher] |
-| **Dispositivo/Emulador** | [preencher] |
+| **Data de execução** | 2026-05-25 |
+| **Dispositivo/Emulador** | Web — Google Chrome (`flutter run -d chrome`) |
 | **Versão do app** | Flutter 3.41.6 |
 
 ---
@@ -26,11 +26,11 @@
 
 | # | Passo | Resultado Esperado | Resultado Real | Status |
 |---|---|---|---|---|
-| 1 | Abrir o app | Tela de Login exibida | [preencher] | ⬜ |
-| 2 | Preencher E-mail com credencial válida | Campo aceita o texto | [preencher] | ⬜ |
-| 3 | Preencher Senha correta | Campo aceita o texto (oculto) | [preencher] | ⬜ |
-| 4 | Tocar em "Entrar" | App autentica via Firebase e navega para TelaInicialScreen | [preencher] | ⬜ |
-| 5 | Verificar que TelaInicialScreen é exibida | Conteúdo da tela inicial visível | [preencher] | ⬜ |
+| 1 | Abrir o app | Tela de Login exibida | Conforme esperado | ✅ |
+| 2 | Preencher E-mail com credencial válida | Campo aceita o texto | Conforme esperado | ✅ |
+| 3 | Preencher Senha correta | Campo aceita o texto (oculto) | Conforme esperado | ✅ |
+| 4 | Tocar em "Entrar" | App autentica via Firebase e navega para TelaInicialScreen | Conforme esperado | ✅ |
+| 5 | Verificar que TelaInicialScreen é exibida | Conteúdo da tela inicial visível | Conforme esperado | ✅ |
 
 ---
 
@@ -38,10 +38,10 @@
 
 | # | Passo | Resultado Esperado | Resultado Real | Status |
 |---|---|---|---|---|
-| E1 | Tocar "Entrar" com campos vazios | Mensagem "Por favor, insira seu e-mail" | [preencher] | ⬜ |
-| E2 | Tocar "Entrar" com e-mail inválido | Mensagem "Por favor, insira um e-mail válido" | [preencher] | ⬜ |
-| E3 | Tocar "Entrar" com senha < 6 caracteres | Mensagem "A senha deve ter pelo menos 6 caracteres" | [preencher] | ⬜ |
-| E4 | Tocar "Entrar" com credenciais erradas (e-mail válido, senha incorreta) | SnackBar com mensagem de erro do Firebase | [preencher] | ⬜ |
+| E1 | Tocar "Entrar" com campos vazios | Mensagem "Por favor, insira seu e-mail" | Conforme esperado | ✅ |
+| E2 | Tocar "Entrar" com e-mail inválido | Mensagem "Por favor, insira um e-mail válido" | Conforme esperado | ✅ |
+| E3 | Tocar "Entrar" com senha < 6 caracteres | Mensagem "A senha deve ter pelo menos 6 caracteres" | Conforme esperado | ✅ |
+| E4 | Tocar "Entrar" com credenciais erradas (e-mail válido, senha incorreta) | SnackBar com mensagem de erro do Firebase | Conforme esperado | ✅ |
 
 ---
 
@@ -49,14 +49,14 @@
 
 | Métrica | Valor |
 |---|---|
-| **Passos executados** | [preencher] / 5 |
-| **Passos aprovados** | [preencher] |
-| **Passos reprovados** | [preencher] |
-| **Erros validados** | [preencher] / 4 |
-| **Status geral** | ⬜ Aprovado / ⬜ Reprovado / ⬜ Aprovado com ressalvas |
+| **Passos executados** | 5 / 5 |
+| **Passos aprovados** | 5 |
+| **Passos reprovados** | 0 |
+| **Erros validados** | 4 / 4 |
+| **Status geral** | ✅ Aprovado |
 
 ---
 
 ## Observações
 
-[preencher]
+Nenhuma. Todos os 5 passos e 4 cenários de erro executados sem desvios.

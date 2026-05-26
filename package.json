@@ -13,7 +13,11 @@
     "format": "dart format lib test",
     "fix": "dart fix --apply",
     "test": "flutter test",
+    "test:unit": "flutter test test/unit/",
+    "test:widget": "flutter test test/widget/",
+    "test:integration": "flutter test test/integration/",
     "test:coverage": "flutter test --coverage",
+    "test:unit:coverage": "flutter test test/unit/ --coverage",
     "generate": "dart run build_runner build --delete-conflicting-outputs",
     "run": "flutter run",
     "web": "flutter run -d chrome",
@@ -22,9 +26,16 @@
     "web:host": "flutter run -d chrome --web-port=5000 --web-hostname=0.0.0.0",
     "web:release": "flutter run -d chrome --release",
     "web:profile": "flutter run -d chrome --profile",
+    "web:canvaskit": "flutter run -d chrome --web-renderer canvaskit",
+    "web:html": "flutter run -d chrome --web-renderer html",
+    "web:wasm": "flutter run -d chrome --wasm",
     "build:apk": "flutter build apk --release",
     "build:web": "flutter build web --release",
     "build:web:profile": "flutter build web --profile",
-    "serve:web": "npx --yes serve build/web -l 5000"
+    "build:web:canvaskit": "flutter build web --release --web-renderer canvaskit",
+    "build:web:html": "flutter build web --release --web-renderer html",
+    "build:web:wasm": "flutter build web --release --wasm",
+    "serve:web": "npx --yes serve build/web -l 5000",
+    "build:serve": "flutter build web --release && npx --yes serve build/web -l 5000"
   }
 }

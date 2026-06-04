@@ -7,7 +7,7 @@
 | **ID da Rodada**         | INT-COT-01                                                     |
 | **Fluxo testado**        | Login (LoginScreen → RecupSenhaScreen / CadastroScreen)        |
 | **Arquivos envolvidos**  | lib/login.dart, lib/recup-senha.dart                          |
-| **Nível da pirâmide**    | Integration test                                               |
+| **Nível da pirâmide**    | Integração                                               |
 | **Estratégia de prompt** | Chain-of-Thought                                               |
 | **LLM utilizado**        | ChatGPT                                                        |
 | **Versão do modelo**     | GPT-5.5                                                        |
@@ -45,7 +45,7 @@ Use import 'package:sintonize/...' para os imports do projeto.
 
 ---
 
-## Resposta do LLM (raciocínio CoT + código)
+## Resposta do LLM
 
 ### 1. Análise do fluxo
 
@@ -209,13 +209,14 @@ void main() {
 
 ## Resultado da Execução
 
-| Métrica             | Valor |
-| ------------------- | ----- |
-| **Compilou?**       | Sim   |
-| **Testes gerados**  | 11    |
-| **Testes passaram** | 11    |
-| **Testes falharam** | 0     |
-| **Iterações**       | 0     |
+| Métrica | Valor |
+|---|---|
+| **Compilou?** | Sim |
+| **Testes gerados** | 11 |
+| **Testes passaram (1ª execução)** | 11 |
+| **Testes falharam (1ª execução)** | 0 |
+| **Testes passaram (pós-repair)** | — |
+| **Testes falharam (pós-repair)** | — |
 
 ### Saída do terminal
 
@@ -243,4 +244,14 @@ Warning: A call to tap() with finder "Found 1 widget with text "Não tem cadastr
 
 ## Iterative Repair Loop
 
-Não necessário — 11/11 na geração inicial.
+### Iteração 1
+
+Não necessária.
+
+### Iteração 2
+
+Não necessária.
+
+### Iteração 3
+
+Não necessária.

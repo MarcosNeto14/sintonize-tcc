@@ -1,0 +1,8 @@
+00:00 +0: CadastroScreen Integration Tests deve exibir erros de validação ao tentar cadastrar com formulário vazio
+00:01 +1: CadastroScreen Integration Tests deve validar email inválido
+00:02 +2: CadastroScreen Integration Tests deve validar senhas diferentes
+00:02 +3: CadastroScreen Integration Tests deve navegar ao clicar em "Faça login"
+00:02 +4: GenerosCadastroScreen Integration Tests deve renderizar todos os gêneros musicais
+00:03 +5: GenerosCadastroScreen Integration Tests deve permitir selecionar um gênero
+00:03 +6: GenerosCadastroScreen Integration Tests deve exibir snackbar ao confirmar sem selecionar gênero
+00:03 +7: All tests passed!

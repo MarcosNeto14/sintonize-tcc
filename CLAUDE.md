@@ -76,4 +76,9 @@ Same pattern for widget tests under `test/widget/` and `prompts/integration/` (n
 
 ## Tracking progress
 
-The unit/COT phase is in progress (see `prompts/unit/cot/`). Each strategy spans 10 functions; the FS and ZS phases for unit are complete. Widget tests cover `login`, `cadastro`, `criar_playlist` across the three strategies. Integration and E2E (`e2e-manual/`) are still TBD.
+All 48 rounds are complete:
+- **Unit (30 rounds):** ZS, FS, COT × 10 functions — all docs, tests, and results archived in `prompts/unit/`, `test/unit/`, `results/unit/`.
+- **Widget (9 rounds):** ZS, FS, COT × 3 screens (login, criar_playlist, cadastro) — all docs, tests, and results archived in `prompts/widget/`, `test/widget/`, `results/widget/`.
+- **Integration (9 rounds):** ZS, FS, COT × 3 flows (login, cadastro, playlist) — all docs, tests, and results archived in `prompts/integration/`, `test/integration/`, `results/integration/`.
+- **E2E manual (4 flows):** Roteiros in `e2e-manual/`; all 4 flows executed and documented (Chrome/Web, 2026-05-25).
+- **E2E automated:** Not executed (out of scope for this experiment).

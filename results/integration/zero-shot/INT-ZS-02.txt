@@ -1,0 +1,28 @@
+00:07 +0 -5: CadastroScreen Integration deve validar campos obrigatórios [E]
+  Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "O nome é obrigatório": []>
+  (botão "Cadastrar" está off-screen — Offset(400,870) fora dos limites 800x600)
+
+00:07 +0 -5: CadastroScreen Integration deve validar email inválido [E]
+  (mesmo problema — botão off-screen)
+
+00:07 +0 -5: CadastroScreen Integration deve validar senha diferente [E]
+  (mesmo problema)
+
+00:07 +0 -5: CadastroScreen Integration deve preencher formulário corretamente [E]
+  (campos off-screen, interações não alcançam os widgets)
+
+00:07 +0 -5: CadastroScreen Integration deve navegar para login [E]
+  Expected: no matching candidates
+  Actual: Found 1 widget with type "CadastroScreen"
+  (CadastroScreen ainda visível: Navigator.push empilha a tela, não substitui;
+   e o LoginScreen usa MaterialPageRoute direto, não a rota nomeada '/login')
+
+00:08 +1 -5: CadastroScreen Integration GenerosCadastroScreen deve selecionar gênero [PASS]
+
+00:08 +1 -6: CadastroScreen Integration GenerosCadastroScreen deve exigir ao menos um gênero [E]
+  Expected: exactly one matching candidate
+  Actual: Found 0 widgets with text "Selecione pelo menos um gênero musical!"
+  (botão "Confirmar" off-screen — Offset(400,618) fora dos limites)
+
+00:08 +1 -6: Some tests failed.

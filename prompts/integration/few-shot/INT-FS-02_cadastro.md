@@ -7,7 +7,7 @@
 | **ID da Rodada**         | INT-FS-02                                                      |
 | **Fluxo testado**        | Cadastro (CadastroScreen → GenerosCadastroScreen)              |
 | **Arquivos envolvidos**  | lib/cadastro.dart, lib/generos-cadastro.dart                  |
-| **Nível da pirâmide**    | Integration test                                               |
+| **Nível da pirâmide**    | Integração                                               |
 | **Estratégia de prompt** | Few-shot                                                       |
 | **LLM utilizado**        | ChatGPT                                                        |
 | **Versão do modelo**     | GPT-5.5                                                    |
@@ -184,7 +184,7 @@ Dependências disponíveis:
 
 ---
 
-## Resposta do LLM (Geração inicial)
+## Resposta do LLM
 
 ```dart
 // test/integration/cadastro_flow_test.dart
@@ -294,14 +294,16 @@ void main() {
 
 ---
 
-## Resultado da Execução (Geração inicial)
+## Resultado da Execução
 
-| Métrica             | Valor |
-| ------------------- | ----- |
-| **Compilou?**       | Sim   |
-| **Testes gerados**  | 7     |
-| **Testes passaram** | 5     |
-| **Testes falharam** | 2     |
+| Métrica | Valor |
+|---|---|
+| **Compilou?** | Sim |
+| **Testes gerados** | 7 |
+| **Testes passaram (1ª execução)** | 5 |
+| **Testes falharam (1ª execução)** | 2 |
+| **Testes passaram (pós-repair)** | 7 |
+| **Testes falharam (pós-repair)** | 0 |
 
 ### Saída do terminal
 
@@ -351,6 +353,8 @@ Corrija o teste para que compile e passe corretamente. Não modifique o código 
 
 - **Resultado após correção:** 6/7 — navegação passou (asserção fraca); gêneros ainda falharam (`Bad state: No element` no `ensureVisible`).
 
+---
+
 ### Iteração 2
 
 - **Motivo da falha:** `ensureVisible` requer que o widget já esteja na árvore de widgets; itens lazy do `ListView.builder` não existem até serem rolados para a viewport.
@@ -377,8 +381,6 @@ Corrija o teste para que compile e passe corretamente. Não modifique o código 
 
 - **Resultado após correção:** 7/7 — todos os testes passaram.
 
-### Saída final do terminal
-
 ```
 00:00 +0: CadastroScreen Integration Tests deve exibir erros de validação ao tentar cadastrar com formulário vazio
 00:01 +1: CadastroScreen Integration Tests deve validar email inválido
@@ -390,12 +392,8 @@ Corrija o teste para que compile e passe corretamente. Não modifique o código 
 00:03 +7: All tests passed!
 ```
 
-## Resultado Final
+---
 
-| Métrica             | Valor |
-| ------------------- | ----- |
-| **Compilou?**       | Sim   |
-| **Testes gerados**  | 7     |
-| **Testes passaram** | 7     |
-| **Testes falharam** | 0     |
-| **Iterações**       | 2     |
+### Iteração 3
+
+Não necessária.

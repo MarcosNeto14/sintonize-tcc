@@ -1,44 +1,38 @@
 # Templates de Prompt — Integration Tests
 
 **Projeto:** Sintonize (Flutter + Firebase)
-**Nível:** Integration Test (fluxos multi-tela com WidgetTester)
+**Nível:** Integration Tests (fluxos multi-tela)
 **Total de rodadas:** 9 (3 fluxos × 3 estratégias)
 
 **Instruções de uso:**
 1. Copie o template da estratégia desejada
-2. Substitua os marcadores `[COLAR ...]` pelo código completo dos arquivos das telas envolvidas no fluxo
-3. Cole no ChatGPT em uma **conversa nova**
-4. Documente tudo no arquivo `INT-XX-NN` correspondente em `prompts/integration/{zero-shot,few-shot,cot}/`
-
-**Diferença para widget tests:** os integration tests cobrem **fluxos completos de navegação** entre telas (ex: login → tela inicial), enquanto widget tests testam um único widget isolado.
+2. Substitua `[COLAR O CÓDIGO DAS TELAS DO FLUXO AQUI]` pelo código completo de todos os arquivos `.dart` envolvidos no fluxo
+3. Abra uma **conversa nova** no ChatGPT (uma conversa por rodada)
+4. Cole o prompt e copie a resposta no doc da rodada correspondente em `prompts/integration/{zero-shot,few-shot,cot}/`
 
 ---
 
-## Fluxos e arquivos a colar
+## Fluxos-alvo
 
-| # | Fluxo | Tela principal | Tela destino | Complexidade |
-|---|---|---|---|---|
-| 01 | Login | lib/login.dart (219 linhas) | lib/tela-inicial.dart | Baixa |
-| 02 | Cadastro | lib/cadastro.dart (484 linhas) | lib/tela-inicial.dart | Alta |
-| 03 | Criar Playlist | lib/criar_playlist.dart (254 linhas) | — (Firestore) | Média |
+| # | Fluxo | Telas envolvidas | Arquivos |
+|---|---|---|---|
+| 01 | Login | LoginScreen → TelaInicial | `lib/login.dart`, `lib/tela-inicial.dart` |
+| 02 | Cadastro | CadastroScreen → LoginScreen | `lib/cadastro.dart`, `lib/login.dart` |
+| 03 | Adicionar música | (tela de origem) → AdicionarMusica → Playlist | `lib/adicionar-musica.dart`, `lib/criar_playlist.dart` |
 
 ---
 
 ## Estratégia 1 — ZERO-SHOT
 
 ```
-Gere testes de integração em Flutter para o fluxo [NOME_DO_FLUXO].
+Gere um teste de integração em Dart usando flutter_test para o seguinte fluxo do aplicativo Flutter "Sintonize":
 
-O fluxo cobre as seguintes telas:
+[DESCREVER O FLUXO EM 1-2 FRASES — ex.: "O usuário preenche email e senha na LoginScreen e, após autenticação bem-sucedida, é redirecionado para a TelaInicial."]
 
-=== TELA PRINCIPAL: [NomeDaTelaOuArquivo] ===
+Código das telas envolvidas:
+
 ```dart
-[COLAR O CÓDIGO COMPLETO DA TELA PRINCIPAL AQUI]
-```
-
-=== TELA DESTINO: [NomeDaTelaDestinoOuArquivo] (se aplicável) ===
-```dart
-[COLAR O CÓDIGO COMPLETO DA TELA DESTINO AQUI — ou remover esta seção se não houver]
+[COLAR O CÓDIGO DAS TELAS DO FLUXO AQUI]
 ```
 
 Dependências disponíveis para mocking:
@@ -47,16 +41,13 @@ Dependências disponíveis para mocking:
 - mockito
 
 Requisitos:
-- Usar flutter_test com testWidgets() e WidgetTester
-- Envolver o widget raiz em MaterialApp para suportar navegação
-- Configurar mocks de Firebase Auth e/ou Firestore conforme necessário
-- Testar o fluxo completo: renderização inicial → entrada de dados → ação do usuário → navegação para tela destino
-- Cobrir: caminho feliz (fluxo completo com sucesso), falhas de validação, falha de autenticação/serviço externo
-- Usar pumpAndSettle() para aguardar navegação e animações
-- Agrupar os testes com group('[NomeDoFluxo] Integration Tests', ...)
-- Um testWidgets() por cenário
-- Usar import 'package:sintonize/...' para imports do projeto
+- Use testWidgets() do flutter_test
+- Monte todas as telas do fluxo dentro de um MaterialApp com rotas configuradas
+- Configure os mocks de Firebase necessários
+- Teste o fluxo completo ponta a ponta: interações na primeira tela → navegação → estado da tela destino
+- Teste também cenários de erro (credenciais inválidas, campos vazios, Firebase retorna erro)
 - Os testes devem ser executáveis com `flutter test test/integration/`
+- Use `import 'package:sintonize/...'` para os imports do projeto
 ```
 
 ---
@@ -64,60 +55,75 @@ Requisitos:
 ## Estratégia 2 — FEW-SHOT
 
 ```
-Gere testes de integração em Flutter para o fluxo [NOME_DO_FLUXO].
+Gere um teste de integração em Dart usando flutter_test para o fluxo do aplicativo Flutter "Sintonize" descrito abaixo.
 
-Antes, veja dois exemplos do padrão esperado:
+Antes, veja um exemplo de teste de integração que cobre um fluxo de login:
 
---- EXEMPLO 1: Fluxo de login bem-sucedido ---
+**Exemplo — teste de integração do fluxo de login:**
 ```dart
-testWidgets('login bem-sucedido navega para TelaInicial', (WidgetTester tester) async {
-  final mockAuth = MockFirebaseAuth(signedIn: false);
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 
-  await tester.pumpWidget(const MaterialApp(home: LoginScreen()));
+void main() {
+  group('Fluxo de Login', () {
+    late MockFirebaseAuth mockAuth;
 
-  await tester.enterText(find.byType(TextFormField).first, 'usuario@email.com');
-  await tester.enterText(find.byType(TextFormField).last, 'senha123');
+    setUp(() {
+      mockAuth = MockFirebaseAuth();
+    });
 
-  await tester.tap(find.text('Entrar'));
-  await tester.pumpAndSettle();
+    testWidgets('fluxo completo: login bem-sucedido navega para Home', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          routes: {
+            '/': (_) => LoginScreen(auth: mockAuth),
+            '/home': (_) => const HomeScreen(),
+          },
+        ),
+      );
 
-  expect(find.byType(TelaInicialScreen), findsOneWidget);
-});
+      await tester.enterText(find.byKey(const Key('emailField')), 'user@test.com');
+      await tester.enterText(find.byKey(const Key('senhaField')), 'senha123');
+      await tester.tap(find.text('Entrar'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(HomeScreen), findsOneWidget);
+    });
+
+    testWidgets('credenciais inválidas exibem mensagem de erro', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: LoginScreen(auth: MockFirebaseAuth(authExceptions:
+            AuthExceptions(signInWithEmailAndPassword: FirebaseAuthException(code: 'wrong-password')))),
+        ),
+      );
+
+      await tester.enterText(find.byKey(const Key('emailField')), 'user@test.com');
+      await tester.enterText(find.byKey(const Key('senhaField')), 'errada'));
+      await tester.tap(find.text('Entrar'));
+      await tester.pumpAndSettle();
+
+      expect(find.textContaining('inválid'), findsOneWidget);
+    });
+  });
+}
 ```
 
---- EXEMPLO 2: Falha de validação impede navegação ---
+Agora, gere um teste de integração para o seguinte fluxo:
+
+[DESCREVER O FLUXO EM 1-2 FRASES]
+
+Código das telas envolvidas:
+
 ```dart
-testWidgets('campos inválidos exibem erros e não navegam', (WidgetTester tester) async {
-  await tester.pumpWidget(const MaterialApp(home: LoginScreen()));
-
-  await tester.tap(find.text('Entrar'));
-  await tester.pump();
-
-  expect(find.text('Por favor, insira seu e-mail'), findsOneWidget);
-  expect(find.byType(TelaInicialScreen), findsNothing);
-});
-```
-
-Agora gere testes de integração para o fluxo [NOME_DO_FLUXO], seguindo o mesmo padrão dos exemplos.
-
-O fluxo cobre as seguintes telas:
-
-=== TELA PRINCIPAL: [NomeDaTelaOuArquivo] ===
-```dart
-[COLAR O CÓDIGO COMPLETO DA TELA PRINCIPAL AQUI]
-```
-
-=== TELA DESTINO: [NomeDaTelaDestinoOuArquivo] (se aplicável) ===
-```dart
-[COLAR O CÓDIGO COMPLETO DA TELA DESTINO AQUI — ou remover esta seção se não houver]
+[COLAR O CÓDIGO DAS TELAS DO FLUXO AQUI]
 ```
 
 Dependências disponíveis:
-- firebase_auth_mocks (MockFirebaseAuth)
-- fake_cloud_firestore (FakeFirebaseFirestore)
+- firebase_auth_mocks
+- fake_cloud_firestore
 - mockito
-
-Use import 'package:sintonize/...' para os imports do projeto.
 ```
 
 ---
@@ -125,45 +131,35 @@ Use import 'package:sintonize/...' para os imports do projeto.
 ## Estratégia 3 — CHAIN-OF-THOUGHT (CoT)
 
 ```
-Quero que você gere testes de integração em Flutter para o fluxo [NOME_DO_FLUXO]. Antes de escrever os testes, siga estes passos obrigatoriamente:
+Quero que você gere um teste de integração em Dart para o fluxo do aplicativo Flutter "Sintonize" descrito abaixo. Antes de escrever os testes, siga estes passos:
 
-Passo 1 — Analise o fluxo:
-Descreva em 2–3 frases o que o fluxo faz, quais telas são envolvidas, qual é o caminho feliz esperado e qual o estado final do app após o fluxo completo.
-
-Passo 2 — Identifique as dependências:
-Liste quais serviços externos são usados (Firebase Auth, Firestore, HTTP, etc.) e como cada um deve ser mockado usando as bibliotecas disponíveis (firebase_auth_mocks, fake_cloud_firestore, mockito).
-
-Passo 3 — Identifique os cenários de teste:
-Liste todos os cenários relevantes, incluindo:
-- (a) Caminho feliz: fluxo completo com sucesso e navegação para a tela destino
-- (b) Falhas de validação: campos inválidos ou vazios impedem progresso
-- (c) Falha de serviço externo: Firebase Auth ou Firestore retorna erro
-- (d) Casos de borda: estado parcialmente preenchido, duplo tap, etc.
-
-Passo 4 — Escreva os testes:
-Para cada cenário identificado no Passo 3, escreva um testWidgets() completo e compilável.
+1. **Analise o fluxo:** Descreva em 3-5 frases o que acontece do início ao fim do fluxo, quais são os pontos de decisão (sucesso/erro) e quais telas estão envolvidas.
+2. **Identifique as dependências:** Liste quais serviços (Firebase Auth, Firestore, etc.) são acionados em cada tela e como devem ser mockados.
+3. **Monte a estrutura de navegação:** Descreva como configurar o MaterialApp com rotas para que a navegação entre telas funcione nos testes.
+4. **Identifique os cenários de teste:** Liste todos os cenários do fluxo completo:
+   - Fluxo de sucesso ponta a ponta (interação → navegação → estado final)
+   - Erros de validação (campos inválidos antes de disparar Firebase)
+   - Erros do Firebase (autenticação falha, Firestore indisponível)
+   - Estados intermediários visíveis ao usuário (loading, mensagens de erro)
+5. **Escreva os testes:** Para cada cenário, escreva um testWidgets() completo.
 
 IMPORTANTE: Não modifique o código das telas. Apenas gere os testes.
 
-O fluxo cobre as seguintes telas:
+Fluxo a testar:
 
-=== TELA PRINCIPAL: [NomeDaTelaOuArquivo] ===
+[DESCREVER O FLUXO EM 1-2 FRASES]
+
+Código das telas envolvidas:
+
 ```dart
-[COLAR O CÓDIGO COMPLETO DA TELA PRINCIPAL AQUI]
+[COLAR O CÓDIGO DAS TELAS DO FLUXO AQUI]
 ```
 
-=== TELA DESTINO: [NomeDaTelaDestinoOuArquivo] (se aplicável) ===
-```dart
-[COLAR O CÓDIGO COMPLETO DA TELA DESTINO AQUI — ou remover esta seção se não houver]
-```
-
-Dependências disponíveis para mocking:
+Dependências disponíveis:
 - firebase_auth_mocks (MockFirebaseAuth)
 - fake_cloud_firestore (FakeFirebaseFirestore)
 - mockito
-
-Use import 'package:sintonize/...' para os imports do projeto.
-Os testes devem ser executáveis com `flutter test test/integration/`.
+Use `import 'package:sintonize/...'` para os imports do projeto.
 ```
 
 ---
@@ -171,7 +167,7 @@ Os testes devem ser executáveis com `flutter test test/integration/`.
 ## Prompt para Iterative Repair Loop
 
 ```
-O integration test falhou com o seguinte erro:
+O teste de integração falhou com o seguinte erro:
 
 ```
 [COLAR A SAÍDA DE ERRO DO TERMINAL AQUI]
@@ -188,9 +184,9 @@ Corrija o teste para que compile e passe corretamente. Não modifique o código 
 
 | Aspecto | Widget Tests | Integration Tests |
 |---|---|---|
-| Escopo | 1 widget isolado | Fluxo completo (1+ telas + navegação) |
-| O que colar no prompt | Código de 1 tela | Código de 1–2 telas (origem + destino) |
-| Tipo de assert principal | Renderização e validação | Navegação entre telas (`find.byType(TelaDestino)`) |
-| pump() vs pumpAndSettle() | `pump()` suficiente na maioria | `pumpAndSettle()` obrigatório para aguardar navegação |
+| Escopo | Uma tela isolada | Fluxo completo entre 2+ telas |
+| O que colar no prompt | Código de 1 widget | Código de 2+ widgets + navegação |
+| Navegação | Sem rotas reais | MaterialApp com rotas configuradas |
+| Assert principal | Elementos dentro da tela | Tela destino aparece após interação |
 | Complexidade esperada | Alta | Muito alta |
-| Iterações de repair esperadas | 2–3 | 2–3 |
+| Iterações de repair esperadas | 2-3 | 3 |

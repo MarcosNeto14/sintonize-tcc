@@ -21,25 +21,26 @@ sintonize/
 │   │   ├── zero-shot/               ← 10 docs UNIT-ZS-NN_*.md
 │   │   ├── few-shot/                ← 10 docs UNIT-FS-NN_*.md
 │   │   └── cot/                     ← 10 docs UNIT-COT-NN_*.md
-│   ├── widget/                      ← nível widget test (em andamento)
+│   ├── widget/                      ← nível widget test (concluído)
 │   │   ├── zero-shot/               ← 3 docs WIDGET-ZS-NN_*.md
 │   │   ├── few-shot/                ← 3 docs WIDGET-FS-NN_*.md
 │   │   └── cot/                     ← 3 docs WIDGET-COT-NN_*.md
-│   ├── integration/                 ← nível integration test (planejado)
-│   │   ├── zero-shot/               ← placeholder
-│   │   ├── few-shot/                ← placeholder
-│   │   ├── cot/                     ← placeholder
-│   │   ├── multi-step/              ← placeholder (estratégia MS)
-│   │   └── context-enrichment/      ← placeholder (estratégia CE)
+│   ├── integration/                 ← nível integration test (concluído)
+│   │   ├── zero-shot/               ← 3 docs INT-ZS-NN_*.md
+│   │   ├── few-shot/                ← 3 docs INT-FS-NN_*.md
+│   │   ├── cot/                     ← 3 docs INT-COT-NN_*.md
+│   │   ├── multi-step/              ← reservado (estratégia MS, não executada)
+│   │   └── context-enrichment/      ← reservado (estratégia CE, não executada)
 │   └── e2e/                         ← E2E manual (planejado, sem código de teste)
 ├── test/
 │   ├── unit/                        ← 30 arquivos .dart unitários
-│   └── widget/                      ← 9 arquivos .dart de widget test
+│   ├── widget/                      ← 9 arquivos .dart de widget test
+│   └── integration/                 ← 9 arquivos .dart de integration test
 └── results/                         ← saídas do flutter test por rodada
-    ├── unit/{zero-shot,few-shot,cot}/    ← 30 resultados (concluído)
-    ├── widget/{zero-shot,few-shot,cot}/  ← placeholders para fase em andamento
-    ├── integration/{...}/                 ← placeholders para fase futura
-    └── e2e/                               ← placeholder para E2E manual
+    ├── unit/{zero-shot,few-shot,cot}/         ← 30 resultados (concluído)
+    ├── widget/{zero-shot,few-shot,cot}/        ← 9 resultados (concluído)
+    ├── integration/{zero-shot,few-shot,cot}/   ← 9 resultados (concluído)
+    └── e2e/                                    ← placeholder para E2E automatizado
 ```
 
 > **Convenção de pastas:** o nome da pasta sob `prompts/`, `test/` e `results/` sempre corresponde ao **nível da pirâmide** (unit/widget/integration/e2e), nunca à estratégia. Estratégias são subpastas. Os arquivos `WIDGET-*` moram em `prompts/widget/`, **não** em `prompts/integration/` — `widget test` e `integration test` são níveis distintos da pirâmide de testes do Flutter.
@@ -132,15 +133,29 @@ Cada linha representa **uma função × três estratégias = três rodadas**. To
 
 ---
 
+## Tabela de Rastreabilidade — Nível Widget
+
+Cada linha representa **um widget × três estratégias = três rodadas**. Total: **9 rodadas**.
+
+| # | Widget | Arquivo de origem | Doc Zero-shot | Doc Few-shot | Doc CoT | Arquivo de teste (test/widget/) | Resultado (results/) |
+|---|---|---|---|---|---|---|---|
+| 01 | `LoginScreen` | `lib/login.dart` | [WIDGET-ZS-01](widget/zero-shot/WIDGET-ZS-01_login.md) | [WIDGET-FS-01](widget/few-shot/WIDGET-FS-01_login.md) | [WIDGET-COT-01](widget/cot/WIDGET-COT-01_login.md) | `login_{zs,fs,cot}_test.dart` | `results/widget/{estratégia}/` |
+| 02 | `CriarPlaylistScreen` | `lib/criar_playlist.dart` | [WIDGET-ZS-02](widget/zero-shot/WIDGET-ZS-02_criarPlaylist.md) | [WIDGET-FS-02](widget/few-shot/WIDGET-FS-02_criarPlaylist.md) | [WIDGET-COT-02](widget/cot/WIDGET-COT-02_criarPlaylist.md) | `criar_playlist_{zs,fs,cot}_test.dart` | `results/widget/{estratégia}/` |
+| 03 | `CadastroScreen` | `lib/cadastro.dart` | [WIDGET-ZS-03](widget/zero-shot/WIDGET-ZS-03_cadastro.md) | [WIDGET-FS-03](widget/few-shot/WIDGET-FS-03_cadastro.md) | [WIDGET-COT-03](widget/cot/WIDGET-COT-03_cadastro.md) | `cadastro_{zs,fs,cot}_test.dart` | `results/widget/{estratégia}/` |
+
+> **Nota:** WIDGET-COT-03 foi executado com GPT-4o em vez de GPT-5.5. Resultado final: 12/13 testes passando (limite de 3 iterações atingido).
+
+---
+
 ## Tabela de Rastreabilidade — Nível Integration
 
 Cada linha representa **um fluxo × três estratégias = três rodadas**. Total: **9 rodadas**.
 
 | # | Fluxo | Telas envolvidas | Doc Zero-shot | Doc Few-shot | Doc CoT | Arquivo de teste (test/integration/) |
 |---|---|---|---|---|---|---|
-| 01 | Login | `login.dart` → `recup-senha.dart` / `cadastro.dart` | [INT-ZS-01](integration/zero-shot/INT-ZS-01_login_flow.md) | [INT-FS-01](integration/few-shot/INT-FS-01_login_flow.md) | [INT-COT-01](integration/cot/INT-COT-01_login.md) | `login_flow_{zs,fs,cot}_test.dart` |
-| 02 | Cadastro | `cadastro.dart` → `generos-cadastro.dart` | [INT-ZS-02](integration/zero-shot/INT-ZS-02_cadastro_flow.md) | [INT-FS-02](integration/few-shot/INT-FS-02_cadastro.md) | [INT-COT-02](integration/cot/INT-COT-02_cadastro.md) | `cadastro_flow_{zs,fs,cot}_test.dart` |
-| 03 | Playlist | `criar_playlist.dart` + `adicionar-musica.dart` | [INT-ZS-03](integration/zero-shot/INT-ZS-03_adicionar_musica_flow.md) | [INT-FS-03](integration/few-shot/INT-FS-03_playlist.md) | [INT-COT-03](integration/cot/INT-COT-03_playlist.md) | `playlist_flow_{zs,fs,cot}_test.dart` |
+| 01 | Login | `login.dart` → `recup-senha.dart` / `cadastro.dart` | [INT-ZS-01](integration/zero-shot/INT-ZS-01_login.md) | [INT-FS-01](integration/few-shot/INT-FS-01_login.md) | [INT-COT-01](integration/cot/INT-COT-01_login.md) | `login_flow_{zs,fs,cot}_test.dart` |
+| 02 | Cadastro | `cadastro.dart` → `generos-cadastro.dart` | [INT-ZS-02](integration/zero-shot/INT-ZS-02_cadastro.md) | [INT-FS-02](integration/few-shot/INT-FS-02_cadastro.md) | [INT-COT-02](integration/cot/INT-COT-02_cadastro.md) | `cadastro_flow_{zs,fs,cot}_test.dart` |
+| 03 | Playlist | `criar_playlist.dart` + `adicionar-musica.dart` | [INT-ZS-03](integration/zero-shot/INT-ZS-03_playlist.md) | [INT-FS-03](integration/few-shot/INT-FS-03_playlist.md) | [INT-COT-03](integration/cot/INT-COT-03_playlist.md) | `playlist_flow_{zs,fs,cot}_test.dart` |
 
 ---
 
@@ -148,5 +163,5 @@ Cada linha representa **um fluxo × três estratégias = três rodadas**. Total:
 
 - [`PROMPT_TEMPLATE_UNIT.md`](PROMPT_TEMPLATE_UNIT.md) — prompts-base das 3 estratégias para nível unitário + prompt de reparo.
 - [`PROMPT_TEMPLATE_WIDGET.md`](PROMPT_TEMPLATE_WIDGET.md) — prompts-base das 3 estratégias para nível widget (inclui setup de mocks Firebase) + prompt de reparo.
-- [`PROMPT_TEMPLATE_INT.md`](PROMPT_TEMPLATE_INT.md) — prompts-base das 3 estratégias para nível integration (fluxos multi-tela com navegação) + prompt de reparo.
+- [`PROMPT_TEMPLATE_INTEGRATION.md`](PROMPT_TEMPLATE_INTEGRATION.md) — prompts-base das 3 estratégias para nível integration (fluxos multi-tela com navegação) + prompt de reparo.
 - [`Template_Documentacao_Rodada.md`](Template_Documentacao_Rodada.md) — template canônico de uma rodada (reproduzido em cada arquivo UNIT-*-NN, WIDGET-*-NN e INT-*-NN).

@@ -122,7 +122,7 @@ void main() {
 | **MaterialApp wrapper?** | Sim |
 | **Tratou assets?** | Não |
 
-### Saída do terminal (iteração 3 — resultado final)
+### Saída do terminal
 
 ```
 00:00 +0: loading test/widget/login_cot_test.dart

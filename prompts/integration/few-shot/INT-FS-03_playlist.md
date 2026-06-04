@@ -7,7 +7,7 @@
 | **ID da Rodada**         | INT-FS-03                                                                  |
 | **Fluxo testado**        | Playlist (CriarPlaylistScreen + AdicionarMusicaScreen)                     |
 | **Arquivos envolvidos**  | lib/criar_playlist.dart, lib/adicionar-musica.dart                        |
-| **Nível da pirâmide**    | Integration test                                                           |
+| **Nível da pirâmide**    | Integração                                                           |
 | **Estratégia de prompt** | Few-shot                                                                   |
 | **LLM utilizado**        | ChatGPT                                                                    |
 | **Versão do modelo**     | GPT-5.5                                                                |
@@ -184,13 +184,14 @@ void main() {
 
 ## Resultado da Execução
 
-| Métrica             | Valor |
-| ------------------- | ----- |
-| **Compilou?**       | Sim   |
-| **Testes gerados**  | 8     |
-| **Testes passaram** | 8     |
-| **Testes falharam** | 0     |
-| **Iterações**       | 0     |
+| Métrica | Valor |
+|---|---|
+| **Compilou?** | Sim |
+| **Testes gerados** | 8 |
+| **Testes passaram (1ª execução)** | 8 |
+| **Testes falharam (1ª execução)** | 0 |
+| **Testes passaram (pós-repair)** | — |
+| **Testes falharam (pós-repair)** | — |
 
 ### Saída do terminal
 
@@ -220,4 +221,14 @@ Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been crea
 
 ## Iterative Repair Loop
 
-Não necessário — 8/8 na geração inicial.
+### Iteração 1
+
+Não necessária.
+
+### Iteração 2
+
+Não necessária.
+
+### Iteração 3
+
+Não necessária.

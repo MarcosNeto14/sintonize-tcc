@@ -93,7 +93,7 @@ import 'package:sintonize/screens/criar_playlist_screen.dart'; // import errado
 | **MaterialApp wrapper?** | Sim |
 | **Tratou assets?** | N.A. |
 
-### Saída do terminal (iteração 3 — resultado final)
+### Saída do terminal
 
 ```
 test/widget/criar_playlist_cot_test.dart:6:8: Error: Error when reading 'lib/screens/criar_playlist_screen.dart': O sistema não pode encontrar o caminho especificado

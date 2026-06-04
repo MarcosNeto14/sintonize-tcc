@@ -1,0 +1,9 @@
++1: deve renderizar campos, botões e links                                PASS
++2: deve mostrar validação ao tentar login sem email                      PASS
++3: deve mostrar validação para email inválido                            PASS
++4: deve mostrar validação para senha curta                               PASS
++5: deve permitir digitar email e senha                                   PASS
++6: link "Não tem cadastro?" deve navegar para CadastroScreen             PASS
++7: link "Esqueci minha senha" deve navegar para RecupSenhaScreen         PASS
++8: não deve autenticar quando formulário for inválido                    PASS
+00:03 +8: All tests passed!

@@ -1,0 +1,9 @@
+00:01 +1: CriarPlaylistScreen deve renderizar campos e botão              PASS
+00:02 +2: CriarPlaylistScreen deve permitir digitar nome da playlist      PASS
+00:02 +3: CriarPlaylistScreen deve mostrar snackbar ao salvar sem nome    PASS
+00:03 +4: CriarPlaylistScreen botão voltar deve fechar a tela             PASS
+00:03 +5: AdicionarMusicaScreen deve renderizar tela corretamente         PASS
+00:03 +6: AdicionarMusicaScreen deve permitir digitar na pesquisa         PASS
+00:03 +7: AdicionarMusicaScreen botão concluir sem seleção deve fechar    PASS
+00:04 +8: AdicionarMusicaScreen botão voltar deve retornar navegação      PASS
+00:04 +8: All tests passed!

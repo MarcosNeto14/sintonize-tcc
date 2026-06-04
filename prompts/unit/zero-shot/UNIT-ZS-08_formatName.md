@@ -108,6 +108,8 @@ Se quiser, posso também ajustar a função para evitar o RangeError no caso de 
 
 ## Resultado da Execução
 
+> **Nota metodológica:** A função `formatName` em `lib/utils/validators.dart` foi modificada durante a iteração de reparo de UNIT-COT-08 (substituição de `split(' ')` por `split(RegExp(r'\s+'))` com `trim()`). O arquivo `test/unit/format_name_zs_test.dart` foi retroativamente atualizado para refletir a nova implementação. Os resultados e o código registrados neste doc correspondem à rodada original (função com bug de RangeError para múltiplos espaços); o arquivo de teste atual em `test/unit/` testa a função pós-correção.
+
 | Métrica | Valor |
 |---|---|
 | **Compilou?** | Sim |

@@ -1,0 +1,20 @@
+# WIDGET-COT-03 — Iteração 3 (resultado final)
+# Widget: CadastroScreen | Estratégia: COT | Modelo: GPT-4o
+# Data: 2026-05-20 | Flutter: 3.41.7
+
+# NOTA: A saída bruta do terminal não foi capturada durante a rodada.
+# O resultado foi documentado textualmente em prompts/widget/cot/WIDGET-COT-03_cadastro.md
+# (seção ## Iterative Repair Loop → ### Iteração 3).
+#
+# Resultado documentado: 12/13 testes passaram. 1 teste falhou.
+#
+# Teste que falhou:
+#   "deve cadastrar usuário e navegar para próxima tela"
+#   Causa: FirebaseAuth.instance real é chamado em _submit(); Firebase não está
+#   inicializado no ambiente de teste. mockAuth declarado mas não injetado
+#   (acoplamento estático). Navegação para GenerosCadastroScreen nunca ocorre.
+#
+# Limite de 3 iterações atingido — falha registrada como permanente.
+# Taxa final: 12/13 (92%).
+
+[Saída do terminal não disponível — ver documentação da rodada para detalhes]

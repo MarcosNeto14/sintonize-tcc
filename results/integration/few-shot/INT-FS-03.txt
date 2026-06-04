@@ -1,0 +1,17 @@
+00:00 +0: Fluxo de Playlist deve renderizar CriarPlaylistScreen com campos e spinner
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:01 +1: Fluxo de Playlist deve permitir digitar nome da playlist e pesquisa
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:01 +2: Fluxo de Playlist deve mostrar SnackBar ao tentar salvar playlist sem nome
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:01 +3: Fluxo de Playlist botão voltar deve fechar CriarPlaylistScreen
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:02 +4: Fluxo de Playlist deve renderizar AdicionarMusicaScreen com spinner
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:02 +5: Fluxo de Playlist deve permitir pesquisar música em AdicionarMusicaScreen
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:02 +6: Fluxo de Playlist botão concluir sem músicas selecionadas deve voltar para tela anterior
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:02 +7: Fluxo de Playlist botão voltar deve fechar AdicionarMusicaScreen
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:02 +8: All tests passed!

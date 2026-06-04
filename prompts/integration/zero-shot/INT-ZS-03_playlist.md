@@ -7,7 +7,7 @@
 | **ID da Rodada** | INT-ZS-03 |
 | **Fluxo testado** | Playlist (CriarPlaylistScreen + AdicionarMusicaScreen) |
 | **Arquivos de origem** | `lib/criar_playlist.dart`, `lib/adicionar-musica.dart` |
-| **Nível da pirâmide** | Integration |
+| **Nível da pirâmide** | Integração |
 | **Estratégia de prompt** | Zero-shot |
 | **LLM utilizado** | ChatGPT |
 | **Versão do modelo** | GPT-5.5 |
@@ -38,20 +38,28 @@ executável com flutter test test/integration/, NÃO modificar código de produ�
 
 ---
 
-## Resposta do LLM (Iteração 1)
+## Resposta do LLM
 
 O LLM gerou 5 testes cobrindo: criar playlist com sucesso, nome vazio, adicionar músicas, concluir sem seleção, erro Firebase. Usou `FakeFirebaseFirestore` para seed de dados e verificação, mas sem inicializar Firebase — assumiu erroneamente que `FakeFirebaseFirestore` interceptaria `FirebaseFirestore.instance`.
+
+> **Nota metodológica:** A geração inicial foi de 5 testes. Após o repair loop (ver seção Iterative Repair Loop), o LLM removeu a dependência Firebase, regeneou com 9 testes (Iteração 1) e depois removeu 1 teste problemático, totalizando 8 testes finais. A tabela de Resultado da Execução registra a contagem final (8), não a inicial (5).
 
 **Arquivo gerado:** `test/integration/playlist_flow_zs_test.dart`
 
 ---
 
-## Resultado — Iteração 1
+## Resultado da Execução
 
-**Compilou?** Sim  
-**Testes gerados:** 5  
-**Passaram:** 0  
-**Falharam:** 5
+| Métrica | Valor |
+|---|---|
+| **Compilou?** | Sim |
+| **Testes gerados** | 8 |
+| **Testes passaram (1ª execução)** | 0 |
+| **Testes falharam (1ª execução)** | 5 |
+| **Testes passaram (pós-repair)** | 8 |
+| **Testes falharam (pós-repair)** | 0 |
+
+### Saída do terminal
 
 ```
 00:14 +0 -1: Fluxo CriarPlaylistScreen deve criar playlist com sucesso [E]
@@ -82,9 +90,9 @@ O LLM gerou 5 testes cobrindo: criar playlist com sucesso, nome vazio, adicionar
 
 ---
 
-## Iterações de Reparo
+## Iterative Repair Loop
 
-### Iteração 2
+### Iteração 1
 
 **Prompt de reparo enviado:**
 ```
@@ -98,7 +106,7 @@ dependentes de Firebase; focar em UI/validação/navegação básica.
 **Resposta do LLM:**
 Removeu todos os imports Firebase/fake. Gerou 9 testes de UI pura usando `pump(Duration(seconds: 1))` em vez de `pumpAndSettle`. Compilou.
 
-**Resultado após correção:**
+**Resultado:**
 ```
 +1: CriarPlaylistScreen deve renderizar campos e botão                    PASS
 +2: CriarPlaylistScreen deve permitir digitar nome da playlist            PASS
@@ -124,7 +132,9 @@ Removeu todos os imports Firebase/fake. Gerou 9 testes de UI pura usando `pump(D
 - Test 4: `pump(seconds:1)` faz apenas 1 frame — navegação (300ms, múltiplos frames) não completa
 - Test 5 ("salvar sem crash"): `FirebaseAuth.instance` lança em Future não tratado — flutter_test registra como falha de teste mesmo com `pump` (não é crash do app, é unhandled Future rejection)
 
-### Iteração 3
+---
+
+### Iteração 2
 
 **Prompt de reparo enviado:**
 ```
@@ -139,7 +149,7 @@ Manter os 5 testes que já passam exatamente como estão.
 **Resposta do LLM:**
 Removeu o teste problemático (Firebase submit). Substituiu pump(seconds:1) por dois pumps consecutivos nos 3 testes de navegação. Total: 8 testes.
 
-**Resultado após correção:**
+**Resultado:**
 ```
 00:01 +1: CriarPlaylistScreen deve renderizar campos e botão              PASS
 00:02 +2: CriarPlaylistScreen deve permitir digitar nome da playlist      PASS
@@ -154,24 +164,6 @@ Removeu o teste problemático (Firebase submit). Substituiu pump(seconds:1) por 
 
 ---
 
-## Métricas Finais
+### Iteração 3
 
-| Métrica | Valor |
-|---|---|
-| **Testes gerados** | 8 (começou com 5, chegou a 9 na it.2, removeu 1 na it.3) |
-| **Testes passando (final)** | 8/8 |
-| **Iterações de reparo** | 3 |
-| **Compilou na 1ª iteração?** | Sim |
-| **Cobriu fluxo de sucesso?** | Não (submit Firebase impossível sem DI) |
-| **Cobriu cenários de erro?** | Parcial (snackbar de nome vazio — validação de UI apenas) |
-| **Cobriu navegação entre telas?** | Sim (push + pop em ambas as telas) |
-
----
-
-## Observações Qualitativas
-
-- **Melhor resultado ZS da fase Integration:** 8/8 na iteração 3, vs 3/5 (INT-ZS-01) e 1/7 (INT-ZS-02).
-- **Convergência para UI pura:** iteração 1 tentou Firestore fake (invisível às telas), iteração 2 usou `pump(seconds:1)` incorreto, iteração 3 finalmente acertou com dois pumps consecutivos para completar animação de navegação.
-- **Diagnóstico correto na it.3:** LLM identificou precisamente que `pump(Duration(seconds:1))` avança 1 frame só, e que navegação precisa de dois pumps.
-- **Remoção deliberada de um teste:** o LLM reconheceu que o teste de submit com Firebase era irrecuperável sem DI e o removeu em vez de tentar contornar — decisão arquiteturalmente correta.
-- **Padrão geral ZS/integration:** ZS sempre começa com abordagem ambiciosa (DI ou fake Firestore), converge para UI estática após falhas de runtime, e às vezes chega a resultado aceitável no limite das 3 iterações.
+Não necessária.

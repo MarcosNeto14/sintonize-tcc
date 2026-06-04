@@ -1,0 +1,11 @@
+00:00 +0: loading
+00:00 +0: Fluxo de Login - Sintonize Deve validar campos vazios
+00:01 +1: Fluxo de Login - Sintonize Deve validar email inválido
+00:02 +2: Fluxo de Login - Sintonize Deve validar senha curta
+00:02 +3: Fluxo de Login - Sintonize Não deve navegar quando login falhar
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞═══════════
+FirebaseException: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+  at LoginScreen.build.login (package:sintonize/login.dart:25:28)
+  ...
+00:03 +3 -2: Fluxo de Login - Sintonize Deve renderizar TelaInicialScreen [E]
+00:03 +3 -2: Some tests failed.

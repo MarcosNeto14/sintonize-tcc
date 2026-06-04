@@ -1,0 +1,16 @@
+00:00 +0: CadastroScreen renderiza elementos principais da tela
+00:01 +1: CadastroScreen navega para LoginScreen ao tocar no link
+00:01 +2: CadastroScreen exibe erro para nome inválido
+00:02 +3: CadastroScreen exibe erro para data inválida
+00:02 +4: CadastroScreen exibe erro para email inválido
+00:03 +5: CadastroScreen exibe erro para senha curta
+00:03 +6: CadastroScreen exibe erro para senhas diferentes
+00:03 +7: CadastroScreen exibe erro para CEP inválido
+00:04 +8: CadastroScreen exibe erro para número não numérico
+00:04 +9: CadastroScreen botão cadastrar exige ensureVisible
+00:04 +10: CadastroScreen link login exige ensureVisible
+00:04 +11: GenerosCadastroScreen renderiza lista de gêneros
+00:04 +12: GenerosCadastroScreen scrollUntilVisible encontra item lazy do ListView
+00:05 +13: GenerosCadastroScreen seleciona gênero musical
+00:05 +14: GenerosCadastroScreen exibe snackbar ao confirmar sem selecionar gênero
+00:05 +15: All tests passed!

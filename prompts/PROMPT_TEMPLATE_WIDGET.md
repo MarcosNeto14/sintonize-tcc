@@ -1,7 +1,7 @@
 # Templates de Prompt — Widget Tests
 
 **Projeto:** Sintonize (Flutter + Firebase)
-**Nível:** Integração (Widget Tests)
+**Nível:** Widget Tests
 **Total de rodadas:** 9 (3 widgets × 3 estratégias)
 
 **Instruções de uso:**

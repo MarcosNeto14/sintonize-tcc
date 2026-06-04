@@ -17,6 +17,8 @@
 | **Framework de teste** | flutter_test |
 | **Versão do Flutter** | 3.41.7 |
 
+> **Nota metodológica:** Esta rodada foi executada com GPT-4o em vez de GPT-5.5 (utilizado nas demais 47 rodadas) por indisponibilidade temporária do modelo no acesso de 2026-05-20. O desvio é registrado como limitação do experimento.
+
 ---
 
 ## Prompt Enviado
@@ -75,8 +77,8 @@ Arquivo gerado: `test/widget/cadastro_cot_test.dart`
 | **Testes gerados** | 13 |
 | **Testes passaram (1ª execução)** | 3 |
 | **Testes falharam (1ª execução)** | 10 |
-| **Testes passaram (pós-repair)** | 3 |
-| **Testes falharam (pós-repair)** | 10 |
+| **Testes passaram (pós-repair)** | 12 |
+| **Testes falharam (pós-repair)** | 1 |
 | **Setup correto de mocks?** | Parcial |
 | **MaterialApp wrapper?** | Sim |
 | **Tratou assets?** | Não |

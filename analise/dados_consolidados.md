@@ -75,7 +75,7 @@
 | WIDGET-FS-03 | FS | CadastroScreen | Sim | 8 | 0 | 8 | 6 | 2 | 1 |
 | WIDGET-COT-01 | COT | LoginScreen | Sim | 14 | 0 | 14 | 0 | 14 | 2 |
 | WIDGET-COT-02 | COT | CriarPlaylistScreen | **Não** | 9 | 0 | 9 | 0 | 9 | 2 |
-| WIDGET-COT-03 | COT | CadastroScreen | Sim | 13 | 3 | 10 | 3 | 10 | 3 |
+| WIDGET-COT-03 | COT | CadastroScreen | Sim | 13 | 3 | 10 | 12 | 1 | 3 |
 
 ### Resumo WIDGET por estratégia
 
@@ -83,10 +83,10 @@
 |---|---|---|---|---|---|---|---|
 | ZS | 27 | 11 | 17 | 10 | 63% | 2/3 | 4 |
 | FS | 21 | 0 | 6 | 15 | 29% | 1/3 | 3 |
-| COT | 36 | 3 | 3 | 33 | 8% | 2/3 | 7 |
-| **Total** | **84** | **14** | **26** | **58** | **31%** | **5/9** | **14** |
+| COT | 36 | 3 | 12 | 24 | 33% | 2/3 | 7 |
+| **Total** | **84** | **14** | **35** | **49** | **42%** | **5/9** | **14** |
 
-> COT gerou mais testes (36) mas teve a pior taxa de aprovação final (8%) — os testes adicionais do COT dependiam de Firebase funcional.  
+> COT gerou mais testes (36) mas teve taxa de aprovação final de 33% — os testes adicionais do COT dependiam de Firebase funcional.  
 > ZS teve o melhor resultado final (63%) por abordar widgets de forma mais conservadora.  
 > `CriarPlaylistScreen` falhou em todas as estratégias na compilação ou execução: dependência estática Firebase em initState impossibilita qualquer mock sem injeção de dependência.  
 > `formatName` (ZS-08, FS-08, COT-08) e `CriarPlaylistScreen` (ZS-02, FS-02, COT-02) são os alvos com mais dificuldade sistemática.
@@ -100,10 +100,10 @@
 
 | ID | Estratégia | Fluxo | Compilou(1ª) | Gerados(final) | Pass(1ª) | Fail(1ª) | Pass(final) | Fail(final) | Iterações |
 |---|---|---|---|---|---|---|---|---|---|
-| INT-ZS-01 | ZS | Login | **Não** | 5 | 0 | 5 | 3 | 2 | 3 |
-| INT-ZS-02 | ZS | Cadastro | **Não** | 7 | 0 | 7 | 1 | 6 | 3 |
-| INT-ZS-03 | ZS | Playlist | Sim | 8 | 0 | 5 | 8 | 0 | 3 |
-| INT-FS-01 | FS | Login | Sim | 8 | 7 | 1 | 8 | 0 | 2 |
+| INT-ZS-01 | ZS | Login | **Não** | 5 | 0 | 5 | 3 | 2 | 2 |
+| INT-ZS-02 | ZS | Cadastro | **Não** | 7 | 0 | 7 | 1 | 6 | 2 |
+| INT-ZS-03 | ZS | Playlist | Sim | 8 | 0 | 5 | 8 | 0 | 2 |
+| INT-FS-01 | FS | Login | Sim | 8 | 7 | 1 | 8 | 0 | 1 |
 | INT-FS-02 | FS | Cadastro | Sim | 7 | 5 | 2 | 7 | 0 | 2 |
 | INT-FS-03 | FS | Playlist | Sim | 8 | 8 | 0 | 8 | 0 | 0 |
 | INT-COT-01 | COT | Login | Sim | 11 | 11 | 0 | 11 | 0 | 0 |
@@ -114,10 +114,10 @@
 
 | Estratégia | Gerados | Pass(1ª) | Pass(final) | Fail(final) | Taxa final | Compilou(1ª) | Total iterações |
 |---|---|---|---|---|---|---|---|
-| ZS | 20 | 0 | 12 | 8 | 60% | 1/3 | 9 |
-| FS | 23 | 20 | 23 | 0 | 100% | 3/3 | 4 |
+| ZS | 20 | 0 | 12 | 8 | 60% | 1/3 | 6 |
+| FS | 23 | 20 | 23 | 0 | 100% | 3/3 | 3 |
 | COT | 37 | 36 | 37 | 0 | 100% | 3/3 | 1 |
-| **Total** | **80** | **56** | **72** | **8** | **90%** | **7/9** | **14** |
+| **Total** | **80** | **56** | **72** | **8** | **90%** | **7/9** | **10** |
 
 > ZS nunca compilou na 1ª tentativa nos fluxos com Firebase (Login e Cadastro) — alucinação de API do `firebase_auth_mocks`.  
 > FS e COT compilaram em 100% dos casos e atingiram 100% de aprovação final.  
@@ -135,19 +135,19 @@
 | UNIT | COT | 113 | 113 | 0 | 100% | 3 | 8/10 |
 | WIDGET | ZS | 27 | 17 | 10 | 63% | 4 | 0/3 |
 | WIDGET | FS | 21 | 6 | 15 | 29% | 3 | 0/3 |
-| WIDGET | COT | 36 | 3 | 33 | 8% | 7 | 0/3 |
-| INT | ZS | 20 | 12 | 8 | 60% | 9 | 0/3 |
-| INT | FS | 23 | 23 | 0 | 100% | 4 | 1/3 |
+| WIDGET | COT | 36 | 12 | 24 | 33% | 7 | 0/3 |
+| INT | ZS | 20 | 12 | 8 | 60% | 6 | 0/3 |
+| INT | FS | 23 | 23 | 0 | 100% | 3 | 1/3 |
 | INT | COT | 37 | 37 | 0 | 100% | 1 | 2/3 |
 
 ### Por estratégia (consolidado 48 rodadas)
 
 | Estratégia | Total gerados | Total pass(final) | Total fail(final) | Taxa global | Total iterações | Média iter/rodada |
 |---|---|---|---|---|---|---|
-| ZS (16 rodadas) | 163 | 145 | 18 | 89% | 15 | 0,94 |
-| FS (16 rodadas) | 123 | 108 | 15 | 88% | 8 | 0,50 |
-| COT (16 rodadas) | 186 | 153 | 33 | 82% | 11 | 0,69 |
-| **Total (48)** | **472** | **406** | **66** | **86%** | **34** | **0,71** |
+| ZS (16 rodadas) | 163 | 145 | 18 | 89% | 12 | 0,75 |
+| FS (16 rodadas) | 123 | 108 | 15 | 88% | 7 | 0,44 |
+| COT (16 rodadas) | 186 | 162 | 24 | 87% | 11 | 0,69 |
+| **Total (48)** | **472** | **415** | **57** | **88%** | **30** | **0,63** |
 
 > **Atenção:** as taxas globais são distorcidas pelo nível widget, onde todas as estratégias falharam significativamente. A análise por nível é mais informativa.
 
@@ -179,3 +179,6 @@ A estratégia FS demonstrou transferência efetiva de padrões do exemplo fornec
 - **Iterações** = número de rodadas de repair executadas (0 = geração inicial passou; máx. 3 por rodada).
 - Widget tests: `CriarPlaylistScreen` (WIDGET-ZS-02, FS-02, COT-02) tem como causa raiz de falha a dependência Firebase em `initState` — não uma limitação da estratégia de prompt, mas uma limitação arquitetural da tela.
 - O repair loop sempre contém apenas a saída de erro do terminal (sem dicas diagnósticas) para não viesar a comparação entre estratégias.
+- **Desvio de modelo em WIDGET-COT-03:** Esta rodada foi executada com GPT-4o (2026-05-20) em vez de GPT-5.5 por indisponibilidade temporária do modelo. É o único desvio de protocolo nas 48 rodadas. Ver nota metodológica no doc `prompts/widget/cot/WIDGET-COT-03_cadastro.md`.
+- **Alteração retroativa de `formatName`:** Durante a iteração de reparo de UNIT-COT-08, o LLM sugeriu corrigir a implementação da função `formatName` em `lib/utils/validators.dart` (substituição de `split(' ')` por `split(RegExp(r'\s+'))` com `trim()`). A correção foi aplicada e os arquivos de teste de UNIT-ZS-08 e UNIT-FS-08 foram retroativamente atualizados para refletir a nova implementação. Os docs de rodada dessas três rodadas registram o comportamento original; os arquivos em `test/unit/` refletem o comportamento pós-correção.
+- **Versão do Flutter:** Os testes unitários e de widget foram executados com Flutter 3.41.7; os testes de integração com Flutter 3.41.6. A diferença de patch version não afeta a validade dos resultados (APIs de teste são estáveis entre patches da mesma minor version).

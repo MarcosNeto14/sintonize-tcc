@@ -7,7 +7,7 @@
 | **ID da Rodada**         | INT-COT-02                                                     |
 | **Fluxo testado**        | Cadastro (CadastroScreen → GenerosCadastroScreen)              |
 | **Arquivos envolvidos**  | lib/cadastro.dart, lib/generos-cadastro.dart                  |
-| **Nível da pirâmide**    | Integration test                                               |
+| **Nível da pirâmide**    | Integração                                               |
 | **Estratégia de prompt** | Chain-of-Thought                                               |
 | **LLM utilizado**        | ChatGPT                                                        |
 | **Versão do modelo**     | GPT-5.5                                                        |
@@ -42,7 +42,7 @@ Dependências disponíveis: firebase_auth_mocks, fake_cloud_firestore, mockito.
 
 ---
 
-## Resposta do LLM — Análise CoT
+## Resposta do LLM
 
 ### 1. Análise do fluxo
 
@@ -69,14 +69,16 @@ O fluxo começa na CadastroScreen com formulário completo (nome, data, email, s
 
 ---
 
-## Resultado da Execução (Geração inicial)
+## Resultado da Execução
 
-| Métrica             | Valor |
-| ------------------- | ----- |
-| **Compilou?**       | Sim   |
-| **Testes gerados**  | 15    |
-| **Testes passaram** | 14    |
-| **Testes falharam** | 1     |
+| Métrica | Valor |
+|---|---|
+| **Compilou?** | Sim |
+| **Testes gerados** | 15 |
+| **Testes passaram (1ª execução)** | 14 |
+| **Testes falharam (1ª execução)** | 1 |
+| **Testes passaram (pós-repair)** | 15 |
+| **Testes falharam (pós-repair)** | 0 |
 
 ### Saída do terminal
 
@@ -114,8 +116,6 @@ Corrija o teste para que compile e passe corretamente. Não modifique o código 
 
 - **Resultado após correção:** 15/15 — todos os testes passaram.
 
-### Saída final do terminal
-
 ```
 00:00 +0: CadastroScreen renderiza elementos principais da tela
 00:01 +1: CadastroScreen navega para LoginScreen ao tocar no link
@@ -135,12 +135,14 @@ Corrija o teste para que compile e passe corretamente. Não modifique o código 
 00:05 +15: All tests passed!
 ```
 
-## Resultado Final
+---
 
-| Métrica             | Valor |
-| ------------------- | ----- |
-| **Compilou?**       | Sim   |
-| **Testes gerados**  | 15    |
-| **Testes passaram** | 15    |
-| **Testes falharam** | 0     |
-| **Iterações**       | 1     |
+### Iteração 2
+
+Não necessária.
+
+---
+
+### Iteração 3
+
+Não necessária.

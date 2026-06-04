@@ -7,7 +7,7 @@
 | **ID da Rodada**         | INT-COT-03                                                     |
 | **Fluxo testado**        | Playlist (CriarPlaylistScreen + AdicionarMusicaScreen)         |
 | **Arquivos envolvidos**  | lib/criar_playlist.dart, lib/adicionar-musica.dart            |
-| **Nível da pirâmide**    | Integration test                                               |
+| **Nível da pirâmide**    | Integração                                               |
 | **Estratégia de prompt** | Chain-of-Thought                                               |
 | **LLM utilizado**        | ChatGPT                                                        |
 | **Versão do modelo**     | GPT-5.5                                                        |
@@ -42,7 +42,7 @@ Dependências disponíveis: firebase_auth_mocks, fake_cloud_firestore, mockito.
 
 ---
 
-## Resposta do LLM — Análise CoT
+## Resposta do LLM
 
 ### 1. Análise do fluxo
 
@@ -76,14 +76,16 @@ late MockFirebaseAuth auth;
 
 ---
 
-## Resultado da Execução (Geração inicial)
+## Resultado da Execução
 
-| Métrica             | Valor |
-| ------------------- | ----- |
-| **Compilou?**       | Sim   |
-| **Testes gerados**  | 11    |
-| **Testes passaram** | 11    |
-| **Testes falharam** | 0     |
+| Métrica | Valor |
+|---|---|
+| **Compilou?** | Sim |
+| **Testes gerados** | 11 |
+| **Testes passaram (1ª execução)** | 11 |
+| **Testes falharam (1ª execução)** | 0 |
+| **Testes passaram (pós-repair)** | — |
+| **Testes falharam (pós-repair)** | — |
 
 ### Saída do terminal
 
@@ -115,16 +117,18 @@ Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been crea
 
 **Nota:** Os "Erro ao buscar músicas: [core/no-app]" são saídas do `catch` interno de `_fetchMusicas()` em ambas as telas — comportamento esperado sem Firebase inicializado. Não afetam os testes, pois a UI permanece no estado `CircularProgressIndicator` (lista vazia).
 
+---
+
 ## Iterative Repair Loop
 
-Não necessário — 11/11 na geração inicial.
+### Iteração 1
 
-## Resultado Final
+Não necessária.
 
-| Métrica             | Valor |
-| ------------------- | ----- |
-| **Compilou?**       | Sim   |
-| **Testes gerados**  | 11    |
-| **Testes passaram** | 11    |
-| **Testes falharam** | 0     |
-| **Iterações**       | 0     |
+### Iteração 2
+
+Não necessária.
+
+### Iteração 3
+
+Não necessária.

@@ -1,0 +1,15 @@
+00:00 +0: LoginScreen - Renderização deve renderizar elementos principais da tela
+00:01 +1: LoginScreen - Validações deve validar e-mail vazio
+00:01 +2: LoginScreen - Validações deve validar e-mail inválido
+00:01 +3: LoginScreen - Validações deve validar senha vazia
+00:01 +4: LoginScreen - Validações deve validar senha curta
+00:01 +5: LoginScreen - Navegação deve navegar para RecupSenhaScreen ao tocar em "Esqueci minha senha"
+00:02 +6: LoginScreen - Navegação deve navegar para tela de cadastro ao tocar em cadastro
+
+Warning: A call to tap() with finder "Found 1 widget with text "Não tem cadastro? Cadastre-se!"..." derived an Offset (Offset(400.0, 664.0)) that would not hit test on the specified widget. The widget is off-screen (root size 800x600).
+
+00:02 +7: RecupSenhaScreen deve renderizar elementos da tela
+00:02 +8: RecupSenhaScreen deve validar email vazio
+00:02 +9: RecupSenhaScreen deve mostrar snackbar ao enviar recuperação com email válido
+00:02 +10: RecupSenhaScreen deve voltar para LoginScreen ao tocar em voltar
+00:02 +11: All tests passed!

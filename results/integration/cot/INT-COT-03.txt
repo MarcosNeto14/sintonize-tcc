@@ -1,0 +1,23 @@
+00:20 +0: CriarPlaylistScreen deve renderizar loading inicial
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:23 +1: CriarPlaylistScreen deve renderizar loading inicial
+00:24 +2: CriarPlaylistScreen deve exibir campos e botão principais
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:24 +3: CriarPlaylistScreen deve mostrar snackbar ao salvar sem nome
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:24 +4: CriarPlaylistScreen deve permitir digitar nome da playlist
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:25 +5: CriarPlaylistScreen deve permitir digitar no campo de pesquisa
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:25 +6: CriarPlaylistScreen deve voltar para tela anterior ao clicar back
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:25 +7: AdicionarMusicaScreen deve renderizar loading inicial
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:25 +8: AdicionarMusicaScreen deve exibir pesquisa e botão concluir
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:25 +9: AdicionarMusicaScreen deve permitir digitar no campo de pesquisa
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:25 +10: AdicionarMusicaScreen deve voltar ao clicar no botão back
+Erro ao buscar músicas: [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+00:25 +11: AdicionarMusicaScreen deve fechar tela ao concluir sem músicas selecionadas
+00:25 +11: All tests passed!

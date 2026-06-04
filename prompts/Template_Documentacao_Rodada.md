@@ -10,7 +10,7 @@ Use este template para CADA rodada do experimento (prompt + response + result nu
 | ------------------------ | -------------------------------------------------------------- |
 | **ID da Rodada**         | UNIT-ZS-01 (formato: NÍVEL-ESTRATÉGIA-NÚMERO)                  |
 | **Função testada**       | validateNome                                                   |
-| **Arquivo de origem**    | lib/utils/validators.dart (extraída de cadastro.dart)          |
+| **Arquivo(s) de origem** | lib/utils/validators.dart (extraída de cadastro.dart) — use plural para rodadas multi-arquivo |
 | **Nível da pirâmide**    | Unitário                                                       |
 | **Estratégia de prompt** | Zero-shot                                                      |
 | **LLM utilizado**        | ChatGPT                                                        |
@@ -42,10 +42,12 @@ Use este template para CADA rodada do experimento (prompt + response + result nu
 
 | Métrica                      | Valor                         |
 | ---------------------------- | ----------------------------- |
-| **Compilou?**                | Sim / Não                     |
-| **Testes gerados**           | X                             |
-| **Testes passaram**          | X                             |
-| **Testes falharam**          | X                             |
+| **Compilou?**                        | Sim / Não                     |
+| **Testes gerados**                   | X                             |
+| **Testes passaram (1ª execução)**    | X                             |
+| **Testes falharam (1ª execução)**    | X                             |
+| **Testes passaram (pós-repair)**     | X ou —                        |
+| **Testes falharam (pós-repair)**     | X ou —                        |
 ### Saída do terminal
 
 ```

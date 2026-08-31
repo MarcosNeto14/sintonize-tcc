@@ -138,45 +138,50 @@ injeção, a tela falha em `_fetchMusicas()` antes de chegar ao filtro.
 
 ---
 
-### Candidato W-SILENT — `GenerosCadastroScreen._salvarGeneros()` (linhas 38–41)
+### Candidato W-SILENT — `LoginScreen.login()` — mensagens de erro trocadas (linhas 40–43)
 
 | Campo | Valor |
 |---|---|
-| **Arquivo** | `lib/generos-cadastro.dart` |
-| **Função** | `_salvarGeneros()` em `_GenerosCadastroScreenState` |
-| **Linhas aprox.** | 38–41 |
+| **Arquivo** | `lib/login.dart` |
+| **Função** | função local `login()` dentro de `LoginScreen.build()` |
+| **Linhas aprox.** | 40–43 (ramos `user-not-found` e `wrong-password`) |
 | **Tipo** | Silencioso |
 
 **Comportamento atual (correto):**
 ```dart
-final generosSelecionados = selecionados.entries
-    .where((entry) => entry.value)    // salva os MARCADOS
-    .map((entry) => entry.key)
-    .toList();
+if (e.code == 'user-not-found') {
+  errorMessage = 'Usuário não encontrado. Verifique o e-mail e tente novamente.';
+} else if (e.code == 'wrong-password') {
+  errorMessage = 'Senha incorreta. Certifique-se de que está digitando a senha corretamente.';
+}
 ```
-Grava no Firestore apenas os gêneros cujo switch está ligado (`true`).
+Cada código de erro do Firebase é mapeado para a mensagem semanticamente
+correta.
 
-**Comportamento com bug:**
+**Comportamento com bug:** trocar as strings dos dois primeiros ramos:
 ```dart
-final generosSelecionados = selecionados.entries
-    .where((entry) => !entry.value)   // salva os NÃO marcados
-    .map((entry) => entry.key)
-    .toList();
+if (e.code == 'user-not-found') {
+  errorMessage = 'Senha incorreta. Certifique-se de que está digitando a senha corretamente.';
+} else if (e.code == 'wrong-password') {
+  errorMessage = 'Usuário não encontrado. Verifique o e-mail e tente novamente.';
+}
 ```
-Inverte a seleção: grava exatamente os gêneros que o usuário NÃO
-escolheu. O app exibe a SnackBar de sucesso normalmente e navega para
-`TelaInicialScreen` — nenhum erro visível.
+O usuário que errou a senha vê "Usuário não encontrado", e vice-versa.
+O SnackBar vermelho aparece normalmente — a UX parece funcionar.
 
-**Por que é silencioso:** sem exceção; UX aparentemente normal; o dado
-errado é detectável apenas inspecionando o argumento passado ao
-`widget.firestore.collection('usuarios').doc(uid).update(...)`.
+**Por que é silencioso:** nenhuma exceção; o fluxo de erro continua
+completo (catch → snackbar); a mensagem exibida é plausível para um
+erro de login, mas semanticamente errada.
 
-**Como acionar no teste:** injetar `MockFirebaseAuth` (usuário logado) e
-`FakeFirebaseFirestore`, selecionar gêneros, chamar `_salvarGeneros()` e
-verificar o que foi gravado no Firestore fake.
+**Como acionar no teste:** injetar `MockFirebaseAuth` configurado para
+lançar `FirebaseAuthException(code: 'wrong-password')`, tocar o botão
+"Entrar" com campos preenchidos, e verificar que o SnackBar exibe
+exatamente `'Senha incorreta...'`. Com o bug, o texto encontrado é
+`'Usuário não encontrado...'` — o assert falha.
 
-**Risco de confusão:** baixo após Tarefa 1. Sem injeção, o teste não
-consegue verificar o que foi gravado.
+**Risco de confusão:** baixo. Após Tarefa 1, o `auth` é injetável e o
+mock controla o `code` lançado de forma determinística. O teste não
+navega de tela nem persiste dado — basta inspecionar o texto do SnackBar.
 
 ---
 
@@ -277,7 +282,7 @@ apenas o campo `nome` no assert, ignorando `dataCriacao`.
 | U-CRASH | `validators.dart` | `validateNumero` | Crash | Teste unitário |
 | U-SILENT | `validators.dart` | `validateSenha` | Silencioso | Teste unitário (fronteira) |
 | W-CRASH | `criar_playlist.dart` | `_filterMusicas` | Crash | Widget test + mock Firestore |
-| W-SILENT | `generos-cadastro.dart` | `_salvarGeneros` | Silencioso | Widget test + mock Firestore |
+| W-SILENT | `login.dart` | `login()` local — mapeamento de erros | Silencioso | Widget test + mock Auth (código `wrong-password`) |
 | I-CRASH | `login.dart` | `login()` local | Crash | Integration test + mock Auth |
 | I-SILENT | `criar_playlist.dart` | `_salvarPlaylist` | Silencioso | Integration test + mock Firestore |
 

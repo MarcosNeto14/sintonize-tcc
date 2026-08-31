@@ -314,6 +314,23 @@ apenas o campo `nome` no assert, ignorando `dataCriacao`.
 | I-CRASH | `generos-cadastro.dart` | `_salvarGeneros()` — `currentUser!.uid` fora do try | Crash | Integration test + `MockFirebaseAuth(signedIn: false)` |
 | I-SILENT | `criar_playlist.dart` | `_salvarPlaylist` | Silencioso | Integration test + mock Firestore |
 
-**Próximo passo:** o autor do TCC e o orientador selecionam quais bugs
-entram na Fase 2 (plano prevê ~1/3 dos alvos). Após aprovação, a
-implementação pode ser feita em commits atômicos e revertidos facilmente.
+---
+
+## Nota de metodologia — U-CRASH como controle esperado
+
+O bug U-CRASH (`capitalize` — remoção da guarda `if (word.isEmpty)`)
+**replica deliberadamente o mesmo mecanismo** do bug real identificado
+na Fase A em `formatName`:
+
+- `formatName`: nunca teve a guarda `if (word.isEmpty)` — `word[0]`
+  em string vazia lança `RangeError` com entradas de espaço múltiplo.
+- `capitalize` (Fase A): tinha a guarda e passava em todos os testes.
+- `capitalize` (Fase 2, com bug): guarda removida — comportamento agora
+  idêntico ao bug já conhecido de `formatName`.
+
+Isso significa que, na análise comparativa, **U-CRASH serve como controle
+esperado**, não como achado independente. O modelo que detectar esse bug
+estará reconhecendo um padrão que já existia na base de código; o que
+é relevante medir é se ele detecta o padrão com a *mesma* eficácia em
+`capitalize` versus em `formatName`, e se identifica a assimetria entre
+as duas funções.

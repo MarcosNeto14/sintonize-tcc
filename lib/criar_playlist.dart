@@ -51,7 +51,7 @@ class _CriarPlaylistScreenState extends State<CriarPlaylistScreen> {
     setState(() {
       _musicasFiltradas = _musicasDataset.where((musica) {
         String musicaNome = musica['track_name'].toLowerCase();
-        String artistName = musica['artist_name']?.toLowerCase() ?? '';
+        String artistName = musica['artist_name'].toLowerCase();
         return musicaNome.contains(query) || artistName.contains(query);
       }).toList();
     });

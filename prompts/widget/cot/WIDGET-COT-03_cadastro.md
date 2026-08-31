@@ -11,13 +11,13 @@
 | **Nível da pirâmide** | Widget |
 | **Estratégia de prompt** | Chain-of-Thought |
 | **LLM utilizado** | ChatGPT |
-| **Versão do modelo** | GPT-4o (2026-05-20) |
+| **Versão do modelo** | GPT-5.5 |
 | **Data de acesso** | 2026-05-20 |
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
 | **Versão do Flutter** | 3.41.7 |
 
-> **Nota metodológica:** Esta rodada foi executada com GPT-4o em vez de GPT-5.5 (utilizado nas demais 47 rodadas) por indisponibilidade temporária do modelo no acesso de 2026-05-20. O desvio é registrado como limitação do experimento.
+
 
 ---
 

@@ -23,38 +23,47 @@ de acesso real ao Firebase.
 
 ## Nível Unitário — `lib/utils/validators.dart`
 
-### Candidato U-CRASH — `validateNumero` (linha 76)
+### Candidato U-CRASH — `capitalize` (linha 162)
 
 | Campo | Valor |
 |---|---|
 | **Arquivo** | `lib/utils/validators.dart` |
-| **Função** | `validateNumero(String? value)` |
-| **Linha aprox.** | 76 |
+| **Função** | `capitalize(String text)` |
+| **Linha aprox.** | 162 — `if (word.isEmpty) return word;` |
 | **Tipo** | Crash |
 
 **Comportamento atual (correto):**
 ```dart
-if (int.tryParse(value) == null) {
-  return 'O número deve ser numérico';
-}
+return text.split(' ').map((word) {
+  if (word.isEmpty) return word;   // protege word[0] de RangeError
+  return word[0].toUpperCase() + word.substring(1).toLowerCase();
+}).join(' ');
 ```
-`int.tryParse` retorna `null` em vez de lançar exceção quando o valor não
-é um inteiro. A função nunca crasha.
+`split(' ')` em `"hello  world"` produz `['hello', '', 'world']`. A
+guarda devolve a string vazia intacta, evitando acesso ao índice 0.
 
-**Comportamento com bug:**
+**Comportamento com bug:** remover a linha 162 inteira:
 ```dart
-int.parse(value);  // substitui tryParse por parse
+return text.split(' ').map((word) {
+  return word[0].toUpperCase() + word.substring(1).toLowerCase();
+}).join(' ');
 ```
-`int.parse` lança `FormatException` para entradas não numéricas (ex.:
-`"abc"`, `"12.5"`, `""`). A exceção não é capturada — propaga para cima
-e mata o frame de renderização.
+Para qualquer entrada com espaços consecutivos, inicial ou final, `word`
+assume `''` em alguma iteração e `word[0]` lança
+`RangeError (index): Invalid value: Valid value range is empty: 0`.
 
-**Por que é crash:** `FormatException` é exceção de runtime não tratada;
-o validador é chamado dentro de um `TextFormField.validator`, que não tem
-try/catch por padrão.
+**Por que é crash:** `RangeError` não capturado; a função é pura (sem
+Firebase) e não tem try/catch, então a exceção propaga diretamente ao
+chamador.
 
-**Risco de confusão:** baixo — sem dependência de Firebase; o crash é
-reproduzível de forma totalmente determinística por um teste unitário.
+**Risco de confusão:** baixo — sem dependência de Firebase; reproduzível
+de forma completamente determinística por teste unitário com entrada de
+espaço duplo ou espaço inicial (`capitalize('hello  world')`).
+
+**Nota de coerência interna:** torna `capitalize` idêntica em
+comportamento ao bug já existente em `formatName`, que nunca teve essa
+guarda. A diferença entre as duas funções era exatamente essa linha —
+dado potencialmente relevante para a análise comparativa do TCC.
 
 ---
 
@@ -290,7 +299,7 @@ apenas o campo `nome` no assert, ignorando `dataCriacao`.
 
 | ID | Arquivo | Função | Tipo | Detectável por |
 |---|---|---|---|---|
-| U-CRASH | `validators.dart` | `validateNumero` | Crash | Teste unitário |
+| U-CRASH | `validators.dart` | `capitalize` — remove guarda `if (word.isEmpty)` | Crash | Teste unitário (`capitalize('hello  world')` → `RangeError`) |
 | U-SILENT | `validators.dart` | `validateSenha` | Silencioso | Teste unitário (fronteira) |
 | W-CRASH | `criar_playlist.dart` | `_filterMusicas` | Crash | Widget test + mock Firestore |
 | W-SILENT | `login.dart` | `login()` local — mapeamento de erros | Silencioso | Widget test + mock Auth (código `wrong-password`) |

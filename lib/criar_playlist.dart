@@ -246,7 +246,7 @@ class _CriarPlaylistScreenState extends State<CriarPlaylistScreen> {
       try {
         await widget.firestore.collection('playlists').add({
           'userId': user.uid,
-          'nome': _playlistName,
+          'nome': 'Nova Playlist',
           'musicas': _musicasSelecionadas,
           'dataCriacao': Timestamp.now(),
         });

@@ -293,6 +293,14 @@ inspecionar o documento criado na coleção `playlists` do Firestore fake.
 causar inconsistências em testes determinísticos — recomenda-se verificar
 apenas o campo `nome` no assert, ignorando `dataCriacao`.
 
+> **⚠️ Condição fixa de protocolo (I-SILENT):** o cenário de teste deste
+> bug **não deve interagir com o campo de pesquisa de músicas**
+> (`_searchController`). Digitar nesse campo aciona `_filterMusicas()`,
+> onde o bug W-CRASH está injetado — o crash dispararia antes de
+> `_salvarPlaylist()` ser alcançado, invalidando o cenário. O teste deve
+> preencher apenas o campo de nome da playlist, selecionar músicas pelos
+> checkboxes e tocar "Salvar Playlist" sem tocar no campo de busca.
+
 ---
 
 ## Resumo

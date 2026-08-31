@@ -187,44 +187,55 @@ navega de tela nem persiste dado — basta inspecionar o texto do SnackBar.
 
 ## Nível Integração — fluxos completos
 
-### Candidato I-CRASH — `login.dart` — remoção do handler de exceção (linhas 32–51)
+### Candidato I-CRASH — `generos-cadastro.dart._salvarGeneros()` — null assertion em `currentUser!.uid` fora do bloco try (linha 33)
 
 | Campo | Valor |
 |---|---|
-| **Arquivo** | `lib/login.dart` |
-| **Função** | função local `login()` dentro de `LoginScreen.build()` |
-| **Linhas aprox.** | 32–51 |
+| **Arquivo** | `lib/generos-cadastro.dart` |
+| **Função** | `_salvarGeneros()` em `_GenerosCadastroScreenState` |
+| **Linha aprox.** | 33–34 (extração de `uid` antes do bloco `try`) |
 | **Tipo** | Crash |
 
 **Comportamento atual (correto):**
 ```dart
-} on FirebaseAuthException catch (e) {
-  String errorMessage;
-  // mapeia e.code → mensagem amigável
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(content: Text(errorMessage), backgroundColor: Colors.red),
-  );
+final user = widget.auth.currentUser;
+if (user != null) {
+  try {
+    await widget.firestore.collection('usuarios')
+        .doc(user.uid).update({...});
+  } catch (e) { ... }
 }
 ```
-Qualquer `FirebaseAuthException` é capturada e exibida ao usuário como
-SnackBar. O app não crasha.
+A guarda `if (user != null)` protege todos os acessos a `user`; o
+`try/catch` interno absorve erros do Firestore.
 
-**Comportamento com bug:** remover o bloco `on FirebaseAuthException`.
+**Comportamento com bug:** substituir o padrão guarda + try pela
+extração com `!` antes do try:
+```dart
+final uid = widget.auth.currentUser!.uid;  // null assertion fora do try
+try {
+  await widget.firestore.collection('usuarios').doc(uid).update({...});
+} catch (e) { ... }
+```
+Se `currentUser` for `null`, `!.uid` lança
+`StateError: Null check operator used on a null value` — exceção que
+ocorre **antes** do `try` e propaga sem ser capturada.
 
-Com credenciais inválidas (usuário não existe, senha errada, etc.) a
-exceção sobe sem ser capturada. No Flutter, uma exceção não capturada
-dentro de um callback `onPressed` → `Future` vai parar no
-`FlutterError.onError` e exibir o ErrorWidget vermelho ou encerrar.
+**Categoria mecânica:** idêntica à do `formatName` original — acesso a
+membro (`uid` / `word[0]`) sem verificar previamente que o receptor está
+em estado válido (não-null / não-vazio).
 
-**Por que é crash:** exceção de runtime não capturada que termina o
-fluxo de autenticação e quebra o widget tree.
+**Como acionar no teste:** injetar `MockFirebaseAuth(signedIn: false)` e
+`FakeFirebaseFirestore` em `GenerosCadastroScreen`, selecionar ao menos
+um gênero e tocar "Confirmar" → `_confirmar()` chama `_salvarGeneros()`
+→ crash. `GenerosCadastroScreen` pode ser montada diretamente no
+`pumpWidget`, sem precisar navegar de `CadastroScreen`.
 
-**Como acionar no teste:** usar `MockFirebaseAuth` configurado para
-lançar `FirebaseAuthException` com code `'user-not-found'` e verificar
-que o widget entra em estado de erro (sem SnackBar).
-
-**Risco de confusão:** após Tarefa 1, `LoginScreen` é injetável e o mock
-de Auth controla o comportamento — sem ambiguidade com Firebase real.
+**Risco de confusão:** baixo. Após Tarefa 1, `auth` é injetável e o
+mock controla `currentUser` de forma determinística. Não envolve nenhuma
+função já usada pelos candidatos aprovados. `generos-cadastro.dart` não
+foi alvo de widget test na Fase 1, mas é etapa obrigatória do fluxo de
+integração de cadastro.
 
 ---
 
@@ -283,7 +294,7 @@ apenas o campo `nome` no assert, ignorando `dataCriacao`.
 | U-SILENT | `validators.dart` | `validateSenha` | Silencioso | Teste unitário (fronteira) |
 | W-CRASH | `criar_playlist.dart` | `_filterMusicas` | Crash | Widget test + mock Firestore |
 | W-SILENT | `login.dart` | `login()` local — mapeamento de erros | Silencioso | Widget test + mock Auth (código `wrong-password`) |
-| I-CRASH | `login.dart` | `login()` local | Crash | Integration test + mock Auth |
+| I-CRASH | `generos-cadastro.dart` | `_salvarGeneros()` — `currentUser!.uid` fora do try | Crash | Integration test + `MockFirebaseAuth(signedIn: false)` |
 | I-SILENT | `criar_playlist.dart` | `_salvarPlaylist` | Silencioso | Integration test + mock Firestore |
 
 **Próximo passo:** o autor do TCC e o orientador selecionam quais bugs

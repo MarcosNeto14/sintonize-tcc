@@ -1,4 +1,4 @@
-import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
+﻿import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -15,7 +15,7 @@ void main() {
   });
 
   Widget createWidget() {
-    return const MaterialApp(
+    return MaterialApp(
       home: CadastroScreen(),
     );
   }
@@ -43,24 +43,24 @@ void main() {
       expect(find.text('Confirmar Senha'), findsOneWidget);
     });
 
-    testWidgets('Deve mostrar erros ao submeter formulário vazio',
+    testWidgets('Deve mostrar erros ao submeter formulÃ¡rio vazio',
         (WidgetTester tester) async {
       await tester.pumpWidget(createWidget());
 
       await tapCadastrar(tester);
 
-      expect(find.text('O nome é obrigatório'), findsOneWidget);
+      expect(find.text('O nome Ã© obrigatÃ³rio'), findsOneWidget);
       expect(
-        find.text('A data de nascimento é obrigatória'),
+        find.text('A data de nascimento Ã© obrigatÃ³ria'),
         findsOneWidget,
       );
-      expect(find.text('O e-mail é obrigatório'), findsOneWidget);
-      expect(find.text('A senha é obrigatória'), findsOneWidget);
-      expect(find.text('O CEP é obrigatório'), findsOneWidget);
-      expect(find.text('O número é obrigatório'), findsOneWidget);
+      expect(find.text('O e-mail Ã© obrigatÃ³rio'), findsOneWidget);
+      expect(find.text('A senha Ã© obrigatÃ³ria'), findsOneWidget);
+      expect(find.text('O CEP Ã© obrigatÃ³rio'), findsOneWidget);
+      expect(find.text('O nÃºmero Ã© obrigatÃ³rio'), findsOneWidget);
     });
 
-    testWidgets('Deve validar e-mail inválido',
+    testWidgets('Deve validar e-mail invÃ¡lido',
         (WidgetTester tester) async {
       await tester.pumpWidget(createWidget());
 
@@ -70,7 +70,7 @@ void main() {
 
       await tapCadastrar(tester);
 
-      expect(find.text('E-mail inválido'), findsOneWidget);
+      expect(find.text('E-mail invÃ¡lido'), findsOneWidget);
     });
 
     testWidgets('Deve validar senha curta',
@@ -89,7 +89,7 @@ void main() {
       );
     });
 
-    testWidgets('Deve validar confirmação de senha',
+    testWidgets('Deve validar confirmaÃ§Ã£o de senha',
         (WidgetTester tester) async {
       await tester.pumpWidget(createWidget());
 
@@ -101,12 +101,12 @@ void main() {
       await tapCadastrar(tester);
 
       expect(
-        find.text('As senhas não coincidem'),
+        find.text('As senhas nÃ£o coincidem'),
         findsOneWidget,
       );
     });
 
-    testWidgets('Deve validar CEP inválido',
+    testWidgets('Deve validar CEP invÃ¡lido',
         (WidgetTester tester) async {
       await tester.pumpWidget(createWidget());
 
@@ -117,12 +117,12 @@ void main() {
       await tapCadastrar(tester);
 
       expect(
-        find.text('CEP inválido. Formato correto: XXXXX-XXX'),
+        find.text('CEP invÃ¡lido. Formato correto: XXXXX-XXX'),
         findsOneWidget,
       );
     });
 
-    testWidgets('Deve validar número inválido',
+    testWidgets('Deve validar nÃºmero invÃ¡lido',
         (WidgetTester tester) async {
       await tester.pumpWidget(createWidget());
 
@@ -133,18 +133,18 @@ void main() {
       await tapCadastrar(tester);
 
       expect(
-        find.text('O número deve ser numérico'),
+        find.text('O nÃºmero deve ser numÃ©rico'),
         findsOneWidget,
       );
     });
 
-    testWidgets('Deve aceitar preenchimento válido dos campos',
+    testWidgets('Deve aceitar preenchimento vÃ¡lido dos campos',
         (WidgetTester tester) async {
       await tester.pumpWidget(createWidget());
 
       final fields = find.byType(TextFormField);
 
-      await tester.enterText(fields.at(0), 'João Silva');
+      await tester.enterText(fields.at(0), 'JoÃ£o Silva');
       await tester.enterText(fields.at(1), '01011990');
       await tester.enterText(fields.at(2), 'joao@email.com');
       await tester.enterText(fields.at(3), '123456');
@@ -157,16 +157,16 @@ void main() {
 
       await tapCadastrar(tester);
 
-      expect(find.text('E-mail inválido'), findsNothing);
-      expect(find.text('As senhas não coincidem'), findsNothing);
+      expect(find.text('E-mail invÃ¡lido'), findsNothing);
+      expect(find.text('As senhas nÃ£o coincidem'), findsNothing);
     });
 
-    testWidgets('Deve navegar para login ao clicar no botão',
+    testWidgets('Deve navegar para login ao clicar no botÃ£o',
         (WidgetTester tester) async {
       await tester.pumpWidget(createWidget());
 
       final loginButton =
-          find.text('Já tem uma conta? Faça login');
+          find.text('JÃ¡ tem uma conta? FaÃ§a login');
 
       await tester.ensureVisible(loginButton);
       await tester.pumpAndSettle();
@@ -188,7 +188,7 @@ void main() {
 
       await tester.tap(dropdown);
 
-      // necessário para renderizar o overlay do dropdown
+      // necessÃ¡rio para renderizar o overlay do dropdown
       await tester.pumpAndSettle();
 
       // procura especificamente pelo item do menu

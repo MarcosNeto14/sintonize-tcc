@@ -8,7 +8,15 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class CadastroScreen extends StatefulWidget {
-  const CadastroScreen({super.key});
+  final FirebaseAuth auth;
+  final FirebaseFirestore firestore;
+
+  CadastroScreen({
+    super.key,
+    FirebaseAuth? auth,
+    FirebaseFirestore? firestore,
+  }) : auth = auth ?? FirebaseAuth.instance,
+       firestore = firestore ?? FirebaseFirestore.instance;
 
   @override
   State<CadastroScreen> createState() => _CadastroScreenState();
@@ -128,14 +136,14 @@ class _CadastroScreenState extends State<CadastroScreen> {
     if (_formKey.currentState!.validate()) {
       try {
         UserCredential userCredential =
-            await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            await widget.auth.createUserWithEmailAndPassword(
           email: _emailController.text,
           password: _senhaController.text,
         );
 
         String uid = userCredential.user!.uid;
 
-        await FirebaseFirestore.instance.collection('usuarios').doc(uid).set({
+        await widget.firestore.collection('usuarios').doc(uid).set({
           'nome': _nomeController.text,
           'data_nasc': _dataNascController.text,
           'email': _emailController.text,
@@ -152,7 +160,7 @@ class _CadastroScreenState extends State<CadastroScreen> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const GenerosCadastroScreen(),
+            builder: (context) => GenerosCadastroScreen(),
           ),
         );
       } on FirebaseAuthException catch (e) {
@@ -359,7 +367,7 @@ class _CadastroScreenState extends State<CadastroScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const LoginScreen()),
+                                    builder: (context) => LoginScreen()),
                               );
                             },
                             child: const Text(

@@ -3,8 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class CriarPlaylistScreen extends StatefulWidget {
-  const CriarPlaylistScreen(
-      {super.key, required Map<String, dynamic> editPlaylist});
+  final FirebaseAuth auth;
+  final FirebaseFirestore firestore;
+
+  CriarPlaylistScreen({
+    super.key,
+    required Map<String, dynamic> editPlaylist,
+    FirebaseAuth? auth,
+    FirebaseFirestore? firestore,
+  }) : auth = auth ?? FirebaseAuth.instance,
+       firestore = firestore ?? FirebaseFirestore.instance;
 
   @override
   _CriarPlaylistScreenState createState() => _CriarPlaylistScreenState();
@@ -28,7 +36,7 @@ class _CriarPlaylistScreenState extends State<CriarPlaylistScreen> {
   Future<void> _fetchMusicas() async {
     try {
       QuerySnapshot snapshot =
-          await FirebaseFirestore.instance.collection('musica').get();
+          await widget.firestore.collection('musica').get();
       setState(() {
         _musicasDataset = snapshot.docs;
         _musicasFiltradas = _musicasDataset;
@@ -232,11 +240,11 @@ class _CriarPlaylistScreenState extends State<CriarPlaylistScreen> {
   }
 
   Future<void> _salvarPlaylist() async {
-    final user = FirebaseAuth.instance.currentUser;
+    final user = widget.auth.currentUser;
 
     if (user != null) {
       try {
-        await FirebaseFirestore.instance.collection('playlists').add({
+        await widget.firestore.collection('playlists').add({
           'userId': user.uid,
           'nome': _playlistName,
           'musicas': _musicasSelecionadas,

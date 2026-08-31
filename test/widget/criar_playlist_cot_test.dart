@@ -28,7 +28,7 @@ void main() {
 
   Widget createWidget() {
     return MaterialApp(
-      home: const CriarPlaylistScreen(
+      home: CriarPlaylistScreen(
         editPlaylist: {},
       ),
       navigatorObservers: [navigatorObserver],

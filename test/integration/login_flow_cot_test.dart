@@ -1,4 +1,4 @@
-// test/integration/login_flow_cot_test.dart
+﻿// test/integration/login_flow_cot_test.dart
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -13,11 +13,11 @@ void main() {
     );
   }
 
-  group('LoginScreen - Renderização', () {
+  group('LoginScreen - RenderizaÃ§Ã£o', () {
     testWidgets('deve renderizar elementos principais da tela',
         (tester) async {
       await tester.pumpWidget(
-        createApp(const LoginScreen()),
+        createApp(LoginScreen()),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -30,7 +30,7 @@ void main() {
       expect(find.text('Esqueci minha senha'), findsOneWidget);
 
       expect(
-        find.text('Não tem cadastro? Cadastre-se!'),
+        find.text('NÃ£o tem cadastro? Cadastre-se!'),
         findsOneWidget,
       );
 
@@ -38,11 +38,11 @@ void main() {
     });
   });
 
-  group('LoginScreen - Validações', () {
+  group('LoginScreen - ValidaÃ§Ãµes', () {
     testWidgets('deve validar e-mail vazio',
         (tester) async {
       await tester.pumpWidget(
-        createApp(const LoginScreen()),
+        createApp(LoginScreen()),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -60,10 +60,10 @@ void main() {
       );
     });
 
-    testWidgets('deve validar e-mail inválido',
+    testWidgets('deve validar e-mail invÃ¡lido',
         (tester) async {
       await tester.pumpWidget(
-        createApp(const LoginScreen()),
+        createApp(LoginScreen()),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -86,7 +86,7 @@ void main() {
       );
 
       expect(
-        find.text('Por favor, insira um e-mail válido'),
+        find.text('Por favor, insira um e-mail vÃ¡lido'),
         findsOneWidget,
       );
     });
@@ -94,7 +94,7 @@ void main() {
     testWidgets('deve validar senha vazia',
         (tester) async {
       await tester.pumpWidget(
-        createApp(const LoginScreen()),
+        createApp(LoginScreen()),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -120,7 +120,7 @@ void main() {
     testWidgets('deve validar senha curta',
         (tester) async {
       await tester.pumpWidget(
-        createApp(const LoginScreen()),
+        createApp(LoginScreen()),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -151,12 +151,12 @@ void main() {
     });
   });
 
-  group('LoginScreen - Navegação', () {
+  group('LoginScreen - NavegaÃ§Ã£o', () {
     testWidgets(
         'deve navegar para RecupSenhaScreen ao tocar em "Esqueci minha senha"',
         (tester) async {
       await tester.pumpWidget(
-        createApp(const LoginScreen()),
+        createApp(LoginScreen()),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -183,7 +183,7 @@ void main() {
         createApp(
           Builder(
             builder: (context) {
-              return const LoginScreen();
+              return LoginScreen();
             },
           ),
         ),
@@ -192,7 +192,7 @@ void main() {
       await tester.pump(const Duration(seconds: 1));
 
       await tester.tap(
-        find.text('Não tem cadastro? Cadastre-se!'),
+        find.text('NÃ£o tem cadastro? Cadastre-se!'),
       );
 
       await tester.pump();
@@ -253,7 +253,7 @@ void main() {
     });
 
     testWidgets(
-        'deve mostrar snackbar ao enviar recuperação com email válido',
+        'deve mostrar snackbar ao enviar recuperaÃ§Ã£o com email vÃ¡lido',
         (tester) async {
       await tester.pumpWidget(
         createApp(const RecupSenhaScreen()),
@@ -276,7 +276,7 @@ void main() {
       );
 
       expect(
-        find.text('Link de recuperação enviado!'),
+        find.text('Link de recuperaÃ§Ã£o enviado!'),
         findsOneWidget,
       );
     });

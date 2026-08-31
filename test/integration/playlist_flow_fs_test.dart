@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:sintonize/criar_playlist.dart';
@@ -10,7 +10,7 @@ void main() {
       'deve renderizar CriarPlaylistScreen com campos e spinner',
       (tester) async {
         await tester.pumpWidget(
-          const MaterialApp(
+          MaterialApp(
             home: CriarPlaylistScreen(editPlaylist: {}),
           ),
         );
@@ -20,7 +20,7 @@ void main() {
 
         expect(find.text('Criando Playlist'), findsOneWidget);
         expect(find.text('Nome da Playlist'), findsOneWidget);
-        expect(find.text('Pesquisar Música ou Artista'), findsOneWidget);
+        expect(find.text('Pesquisar MÃºsica ou Artista'), findsOneWidget);
         expect(find.text('Salvar Playlist'), findsOneWidget);
 
         // Como Firebase falha, lista permanece vazia e spinner aparece
@@ -35,7 +35,7 @@ void main() {
       'deve permitir digitar nome da playlist e pesquisa',
       (tester) async {
         await tester.pumpWidget(
-          const MaterialApp(
+          MaterialApp(
             home: CriarPlaylistScreen(editPlaylist: {}),
           ),
         );
@@ -63,7 +63,7 @@ void main() {
       'deve mostrar SnackBar ao tentar salvar playlist sem nome',
       (tester) async {
         await tester.pumpWidget(
-          const MaterialApp(
+          MaterialApp(
             home: CriarPlaylistScreen(editPlaylist: {}),
           ),
         );
@@ -74,14 +74,14 @@ void main() {
         await tester.pump();
 
         expect(
-          find.text('Nome da playlist é obrigatório'),
+          find.text('Nome da playlist Ã© obrigatÃ³rio'),
           findsOneWidget,
         );
       },
     );
 
     testWidgets(
-      'botão voltar deve fechar CriarPlaylistScreen',
+      'botÃ£o voltar deve fechar CriarPlaylistScreen',
       (tester) async {
         await tester.pumpWidget(
           MaterialApp(
@@ -93,7 +93,7 @@ void main() {
                       context,
                       MaterialPageRoute(
                         builder: (_) =>
-                            const CriarPlaylistScreen(editPlaylist: {}),
+                            CriarPlaylistScreen(editPlaylist: {}),
                       ),
                     );
                   },
@@ -123,7 +123,7 @@ void main() {
       'deve renderizar AdicionarMusicaScreen com spinner',
       (tester) async {
         await tester.pumpWidget(
-          const MaterialApp(
+          MaterialApp(
             home: AdicionarMusicaScreen(
               playlistId: 'playlist_1',
               currentSongs: [],
@@ -133,8 +133,8 @@ void main() {
 
         await tester.pump(const Duration(seconds: 1));
 
-        expect(find.text('Adicionar Músicas'), findsOneWidget);
-        expect(find.text('Pesquisar Música ou Artista'), findsOneWidget);
+        expect(find.text('Adicionar MÃºsicas'), findsOneWidget);
+        expect(find.text('Pesquisar MÃºsica ou Artista'), findsOneWidget);
         expect(find.text('Concluir'), findsOneWidget);
 
         // Firebase falha -> spinner permanece
@@ -145,10 +145,10 @@ void main() {
     );
 
     testWidgets(
-      'deve permitir pesquisar música em AdicionarMusicaScreen',
+      'deve permitir pesquisar mÃºsica em AdicionarMusicaScreen',
       (tester) async {
         await tester.pumpWidget(
-          const MaterialApp(
+          MaterialApp(
             home: AdicionarMusicaScreen(
               playlistId: 'playlist_1',
               currentSongs: [],
@@ -170,7 +170,7 @@ void main() {
     );
 
     testWidgets(
-      'botão concluir sem músicas selecionadas deve voltar para tela anterior',
+      'botÃ£o concluir sem mÃºsicas selecionadas deve voltar para tela anterior',
       (tester) async {
         await tester.pumpWidget(
           MaterialApp(
@@ -201,7 +201,7 @@ void main() {
 
         expect(find.byType(AdicionarMusicaScreen), findsOneWidget);
 
-        // Sem músicas selecionadas, apenas Navigator.pop(context)
+        // Sem mÃºsicas selecionadas, apenas Navigator.pop(context)
         await tester.tap(find.text('Concluir'));
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 500));
@@ -212,7 +212,7 @@ void main() {
     );
 
     testWidgets(
-      'botão voltar deve fechar AdicionarMusicaScreen',
+      'botÃ£o voltar deve fechar AdicionarMusicaScreen',
       (tester) async {
         await tester.pumpWidget(
           MaterialApp(

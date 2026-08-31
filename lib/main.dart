@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     context,
                     PageRouteBuilder(
                       pageBuilder: (context, animation, secondaryAnimation) =>
-                          const LoginScreen(),
+                          LoginScreen(),
                       transitionsBuilder:
                           (context, animation, secondaryAnimation, child) {
                         const begin = Offset(1.0, 0.0);
@@ -141,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     context,
                     PageRouteBuilder(
                       pageBuilder: (context, animation, secondaryAnimation) =>
-                          const CadastroScreen(),
+                          CadastroScreen(),
                       transitionsBuilder:
                           (context, animation, secondaryAnimation, child) {
                         const begin = Offset(1.0, 0.0);

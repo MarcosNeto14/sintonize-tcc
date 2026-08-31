@@ -5,7 +5,12 @@ import 'recup-senha.dart';
 import 'tela-inicial.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  final FirebaseAuth auth;
+
+  LoginScreen({
+    super.key,
+    FirebaseAuth? auth,
+  }) : auth = auth ?? FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,7 @@ class LoginScreen extends StatelessWidget {
       final senha = senhaController.text.trim();
 
       try {
-        await FirebaseAuth.instance
+        await auth
             .signInWithEmailAndPassword(email: email, password: senha);
 
         Navigator.pushReplacement(
@@ -197,7 +202,7 @@ class LoginScreen extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const CadastroScreen()),
+                                    builder: (context) => CadastroScreen()),
                               );
                             },
                             child: const Text(

@@ -1,4 +1,4 @@
-// test/integration/cadastro_flow_cot_test.dart
+﻿// test/integration/cadastro_flow_cot_test.dart
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -18,11 +18,11 @@ void main() {
     testWidgets('renderiza elementos principais da tela',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(const CadastroScreen()),
+        createWidget(CadastroScreen()),
       );
 
       expect(find.text('Cadastrar'), findsOneWidget);
-      expect(find.text('Já tem uma conta? Faça login'), findsOneWidget);
+      expect(find.text('JÃ¡ tem uma conta? FaÃ§a login'), findsOneWidget);
       expect(find.text('Nome'), findsOneWidget);
       expect(find.text('E-mail'), findsOneWidget);
     });
@@ -30,16 +30,16 @@ void main() {
     testWidgets('navega para LoginScreen ao tocar no link',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(const CadastroScreen()),
+        createWidget(CadastroScreen()),
       );
 
       final loginLink =
-          find.text('Já tem uma conta? Faça login');
+          find.text('JÃ¡ tem uma conta? FaÃ§a login');
 
       await tester.ensureVisible(loginLink);
       await tester.tap(loginLink);
 
-      // inicia animação/navegação
+      // inicia animaÃ§Ã£o/navegaÃ§Ã£o
       await tester.pump(
         const Duration(milliseconds: 500),
       );
@@ -50,10 +50,10 @@ void main() {
       expect(find.byType(LoginScreen), findsOneWidget);
     });
 
-    testWidgets('exibe erro para nome inválido',
+    testWidgets('exibe erro para nome invÃ¡lido',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(const CadastroScreen()),
+        createWidget(CadastroScreen()),
       );
 
       await tester.enterText(
@@ -74,16 +74,16 @@ void main() {
 
       expect(
         find.text(
-          'O nome não pode conter números ou caracteres especiais',
+          'O nome nÃ£o pode conter nÃºmeros ou caracteres especiais',
         ),
         findsOneWidget,
       );
     });
 
-    testWidgets('exibe erro para data inválida',
+    testWidgets('exibe erro para data invÃ¡lida',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(const CadastroScreen()),
+        createWidget(CadastroScreen()),
       );
 
       await tester.enterText(
@@ -103,15 +103,15 @@ void main() {
       );
 
       expect(
-        find.textContaining('Mês deve ser entre'),
+        find.textContaining('MÃªs deve ser entre'),
         findsOneWidget,
       );
     });
 
-    testWidgets('exibe erro para email inválido',
+    testWidgets('exibe erro para email invÃ¡lido',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(const CadastroScreen()),
+        createWidget(CadastroScreen()),
       );
 
       await tester.enterText(
@@ -131,7 +131,7 @@ void main() {
       );
 
       expect(
-        find.text('E-mail inválido'),
+        find.text('E-mail invÃ¡lido'),
         findsOneWidget,
       );
     });
@@ -139,7 +139,7 @@ void main() {
     testWidgets('exibe erro para senha curta',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(const CadastroScreen()),
+        createWidget(CadastroScreen()),
       );
 
       await tester.enterText(
@@ -169,7 +169,7 @@ void main() {
     testWidgets('exibe erro para senhas diferentes',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(const CadastroScreen()),
+        createWidget(CadastroScreen()),
       );
 
       await tester.enterText(
@@ -194,15 +194,15 @@ void main() {
       );
 
       expect(
-        find.text('As senhas não coincidem'),
+        find.text('As senhas nÃ£o coincidem'),
         findsOneWidget,
       );
     });
 
-    testWidgets('exibe erro para CEP inválido',
+    testWidgets('exibe erro para CEP invÃ¡lido',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(const CadastroScreen()),
+        createWidget(CadastroScreen()),
       );
 
       await tester.enterText(
@@ -223,16 +223,16 @@ void main() {
 
       expect(
         find.text(
-          'CEP inválido. Formato correto: XXXXX-XXX',
+          'CEP invÃ¡lido. Formato correto: XXXXX-XXX',
         ),
         findsOneWidget,
       );
     });
 
-    testWidgets('exibe erro para número não numérico',
+    testWidgets('exibe erro para nÃºmero nÃ£o numÃ©rico',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(const CadastroScreen()),
+        createWidget(CadastroScreen()),
       );
 
       await tester.enterText(
@@ -252,15 +252,15 @@ void main() {
       );
 
       expect(
-        find.text('O número deve ser numérico'),
+        find.text('O nÃºmero deve ser numÃ©rico'),
         findsOneWidget,
       );
     });
 
-    testWidgets('botão cadastrar exige ensureVisible',
+    testWidgets('botÃ£o cadastrar exige ensureVisible',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(const CadastroScreen()),
+        createWidget(CadastroScreen()),
       );
 
       final cadastrarButton =
@@ -274,11 +274,11 @@ void main() {
     testWidgets('link login exige ensureVisible',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(const CadastroScreen()),
+        createWidget(CadastroScreen()),
       );
 
       final loginLink =
-          find.text('Já tem uma conta? Faça login');
+          find.text('JÃ¡ tem uma conta? FaÃ§a login');
 
       await tester.ensureVisible(loginLink);
 
@@ -287,11 +287,11 @@ void main() {
   });
 
   group('GenerosCadastroScreen', () {
-    testWidgets('renderiza lista de gêneros',
+    testWidgets('renderiza lista de gÃªneros',
         (tester) async {
       await tester.pumpWidget(
         createWidget(
-          const GenerosCadastroScreen(),
+          GenerosCadastroScreen(),
         ),
       );
 
@@ -305,7 +305,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         createWidget(
-          const GenerosCadastroScreen(),
+          GenerosCadastroScreen(),
         ),
       );
 
@@ -322,11 +322,11 @@ void main() {
       expect(find.text('Country'), findsOneWidget);
     });
 
-    testWidgets('seleciona gênero musical',
+    testWidgets('seleciona gÃªnero musical',
         (tester) async {
       await tester.pumpWidget(
         createWidget(
-          const GenerosCadastroScreen(),
+          GenerosCadastroScreen(),
         ),
       );
 
@@ -346,11 +346,11 @@ void main() {
     });
 
     testWidgets(
-        'exibe snackbar ao confirmar sem selecionar gênero',
+        'exibe snackbar ao confirmar sem selecionar gÃªnero',
         (tester) async {
       await tester.pumpWidget(
         createWidget(
-          const GenerosCadastroScreen(),
+          GenerosCadastroScreen(),
         ),
       );
 
@@ -367,7 +367,7 @@ void main() {
 
       expect(
         find.text(
-          'Selecione pelo menos um gênero musical!',
+          'Selecione pelo menos um gÃªnero musical!',
         ),
         findsOneWidget,
       );

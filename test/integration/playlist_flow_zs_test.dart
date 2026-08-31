@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:sintonize/criar_playlist.dart';
@@ -7,17 +7,17 @@ import 'package:sintonize/adicionar-musica.dart';
 void main() {
   group('CriarPlaylistScreen', () {
     testWidgets(
-      'deve renderizar campos e botão',
+      'deve renderizar campos e botÃ£o',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          const MaterialApp(
+          MaterialApp(
             home: CriarPlaylistScreen(
               editPlaylist: {},
             ),
           ),
         );
 
-        // Avança sem esperar pumpAndSettle infinito
+        // AvanÃ§a sem esperar pumpAndSettle infinito
         await tester.pump(const Duration(seconds: 1));
 
         expect(find.text('Criando Playlist'), findsOneWidget);
@@ -26,7 +26,7 @@ void main() {
 
         expect(find.text('Salvar Playlist'), findsOneWidget);
 
-        // Spinner continua visível porque Firebase falha
+        // Spinner continua visÃ­vel porque Firebase falha
         expect(find.byType(CircularProgressIndicator), findsOneWidget);
       },
     );
@@ -35,7 +35,7 @@ void main() {
       'deve permitir digitar nome da playlist',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          const MaterialApp(
+          MaterialApp(
             home: CriarPlaylistScreen(
               editPlaylist: {},
             ),
@@ -61,7 +61,7 @@ void main() {
       'deve mostrar snackbar ao salvar sem nome',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          const MaterialApp(
+          MaterialApp(
             home: CriarPlaylistScreen(
               editPlaylist: {},
             ),
@@ -75,14 +75,14 @@ void main() {
         await tester.pump();
 
         expect(
-          find.text('Nome da playlist é obrigatório'),
+          find.text('Nome da playlist Ã© obrigatÃ³rio'),
           findsOneWidget,
         );
       },
     );
 
     testWidgets(
-      'botão voltar deve fechar a tela',
+      'botÃ£o voltar deve fechar a tela',
       (WidgetTester tester) async {
         await tester.pumpWidget(
           MaterialApp(
@@ -95,7 +95,7 @@ void main() {
                         context,
                         MaterialPageRoute(
                           builder: (_) =>
-                              const CriarPlaylistScreen(
+                              CriarPlaylistScreen(
                             editPlaylist: {},
                           ),
                         ),
@@ -131,7 +131,7 @@ void main() {
       'deve renderizar tela corretamente',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          const MaterialApp(
+          MaterialApp(
             home: AdicionarMusicaScreen(
               playlistId: 'playlist_1',
               currentSongs: [],
@@ -141,7 +141,7 @@ void main() {
 
         await tester.pump(const Duration(seconds: 1));
 
-        expect(find.text('Adicionar Músicas'), findsOneWidget);
+        expect(find.text('Adicionar MÃºsicas'), findsOneWidget);
 
         expect(find.byType(TextField), findsOneWidget);
 
@@ -156,7 +156,7 @@ void main() {
       'deve permitir digitar na pesquisa',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          const MaterialApp(
+          MaterialApp(
             home: AdicionarMusicaScreen(
               playlistId: 'playlist_1',
               currentSongs: [],
@@ -178,7 +178,7 @@ void main() {
     );
 
     testWidgets(
-      'botão concluir sem seleção deve fechar tela',
+      'botÃ£o concluir sem seleÃ§Ã£o deve fechar tela',
       (WidgetTester tester) async {
         await tester.pumpWidget(
           MaterialApp(
@@ -211,7 +211,7 @@ void main() {
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 500));
 
-        expect(find.text('Adicionar Músicas'), findsOneWidget);
+        expect(find.text('Adicionar MÃºsicas'), findsOneWidget);
 
         await tester.tap(find.text('Concluir'));
 
@@ -223,7 +223,7 @@ void main() {
     );
 
     testWidgets(
-      'botão voltar deve retornar navegação',
+      'botÃ£o voltar deve retornar navegaÃ§Ã£o',
       (WidgetTester tester) async {
         await tester.pumpWidget(
           MaterialApp(
@@ -256,7 +256,7 @@ void main() {
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 500));
 
-        expect(find.text('Adicionar Músicas'), findsOneWidget);
+        expect(find.text('Adicionar MÃºsicas'), findsOneWidget);
 
         await tester.tap(find.byIcon(Icons.arrow_back));
 

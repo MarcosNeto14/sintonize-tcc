@@ -1,4 +1,4 @@
-// test/integration/playlist_flow_cot_test.dart
+﻿// test/integration/playlist_flow_cot_test.dart
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -26,7 +26,7 @@ void main() {
     testWidgets('deve renderizar loading inicial',
         (WidgetTester tester) async {
       await tester.pumpWidget(
-        const MaterialApp(
+        MaterialApp(
           home: CriarPlaylistScreen(
             editPlaylist: {},
           ),
@@ -36,10 +36,10 @@ void main() {
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
     });
 
-    testWidgets('deve exibir campos e botão principais',
+    testWidgets('deve exibir campos e botÃ£o principais',
         (WidgetTester tester) async {
       await tester.pumpWidget(
-        const MaterialApp(
+        MaterialApp(
           home: CriarPlaylistScreen(
             editPlaylist: {},
           ),
@@ -49,13 +49,13 @@ void main() {
       expect(find.text('Criando Playlist'), findsOneWidget);
       expect(find.text('Salvar Playlist'), findsOneWidget);
       expect(find.text('Nome da Playlist'), findsOneWidget);
-      expect(find.text('Pesquisar Música ou Artista'), findsOneWidget);
+      expect(find.text('Pesquisar MÃºsica ou Artista'), findsOneWidget);
     });
 
     testWidgets('deve mostrar snackbar ao salvar sem nome',
         (WidgetTester tester) async {
       await tester.pumpWidget(
-        const MaterialApp(
+        MaterialApp(
           home: CriarPlaylistScreen(
             editPlaylist: {},
           ),
@@ -68,7 +68,7 @@ void main() {
       await tester.pump();
 
       expect(
-        find.text('Nome da playlist é obrigatório'),
+        find.text('Nome da playlist Ã© obrigatÃ³rio'),
         findsOneWidget,
       );
     });
@@ -76,7 +76,7 @@ void main() {
     testWidgets('deve permitir digitar nome da playlist',
         (WidgetTester tester) async {
       await tester.pumpWidget(
-        const MaterialApp(
+        MaterialApp(
           home: CriarPlaylistScreen(
             editPlaylist: {},
           ),
@@ -96,7 +96,7 @@ void main() {
     testWidgets('deve permitir digitar no campo de pesquisa',
         (WidgetTester tester) async {
       await tester.pumpWidget(
-        const MaterialApp(
+        MaterialApp(
           home: CriarPlaylistScreen(
             editPlaylist: {},
           ),
@@ -124,7 +124,7 @@ void main() {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => const CriarPlaylistScreen(
+                      builder: (_) => CriarPlaylistScreen(
                         editPlaylist: {},
                       ),
                     ),
@@ -157,7 +157,7 @@ void main() {
     testWidgets('deve renderizar loading inicial',
         (WidgetTester tester) async {
       await tester.pumpWidget(
-        const MaterialApp(
+        MaterialApp(
           home: AdicionarMusicaScreen(
             playlistId: 'playlist_1',
             currentSongs: [],
@@ -168,10 +168,10 @@ void main() {
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
     });
 
-    testWidgets('deve exibir pesquisa e botão concluir',
+    testWidgets('deve exibir pesquisa e botÃ£o concluir',
         (WidgetTester tester) async {
       await tester.pumpWidget(
-        const MaterialApp(
+        MaterialApp(
           home: AdicionarMusicaScreen(
             playlistId: 'playlist_1',
             currentSongs: [],
@@ -179,15 +179,15 @@ void main() {
         ),
       );
 
-      expect(find.text('Adicionar Músicas'), findsOneWidget);
+      expect(find.text('Adicionar MÃºsicas'), findsOneWidget);
       expect(find.text('Concluir'), findsOneWidget);
-      expect(find.text('Pesquisar Música ou Artista'), findsOneWidget);
+      expect(find.text('Pesquisar MÃºsica ou Artista'), findsOneWidget);
     });
 
     testWidgets('deve permitir digitar no campo de pesquisa',
         (WidgetTester tester) async {
       await tester.pumpWidget(
-        const MaterialApp(
+        MaterialApp(
           home: AdicionarMusicaScreen(
             playlistId: 'playlist_1',
             currentSongs: [],
@@ -205,7 +205,7 @@ void main() {
       expect(find.text('Pop'), findsOneWidget);
     });
 
-    testWidgets('deve voltar ao clicar no botão back',
+    testWidgets('deve voltar ao clicar no botÃ£o back',
         (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
@@ -235,7 +235,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 500));
       await tester.pump();
 
-      expect(find.text('Adicionar Músicas'), findsOneWidget);
+      expect(find.text('Adicionar MÃºsicas'), findsOneWidget);
 
       await tester.tap(find.byIcon(Icons.arrow_back));
 
@@ -245,7 +245,7 @@ void main() {
       expect(find.text('Abrir'), findsOneWidget);
     });
 
-    testWidgets('deve fechar tela ao concluir sem músicas selecionadas',
+    testWidgets('deve fechar tela ao concluir sem mÃºsicas selecionadas',
         (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(

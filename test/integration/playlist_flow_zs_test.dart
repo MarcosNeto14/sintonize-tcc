@@ -1,23 +1,35 @@
-﻿import 'package:flutter/material.dart';
+import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
+import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:sintonize/criar_playlist.dart';
 import 'package:sintonize/adicionar-musica.dart';
 
 void main() {
+  late MockFirebaseAuth mockAuth;
+  late FakeFirebaseFirestore fakeFirestore;
+
+  setUp(() {
+    mockAuth = MockFirebaseAuth();
+    fakeFirestore = FakeFirebaseFirestore();
+  });
+
   group('CriarPlaylistScreen', () {
     testWidgets(
-      'deve renderizar campos e botÃ£o',
+      'deve renderizar campos e botão',
       (WidgetTester tester) async {
         await tester.pumpWidget(
           MaterialApp(
             home: CriarPlaylistScreen(
               editPlaylist: {},
+              auth: mockAuth,
+              firestore: fakeFirestore,
             ),
           ),
         );
 
-        // AvanÃ§a sem esperar pumpAndSettle infinito
+        // Avança sem esperar pumpAndSettle infinito
         await tester.pump(const Duration(seconds: 1));
 
         expect(find.text('Criando Playlist'), findsOneWidget);
@@ -26,7 +38,7 @@ void main() {
 
         expect(find.text('Salvar Playlist'), findsOneWidget);
 
-        // Spinner continua visÃ­vel porque Firebase falha
+        // Spinner continua visível porque Firebase falha
         expect(find.byType(CircularProgressIndicator), findsOneWidget);
       },
     );
@@ -38,6 +50,8 @@ void main() {
           MaterialApp(
             home: CriarPlaylistScreen(
               editPlaylist: {},
+              auth: mockAuth,
+              firestore: fakeFirestore,
             ),
           ),
         );
@@ -64,6 +78,8 @@ void main() {
           MaterialApp(
             home: CriarPlaylistScreen(
               editPlaylist: {},
+              auth: mockAuth,
+              firestore: fakeFirestore,
             ),
           ),
         );
@@ -75,14 +91,14 @@ void main() {
         await tester.pump();
 
         expect(
-          find.text('Nome da playlist Ã© obrigatÃ³rio'),
+          find.text('Nome da playlist é obrigatório'),
           findsOneWidget,
         );
       },
     );
 
     testWidgets(
-      'botÃ£o voltar deve fechar a tela',
+      'botão voltar deve fechar a tela',
       (WidgetTester tester) async {
         await tester.pumpWidget(
           MaterialApp(
@@ -97,6 +113,8 @@ void main() {
                           builder: (_) =>
                               CriarPlaylistScreen(
                             editPlaylist: {},
+                            auth: mockAuth,
+                            firestore: fakeFirestore,
                           ),
                         ),
                       );
@@ -141,7 +159,7 @@ void main() {
 
         await tester.pump(const Duration(seconds: 1));
 
-        expect(find.text('Adicionar MÃºsicas'), findsOneWidget);
+        expect(find.text('Adicionar Músicas'), findsOneWidget);
 
         expect(find.byType(TextField), findsOneWidget);
 
@@ -178,7 +196,7 @@ void main() {
     );
 
     testWidgets(
-      'botÃ£o concluir sem seleÃ§Ã£o deve fechar tela',
+      'botão concluir sem seleção deve fechar tela',
       (WidgetTester tester) async {
         await tester.pumpWidget(
           MaterialApp(
@@ -211,7 +229,7 @@ void main() {
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 500));
 
-        expect(find.text('Adicionar MÃºsicas'), findsOneWidget);
+        expect(find.text('Adicionar Músicas'), findsOneWidget);
 
         await tester.tap(find.text('Concluir'));
 
@@ -223,7 +241,7 @@ void main() {
     );
 
     testWidgets(
-      'botÃ£o voltar deve retornar navegaÃ§Ã£o',
+      'botão voltar deve retornar navegação',
       (WidgetTester tester) async {
         await tester.pumpWidget(
           MaterialApp(
@@ -256,7 +274,7 @@ void main() {
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 500));
 
-        expect(find.text('Adicionar MÃºsicas'), findsOneWidget);
+        expect(find.text('Adicionar Músicas'), findsOneWidget);
 
         await tester.tap(find.byIcon(Icons.arrow_back));
 

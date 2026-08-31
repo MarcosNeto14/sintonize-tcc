@@ -1,5 +1,7 @@
-﻿// test/integration/cadastro_flow_cot_test.dart
+// test/integration/cadastro_flow_cot_test.dart
 
+import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
+import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -8,6 +10,14 @@ import 'package:sintonize/generos-cadastro.dart';
 import 'package:sintonize/login.dart';
 
 void main() {
+  late MockFirebaseAuth mockAuth;
+  late FakeFirebaseFirestore fakeFirestore;
+
+  setUp(() {
+    mockAuth = MockFirebaseAuth();
+    fakeFirestore = FakeFirebaseFirestore();
+  });
+
   Widget createWidget(Widget child) {
     return MaterialApp(
       home: child,
@@ -18,11 +28,11 @@ void main() {
     testWidgets('renderiza elementos principais da tela',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen()),
+        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
       );
 
       expect(find.text('Cadastrar'), findsOneWidget);
-      expect(find.text('JÃ¡ tem uma conta? FaÃ§a login'), findsOneWidget);
+      expect(find.text('Já tem uma conta? Faça login'), findsOneWidget);
       expect(find.text('Nome'), findsOneWidget);
       expect(find.text('E-mail'), findsOneWidget);
     });
@@ -30,16 +40,16 @@ void main() {
     testWidgets('navega para LoginScreen ao tocar no link',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen()),
+        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
       );
 
       final loginLink =
-          find.text('JÃ¡ tem uma conta? FaÃ§a login');
+          find.text('Já tem uma conta? Faça login');
 
       await tester.ensureVisible(loginLink);
       await tester.tap(loginLink);
 
-      // inicia animaÃ§Ã£o/navegaÃ§Ã£o
+      // inicia animação/navegação
       await tester.pump(
         const Duration(milliseconds: 500),
       );
@@ -50,10 +60,10 @@ void main() {
       expect(find.byType(LoginScreen), findsOneWidget);
     });
 
-    testWidgets('exibe erro para nome invÃ¡lido',
+    testWidgets('exibe erro para nome inválido',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen()),
+        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
       );
 
       await tester.enterText(
@@ -74,16 +84,16 @@ void main() {
 
       expect(
         find.text(
-          'O nome nÃ£o pode conter nÃºmeros ou caracteres especiais',
+          'O nome não pode conter números ou caracteres especiais',
         ),
         findsOneWidget,
       );
     });
 
-    testWidgets('exibe erro para data invÃ¡lida',
+    testWidgets('exibe erro para data inválida',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen()),
+        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
       );
 
       await tester.enterText(
@@ -103,15 +113,15 @@ void main() {
       );
 
       expect(
-        find.textContaining('MÃªs deve ser entre'),
+        find.textContaining('Mês deve ser entre'),
         findsOneWidget,
       );
     });
 
-    testWidgets('exibe erro para email invÃ¡lido',
+    testWidgets('exibe erro para email inválido',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen()),
+        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
       );
 
       await tester.enterText(
@@ -131,7 +141,7 @@ void main() {
       );
 
       expect(
-        find.text('E-mail invÃ¡lido'),
+        find.text('E-mail inválido'),
         findsOneWidget,
       );
     });
@@ -139,7 +149,7 @@ void main() {
     testWidgets('exibe erro para senha curta',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen()),
+        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
       );
 
       await tester.enterText(
@@ -169,7 +179,7 @@ void main() {
     testWidgets('exibe erro para senhas diferentes',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen()),
+        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
       );
 
       await tester.enterText(
@@ -194,15 +204,15 @@ void main() {
       );
 
       expect(
-        find.text('As senhas nÃ£o coincidem'),
+        find.text('As senhas não coincidem'),
         findsOneWidget,
       );
     });
 
-    testWidgets('exibe erro para CEP invÃ¡lido',
+    testWidgets('exibe erro para CEP inválido',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen()),
+        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
       );
 
       await tester.enterText(
@@ -223,16 +233,16 @@ void main() {
 
       expect(
         find.text(
-          'CEP invÃ¡lido. Formato correto: XXXXX-XXX',
+          'CEP inválido. Formato correto: XXXXX-XXX',
         ),
         findsOneWidget,
       );
     });
 
-    testWidgets('exibe erro para nÃºmero nÃ£o numÃ©rico',
+    testWidgets('exibe erro para número não numérico',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen()),
+        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
       );
 
       await tester.enterText(
@@ -252,15 +262,15 @@ void main() {
       );
 
       expect(
-        find.text('O nÃºmero deve ser numÃ©rico'),
+        find.text('O número deve ser numérico'),
         findsOneWidget,
       );
     });
 
-    testWidgets('botÃ£o cadastrar exige ensureVisible',
+    testWidgets('botão cadastrar exige ensureVisible',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen()),
+        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
       );
 
       final cadastrarButton =
@@ -274,11 +284,11 @@ void main() {
     testWidgets('link login exige ensureVisible',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen()),
+        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
       );
 
       final loginLink =
-          find.text('JÃ¡ tem uma conta? FaÃ§a login');
+          find.text('Já tem uma conta? Faça login');
 
       await tester.ensureVisible(loginLink);
 
@@ -287,11 +297,11 @@ void main() {
   });
 
   group('GenerosCadastroScreen', () {
-    testWidgets('renderiza lista de gÃªneros',
+    testWidgets('renderiza lista de gêneros',
         (tester) async {
       await tester.pumpWidget(
         createWidget(
-          GenerosCadastroScreen(),
+          GenerosCadastroScreen(auth: mockAuth, firestore: fakeFirestore),
         ),
       );
 
@@ -305,7 +315,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         createWidget(
-          GenerosCadastroScreen(),
+          GenerosCadastroScreen(auth: mockAuth, firestore: fakeFirestore),
         ),
       );
 
@@ -322,11 +332,11 @@ void main() {
       expect(find.text('Country'), findsOneWidget);
     });
 
-    testWidgets('seleciona gÃªnero musical',
+    testWidgets('seleciona gênero musical',
         (tester) async {
       await tester.pumpWidget(
         createWidget(
-          GenerosCadastroScreen(),
+          GenerosCadastroScreen(auth: mockAuth, firestore: fakeFirestore),
         ),
       );
 
@@ -346,11 +356,11 @@ void main() {
     });
 
     testWidgets(
-        'exibe snackbar ao confirmar sem selecionar gÃªnero',
+        'exibe snackbar ao confirmar sem selecionar gênero',
         (tester) async {
       await tester.pumpWidget(
         createWidget(
-          GenerosCadastroScreen(),
+          GenerosCadastroScreen(auth: mockAuth, firestore: fakeFirestore),
         ),
       );
 
@@ -367,7 +377,7 @@ void main() {
 
       expect(
         find.text(
-          'Selecione pelo menos um gÃªnero musical!',
+          'Selecione pelo menos um gênero musical!',
         ),
         findsOneWidget,
       );

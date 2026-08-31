@@ -1,5 +1,6 @@
-﻿// test/integration/login_flow_cot_test.dart
+// test/integration/login_flow_cot_test.dart
 
+import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -7,17 +8,23 @@ import 'package:sintonize/login.dart';
 import 'package:sintonize/recup-senha.dart';
 
 void main() {
+  late MockFirebaseAuth mockAuth;
+
+  setUp(() {
+    mockAuth = MockFirebaseAuth();
+  });
+
   Widget createApp(Widget child) {
     return MaterialApp(
       home: child,
     );
   }
 
-  group('LoginScreen - RenderizaÃ§Ã£o', () {
+  group('LoginScreen - Renderização', () {
     testWidgets('deve renderizar elementos principais da tela',
         (tester) async {
       await tester.pumpWidget(
-        createApp(LoginScreen()),
+        createApp(LoginScreen(auth: mockAuth)),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -30,7 +37,7 @@ void main() {
       expect(find.text('Esqueci minha senha'), findsOneWidget);
 
       expect(
-        find.text('NÃ£o tem cadastro? Cadastre-se!'),
+        find.text('Não tem cadastro? Cadastre-se!'),
         findsOneWidget,
       );
 
@@ -38,11 +45,11 @@ void main() {
     });
   });
 
-  group('LoginScreen - ValidaÃ§Ãµes', () {
+  group('LoginScreen - Validações', () {
     testWidgets('deve validar e-mail vazio',
         (tester) async {
       await tester.pumpWidget(
-        createApp(LoginScreen()),
+        createApp(LoginScreen(auth: mockAuth)),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -60,10 +67,10 @@ void main() {
       );
     });
 
-    testWidgets('deve validar e-mail invÃ¡lido',
+    testWidgets('deve validar e-mail inválido',
         (tester) async {
       await tester.pumpWidget(
-        createApp(LoginScreen()),
+        createApp(LoginScreen(auth: mockAuth)),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -86,7 +93,7 @@ void main() {
       );
 
       expect(
-        find.text('Por favor, insira um e-mail vÃ¡lido'),
+        find.text('Por favor, insira um e-mail válido'),
         findsOneWidget,
       );
     });
@@ -94,7 +101,7 @@ void main() {
     testWidgets('deve validar senha vazia',
         (tester) async {
       await tester.pumpWidget(
-        createApp(LoginScreen()),
+        createApp(LoginScreen(auth: mockAuth)),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -120,7 +127,7 @@ void main() {
     testWidgets('deve validar senha curta',
         (tester) async {
       await tester.pumpWidget(
-        createApp(LoginScreen()),
+        createApp(LoginScreen(auth: mockAuth)),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -151,12 +158,12 @@ void main() {
     });
   });
 
-  group('LoginScreen - NavegaÃ§Ã£o', () {
+  group('LoginScreen - Navegação', () {
     testWidgets(
         'deve navegar para RecupSenhaScreen ao tocar em "Esqueci minha senha"',
         (tester) async {
       await tester.pumpWidget(
-        createApp(LoginScreen()),
+        createApp(LoginScreen(auth: mockAuth)),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -183,7 +190,7 @@ void main() {
         createApp(
           Builder(
             builder: (context) {
-              return LoginScreen();
+              return LoginScreen(auth: mockAuth);
             },
           ),
         ),
@@ -192,7 +199,7 @@ void main() {
       await tester.pump(const Duration(seconds: 1));
 
       await tester.tap(
-        find.text('NÃ£o tem cadastro? Cadastre-se!'),
+        find.text('Não tem cadastro? Cadastre-se!'),
       );
 
       await tester.pump();
@@ -253,7 +260,7 @@ void main() {
     });
 
     testWidgets(
-        'deve mostrar snackbar ao enviar recuperaÃ§Ã£o com email vÃ¡lido',
+        'deve mostrar snackbar ao enviar recuperação com email válido',
         (tester) async {
       await tester.pumpWidget(
         createApp(const RecupSenhaScreen()),
@@ -276,7 +283,7 @@ void main() {
       );
 
       expect(
-        find.text('Link de recuperaÃ§Ã£o enviado!'),
+        find.text('Link de recuperação enviado!'),
         findsOneWidget,
       );
     });

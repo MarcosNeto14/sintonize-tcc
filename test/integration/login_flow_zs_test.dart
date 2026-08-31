@@ -1,4 +1,4 @@
-﻿import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
+import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -10,9 +10,11 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   late FakeFirebaseFirestore fakeFirestore;
+  late MockFirebaseAuth mockAuth;
 
   setUp(() {
     fakeFirestore = FakeFirebaseFirestore();
+    mockAuth = MockFirebaseAuth();
   });
 
   Widget createWidgetTest(Widget child) {
@@ -20,7 +22,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       home: child,
       routes: {
-        '/login': (_) => LoginScreen(),
+        '/login': (_) => LoginScreen(auth: mockAuth),
         '/home': (_) => const TelaInicialScreen(),
       },
     );
@@ -32,7 +34,7 @@ void main() {
       (WidgetTester tester) async {
         await tester.pumpWidget(
           createWidgetTest(
-            LoginScreen(),
+            LoginScreen(auth: mockAuth),
           ),
         );
 
@@ -53,11 +55,11 @@ void main() {
     );
 
     testWidgets(
-      'Deve validar email invÃ¡lido',
+      'Deve validar email inválido',
       (WidgetTester tester) async {
         await tester.pumpWidget(
           createWidgetTest(
-            LoginScreen(),
+            LoginScreen(auth: mockAuth),
           ),
         );
 
@@ -76,7 +78,7 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(
-          find.text('Por favor, insira um e-mail vÃ¡lido'),
+          find.text('Por favor, insira um e-mail válido'),
           findsOneWidget,
         );
       },
@@ -87,7 +89,7 @@ void main() {
       (WidgetTester tester) async {
         await tester.pumpWidget(
           createWidgetTest(
-            LoginScreen(),
+            LoginScreen(auth: mockAuth),
           ),
         );
 
@@ -113,10 +115,10 @@ void main() {
     );
 
     testWidgets(
-      'NÃ£o deve navegar quando login falhar',
+      'Não deve navegar quando login falhar',
       (WidgetTester tester) async {
         // Apenas instancia o mock normalmente
-        // compatÃ­vel com firebase_auth_mocks 0.14.2
+        // compatível com firebase_auth_mocks 0.14.2
         final mockAuth = MockFirebaseAuth(
           signedIn: false,
         );
@@ -125,7 +127,7 @@ void main() {
 
         await tester.pumpWidget(
           createWidgetTest(
-            LoginScreen(),
+            LoginScreen(auth: mockAuth),
           ),
         );
 
@@ -143,8 +145,8 @@ void main() {
 
         await tester.pumpAndSettle();
 
-        // Como a autenticaÃ§Ã£o real nÃ£o ocorre,
-        // verifica apenas que NÃƒO navegou.
+        // Como a autenticação real não ocorre,
+        // verifica apenas que NÃO navegou.
         expect(find.byType(LoginScreen), findsOneWidget);
 
         expect(
@@ -158,7 +160,7 @@ void main() {
       'Deve renderizar TelaInicialScreen',
       (WidgetTester tester) async {
         await fakeFirestore.collection('usuarios').doc('123').set({
-          'nome': 'JoÃ£o',
+          'nome': 'João',
           'generos_favoritos': ['rock'],
           'historico_musicas': {},
         });

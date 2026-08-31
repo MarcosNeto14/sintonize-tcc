@@ -1,7 +1,7 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../lib/login_screen.dart'; // <- CORREÃ‡ÃƒO AQUI
+import '../../lib/login_screen.dart'; // <- CORREÇÃO AQUI
 
 void main() {
   group('LoginScreen Widget Tests', () {
@@ -13,7 +13,7 @@ void main() {
       );
     }
 
-    testWidgets('deve mostrar erro quando email estÃ¡ vazio', (tester) async {
+    testWidgets('deve mostrar erro quando email está vazio', (tester) async {
       await pumpLoginScreen(tester);
 
       await tester.tap(find.text('Entrar'));
@@ -22,7 +22,7 @@ void main() {
       expect(find.text('Por favor, insira seu e-mail'), findsOneWidget);
     });
 
-    testWidgets('deve mostrar erro quando email Ã© invÃ¡lido', (tester) async {
+    testWidgets('deve mostrar erro quando email é inválido', (tester) async {
       await pumpLoginScreen(tester);
 
       await tester.enterText(find.byType(TextFormField).at(0), 'emailinvalido');
@@ -31,10 +31,10 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text('Por favor, insira um e-mail vÃ¡lido'), findsOneWidget);
+      expect(find.text('Por favor, insira um e-mail válido'), findsOneWidget);
     });
 
-    testWidgets('deve mostrar erro quando senha estÃ¡ vazia', (tester) async {
+    testWidgets('deve mostrar erro quando senha está vazia', (tester) async {
       await pumpLoginScreen(tester);
 
       await tester.enterText(find.byType(TextFormField).at(0), 'teste@email.com');

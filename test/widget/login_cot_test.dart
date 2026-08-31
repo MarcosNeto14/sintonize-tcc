@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
@@ -24,11 +24,11 @@ void main() {
 
   Widget createWidget() {
     return MaterialApp(
-      home: LoginScreen(),
+      home: LoginScreen(auth: mockAuth),
     );
   }
 
-  group('LoginScreen - RenderizaÃ§Ã£o', () {
+  group('LoginScreen - Renderização', () {
     testWidgets('deve renderizar todos os componentes principais',
         (tester) async {
       await tester.pumpWidget(createWidget());
@@ -43,13 +43,13 @@ void main() {
       expect(find.text('Esqueci minha senha'), findsOneWidget);
 
       expect(
-        find.text('NÃ£o tem cadastro? Cadastre-se!'),
+        find.text('Não tem cadastro? Cadastre-se!'),
         findsOneWidget,
       );
     });
   });
 
-  group('LoginScreen - ValidaÃ§Ãµes', () {
+  group('LoginScreen - Validações', () {
     testWidgets('deve mostrar erro para e-mail vazio',
         (tester) async {
       await tester.pumpWidget(createWidget());
@@ -63,7 +63,7 @@ void main() {
       );
     });
 
-    testWidgets('deve mostrar erro para e-mail invÃ¡lido',
+    testWidgets('deve mostrar erro para e-mail inválido',
         (tester) async {
       await tester.pumpWidget(createWidget());
 
@@ -81,7 +81,7 @@ void main() {
       await tester.pump();
 
       expect(
-        find.text('Por favor, insira um e-mail vÃ¡lido'),
+        find.text('Por favor, insira um e-mail válido'),
         findsOneWidget,
       );
     });
@@ -128,7 +128,7 @@ void main() {
     });
   });
 
-  group('LoginScreen - InteraÃ§Ãµes', () {
+  group('LoginScreen - Interações', () {
     testWidgets('deve permitir digitar e-mail e senha',
         (tester) async {
       await tester.pumpWidget(createWidget());
@@ -161,7 +161,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(createWidget());
 
-      await tester.tap(find.text('NÃ£o tem cadastro? Cadastre-se!'));
+      await tester.tap(find.text('Não tem cadastro? Cadastre-se!'));
       await tester.pumpAndSettle();
 
       expect(find.byType(CadastroScreen), findsOneWidget);
@@ -183,7 +183,7 @@ void main() {
   });
 
   group('LoginScreen - Fluxo de sucesso', () {
-    testWidgets('deve navegar para TelaInicialScreen apÃ³s login',
+    testWidgets('deve navegar para TelaInicialScreen após login',
         (tester) async {
       final user = MockUser(
         isAnonymous: false,
@@ -216,12 +216,12 @@ void main() {
     });
   });
 
-  group('LoginScreen - CenÃ¡rios de erro', () {
+  group('LoginScreen - Cenários de erro', () {
     testWidgets('deve mostrar erro user-not-found',
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(),
+          home: LoginScreen(auth: mockAuth),
         ),
       );
 
@@ -238,8 +238,8 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      // Widget usa FirebaseAuth.instance diretamente; sem injeÃ§Ã£o
-      // de dependÃªncia nÃ£o Ã© possÃ­vel interceptar exceÃ§Ãµes do Firebase.
+      // Widget usa FirebaseAuth.instance diretamente; sem injeção
+      // de dependência não é possível interceptar exceções do Firebase.
       expect(find.byType(LoginScreen), findsOneWidget);
     });
 
@@ -247,7 +247,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(),
+          home: LoginScreen(auth: mockAuth),
         ),
       );
 
@@ -264,8 +264,8 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      // Widget usa FirebaseAuth.instance diretamente; sem injeÃ§Ã£o
-      // de dependÃªncia nÃ£o Ã© possÃ­vel interceptar exceÃ§Ãµes do Firebase.
+      // Widget usa FirebaseAuth.instance diretamente; sem injeção
+      // de dependência não é possível interceptar exceções do Firebase.
       expect(find.byType(LoginScreen), findsOneWidget);
     });
 
@@ -273,7 +273,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(),
+          home: LoginScreen(auth: mockAuth),
         ),
       );
 
@@ -290,16 +290,16 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      // Widget usa FirebaseAuth.instance diretamente; sem injeÃ§Ã£o
-      // de dependÃªncia nÃ£o Ã© possÃ­vel interceptar exceÃ§Ãµes do Firebase.
+      // Widget usa FirebaseAuth.instance diretamente; sem injeção
+      // de dependência não é possível interceptar exceções do Firebase.
       expect(find.byType(LoginScreen), findsOneWidget);
     });
 
-    testWidgets('deve mostrar erro genÃ©rico',
+    testWidgets('deve mostrar erro genérico',
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(),
+          home: LoginScreen(auth: mockAuth),
         ),
       );
 
@@ -316,8 +316,8 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      // Widget usa FirebaseAuth.instance diretamente; sem injeÃ§Ã£o
-      // de dependÃªncia nÃ£o Ã© possÃ­vel interceptar exceÃ§Ãµes do Firebase.
+      // Widget usa FirebaseAuth.instance diretamente; sem injeção
+      // de dependência não é possível interceptar exceções do Firebase.
       expect(find.byType(LoginScreen), findsOneWidget);
     });
   });

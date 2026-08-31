@@ -1,9 +1,19 @@
-﻿import 'package:flutter/material.dart';
+import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
+import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:sintonize/cadastro.dart';
 
 void main() {
+  late MockFirebaseAuth mockAuth;
+  late FakeFirebaseFirestore fakeFirestore;
+
+  setUp(() {
+    mockAuth = MockFirebaseAuth();
+    fakeFirestore = FakeFirebaseFirestore();
+  });
+
   group('CadastroScreen Widget Tests', () {
 
     Future<void> pumpCadastro(WidgetTester tester) async {
@@ -11,7 +21,7 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
-          home: CadastroScreen(),
+          home: CadastroScreen(auth: mockAuth, firestore: fakeFirestore),
         ),
       );
 
@@ -29,15 +39,15 @@ void main() {
 
       await tester.pumpAndSettle();
 
-      expect(find.text('O nome Ã© obrigatÃ³rio'), findsOneWidget);
-      expect(find.text('A data de nascimento Ã© obrigatÃ³ria'), findsOneWidget);
-      expect(find.text('O e-mail Ã© obrigatÃ³rio'), findsOneWidget);
-      expect(find.text('A senha Ã© obrigatÃ³ria'), findsOneWidget);
-      expect(find.text('O CEP Ã© obrigatÃ³rio'), findsOneWidget);
-      expect(find.text('O nÃºmero Ã© obrigatÃ³rio'), findsOneWidget);
+      expect(find.text('O nome é obrigatório'), findsOneWidget);
+      expect(find.text('A data de nascimento é obrigatória'), findsOneWidget);
+      expect(find.text('O e-mail é obrigatório'), findsOneWidget);
+      expect(find.text('A senha é obrigatória'), findsOneWidget);
+      expect(find.text('O CEP é obrigatório'), findsOneWidget);
+      expect(find.text('O número é obrigatório'), findsOneWidget);
     });
 
-    testWidgets('deve validar e-mail invÃ¡lido', (tester) async {
+    testWidgets('deve validar e-mail inválido', (tester) async {
       await pumpCadastro(tester);
 
       await tester.enterText(
@@ -48,10 +58,10 @@ void main() {
       await tester.tap(find.text('Cadastrar'));
       await tester.pumpAndSettle();
 
-      expect(find.text('E-mail invÃ¡lido'), findsOneWidget);
+      expect(find.text('E-mail inválido'), findsOneWidget);
     });
 
-    testWidgets('deve validar senha mÃ­nima de 6 caracteres', (tester) async {
+    testWidgets('deve validar senha mínima de 6 caracteres', (tester) async {
       await pumpCadastro(tester);
 
       await tester.enterText(
@@ -68,21 +78,21 @@ void main() {
       );
     });
 
-    testWidgets('deve validar confirmaÃ§Ã£o de senha', (tester) async {
+    testWidgets('deve validar confirmação de senha', (tester) async {
       await pumpCadastro(tester);
 
       final fields = find.byType(TextFormField);
 
       await tester.enterText(fields.at(3), '123456'); // senha
-      await tester.enterText(fields.at(4), '654321'); // confirmaÃ§Ã£o
+      await tester.enterText(fields.at(4), '654321'); // confirmação
 
       await tester.tap(find.text('Cadastrar'));
       await tester.pumpAndSettle();
 
-      expect(find.text('As senhas nÃ£o coincidem'), findsOneWidget);
+      expect(find.text('As senhas não coincidem'), findsOneWidget);
     });
 
-    testWidgets('deve validar CEP invÃ¡lido', (tester) async {
+    testWidgets('deve validar CEP inválido', (tester) async {
       await pumpCadastro(tester);
 
       await tester.enterText(
@@ -94,12 +104,12 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(
-        find.text('CEP invÃ¡lido. Formato correto: XXXXX-XXX'),
+        find.text('CEP inválido. Formato correto: XXXXX-XXX'),
         findsOneWidget,
       );
     });
 
-    testWidgets('deve validar data invÃ¡lida', (tester) async {
+    testWidgets('deve validar data inválida', (tester) async {
       await pumpCadastro(tester);
 
       await tester.enterText(
@@ -110,10 +120,10 @@ void main() {
       await tester.tap(find.text('Cadastrar'));
       await tester.pumpAndSettle();
 
-      expect(find.text('Formato invÃ¡lido. Use dd/mm/aaaa'), findsOneWidget);
+      expect(find.text('Formato inválido. Use dd/mm/aaaa'), findsOneWidget);
     });
 
-    testWidgets('deve validar nÃºmero nÃ£o numÃ©rico', (tester) async {
+    testWidgets('deve validar número não numérico', (tester) async {
       await pumpCadastro(tester);
 
       await tester.enterText(
@@ -124,22 +134,22 @@ void main() {
       await tester.tap(find.text('Cadastrar'));
       await tester.pumpAndSettle();
 
-      expect(find.text('O nÃºmero deve ser numÃ©rico'), findsOneWidget);
+      expect(find.text('O número deve ser numérico'), findsOneWidget);
     });
 
-    testWidgets('deve aceitar nome vÃ¡lido sem erro', (tester) async {
+    testWidgets('deve aceitar nome válido sem erro', (tester) async {
       await pumpCadastro(tester);
 
       await tester.enterText(
         find.byType(TextFormField).first,
-        'JoÃ£o Silva',
+        'João Silva',
       );
 
       await tester.tap(find.text('Cadastrar'));
       await tester.pumpAndSettle();
 
       expect(
-        find.textContaining('O nome nÃ£o pode conter nÃºmeros'),
+        find.textContaining('O nome não pode conter números'),
         findsNothing,
       );
     });

@@ -160,7 +160,10 @@ class _CadastroScreenState extends State<CadastroScreen> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => GenerosCadastroScreen(),
+            builder: (context) => GenerosCadastroScreen(
+              auth: widget.auth,
+              firestore: widget.firestore,
+            ),
           ),
         );
       } on FirebaseAuthException catch (e) {
@@ -367,7 +370,7 @@ class _CadastroScreenState extends State<CadastroScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LoginScreen()),
+                                    builder: (context) => LoginScreen(auth: widget.auth)),
                               );
                             },
                             child: const Text(

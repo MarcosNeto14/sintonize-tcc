@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
@@ -11,7 +11,7 @@ void main() {
 
   Widget createWidgetUnderTest() {
     return MaterialApp(
-      home: LoginScreen(),
+      home: LoginScreen(auth: mockAuth),
     );
   }
 
@@ -20,7 +20,7 @@ void main() {
   });
 
   group('LoginScreen Widget Tests', () {
-    testWidgets('Deve renderizar os campos e botÃµes corretamente',
+    testWidgets('Deve renderizar os campos e botões corretamente',
         (WidgetTester tester) async {
       await tester.pumpWidget(createWidgetUnderTest());
 
@@ -31,7 +31,7 @@ void main() {
 
       expect(find.text('Entrar'), findsOneWidget);
       expect(find.text('Esqueci minha senha'), findsOneWidget);
-      expect(find.text('NÃ£o tem cadastro? Cadastre-se!'),
+      expect(find.text('Não tem cadastro? Cadastre-se!'),
           findsOneWidget);
     });
 
@@ -55,7 +55,7 @@ void main() {
     });
 
     testWidgets(
-        'Deve mostrar erro para e-mail invÃ¡lido',
+        'Deve mostrar erro para e-mail inválido',
         (WidgetTester tester) async {
       await tester.pumpWidget(createWidgetUnderTest());
 
@@ -69,7 +69,7 @@ void main() {
       await tester.pump();
 
       expect(
-        find.text('Por favor, insira um e-mail vÃ¡lido'),
+        find.text('Por favor, insira um e-mail válido'),
         findsOneWidget,
       );
     });
@@ -95,7 +95,7 @@ void main() {
     });
 
     testWidgets(
-        'Deve permitir digitaÃ§Ã£o nos campos',
+        'Deve permitir digitação nos campos',
         (WidgetTester tester) async {
       await tester.pumpWidget(createWidgetUnderTest());
 
@@ -115,7 +115,7 @@ void main() {
     });
 
     testWidgets(
-        'Deve navegar para TelaInicialScreen apÃ³s login vÃ¡lido',
+        'Deve navegar para TelaInicialScreen após login válido',
         (WidgetTester tester) async {
       final user = MockUser(
         isAnonymous: false,
@@ -130,7 +130,7 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(),
+          home: LoginScreen(auth: mockAuth),
         ),
       );
 
@@ -154,7 +154,7 @@ void main() {
     });
 
     testWidgets(
-        'Deve exibir SnackBar para credenciais invÃ¡lidas',
+        'Deve exibir SnackBar para credenciais inválidas',
         (WidgetTester tester) async {
       final mockAuth = MockFirebaseAuth(
         signedIn: false,
@@ -162,7 +162,7 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(),
+          home: LoginScreen(auth: mockAuth),
         ),
       );
 
@@ -188,7 +188,7 @@ void main() {
     });
 
     testWidgets(
-        'Deve navegar para recuperaÃ§Ã£o de senha',
+        'Deve navegar para recuperação de senha',
         (WidgetTester tester) async {
       await tester.pumpWidget(createWidgetUnderTest());
 
@@ -205,7 +205,7 @@ void main() {
       await tester.pumpWidget(createWidgetUnderTest());
 
       await tester.tap(
-        find.text('NÃ£o tem cadastro? Cadastre-se!'),
+        find.text('Não tem cadastro? Cadastre-se!'),
       );
 
       await tester.pumpAndSettle();

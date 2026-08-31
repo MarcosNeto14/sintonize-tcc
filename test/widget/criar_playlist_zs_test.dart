@@ -1,4 +1,4 @@
-﻿// File: test/widget/criar_playlist_zs_test.dart
+// File: test/widget/criar_playlist_zs_test.dart
 
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -22,7 +22,7 @@ void main() {
   setUp(() async {
     firestore = FakeFirebaseFirestore();
 
-    // Mock de mÃºsicas
+    // Mock de músicas
     await firestore.collection('musica').add({
       'track_name': 'Shape of You',
       'artist_name': 'Ed Sheeran',
@@ -86,14 +86,14 @@ void main() {
         await tester.pump();
 
         expect(
-          find.text('Nome da playlist Ã© obrigatÃ³rio'),
+          find.text('Nome da playlist é obrigatório'),
           findsOneWidget,
         );
       },
     );
 
     testWidgets(
-      'deve permitir pesquisar mÃºsicas',
+      'deve permitir pesquisar músicas',
       (tester) async {
         await tester.pumpWidget(createWidget());
 
@@ -118,7 +118,7 @@ void main() {
     );
 
     testWidgets(
-      'deve selecionar mÃºsica',
+      'deve selecionar música',
       (tester) async {
         await tester.pumpWidget(createWidget());
 
@@ -139,7 +139,7 @@ void main() {
     );
 
     testWidgets(
-      'deve voltar tela ao clicar no botÃ£o voltar',
+      'deve voltar tela ao clicar no botão voltar',
       (tester) async {
         await tester.pumpWidget(
           MaterialApp(

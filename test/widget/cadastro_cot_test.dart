@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
@@ -20,11 +20,11 @@ void main() {
 
   Widget createWidget() {
     return MaterialApp(
-      home: CadastroScreen(),
+      home: CadastroScreen(auth: mockAuth, firestore: fakeFirestore),
     );
   }
 
-  group('RenderizaÃ§Ã£o', () {
+  group('Renderização', () {
     testWidgets('deve renderizar os principais componentes',
         (tester) async {
       await tester.pumpWidget(createWidget());
@@ -38,7 +38,7 @@ void main() {
     });
   });
 
-  group('ValidaÃ§Ãµes', () {
+  group('Validações', () {
     testWidgets('deve validar nome vazio', (tester) async {
       await tester.pumpWidget(createWidget());
 
@@ -46,10 +46,10 @@ void main() {
       await tester.tap(find.text('Cadastrar'));
       await tester.pump();
 
-      expect(find.text('O nome Ã© obrigatÃ³rio'), findsOneWidget);
+      expect(find.text('O nome é obrigatório'), findsOneWidget);
     });
 
-    testWidgets('deve validar email invÃ¡lido', (tester) async {
+    testWidgets('deve validar email inválido', (tester) async {
       await tester.pumpWidget(createWidget());
 
       await tester.enterText(
@@ -60,7 +60,7 @@ void main() {
       await tester.tap(find.text('Cadastrar'));
       await tester.pump();
 
-      expect(find.text('E-mail invÃ¡lido'), findsOneWidget);
+      expect(find.text('E-mail inválido'), findsOneWidget);
     });
 
     testWidgets('deve validar senha curta', (tester) async {
@@ -79,7 +79,7 @@ void main() {
           findsOneWidget);
     });
 
-    testWidgets('deve validar confirmaÃ§Ã£o de senha',
+    testWidgets('deve validar confirmação de senha',
         (tester) async {
       await tester.pumpWidget(createWidget());
 
@@ -95,11 +95,11 @@ void main() {
       await tester.tap(find.text('Cadastrar'));
       await tester.pump();
 
-      expect(find.text('As senhas nÃ£o coincidem'),
+      expect(find.text('As senhas não coincidem'),
           findsOneWidget);
     });
 
-    testWidgets('deve validar CEP invÃ¡lido',
+    testWidgets('deve validar CEP inválido',
         (tester) async {
       await tester.pumpWidget(createWidget());
 
@@ -112,12 +112,12 @@ void main() {
       await tester.pump();
 
       expect(
-        find.text('CEP invÃ¡lido. Formato correto: XXXXX-XXX'),
+        find.text('CEP inválido. Formato correto: XXXXX-XXX'),
         findsOneWidget,
       );
     });
 
-    testWidgets('deve validar nÃºmero nÃ£o numÃ©rico',
+    testWidgets('deve validar número não numérico',
         (tester) async {
       await tester.pumpWidget(createWidget());
 
@@ -130,22 +130,22 @@ void main() {
       await tester.pump();
 
       expect(
-        find.text('O nÃºmero deve ser numÃ©rico'),
+        find.text('O número deve ser numérico'),
         findsOneWidget,
       );
     });
   });
 
-  group('InteraÃ§Ãµes', () {
-    testWidgets('deve permitir digitaÃ§Ã£o nos campos',
+  group('Interações', () {
+    testWidgets('deve permitir digitação nos campos',
         (tester) async {
       await tester.pumpWidget(createWidget());
 
       await tester.enterText(
           find.byType(TextFormField).at(0),
-          'JoÃ£o');
+          'João');
 
-      expect(find.text('JoÃ£o'), findsOneWidget);
+      expect(find.text('João'), findsOneWidget);
     });
 
     testWidgets('deve renderizar dropdown de estados',
@@ -175,20 +175,20 @@ void main() {
 
   group('Fluxo de sucesso', () {
     testWidgets(
-        'deve cadastrar usuÃ¡rio e navegar para prÃ³xima tela',
+        'deve cadastrar usuário e navegar para próxima tela',
         (tester) async {
       final navigatorObserver = MockNavigatorObserver();
 
       await tester.pumpWidget(
         MaterialApp(
-          home: CadastroScreen(),
+          home: CadastroScreen(auth: mockAuth, firestore: fakeFirestore),
           navigatorObservers: [navigatorObserver],
         ),
       );
 
       await tester.enterText(
           find.byType(TextFormField).at(0),
-          'JoÃ£o Silva');
+          'João Silva');
 
       await tester.enterText(
           find.byType(TextFormField).at(1),
@@ -226,8 +226,8 @@ void main() {
           find.byType(TextFormField).at(9),
           'Recife');
 
-      // O estado nÃ£o possui validator obrigatÃ³rio,
-      // entÃ£o nÃ£o precisamos selecionar um item
+      // O estado não possui validator obrigatório,
+      // então não precisamos selecionar um item
       // para validar o fluxo principal do cadastro.
 
       await tester.ensureVisible(find.text('Cadastrar'));
@@ -243,7 +243,7 @@ void main() {
 
   group('Tratamento de erros', () {
     testWidgets(
-        'deve exibir snackbar quando senhas sÃ£o diferentes',
+        'deve exibir snackbar quando senhas são diferentes',
         (tester) async {
       await tester.pumpWidget(createWidget());
 
@@ -259,12 +259,12 @@ void main() {
       await tester.tap(find.text('Cadastrar'));
       await tester.pump();
 
-      expect(find.text('As senhas nÃ£o coincidem'),
+      expect(find.text('As senhas não coincidem'),
           findsOneWidget);
     });
 
     testWidgets(
-        'deve exibir mensagens de validaÃ§Ã£o mÃºltiplas',
+        'deve exibir mensagens de validação múltiplas',
         (tester) async {
       await tester.pumpWidget(createWidget());
 
@@ -272,16 +272,16 @@ void main() {
       await tester.tap(find.text('Cadastrar'));
       await tester.pump();
 
-      expect(find.text('O nome Ã© obrigatÃ³rio'),
+      expect(find.text('O nome é obrigatório'),
           findsOneWidget);
 
-      expect(find.text('O e-mail Ã© obrigatÃ³rio'),
+      expect(find.text('O e-mail é obrigatório'),
           findsOneWidget);
 
-      expect(find.text('A senha Ã© obrigatÃ³ria'),
+      expect(find.text('A senha é obrigatória'),
           findsOneWidget);
 
-      expect(find.text('O CEP Ã© obrigatÃ³rio'),
+      expect(find.text('O CEP é obrigatório'),
           findsOneWidget);
     });
   });

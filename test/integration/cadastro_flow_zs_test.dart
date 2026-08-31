@@ -1,4 +1,5 @@
-﻿import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
+import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
+import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -30,23 +31,25 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   late FakeFirebaseFirestore fakeFirestore;
+  late MockFirebaseAuth mockAuth;
 
   setUp(() {
     fakeFirestore = FakeFirebaseFirestore();
+    mockAuth = MockFirebaseAuth();
   });
 
   Widget buildApp() {
     return MaterialApp(
-      home: CadastroScreen(),
+      home: CadastroScreen(auth: mockAuth, firestore: fakeFirestore),
       routes: {
-        '/generos': (_) => GenerosCadastroScreen(),
+        '/generos': (_) => GenerosCadastroScreen(auth: mockAuth, firestore: fakeFirestore),
       },
     );
   }
 
   group('CadastroScreen Integration', () {
     testWidgets(
-      'deve validar campos obrigatÃ³rios',
+      'deve validar campos obrigatórios',
       (tester) async {
         await tester.pumpWidget(buildApp());
 
@@ -57,29 +60,29 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(
-          find.text('O nome Ã© obrigatÃ³rio'),
+          find.text('O nome é obrigatório'),
           findsOneWidget,
         );
 
         expect(
-          find.text('O e-mail Ã© obrigatÃ³rio'),
+          find.text('O e-mail é obrigatório'),
           findsOneWidget,
         );
 
         expect(
-          find.text('A senha Ã© obrigatÃ³ria'),
+          find.text('A senha é obrigatória'),
           findsOneWidget,
         );
 
         expect(
-          find.text('O CEP Ã© obrigatÃ³rio'),
+          find.text('O CEP é obrigatório'),
           findsOneWidget,
         );
       },
     );
 
     testWidgets(
-      'deve validar email invÃ¡lido',
+      'deve validar email inválido',
       (tester) async {
         await tester.pumpWidget(buildApp());
 
@@ -95,7 +98,7 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(
-          find.text('E-mail invÃ¡lido'),
+          find.text('E-mail inválido'),
           findsOneWidget,
         );
       },
@@ -123,14 +126,14 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(
-          find.text('As senhas nÃ£o coincidem'),
+          find.text('As senhas não coincidem'),
           findsOneWidget,
         );
       },
     );
 
     testWidgets(
-      'deve preencher formulÃ¡rio corretamente',
+      'deve preencher formulário corretamente',
       (tester) async {
         await tester.pumpWidget(buildApp());
 
@@ -138,7 +141,7 @@ void main() {
 
         await tester.enterText(
           find.byType(TextFormField).at(0),
-          'JoÃ£o Silva',
+          'João Silva',
         );
 
         await tester.enterText(
@@ -198,7 +201,7 @@ void main() {
         await tester.pumpAndSettle();
 
         /// Verifica preenchimento
-        expect(find.text('JoÃ£o Silva'), findsOneWidget);
+        expect(find.text('João Silva'), findsOneWidget);
 
         expect(find.text('joao@email.com'), findsOneWidget);
 
@@ -211,7 +214,7 @@ void main() {
       (tester) async {
         await tester.pumpWidget(
           MaterialApp(
-            home: CadastroScreen(),
+            home: CadastroScreen(auth: mockAuth, firestore: fakeFirestore),
             routes: {
               '/login': (_) => const LoginScreenFake(),
             },
@@ -221,7 +224,7 @@ void main() {
         await tester.pumpAndSettle();
 
         await tester.tap(
-          find.text('JÃ¡ tem uma conta? FaÃ§a login'),
+          find.text('Já tem uma conta? Faça login'),
         );
 
         await tester.pumpAndSettle();
@@ -236,11 +239,11 @@ void main() {
     );
 
     testWidgets(
-      'GenerosCadastroScreen deve selecionar gÃªnero',
+      'GenerosCadastroScreen deve selecionar gênero',
       (tester) async {
         await tester.pumpWidget(
           MaterialApp(
-            home: GenerosCadastroScreen(),
+            home: GenerosCadastroScreen(auth: mockAuth, firestore: fakeFirestore),
           ),
         );
 
@@ -261,11 +264,11 @@ void main() {
     );
 
     testWidgets(
-      'GenerosCadastroScreen deve exigir ao menos um gÃªnero',
+      'GenerosCadastroScreen deve exigir ao menos um gênero',
       (tester) async {
         await tester.pumpWidget(
           MaterialApp(
-            home: GenerosCadastroScreen(),
+            home: GenerosCadastroScreen(auth: mockAuth, firestore: fakeFirestore),
           ),
         );
 
@@ -276,7 +279,7 @@ void main() {
         await tester.pump();
 
         expect(
-          find.text('Selecione pelo menos um gÃªnero musical!'),
+          find.text('Selecione pelo menos um gênero musical!'),
           findsOneWidget,
         );
       },

@@ -1,5 +1,6 @@
-﻿// test/integration/login_flow_fs_test.dart
+// test/integration/login_flow_fs_test.dart
 
+import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -8,15 +9,21 @@ import 'package:sintonize/cadastro.dart';
 import 'package:sintonize/recup-senha.dart';
 
 void main() {
+  late MockFirebaseAuth mockAuth;
+
+  setUp(() {
+    mockAuth = MockFirebaseAuth();
+  });
+
   group('LoginScreen', () {
-    testWidgets('deve renderizar campos, botÃµes e links', (tester) async {
+    testWidgets('deve renderizar campos, botões e links', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(),
+          home: LoginScreen(auth: mockAuth),
         ),
       );
 
-      // NÃ£o usar pumpAndSettle por causa do padrÃ£o do app/Firebase
+      // Não usar pumpAndSettle por causa do padrão do app/Firebase
       await tester.pump(const Duration(seconds: 1));
 
       expect(find.text('E-mail'), findsOneWidget);
@@ -29,22 +36,22 @@ void main() {
       expect(find.text('Esqueci minha senha'), findsOneWidget);
 
       expect(
-        find.text('NÃ£o tem cadastro? Cadastre-se!'),
+        find.text('Não tem cadastro? Cadastre-se!'),
         findsOneWidget,
       );
     });
 
-    testWidgets('deve mostrar validaÃ§Ã£o ao tentar login sem email',
+    testWidgets('deve mostrar validação ao tentar login sem email',
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(),
+          home: LoginScreen(auth: mockAuth),
         ),
       );
 
       await tester.pump(const Duration(seconds: 1));
 
-      // Preenche apenas senha vÃ¡lida
+      // Preenche apenas senha válida
       await tester.enterText(
         find.byType(TextFormField).at(1),
         '123456',
@@ -61,11 +68,11 @@ void main() {
       );
     });
 
-    testWidgets('deve mostrar validaÃ§Ã£o para email invÃ¡lido',
+    testWidgets('deve mostrar validação para email inválido',
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(),
+          home: LoginScreen(auth: mockAuth),
         ),
       );
 
@@ -87,16 +94,16 @@ void main() {
       await tester.pump();
 
       expect(
-        find.text('Por favor, insira um e-mail vÃ¡lido'),
+        find.text('Por favor, insira um e-mail válido'),
         findsOneWidget,
       );
     });
 
-    testWidgets('deve mostrar validaÃ§Ã£o para senha curta',
+    testWidgets('deve mostrar validação para senha curta',
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(),
+          home: LoginScreen(auth: mockAuth),
         ),
       );
 
@@ -126,7 +133,7 @@ void main() {
     testWidgets('deve permitir digitar email e senha', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(),
+          home: LoginScreen(auth: mockAuth),
         ),
       );
 
@@ -149,7 +156,7 @@ void main() {
     });
 
     testWidgets(
-        'link "NÃ£o tem cadastro? Cadastre-se!" deve navegar para CadastroScreen',
+        'link "Não tem cadastro? Cadastre-se!" deve navegar para CadastroScreen',
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
@@ -160,7 +167,7 @@ void main() {
                   onPressed: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => LoginScreen(),
+                      builder: (_) => LoginScreen(auth: mockAuth),
                     ),
                   ),
                   child: const Text('Abrir'),
@@ -173,20 +180,20 @@ void main() {
 
       await tester.tap(find.text('Abrir'));
 
-      // padrÃ£o obrigatÃ³rio do app
+      // padrão obrigatório do app
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 500));
 
       expect(find.byType(LoginScreen), findsOneWidget);
 
-      // FIX: garante que o botÃ£o esteja visÃ­vel no viewport
+      // FIX: garante que o botão esteja visível no viewport
       await tester.ensureVisible(
-        find.text('NÃ£o tem cadastro? Cadastre-se!'),
+        find.text('Não tem cadastro? Cadastre-se!'),
       );
       await tester.pump();
 
       await tester.tap(
-        find.text('NÃ£o tem cadastro? Cadastre-se!'),
+        find.text('Não tem cadastro? Cadastre-se!'),
       );
 
       await tester.pump();
@@ -207,7 +214,7 @@ void main() {
                   onPressed: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => LoginScreen(),
+                      builder: (_) => LoginScreen(auth: mockAuth),
                     ),
                   ),
                   child: const Text('Abrir'),
@@ -220,7 +227,7 @@ void main() {
 
       await tester.tap(find.text('Abrir'));
 
-      // padrÃ£o obrigatÃ³rio do app
+      // padrão obrigatório do app
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 500));
 
@@ -235,17 +242,17 @@ void main() {
     });
 
     testWidgets(
-        'nÃ£o deve tentar autenticar quando formulÃ¡rio for invÃ¡lido',
+        'não deve tentar autenticar quando formulário for inválido',
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(),
+          home: LoginScreen(auth: mockAuth),
         ),
       );
 
       await tester.pump(const Duration(seconds: 1));
 
-      // Campos invÃ¡lidos impedem chamada Firebase
+      // Campos inválidos impedem chamada Firebase
       await tester.enterText(
         find.byType(TextFormField).at(0),
         '',

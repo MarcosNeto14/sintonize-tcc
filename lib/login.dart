@@ -38,9 +38,9 @@ class LoginScreen extends StatelessWidget {
         String errorMessage;
 
         if (e.code == 'user-not-found') {
-          errorMessage = 'Usuário não encontrado. Verifique o e-mail e tente novamente.';
-        } else if (e.code == 'wrong-password') {
           errorMessage = 'Senha incorreta. Certifique-se de que está digitando a senha corretamente.';
+        } else if (e.code == 'wrong-password') {
+          errorMessage = 'Usuário não encontrado. Verifique o e-mail e tente novamente.';
         } else if (e.code == 'invalid-credential') {
           errorMessage = 'As credenciais fornecidas são inválidas. Tente novamente.';
         } else {

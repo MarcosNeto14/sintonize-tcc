@@ -114,7 +114,7 @@ class Validators {
     if (value == null || value.isEmpty) {
       return 'Por favor, insira sua senha';
     }
-    if (value.length < 6) {
+    if (value.length < 7) {
       return 'A senha deve ter pelo menos 6 caracteres';
     }
     return null;

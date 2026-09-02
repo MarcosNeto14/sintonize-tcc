@@ -1,7 +1,7 @@
 # Propostas de Bugs Propositais — Fase 2
 
-**Status:** proposta para revisão humana — nenhum bug foi implementado.  
-**Decisão de implementação:** do autor do TCC e do orientador, não automática.  
+**Status:** os 6 candidatos abaixo foram aprovados e já estão implementados no código (branch `fase2-prep`).  
+**Decisão de implementação:** do autor do TCC e do orientador.  
 **Data da proposta:** 2026-08-30
 
 ---
@@ -334,3 +334,16 @@ estará reconhecendo um padrão que já existia na base de código; o que
 é relevante medir é se ele detecta o padrão com a *mesma* eficácia em
 `capitalize` versus em `formatName`, e se identifica a assimetria entre
 as duas funções.
+
+---
+
+## Nota de metodologia — tratamento dos comentários originais em U-CRASH e U-SILENT
+
+Os comentários originais de documentação em UCRASH e USILENT foram
+tratados de forma diferente nos prompts preparados: o comentário de
+UCRASH foi removido por revelar a autoria e o propósito do estudo
+comparativo (nota de pesquisa vazada para o arquivo de produção); o de
+USILENT foi mantido verbatim por representar uma discrepância
+doc-vs-código plausível em contexto real, cuja detecção (ou não) pelo
+modelo é parte do que está sendo observado. Em nenhum dos dois casos o
+arquivo real (validators.dart) foi alterado.

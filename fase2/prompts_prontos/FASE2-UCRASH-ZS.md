@@ -16,9 +16,6 @@ Gere testes unitários em Dart usando o pacote flutter_test para a seguinte fun�
   /// Origem: lib/mapa.dart (_capitalize)
   /// Capitaliza a primeira letra E aplica toLowerCase no restante —
   /// ex.: "maRIA silva" → "Maria Silva". Trata palavras vazias internas.
-  ///
-  /// INCONSISTÊNCIA: diverge de formatName (adicionar-musica.dart), que
-  /// preserva a caixa original do restante da palavra.
   static String capitalize(String text) {
     if (text.isEmpty) return text;
     return text.split(' ').map((word) {

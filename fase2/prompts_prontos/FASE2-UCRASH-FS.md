@@ -54,9 +54,6 @@ Agora, gere testes para esta função, seguindo o mesmo padrão dos exemplos:
   /// Origem: lib/mapa.dart (_capitalize)
   /// Capitaliza a primeira letra E aplica toLowerCase no restante —
   /// ex.: "maRIA silva" → "Maria Silva". Trata palavras vazias internas.
-  ///
-  /// INCONSISTÊNCIA: diverge de formatName (adicionar-musica.dart), que
-  /// preserva a caixa original do restante da palavra.
   static String capitalize(String text) {
     if (text.isEmpty) return text;
     return text.split(' ').map((word) {

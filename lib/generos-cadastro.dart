@@ -4,21 +4,23 @@ import 'tela-inicial.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class GenerosCadastroScreen extends StatefulWidget {
-  final FirebaseAuth auth;
-  final FirebaseFirestore firestore;
+  final FirebaseAuth? auth;
+  final FirebaseFirestore? firestore;
 
   GenerosCadastroScreen({
     super.key,
-    FirebaseAuth? auth,
-    FirebaseFirestore? firestore,
-  }) : auth = auth ?? FirebaseAuth.instance,
-       firestore = firestore ?? FirebaseFirestore.instance;
+    this.auth,
+    this.firestore,
+  });
 
   @override
   _GenerosCadastroScreenState createState() => _GenerosCadastroScreenState();
 }
 
 class _GenerosCadastroScreenState extends State<GenerosCadastroScreen> {
+  FirebaseAuth get _auth => widget.auth ?? FirebaseAuth.instance;
+  FirebaseFirestore get _firestore => widget.firestore ?? FirebaseFirestore.instance;
+
   final List<String> generos = [
     'Rock',
     'Pop',
@@ -39,7 +41,7 @@ class _GenerosCadastroScreenState extends State<GenerosCadastroScreen> {
   }
 
   Future<void> _salvarGeneros() async {
-    final uid = widget.auth.currentUser!.uid;
+    final uid = _auth.currentUser!.uid;
 
     try {
       final generosSelecionados = selecionados.entries
@@ -47,7 +49,7 @@ class _GenerosCadastroScreenState extends State<GenerosCadastroScreen> {
           .map((entry) => entry.key)
           .toList();
 
-      await widget.firestore
+      await _firestore
           .collection('usuarios')
           .doc(uid)
           .update({

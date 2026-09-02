@@ -8,15 +8,14 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class CadastroScreen extends StatefulWidget {
-  final FirebaseAuth auth;
-  final FirebaseFirestore firestore;
+  final FirebaseAuth? auth;
+  final FirebaseFirestore? firestore;
 
   CadastroScreen({
     super.key,
-    FirebaseAuth? auth,
-    FirebaseFirestore? firestore,
-  }) : auth = auth ?? FirebaseAuth.instance,
-       firestore = firestore ?? FirebaseFirestore.instance;
+    this.auth,
+    this.firestore,
+  });
 
   @override
   State<CadastroScreen> createState() => _CadastroScreenState();
@@ -34,6 +33,9 @@ class _CadastroScreenState extends State<CadastroScreen> {
   final TextEditingController _bairroController = TextEditingController();
   final TextEditingController _cidadeController = TextEditingController();
   final TextEditingController _cepController = TextEditingController();
+
+  FirebaseAuth get _auth => widget.auth ?? FirebaseAuth.instance;
+  FirebaseFirestore get _firestore => widget.firestore ?? FirebaseFirestore.instance;
 
   String? _estadoSelecionado;
 
@@ -136,14 +138,14 @@ class _CadastroScreenState extends State<CadastroScreen> {
     if (_formKey.currentState!.validate()) {
       try {
         UserCredential userCredential =
-            await widget.auth.createUserWithEmailAndPassword(
+            await _auth.createUserWithEmailAndPassword(
           email: _emailController.text,
           password: _senhaController.text,
         );
 
         String uid = userCredential.user!.uid;
 
-        await widget.firestore.collection('usuarios').doc(uid).set({
+        await _firestore.collection('usuarios').doc(uid).set({
           'nome': _nomeController.text,
           'data_nasc': _dataNascController.text,
           'email': _emailController.text,

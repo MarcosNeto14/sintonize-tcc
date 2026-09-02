@@ -10,11 +10,9 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   late FakeFirebaseFirestore fakeFirestore;
-  late MockFirebaseAuth mockAuth;
 
   setUp(() {
     fakeFirestore = FakeFirebaseFirestore();
-    mockAuth = MockFirebaseAuth();
   });
 
   Widget createWidgetTest(Widget child) {
@@ -22,7 +20,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       home: child,
       routes: {
-        '/login': (_) => LoginScreen(auth: mockAuth),
+        '/login': (_) => LoginScreen(),
         '/home': (_) => const TelaInicialScreen(),
       },
     );
@@ -34,7 +32,7 @@ void main() {
       (WidgetTester tester) async {
         await tester.pumpWidget(
           createWidgetTest(
-            LoginScreen(auth: mockAuth),
+            LoginScreen(),
           ),
         );
 
@@ -59,7 +57,7 @@ void main() {
       (WidgetTester tester) async {
         await tester.pumpWidget(
           createWidgetTest(
-            LoginScreen(auth: mockAuth),
+            LoginScreen(),
           ),
         );
 
@@ -89,7 +87,7 @@ void main() {
       (WidgetTester tester) async {
         await tester.pumpWidget(
           createWidgetTest(
-            LoginScreen(auth: mockAuth),
+            LoginScreen(),
           ),
         );
 
@@ -127,7 +125,7 @@ void main() {
 
         await tester.pumpWidget(
           createWidgetTest(
-            LoginScreen(auth: mockAuth),
+            LoginScreen(),
           ),
         );
 

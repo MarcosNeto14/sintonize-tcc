@@ -1,6 +1,5 @@
 // test/integration/login_flow_fs_test.dart
 
-import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -9,17 +8,11 @@ import 'package:sintonize/cadastro.dart';
 import 'package:sintonize/recup-senha.dart';
 
 void main() {
-  late MockFirebaseAuth mockAuth;
-
-  setUp(() {
-    mockAuth = MockFirebaseAuth();
-  });
-
   group('LoginScreen', () {
     testWidgets('deve renderizar campos, botões e links', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(auth: mockAuth),
+          home: LoginScreen(),
         ),
       );
 
@@ -45,7 +38,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(auth: mockAuth),
+          home: LoginScreen(),
         ),
       );
 
@@ -72,7 +65,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(auth: mockAuth),
+          home: LoginScreen(),
         ),
       );
 
@@ -103,7 +96,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(auth: mockAuth),
+          home: LoginScreen(),
         ),
       );
 
@@ -133,7 +126,7 @@ void main() {
     testWidgets('deve permitir digitar email e senha', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(auth: mockAuth),
+          home: LoginScreen(),
         ),
       );
 
@@ -167,7 +160,7 @@ void main() {
                   onPressed: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => LoginScreen(auth: mockAuth),
+                      builder: (_) => LoginScreen(),
                     ),
                   ),
                   child: const Text('Abrir'),
@@ -214,7 +207,7 @@ void main() {
                   onPressed: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => LoginScreen(auth: mockAuth),
+                      builder: (_) => LoginScreen(),
                     ),
                   ),
                   child: const Text('Abrir'),
@@ -246,7 +239,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(auth: mockAuth),
+          home: LoginScreen(),
         ),
       );
 

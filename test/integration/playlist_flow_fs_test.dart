@@ -1,5 +1,3 @@
-import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
-import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -7,21 +5,13 @@ import 'package:sintonize/criar_playlist.dart';
 import 'package:sintonize/adicionar-musica.dart';
 
 void main() {
-  late MockFirebaseAuth mockAuth;
-  late FakeFirebaseFirestore fakeFirestore;
-
-  setUp(() {
-    mockAuth = MockFirebaseAuth();
-    fakeFirestore = FakeFirebaseFirestore();
-  });
-
   group('Fluxo de Playlist', () {
     testWidgets(
       'deve renderizar CriarPlaylistScreen com campos e spinner',
       (tester) async {
         await tester.pumpWidget(
           MaterialApp(
-            home: CriarPlaylistScreen(editPlaylist: {}, auth: mockAuth, firestore: fakeFirestore),
+            home: CriarPlaylistScreen(editPlaylist: {}),
           ),
         );
 
@@ -46,7 +36,7 @@ void main() {
       (tester) async {
         await tester.pumpWidget(
           MaterialApp(
-            home: CriarPlaylistScreen(editPlaylist: {}, auth: mockAuth, firestore: fakeFirestore),
+            home: CriarPlaylistScreen(editPlaylist: {}),
           ),
         );
 
@@ -74,7 +64,7 @@ void main() {
       (tester) async {
         await tester.pumpWidget(
           MaterialApp(
-            home: CriarPlaylistScreen(editPlaylist: {}, auth: mockAuth, firestore: fakeFirestore),
+            home: CriarPlaylistScreen(editPlaylist: {}),
           ),
         );
 
@@ -103,7 +93,7 @@ void main() {
                       context,
                       MaterialPageRoute(
                         builder: (_) =>
-                            CriarPlaylistScreen(editPlaylist: {}, auth: mockAuth, firestore: fakeFirestore),
+                            CriarPlaylistScreen(editPlaylist: {}),
                       ),
                     );
                   },

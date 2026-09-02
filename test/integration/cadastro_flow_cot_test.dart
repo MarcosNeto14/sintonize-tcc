@@ -1,7 +1,5 @@
 // test/integration/cadastro_flow_cot_test.dart
 
-import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
-import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -10,14 +8,6 @@ import 'package:sintonize/generos-cadastro.dart';
 import 'package:sintonize/login.dart';
 
 void main() {
-  late MockFirebaseAuth mockAuth;
-  late FakeFirebaseFirestore fakeFirestore;
-
-  setUp(() {
-    mockAuth = MockFirebaseAuth();
-    fakeFirestore = FakeFirebaseFirestore();
-  });
-
   Widget createWidget(Widget child) {
     return MaterialApp(
       home: child,
@@ -28,7 +18,7 @@ void main() {
     testWidgets('renderiza elementos principais da tela',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
+        createWidget(CadastroScreen()),
       );
 
       expect(find.text('Cadastrar'), findsOneWidget);
@@ -40,7 +30,7 @@ void main() {
     testWidgets('navega para LoginScreen ao tocar no link',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
+        createWidget(CadastroScreen()),
       );
 
       final loginLink =
@@ -63,7 +53,7 @@ void main() {
     testWidgets('exibe erro para nome inválido',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
+        createWidget(CadastroScreen()),
       );
 
       await tester.enterText(
@@ -93,7 +83,7 @@ void main() {
     testWidgets('exibe erro para data inválida',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
+        createWidget(CadastroScreen()),
       );
 
       await tester.enterText(
@@ -121,7 +111,7 @@ void main() {
     testWidgets('exibe erro para email inválido',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
+        createWidget(CadastroScreen()),
       );
 
       await tester.enterText(
@@ -149,7 +139,7 @@ void main() {
     testWidgets('exibe erro para senha curta',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
+        createWidget(CadastroScreen()),
       );
 
       await tester.enterText(
@@ -179,7 +169,7 @@ void main() {
     testWidgets('exibe erro para senhas diferentes',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
+        createWidget(CadastroScreen()),
       );
 
       await tester.enterText(
@@ -212,7 +202,7 @@ void main() {
     testWidgets('exibe erro para CEP inválido',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
+        createWidget(CadastroScreen()),
       );
 
       await tester.enterText(
@@ -242,7 +232,7 @@ void main() {
     testWidgets('exibe erro para número não numérico',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
+        createWidget(CadastroScreen()),
       );
 
       await tester.enterText(
@@ -270,7 +260,7 @@ void main() {
     testWidgets('botão cadastrar exige ensureVisible',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
+        createWidget(CadastroScreen()),
       );
 
       final cadastrarButton =
@@ -284,7 +274,7 @@ void main() {
     testWidgets('link login exige ensureVisible',
         (tester) async {
       await tester.pumpWidget(
-        createWidget(CadastroScreen(auth: mockAuth, firestore: fakeFirestore)),
+        createWidget(CadastroScreen()),
       );
 
       final loginLink =
@@ -301,7 +291,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         createWidget(
-          GenerosCadastroScreen(auth: mockAuth, firestore: fakeFirestore),
+          GenerosCadastroScreen(),
         ),
       );
 
@@ -315,7 +305,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         createWidget(
-          GenerosCadastroScreen(auth: mockAuth, firestore: fakeFirestore),
+          GenerosCadastroScreen(),
         ),
       );
 
@@ -336,7 +326,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         createWidget(
-          GenerosCadastroScreen(auth: mockAuth, firestore: fakeFirestore),
+          GenerosCadastroScreen(),
         ),
       );
 
@@ -360,7 +350,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         createWidget(
-          GenerosCadastroScreen(auth: mockAuth, firestore: fakeFirestore),
+          GenerosCadastroScreen(),
         ),
       );
 

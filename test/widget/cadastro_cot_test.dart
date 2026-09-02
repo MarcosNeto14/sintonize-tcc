@@ -20,7 +20,7 @@ void main() {
 
   Widget createWidget() {
     return MaterialApp(
-      home: CadastroScreen(auth: mockAuth, firestore: fakeFirestore),
+      home: CadastroScreen(),
     );
   }
 
@@ -181,7 +181,7 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
-          home: CadastroScreen(auth: mockAuth, firestore: fakeFirestore),
+          home: CadastroScreen(),
           navigatorObservers: [navigatorObserver],
         ),
       );

@@ -11,7 +11,7 @@ void main() {
 
   Widget createWidgetUnderTest() {
     return MaterialApp(
-      home: LoginScreen(auth: mockAuth),
+      home: LoginScreen(),
     );
   }
 
@@ -130,7 +130,7 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(auth: mockAuth),
+          home: LoginScreen(),
         ),
       );
 
@@ -162,7 +162,7 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(auth: mockAuth),
+          home: LoginScreen(),
         ),
       );
 

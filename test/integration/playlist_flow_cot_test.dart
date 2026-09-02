@@ -29,8 +29,6 @@ void main() {
         MaterialApp(
           home: CriarPlaylistScreen(
             editPlaylist: {},
-            auth: auth,
-            firestore: firestore,
           ),
         ),
       );
@@ -44,8 +42,6 @@ void main() {
         MaterialApp(
           home: CriarPlaylistScreen(
             editPlaylist: {},
-            auth: auth,
-            firestore: firestore,
           ),
         ),
       );
@@ -62,8 +58,6 @@ void main() {
         MaterialApp(
           home: CriarPlaylistScreen(
             editPlaylist: {},
-            auth: auth,
-            firestore: firestore,
           ),
         ),
       );
@@ -85,8 +79,6 @@ void main() {
         MaterialApp(
           home: CriarPlaylistScreen(
             editPlaylist: {},
-            auth: auth,
-            firestore: firestore,
           ),
         ),
       );
@@ -107,8 +99,6 @@ void main() {
         MaterialApp(
           home: CriarPlaylistScreen(
             editPlaylist: {},
-            auth: auth,
-            firestore: firestore,
           ),
         ),
       );
@@ -136,8 +126,6 @@ void main() {
                     MaterialPageRoute(
                       builder: (_) => CriarPlaylistScreen(
                         editPlaylist: {},
-                        auth: auth,
-                        firestore: firestore,
                       ),
                     ),
                   );

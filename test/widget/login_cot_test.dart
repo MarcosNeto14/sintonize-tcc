@@ -24,7 +24,7 @@ void main() {
 
   Widget createWidget() {
     return MaterialApp(
-      home: LoginScreen(auth: mockAuth),
+      home: LoginScreen(),
     );
   }
 
@@ -221,7 +221,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(auth: mockAuth),
+          home: LoginScreen(),
         ),
       );
 
@@ -247,7 +247,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(auth: mockAuth),
+          home: LoginScreen(),
         ),
       );
 
@@ -273,7 +273,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(auth: mockAuth),
+          home: LoginScreen(),
         ),
       );
 
@@ -299,7 +299,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: LoginScreen(auth: mockAuth),
+          home: LoginScreen(),
         ),
       );
 

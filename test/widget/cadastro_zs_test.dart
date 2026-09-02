@@ -16,7 +16,7 @@ void main() {
 
   Widget createWidget() {
     return MaterialApp(
-      home: CadastroScreen(auth: mockAuth, firestore: fakeFirestore),
+      home: CadastroScreen(),
     );
   }
 

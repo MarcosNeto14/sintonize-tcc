@@ -1,5 +1,4 @@
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
-import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -31,18 +30,16 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   late FakeFirebaseFirestore fakeFirestore;
-  late MockFirebaseAuth mockAuth;
 
   setUp(() {
     fakeFirestore = FakeFirebaseFirestore();
-    mockAuth = MockFirebaseAuth();
   });
 
   Widget buildApp() {
     return MaterialApp(
-      home: CadastroScreen(auth: mockAuth, firestore: fakeFirestore),
+      home: CadastroScreen(),
       routes: {
-        '/generos': (_) => GenerosCadastroScreen(auth: mockAuth, firestore: fakeFirestore),
+        '/generos': (_) => GenerosCadastroScreen(),
       },
     );
   }
@@ -214,7 +211,7 @@ void main() {
       (tester) async {
         await tester.pumpWidget(
           MaterialApp(
-            home: CadastroScreen(auth: mockAuth, firestore: fakeFirestore),
+            home: CadastroScreen(),
             routes: {
               '/login': (_) => const LoginScreenFake(),
             },
@@ -243,7 +240,7 @@ void main() {
       (tester) async {
         await tester.pumpWidget(
           MaterialApp(
-            home: GenerosCadastroScreen(auth: mockAuth, firestore: fakeFirestore),
+            home: GenerosCadastroScreen(),
           ),
         );
 
@@ -268,7 +265,7 @@ void main() {
       (tester) async {
         await tester.pumpWidget(
           MaterialApp(
-            home: GenerosCadastroScreen(auth: mockAuth, firestore: fakeFirestore),
+            home: GenerosCadastroScreen(),
           ),
         );
 

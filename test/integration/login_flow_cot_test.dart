@@ -1,6 +1,5 @@
 // test/integration/login_flow_cot_test.dart
 
-import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -8,12 +7,6 @@ import 'package:sintonize/login.dart';
 import 'package:sintonize/recup-senha.dart';
 
 void main() {
-  late MockFirebaseAuth mockAuth;
-
-  setUp(() {
-    mockAuth = MockFirebaseAuth();
-  });
-
   Widget createApp(Widget child) {
     return MaterialApp(
       home: child,
@@ -24,7 +17,7 @@ void main() {
     testWidgets('deve renderizar elementos principais da tela',
         (tester) async {
       await tester.pumpWidget(
-        createApp(LoginScreen(auth: mockAuth)),
+        createApp(LoginScreen()),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -49,7 +42,7 @@ void main() {
     testWidgets('deve validar e-mail vazio',
         (tester) async {
       await tester.pumpWidget(
-        createApp(LoginScreen(auth: mockAuth)),
+        createApp(LoginScreen()),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -70,7 +63,7 @@ void main() {
     testWidgets('deve validar e-mail inválido',
         (tester) async {
       await tester.pumpWidget(
-        createApp(LoginScreen(auth: mockAuth)),
+        createApp(LoginScreen()),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -101,7 +94,7 @@ void main() {
     testWidgets('deve validar senha vazia',
         (tester) async {
       await tester.pumpWidget(
-        createApp(LoginScreen(auth: mockAuth)),
+        createApp(LoginScreen()),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -127,7 +120,7 @@ void main() {
     testWidgets('deve validar senha curta',
         (tester) async {
       await tester.pumpWidget(
-        createApp(LoginScreen(auth: mockAuth)),
+        createApp(LoginScreen()),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -163,7 +156,7 @@ void main() {
         'deve navegar para RecupSenhaScreen ao tocar em "Esqueci minha senha"',
         (tester) async {
       await tester.pumpWidget(
-        createApp(LoginScreen(auth: mockAuth)),
+        createApp(LoginScreen()),
       );
 
       await tester.pump(const Duration(seconds: 1));
@@ -190,7 +183,7 @@ void main() {
         createApp(
           Builder(
             builder: (context) {
-              return LoginScreen(auth: mockAuth);
+              return LoginScreen();
             },
           ),
         ),

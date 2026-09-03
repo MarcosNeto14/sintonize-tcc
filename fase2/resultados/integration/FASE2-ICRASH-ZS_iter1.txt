@@ -1,0 +1,33 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart
+test/fase2/integration/icrash_zs_test.dart:254:20: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+test/fase2/integration/icrash_zs_test.dart:255:23: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+test/fase2/integration/icrash_zs_test.dart:331:31: Error: The method 'call' isn't defined for the type 'Null'.
+Try correcting the name to the name of an existing method, or defining a method named 'call'.
+          documentMock.set(any<Map<String, dynamic>>()),
+                              ^
+test/fase2/integration/icrash_zs_test.dart:360:31: Error: The method 'call' isn't defined for the type 'Null'.
+Try correcting the name to the name of an existing method, or defining a method named 'call'.
+          documentMock.set(any<Map<String, dynamic>>()),
+                              ^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart: test/fase2/integration/icrash_zs_test.dart:254:20: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+              email: anyNamed('email'),
+                     ^
+  test/fase2/integration/icrash_zs_test.dart:255:23: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+              password: anyNamed('password'),
+                        ^
+  test/fase2/integration/icrash_zs_test.dart:331:31: Error: The method 'call' isn't defined for the type 'Null'.
+  Try correcting the name to the name of an existing method, or defining a method named 'call'.
+            documentMock.set(any<Map<String, dynamic>>()),
+                                ^
+  test/fase2/integration/icrash_zs_test.dart:360:31: Error: The method 'call' isn't defined for the type 'Null'.
+  Try correcting the name to the name of an existing method, or defining a method named 'call'.
+            documentMock.set(any<Map<String, dynamic>>()),
+                                ^
+  .
+00:00 +0 -1: Some tests failed.

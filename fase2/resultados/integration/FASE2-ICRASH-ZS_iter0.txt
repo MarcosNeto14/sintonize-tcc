@@ -1,0 +1,13 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart
+test/fase2/integration/icrash_zs_test.dart:176:24: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<String, dynamic>'.
+ - 'Map' is from 'dart:core'.
+          document.set(any),
+                       ^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart: test/fase2/integration/icrash_zs_test.dart:176:24: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<String, dynamic>'.
+   - 'Map' is from 'dart:core'.
+            document.set(any),
+                         ^
+  .
+00:00 +0 -1: Some tests failed.

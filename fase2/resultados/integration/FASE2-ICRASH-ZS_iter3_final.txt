@@ -1,0 +1,178 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart
+00:00 +0: Integração - Cadastro do Sintonize realiza cadastro, navega para gêneros, salva gêneros e chega à tela inicial
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: 'usuario-123'
+  Actual: 'b8f21f42-916e-4801-afa3-52afdd0d8082'
+   Which: is different.
+          Expected: usuario-12 ...
+            Actual: b8f21f42-9 ...
+                    ^
+           Differ at offset 0
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart:193:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart line 193
+The test description was:
+  realiza cadastro, navega para gêneros, salva gêneros e chega à tela inicial
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: Integração - Cadastro do Sintonize realiza cadastro, navega para gêneros, salva gêneros e chega à tela inicial [E]
+  Test failed. See exception logs above.
+  The test description was: realiza cadastro, navega para gêneros, salva gêneros e chega à tela inicial
+  
+Warning: At least one test in this suite creates an HttpClient. When running a test suite that uses
+TestWidgetsFlutterBinding, all HTTP requests will return status code 400, and no network request
+will actually be made. Any test expecting a real network connection and status code will fail.
+To test code that needs an HttpClient, provide your own HttpClient implementation to the code under
+test, so that your test can consistently provide a testable response to the code under test.
+00:01 +0 -1: Integração - Cadastro do Sintonize permanece no cadastro e mostra erro quando Firebase Auth falha
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Erro ao cadastrar: O e-mail já está em
+uso.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart:439:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart line 439
+The test description was:
+  permanece no cadastro e mostra erro quando Firebase Auth falha
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -2: Integração - Cadastro do Sintonize permanece no cadastro e mostra erro quando Firebase Auth falha [E]
+  Test failed. See exception logs above.
+  The test description was: permanece no cadastro e mostra erro quando Firebase Auth falha
+  
+00:02 +0 -2: Integração - Cadastro do Sintonize permanece no cadastro quando Firestore falha ao salvar o usuário
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: 'usuario-123'
+  Actual: 'effdbdee-12aa-4a26-95bc-f19d5f179789'
+   Which: is different.
+          Expected: usuario-12 ...
+            Actual: effdbdee-1 ...
+                    ^
+           Differ at offset 0
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart:506:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart line 506
+The test description was:
+  permanece no cadastro quando Firestore falha ao salvar o usuário
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -3: Integração - Cadastro do Sintonize permanece no cadastro quando Firestore falha ao salvar o usuário [E]
+  Test failed. See exception logs above.
+  The test description was: permanece no cadastro quando Firestore falha ao salvar o usuário
+  
+00:03 +0 -3: Integração - Cadastro do Sintonize não salva e mostra aviso quando nenhum gênero é selecionado
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly 7 matching candidates
+  Actual: _TypeWidgetFinder:<Found 4 widgets with type "Switch": [
+            Switch(value: off, dependencies: [InheritedCupertinoTheme, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#a0c32]]),
+            Switch(value: off, dependencies: [InheritedCupertinoTheme, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#a0c32]]),
+            Switch(value: off, dependencies: [InheritedCupertinoTheme, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#a0c32]]),
+            Switch(value: off, dependencies: [InheritedCupertinoTheme, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#a0c32]]),
+          ]>
+   Which: is not enough
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart:560:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart line 560
+The test description was:
+  não salva e mostra aviso quando nenhum gênero é selecionado
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -4: Integração - Cadastro do Sintonize não salva e mostra aviso quando nenhum gênero é selecionado [E]
+  Test failed. See exception logs above.
+  The test description was: não salva e mostra aviso quando nenhum gênero é selecionado
+  
+00:03 +0 -4: Integração - Cadastro do Sintonize mostra erro quando Firestore falha ao salvar os gêneros
+00:03 +1 -4: Integração - Cadastro do Sintonize usuário não autenticado falha antes de salvar os gêneros
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      _GenerosCadastroScreenState._salvarGeneros (package:sintonize/generos-cadastro.dart:44:34)
+#1      _GenerosCadastroScreenState._confirmar (package:sintonize/generos-cadastro.dart:72:7)
+#2      _InkResponseState.handleTap (package:flutter/src/material/ink_well.dart:1224:21)
+#3      GestureRecognizer.invokeCallback (package:flutter/src/gestures/recognizer.dart:345:24)
+#4      TapGestureRecognizer.handleTapUp (package:flutter/src/gestures/tap.dart:758:11)
+#5      BaseTapGestureRecognizer._checkUp (package:flutter/src/gestures/tap.dart:383:5)
+#6      BaseTapGestureRecognizer.acceptGesture (package:flutter/src/gestures/tap.dart:353:7)
+#7      GestureArenaManager.sweep (package:flutter/src/gestures/arena.dart:173:27)
+#8      GestureBinding.handleEvent (package:flutter/src/gestures/binding.dart:532:20)
+#9      GestureBinding.dispatchEvent (package:flutter/src/gestures/binding.dart:498:22)
+#10     RendererBinding.dispatchEvent (package:flutter/src/rendering/binding.dart:473:11)
+#11     GestureBinding._handlePointerEventImmediately (package:flutter/src/gestures/binding.dart:437:7)
+#12     GestureBinding.handlePointerEvent (package:flutter/src/gestures/binding.dart:394:5)
+#13     TestWidgetsFlutterBinding.handlePointerEventForSource.<anonymous closure> (package:flutter_test/src/binding.dart:1301:42)
+#14     TestWidgetsFlutterBinding.withPointerEventSource (package:flutter_test/src/binding.dart:1311:11)
+#15     TestWidgetsFlutterBinding.handlePointerEventForSource (package:flutter_test/src/binding.dart:1301:5)
+#16     WidgetTester.sendEventToBinding.<anonymous closure> (package:flutter_test/src/widget_tester.dart:869:15)
+#19     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#20     WidgetTester.sendEventToBinding (package:flutter_test/src/widget_tester.dart:868:27)
+#21     TestGesture.up.<anonymous closure> (package:flutter_test/src/test_pointer.dart:587:26)
+#24     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#25     TestGesture.up (package:flutter_test/src/test_pointer.dart:580:27)
+#26     WidgetController.tapAt.<anonymous closure> (package:flutter_test/src/controller.dart:1150:21)
+<asynchronous suspension>
+#27     TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#28     main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_zs_test.dart:760:9)
+<asynchronous suspension>
+#29     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#30     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The test description was:
+  usuário não autenticado falha antes de salvar os gêneros
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +1 -5: Integração - Cadastro do Sintonize usuário não autenticado falha antes de salvar os gêneros [E]
+  Test failed. See exception logs above.
+  The test description was: usuário não autenticado falha antes de salvar os gêneros
+  
+00:03 +1 -5: Some tests failed.

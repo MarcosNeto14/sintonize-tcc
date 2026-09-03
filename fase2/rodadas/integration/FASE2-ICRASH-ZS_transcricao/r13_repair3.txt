@@ -1,0 +1,89 @@
+O arquivo agora compila, mas os 6 testes falharam. Saída resumida:
+
+```
+00:00 +0 -1: realiza cadastro, navega para gêneros, salva gêneros e chega à tela inicial [E]
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar"" derived an
+Offset (Offset(400.0, 870.0)) that would not hit test on the specified widget.
+Indeed, Offset(400.0, 870.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+  icrash_zs_test.dart:151  Expected: not null  Actual: <null>
+
+00:02 +0 -2: permanece no cadastro e mostra erro quando Firebase Auth falha [E]
+(mesmo warning de tap fora do viewport na linha 380)
+  icrash_zs_test.dart:388
+  Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Erro ao cadastrar: O e-mail ja esta em uso.": []>
+
+00:03 +0 -3: permanece no cadastro quando Firestore falha ao salvar o usuário [E]
+(mesmo warning de tap fora do viewport na linha 455)
+  icrash_zs_test.dart:462  Expected: not null  Actual: <null>
+
+00:03 +0 -4: não salva e mostra aviso quando nenhum gênero é selecionado [E]
+  RangeError (index): Index out of range: no indices are valid: 0
+  em tester.widget<SwitchListTile>(switches.at(i))  -> icrash_zs_test.dart:524
+
+00:03 +0 -5: mostra erro quando Firestore falha ao salvar os gêneros [E]
+  Bad state: No element
+  em tester.tap(find.byType(SwitchListTile).first) -> icrash_zs_test.dart:626
+
+00:03 +0 -6: usuário não autenticado não conclui o salvamento dos gêneros [E]
+  Bad state: No element
+  em tester.tap(find.byType(SwitchListTile).first) -> icrash_zs_test.dart:709
+
+00:03 +0 -6: Some tests failed.
+```
+
+Dois fatos verificados diretamente no codigo-fonte real do projeto, que voce precisa considerar:
+
+1) O trecho de `build()` que eu forneci no prompt original era uma versao SIMPLIFICADA. Na
+   GenerosCadastroScreen real NAO existe nenhum `SwitchListTile`. A lista e:
+
+   Container(
+     height: MediaQuery.of(context).size.height * 0.5,
+     child: ListView.builder(
+       itemCount: generos.length,
+       itemBuilder: (context, index) {
+         final genero = generos[index];
+         return Padding(
+           padding: const EdgeInsets.symmetric(vertical: 8.0),
+           child: Card(
+             child: Padding(
+               child: Row(
+                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                 children: [
+                   Text(genero),
+                   Switch(
+                     value: selecionados[genero]!,
+                     onChanged: (bool isSelected) {
+                       setState(() { selecionados[genero] = isSelected; });
+                     },
+                   ),
+                 ],
+               ),
+             ),
+           ),
+         );
+       },
+     ),
+   )
+
+   Ou seja: o widget e `Switch` (dentro de Card > Row), nao `SwitchListTile`. A logica de
+   `_salvarGeneros()` e `_confirmar()` continua exatamente como no prompt original.
+
+2) O viewport padrao do flutter_test e 800x600 e ambas as telas sao mais altas que isso,
+   por isso o tap em "Cadastrar" cai em Offset(400, 870), fora da render tree.
+
+Antes de corrigir, classifique a causa provável da falha:
+(A) o teste presume um comportamento que não é o especificado, ou
+(B) o teste capturou um comportamento potencialmente incorreto da aplicação.
+Declare essa classificação explicitamente antes de prosseguir.
+
+Se (A): corrija o teste normalmente.
+
+Se (B): não enfraqueça a asserção nem reduza o escopo do teste para
+fazê-lo passar. Descreva o comportamento observado, o comportamento
+esperado, e por que você suspeita de um problema na aplicação, em vez de
+alterar o teste.
+
+Classifique cada uma das falhas separadamente. Esta e a ULTIMA iteracao de reparo permitida
+(maximo de 3) nesta rodada. O codigo da aplicacao continua NAO podendo ser alterado.
+Responda com o arquivo de teste completo corrigido.

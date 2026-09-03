@@ -1,0 +1,4 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/isilent_fs_test.dart
+00:00 +0: Fluxo de Criação de Playlist cria playlist, seleciona músicas e salva no Firestore
+00:00 +1: Fluxo de Criação de Playlist exibe erro quando tenta salvar sem informar o nome
+00:00 +2: All tests passed!

@@ -1,0 +1,23 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/isilent_fs_test.dart
+test/fase2/integration/isilent_fs_test.dart:6:8: Error: Error when reading 'lib/criar_playlist_screen.dart': O sistema não pode encontrar o arquivo especificado
+import 'package:sintonize/criar_playlist_screen.dart';
+       ^
+test/fase2/integration/isilent_fs_test.dart:43:19: Error: Method not found: 'CriarPlaylistScreen'.
+            home: CriarPlaylistScreen(
+                  ^^^^^^^^^^^^^^^^^^^
+test/fase2/integration/isilent_fs_test.dart:138:19: Error: Method not found: 'CriarPlaylistScreen'.
+            home: CriarPlaylistScreen(
+                  ^^^^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/isilent_fs_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/isilent_fs_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/isilent_fs_test.dart: test/fase2/integration/isilent_fs_test.dart:6:8: Error: Error when reading 'lib/criar_playlist_screen.dart': O sistema não pode encontrar o arquivo especificado
+  import 'package:sintonize/criar_playlist_screen.dart';
+         ^
+  test/fase2/integration/isilent_fs_test.dart:43:19: Error: Method not found: 'CriarPlaylistScreen'.
+              home: CriarPlaylistScreen(
+                    ^^^^^^^^^^^^^^^^^^^
+  test/fase2/integration/isilent_fs_test.dart:138:19: Error: Method not found: 'CriarPlaylistScreen'.
+              home: CriarPlaylistScreen(
+                    ^^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

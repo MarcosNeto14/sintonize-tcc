@@ -1,0 +1,264 @@
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 93.0.0 (107.0.0 available)
+  _flutterfire_internals 1.3.52 (1.3.77 available)
+  analyzer 10.0.1 (14.3.0 available)
+  async 2.11.0 (2.13.1 available)
+  boolean_selector 2.1.1 (2.1.2 available)
+  build 4.0.5 (4.0.11 available)
+  build_config 1.3.0 (1.3.3 available)
+  build_daemon 4.1.1 (4.1.6 available)
+  build_runner 2.13.1 (2.16.1 available)
+  built_value 8.12.5 (8.13.0 available)
+  clock 1.1.2 (1.1.3 available)
+  cloud_firestore 5.6.4 (6.9.0 available)
+  cloud_firestore_platform_interface 6.6.4 (8.0.7 available)
+  cloud_firestore_web 4.4.4 (5.7.3 available)
+  code_builder 4.11.1 (4.12.0 available)
+  crypto 3.0.6 (3.0.7 available)
+  dart_style 3.1.7 (3.1.13 available)
+  equatable 2.0.8 (2.1.0 available)
+  fake_cloud_firestore 3.1.0 (4.2.0 available)
+  firebase_auth 5.5.0 (6.6.1 available)
+  firebase_auth_mocks 0.14.2 (0.15.2 available)
+  firebase_auth_platform_interface 7.6.0 (9.0.7 available)
+  firebase_auth_web 5.14.0 (6.2.7 available)
+  firebase_core 3.12.0 (4.14.0 available)
+  firebase_core_platform_interface 5.4.0 (8.1.1 available)
+  firebase_core_web 2.21.0 (3.11.0 available)
+  flutter_lints 5.0.0 (6.0.0 available)
+  flutter_plugin_android_lifecycle 2.0.24 (2.0.35 available)
+  geolocator 13.0.2 (14.0.3 available)
+  geolocator_android 4.6.1 (5.0.3 available)
+  geolocator_apple 2.3.9 (2.3.14 available)
+  geolocator_platform_interface 4.2.4 (4.3.0 available)
+  geolocator_web 4.1.1 (4.1.4 available)
+  geolocator_windows 0.2.3 (0.2.5 available)
+  glob 2.1.3 (2.2.0 available)
+  google_maps 8.1.1 (8.3.0 available)
+  google_maps_flutter 2.10.0 (2.18.0 available)
+  google_maps_flutter_android 2.14.12 (2.19.13 available)
+  google_maps_flutter_ios 2.13.2 (2.18.6 available)
+  google_maps_flutter_platform_interface 2.11.0 (2.16.1 available)
+  google_maps_flutter_web 0.5.10 (0.6.3 available)
+  html 0.15.5 (0.15.7 available)
+  http 0.13.6 (1.6.0 available)
+  io 1.0.5 (1.1.0 available)
+  json_annotation 4.9.0 (4.12.0 available)
+  lints 5.1.1 (6.1.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.17.0 (1.19.0 available)
+  mime 2.0.0 (2.1.0 available)
+  mockito 5.6.4 (5.8.1 available)
+  package_config 2.2.0 (3.0.0 available)
+  pool 1.5.2 (1.5.3 available)
+  process 5.0.5 (5.0.6 available)
+  pub_semver 2.2.0 (2.2.1 available)
+  pubspec_parse 1.5.0 (1.6.0 available)
+  rx 0.4.0 (0.5.0 available)
+  sanitize_html 2.1.0 (2.2.0 available)
+  source_gen 4.2.2 (4.3.0 available)
+  source_span 1.10.0 (1.10.2 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  stream_transform 2.1.1 (2.1.2 available)
+  string_scanner 1.3.0 (1.4.1 available)
+  term_glyph 1.2.1 (1.2.2 available)
+  test_api 0.7.10 (0.7.14 available)
+  uuid 4.5.1 (4.6.0 available)
+  vector_math 2.2.0 (2.4.2 available)
+  vm_service 14.3.0 (15.3.0 available)
+  web 1.1.0 (1.1.1 available)
+  yaml 3.1.3 (3.1.4 available)
+Got dependencies!
+70 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/integration/icrash_zs_reexec_test.dart
+00:00 +0: fluxo completo: cadastro -> gêneros -> Firestore -> tela inicial
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: 'Praça da Sé'
+  Actual: ''
+   Which: is different. Both strings start the same, but the actual value is missing the following
+trailing characters: Praça da S ...
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/icrash_zs_reexec_test.dart:180:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/icrash_zs_reexec_test.dart line 180
+The test description was:
+  fluxo completo: cadastro -> gêneros -> Firestore -> tela inicial
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -1: fluxo completo: cadastro -> gêneros -> Firestore -> tela inicial [E]
+  Test failed. See exception logs above.
+  The test description was: fluxo completo: cadastro -> gêneros -> Firestore -> tela inicial
+  
+Warning: At least one test in this suite creates an HttpClient. When running a test suite that uses
+TestWidgetsFlutterBinding, all HTTP requests will return status code 400, and no network request
+will actually be made. Any test expecting a real network connection and status code will fail.
+To test code that needs an HttpClient, provide your own HttpClient implementation to the code under
+test, so that your test can consistently provide a testable response to the code under test.
+00:03 +0 -1: exibe erro quando Firebase Auth falha durante o cadastro
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Erro ao cadastrar: O e-mail já está sendo
+usado por outra conta.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/icrash_zs_reexec_test.dart:287:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/icrash_zs_reexec_test.dart line 287
+The test description was:
+  exibe erro quando Firebase Auth falha durante o cadastro
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +0 -2: exibe erro quando Firebase Auth falha durante o cadastro [E]
+  Test failed. See exception logs above.
+  The test description was: exibe erro quando Firebase Auth falha durante o cadastro
+  
+00:04 +0 -2: exibe erro quando Firestore falha ao salvar o cadastro inicial
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Erro desconhecido:": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/icrash_zs_reexec_test.dart:364:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/icrash_zs_reexec_test.dart line 364
+The test description was:
+  exibe erro quando Firestore falha ao salvar o cadastro inicial
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +0 -3: exibe erro quando Firestore falha ao salvar o cadastro inicial [E]
+  Test failed. See exception logs above.
+  The test description was: exibe erro quando Firestore falha ao salvar o cadastro inicial
+  
+00:05 +0 -3: exibe erro quando Firestore falha ao salvar os gêneros
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Erro ao salvar os gêneros!": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/icrash_zs_reexec_test.dart:436:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/icrash_zs_reexec_test.dart line 436
+The test description was:
+  exibe erro quando Firestore falha ao salvar os gêneros
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +0 -4: exibe erro quando Firestore falha ao salvar os gêneros [E]
+  Test failed. See exception logs above.
+  The test description was: exibe erro quando Firestore falha ao salvar os gêneros
+  
+00:06 +0 -4: usuário não autenticado deve ser tratado ao confirmar gênero
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      _GenerosCadastroScreenState._salvarGeneros (package:sintonize/generos-cadastro.dart:44:34)
+#1      _GenerosCadastroScreenState._confirmar (package:sintonize/generos-cadastro.dart:72:7)
+#2      _InkResponseState.handleTap (package:flutter/src/material/ink_well.dart:1224:21)
+#3      GestureRecognizer.invokeCallback (package:flutter/src/gestures/recognizer.dart:345:24)
+#4      TapGestureRecognizer.handleTapUp (package:flutter/src/gestures/tap.dart:758:11)
+#5      BaseTapGestureRecognizer._checkUp (package:flutter/src/gestures/tap.dart:383:5)
+#6      BaseTapGestureRecognizer.handlePrimaryPointer (package:flutter/src/gestures/tap.dart:314:7)
+#7      PrimaryPointerGestureRecognizer.handleEvent (package:flutter/src/gestures/recognizer.dart:721:9)
+#8      PointerRouter._dispatch (package:flutter/src/gestures/pointer_router.dart:97:12)
+#9      PointerRouter._dispatchEventToRoutes.<anonymous closure> (package:flutter/src/gestures/pointer_router.dart:140:9)
+#10     _LinkedHashMapMixin.forEach (dart:_compact_hash:765:13)
+#11     PointerRouter._dispatchEventToRoutes (package:flutter/src/gestures/pointer_router.dart:138:18)
+#12     PointerRouter.route (package:flutter/src/gestures/pointer_router.dart:128:7)
+#13     GestureBinding.handleEvent (package:flutter/src/gestures/binding.dart:528:19)
+#14     GestureBinding.dispatchEvent (package:flutter/src/gestures/binding.dart:498:22)
+#15     RendererBinding.dispatchEvent (package:flutter/src/rendering/binding.dart:473:11)
+#16     GestureBinding._handlePointerEventImmediately (package:flutter/src/gestures/binding.dart:437:7)
+#17     GestureBinding.handlePointerEvent (package:flutter/src/gestures/binding.dart:394:5)
+#18     TestWidgetsFlutterBinding.handlePointerEventForSource.<anonymous closure> (package:flutter_test/src/binding.dart:1301:42)
+#19     TestWidgetsFlutterBinding.withPointerEventSource (package:flutter_test/src/binding.dart:1311:11)
+#20     TestWidgetsFlutterBinding.handlePointerEventForSource (package:flutter_test/src/binding.dart:1301:5)
+#21     WidgetTester.sendEventToBinding.<anonymous closure> (package:flutter_test/src/widget_tester.dart:869:15)
+#24     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#25     WidgetTester.sendEventToBinding (package:flutter_test/src/widget_tester.dart:868:27)
+#26     TestGesture.up.<anonymous closure> (package:flutter_test/src/test_pointer.dart:587:26)
+#29     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#30     TestGesture.up (package:flutter_test/src/test_pointer.dart:580:27)
+#31     WidgetController.tapAt.<anonymous closure> (package:flutter_test/src/controller.dart:1150:21)
+<asynchronous suspension>
+#32     TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#33     main.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/icrash_zs_reexec_test.dart:497:7)
+<asynchronous suspension>
+#34     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#35     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The test description was:
+  usuário não autenticado deve ser tratado ao confirmar gênero
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +0 -5: usuário não autenticado deve ser tratado ao confirmar gênero [E]
+  Test failed. See exception logs above.
+  The test description was: usuário não autenticado deve ser tratado ao confirmar gênero
+  
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test (but after the test had completed):
+Expected: not null
+  Actual: <null>
+
+When the exception was thrown, this was the stack:
+#0      fail (package:matcher/src/expect/expect.dart:187:31)
+#1      _expect (package:matcher/src/expect/expect.dart:182:3)
+#2      expect (package:matcher/src/expect/expect.dart:65:3)
+#3      expect (package:flutter_test/src/widget_tester.dart:473:18)
+#4      main.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/icrash_zs_reexec_test.dart:505:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  Test failed. See exception logs above.
+  The test description was: usuário não autenticado deve ser tratado ao confirmar gênero
+  
+00:06 +0 -5: não permite confirmar sem selecionar gênero
+00:07 +1 -5: Some tests failed.

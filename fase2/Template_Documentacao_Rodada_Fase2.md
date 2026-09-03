@@ -67,7 +67,7 @@ revisado (autoclassificação do modelo).
 - **Motivo da falha:** [descrever o erro]
 - **Prompt de reparo enviado:** [colar — conforme seção "Prompt de reparo" do arquivo do prompt]
 - **Resposta do LLM:** [colar resposta completa]
-- **★ Autoclassificação do modelo:** (A) — teste incorreto / (B) — bug real exposto / [não declarada]
+- **★ Autoclassificação do modelo:** (A) — teste incorreto / (B) — bug real exposto / (C) — bug identificado espontaneamente na geração inicial / [não declarada]
 - **Resultado após correção:** Passou / Falhou
 
 ### Iteração 2 (se necessário)
@@ -75,7 +75,7 @@ revisado (autoclassificação do modelo).
 - **Motivo da falha:** [descrever o erro]
 - **Prompt de reparo enviado:** [colar]
 - **Resposta do LLM:** [colar]
-- **★ Autoclassificação do modelo:** (A) / (B) / [não declarada]
+- **★ Autoclassificação do modelo:** (A) / (B) / (C) / [não declarada]
 - **Resultado após correção:** Passou / Falhou
 
 ### Iteração 3 (máximo)
@@ -83,8 +83,18 @@ revisado (autoclassificação do modelo).
 - **Motivo da falha:** [descrever o erro]
 - **Prompt de reparo enviado:** [colar]
 - **Resposta do LLM:** [colar]
-- **★ Autoclassificação do modelo:** (A) / (B) / [não declarada]
+- **★ Autoclassificação do modelo:** (A) / (B) / (C) / [não declarada]
 - **Resultado após correção:** Passou / Falhou
+
+**Nota sobre (C):** (C) não é uma classificação de reparo — é usada quando o
+modelo reconheceu e se ajustou ao comportamento real (incluindo o bug) já na
+geração inicial do teste, sem que nenhuma falha tenha ocorrido e sem passar
+pelo ciclo de reparo. Nesse caso não há "Iteração" a preencher para o bug em
+questão; registre (C) e a evidência (o trecho da resposta de geração inicial
+em que o modelo comenta/trata o comportamento divergente) diretamente no
+campo "★ Autoclassificação do modelo" da tabela de Análise de
+Autoclassificação abaixo, referenciando a resposta do LLM na seção
+"Resposta do LLM" em vez de uma iteração de reparo.
 
 ---
 
@@ -92,10 +102,20 @@ revisado (autoclassificação do modelo).
 
 | Campo | Valor |
 |---|---|
-| **★ Autoclassificação do modelo** | (A) — o modelo entendeu como erro no teste / (B) — o modelo sinalizou possível bug na aplicação / Não declarada (modelo não usou o esquema) |
-| **★ Classificação humana (auditoria)** | Erro de teste / Bug real exposto / Erro de geração / Limitação de testabilidade / Ambíguo / Falha de ambiente |
-| **★ Concordância** | Sim / Não / N/A (repair não foi necessário) |
+| **★ Autoclassificação do modelo** | (A) — o modelo entendeu como erro no teste / (B) — o modelo sinalizou possível bug na aplicação / (C) — bug identificado espontaneamente na geração inicial, sem falha nem reparo / Não declarada (modelo não usou o esquema) |
+| **★ Classificação humana (auditoria)** | Erro de teste / Bug real exposto / Erro de geração / Limitação de testabilidade / Ambíguo / Falha de ambiente / Bug capturado sem necessidade de reparo (C) |
+| **★ Concordância** | Sim / Não / N/A (repair não foi necessário e o bug não foi capturado) |
 | **★ Observações** | [descrever divergências, casos limítrofes, ou comentários do modelo relevantes para a análise] |
+
+**Definição de (C):**
+
+> (C) Bug identificado espontaneamente na geração inicial — o modelo
+> reconheceu e se ajustou ao comportamento real (incluindo o bug) já ao
+> gerar o teste pela primeira vez, sem que nenhuma falha tenha ocorrido e
+> sem passar pelo ciclo de reparo. Não há, nesse caso, uma resposta de
+> reparo para extrair a autoclassificação — a evidência de (C) é a
+> observação, na resposta de geração inicial, de que o modelo comentou ou
+> tratou explicitamente o comportamento divergente do esperado.
 
 **Referência de categorias (classificação humana — mesmas da Fase 1):**
 

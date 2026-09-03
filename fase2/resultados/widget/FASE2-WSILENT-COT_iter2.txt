@@ -1,0 +1,15 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wsilent_cot_test.dart
+test/fase2/widget/wsilent_cot_test.dart:155:37: Error: The getter 'currentState' isn't defined for the type 'Key'.
+ - 'Key' is from 'package:flutter/src/foundation/key.dart' ('/C:/src/flutter/packages/flutter/lib/src/foundation/key.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'currentState'.
+        final formState = form.key!.currentState!;
+                                    ^^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wsilent_cot_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wsilent_cot_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wsilent_cot_test.dart: test/fase2/widget/wsilent_cot_test.dart:155:37: Error: The getter 'currentState' isn't defined for the type 'Key'.
+   - 'Key' is from 'package:flutter/src/foundation/key.dart' ('/C:/src/flutter/packages/flutter/lib/src/foundation/key.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'currentState'.
+          final formState = form.key!.currentState!;
+                                      ^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

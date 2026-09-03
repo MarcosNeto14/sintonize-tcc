@@ -1,0 +1,95 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wsilent_cot_test.dart
+test/fase2/widget/wsilent_cot_test.dart:44:24: Error: The getter 'obscureText' isn't defined for the type 'TextFormField'.
+ - 'TextFormField' is from 'package:flutter/src/material/text_form_field.dart' ('/C:/src/flutter/packages/flutter/lib/src/material/text_form_field.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'obscureText'.
+      expect(fields[0].obscureText, isFalse);
+                       ^^^^^^^^^^^
+test/fase2/widget/wsilent_cot_test.dart:45:24: Error: The getter 'obscureText' isn't defined for the type 'TextFormField'.
+ - 'TextFormField' is from 'package:flutter/src/material/text_form_field.dart' ('/C:/src/flutter/packages/flutter/lib/src/material/text_form_field.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'obscureText'.
+      expect(fields[1].obscureText, isTrue);
+                       ^^^^^^^^^^^
+test/fase2/widget/wsilent_cot_test.dart:371:18: Error: The setter 'signInException' isn't defined for the type 'MockFirebaseAuth'.
+ - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+Try correcting the name to the name of an existing setter, or defining a setter or field named 'signInException'.
+        mockAuth.signInException = FirebaseAuthException(
+                 ^^^^^^^^^^^^^^^
+test/fase2/widget/wsilent_cot_test.dart:399:18: Error: The setter 'signInException' isn't defined for the type 'MockFirebaseAuth'.
+ - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+Try correcting the name to the name of an existing setter, or defining a setter or field named 'signInException'.
+        mockAuth.signInException = FirebaseAuthException(
+                 ^^^^^^^^^^^^^^^
+test/fase2/widget/wsilent_cot_test.dart:422:18: Error: The setter 'signInException' isn't defined for the type 'MockFirebaseAuth'.
+ - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+Try correcting the name to the name of an existing setter, or defining a setter or field named 'signInException'.
+        mockAuth.signInException = FirebaseAuthException(
+                 ^^^^^^^^^^^^^^^
+test/fase2/widget/wsilent_cot_test.dart:445:18: Error: The setter 'signInException' isn't defined for the type 'MockFirebaseAuth'.
+ - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+Try correcting the name to the name of an existing setter, or defining a setter or field named 'signInException'.
+        mockAuth.signInException = FirebaseAuthException(
+                 ^^^^^^^^^^^^^^^
+test/fase2/widget/wsilent_cot_test.dart:468:18: Error: The setter 'signInException' isn't defined for the type 'MockFirebaseAuth'.
+ - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+Try correcting the name to the name of an existing setter, or defining a setter or field named 'signInException'.
+        mockAuth.signInException = FirebaseAuthException(
+                 ^^^^^^^^^^^^^^^
+test/fase2/widget/wsilent_cot_test.dart:491:18: Error: The setter 'signInException' isn't defined for the type 'MockFirebaseAuth'.
+ - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+Try correcting the name to the name of an existing setter, or defining a setter or field named 'signInException'.
+        mockAuth.signInException = FirebaseAuthException(
+                 ^^^^^^^^^^^^^^^
+test/fase2/widget/wsilent_cot_test.dart:515:18: Error: The setter 'signInException' isn't defined for the type 'MockFirebaseAuth'.
+ - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+Try correcting the name to the name of an existing setter, or defining a setter or field named 'signInException'.
+        mockAuth.signInException = FirebaseAuthException(
+                 ^^^^^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wsilent_cot_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wsilent_cot_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wsilent_cot_test.dart: test/fase2/widget/wsilent_cot_test.dart:44:24: Error: The getter 'obscureText' isn't defined for the type 'TextFormField'.
+   - 'TextFormField' is from 'package:flutter/src/material/text_form_field.dart' ('/C:/src/flutter/packages/flutter/lib/src/material/text_form_field.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'obscureText'.
+        expect(fields[0].obscureText, isFalse);
+                         ^^^^^^^^^^^
+  test/fase2/widget/wsilent_cot_test.dart:45:24: Error: The getter 'obscureText' isn't defined for the type 'TextFormField'.
+   - 'TextFormField' is from 'package:flutter/src/material/text_form_field.dart' ('/C:/src/flutter/packages/flutter/lib/src/material/text_form_field.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'obscureText'.
+        expect(fields[1].obscureText, isTrue);
+                         ^^^^^^^^^^^
+  test/fase2/widget/wsilent_cot_test.dart:371:18: Error: The setter 'signInException' isn't defined for the type 'MockFirebaseAuth'.
+   - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+  Try correcting the name to the name of an existing setter, or defining a setter or field named 'signInException'.
+          mockAuth.signInException = FirebaseAuthException(
+                   ^^^^^^^^^^^^^^^
+  test/fase2/widget/wsilent_cot_test.dart:399:18: Error: The setter 'signInException' isn't defined for the type 'MockFirebaseAuth'.
+   - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+  Try correcting the name to the name of an existing setter, or defining a setter or field named 'signInException'.
+          mockAuth.signInException = FirebaseAuthException(
+                   ^^^^^^^^^^^^^^^
+  test/fase2/widget/wsilent_cot_test.dart:422:18: Error: The setter 'signInException' isn't defined for the type 'MockFirebaseAuth'.
+   - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+  Try correcting the name to the name of an existing setter, or defining a setter or field named 'signInException'.
+          mockAuth.signInException = FirebaseAuthException(
+                   ^^^^^^^^^^^^^^^
+  test/fase2/widget/wsilent_cot_test.dart:445:18: Error: The setter 'signInException' isn't defined for the type 'MockFirebaseAuth'.
+   - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+  Try correcting the name to the name of an existing setter, or defining a setter or field named 'signInException'.
+          mockAuth.signInException = FirebaseAuthException(
+                   ^^^^^^^^^^^^^^^
+  test/fase2/widget/wsilent_cot_test.dart:468:18: Error: The setter 'signInException' isn't defined for the type 'MockFirebaseAuth'.
+   - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+  Try correcting the name to the name of an existing setter, or defining a setter or field named 'signInException'.
+          mockAuth.signInException = FirebaseAuthException(
+                   ^^^^^^^^^^^^^^^
+  test/fase2/widget/wsilent_cot_test.dart:491:18: Error: The setter 'signInException' isn't defined for the type 'MockFirebaseAuth'.
+   - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+  Try correcting the name to the name of an existing setter, or defining a setter or field named 'signInException'.
+          mockAuth.signInException = FirebaseAuthException(
+                   ^^^^^^^^^^^^^^^
+  test/fase2/widget/wsilent_cot_test.dart:515:18: Error: The setter 'signInException' isn't defined for the type 'MockFirebaseAuth'.
+   - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+  Try correcting the name to the name of an existing setter, or defining a setter or field named 'signInException'.
+          mockAuth.signInException = FirebaseAuthException(
+                   ^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

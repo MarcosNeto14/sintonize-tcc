@@ -1,0 +1,69 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart
+test/fase2/integration/icrash_cot_test.dart:254:11: Error: No named parameter with the name 'shouldMockUser'.
+          shouldMockUser: false,
+          ^^^^^^^^^^^^^^
+../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+  MockFirebaseAuth(
+  ^^^^^^^^^^^^^^^^
+test/fase2/integration/icrash_cot_test.dart:525:28: Error: Undefined name 'TelaInicialScreen'.
+        expect(find.byType(TelaInicialScreen), findsOneWidget);
+                           ^^^^^^^^^^^^^^^^^
+test/fase2/integration/icrash_cot_test.dart:316:24: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<String, dynamic>'.
+ - 'Map' is from 'dart:core'.
+          document.set(any),
+                       ^
+test/fase2/integration/icrash_cot_test.dart:352:13: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<String, dynamic>'.
+ - 'Map' is from 'dart:core'.
+            argThat(
+            ^
+test/fase2/integration/icrash_cot_test.dart:383:14: Error: The setter 'mockCreateUserWithEmailAndPassword' isn't defined for the type 'MockFirebaseAuth'.
+ - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+Try correcting the name to the name of an existing setter, or defining a setter or field named 'mockCreateUserWithEmailAndPassword'.
+        auth.mockCreateUserWithEmailAndPassword = (
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/fase2/integration/icrash_cot_test.dart:557:27: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<Object, Object?>'.
+ - 'Map' is from 'dart:core'.
+ - 'Object' is from 'dart:core'.
+          document.update(any),
+                          ^
+test/fase2/integration/icrash_cot_test.dart:593:13: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<Object, Object?>'.
+ - 'Map' is from 'dart:core'.
+ - 'Object' is from 'dart:core'.
+            argThat(
+            ^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart: test/fase2/integration/icrash_cot_test.dart:254:11: Error: No named parameter with the name 'shouldMockUser'.
+            shouldMockUser: false,
+            ^^^^^^^^^^^^^^
+  ../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+    MockFirebaseAuth(
+    ^^^^^^^^^^^^^^^^
+  test/fase2/integration/icrash_cot_test.dart:525:28: Error: Undefined name 'TelaInicialScreen'.
+          expect(find.byType(TelaInicialScreen), findsOneWidget);
+                             ^^^^^^^^^^^^^^^^^
+  test/fase2/integration/icrash_cot_test.dart:316:24: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<String, dynamic>'.
+   - 'Map' is from 'dart:core'.
+            document.set(any),
+                         ^
+  test/fase2/integration/icrash_cot_test.dart:352:13: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<String, dynamic>'.
+   - 'Map' is from 'dart:core'.
+              argThat(
+              ^
+  test/fase2/integration/icrash_cot_test.dart:383:14: Error: The setter 'mockCreateUserWithEmailAndPassword' isn't defined for the type 'MockFirebaseAuth'.
+   - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+  Try correcting the name to the name of an existing setter, or defining a setter or field named 'mockCreateUserWithEmailAndPassword'.
+          auth.mockCreateUserWithEmailAndPassword = (
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/fase2/integration/icrash_cot_test.dart:557:27: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<Object, Object?>'.
+   - 'Map' is from 'dart:core'.
+   - 'Object' is from 'dart:core'.
+            document.update(any),
+                            ^
+  test/fase2/integration/icrash_cot_test.dart:593:13: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<Object, Object?>'.
+   - 'Map' is from 'dart:core'.
+   - 'Object' is from 'dart:core'.
+              argThat(
+              ^
+  .
+00:00 +0 -1: Some tests failed.

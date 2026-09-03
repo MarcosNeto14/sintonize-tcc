@@ -1,0 +1,127 @@
+O teste falhou com o seguinte erro:
+
+```
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart
+test/fase2/integration/icrash_cot_test.dart:254:11: Error: No named parameter with the name 'shouldMockUser'.
+          shouldMockUser: false,
+          ^^^^^^^^^^^^^^
+../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+  MockFirebaseAuth(
+  ^^^^^^^^^^^^^^^^
+test/fase2/integration/icrash_cot_test.dart:525:28: Error: Undefined name 'TelaInicialScreen'.
+        expect(find.byType(TelaInicialScreen), findsOneWidget);
+                           ^^^^^^^^^^^^^^^^^
+test/fase2/integration/icrash_cot_test.dart:316:24: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<String, dynamic>'.
+ - 'Map' is from 'dart:core'.
+          document.set(any),
+                       ^
+test/fase2/integration/icrash_cot_test.dart:352:13: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<String, dynamic>'.
+ - 'Map' is from 'dart:core'.
+            argThat(
+            ^
+test/fase2/integration/icrash_cot_test.dart:383:14: Error: The setter 'mockCreateUserWithEmailAndPassword' isn't defined for the type 'MockFirebaseAuth'.
+ - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+Try correcting the name to the name of an existing setter, or defining a setter or field named 'mockCreateUserWithEmailAndPassword'.
+        auth.mockCreateUserWithEmailAndPassword = (
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/fase2/integration/icrash_cot_test.dart:557:27: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<Object, Object?>'.
+ - 'Map' is from 'dart:core'.
+ - 'Object' is from 'dart:core'.
+          document.update(any),
+                          ^
+test/fase2/integration/icrash_cot_test.dart:593:13: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<Object, Object?>'.
+ - 'Map' is from 'dart:core'.
+ - 'Object' is from 'dart:core'.
+            argThat(
+            ^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart: test/fase2/integration/icrash_cot_test.dart:254:11: Error: No named parameter with the name 'shouldMockUser'.
+            shouldMockUser: false,
+            ^^^^^^^^^^^^^^
+  ../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+    MockFirebaseAuth(
+    ^^^^^^^^^^^^^^^^
+  test/fase2/integration/icrash_cot_test.dart:525:28: Error: Undefined name 'TelaInicialScreen'.
+          expect(find.byType(TelaInicialScreen), findsOneWidget);
+                             ^^^^^^^^^^^^^^^^^
+  test/fase2/integration/icrash_cot_test.dart:316:24: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<String, dynamic>'.
+   - 'Map' is from 'dart:core'.
+            document.set(any),
+                         ^
+  test/fase2/integration/icrash_cot_test.dart:352:13: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<String, dynamic>'.
+   - 'Map' is from 'dart:core'.
+              argThat(
+              ^
+  test/fase2/integration/icrash_cot_test.dart:383:14: Error: The setter 'mockCreateUserWithEmailAndPassword' isn't defined for the type 'MockFirebaseAuth'.
+   - 'MockFirebaseAuth' is from 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart' ('../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart').
+  Try correcting the name to the name of an existing setter, or defining a setter or field named 'mockCreateUserWithEmailAndPassword'.
+          auth.mockCreateUserWithEmailAndPassword = (
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/fase2/integration/icrash_cot_test.dart:557:27: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<Object, Object?>'.
+   - 'Map' is from 'dart:core'.
+   - 'Object' is from 'dart:core'.
+            document.update(any),
+                            ^
+  test/fase2/integration/icrash_cot_test.dart:593:13: Error: The argument type 'Null' can't be assigned to the parameter type 'Map<Object, Object?>'.
+   - 'Map' is from 'dart:core'.
+   - 'Object' is from 'dart:core'.
+              argThat(
+              ^
+  .
+00:00 +0 -1: Some tests failed.
+```
+
+Antes de corrigir, classifique a causa provável da falha:
+(A) o teste presume um comportamento que não é o especificado, ou
+(B) o teste capturou um comportamento potencialmente incorreto da aplicação.
+Declare essa classificação explicitamente antes de prosseguir.
+
+Se (A): corrija o teste normalmente.
+
+Se (B): não enfraqueça a asserção nem reduza o escopo do teste para
+fazê-lo passar. Descreva o comportamento observado, o comportamento
+esperado, e por que você suspeita de um problema na aplicação, em vez de
+alterar o teste.
+
+Contexto de ambiente real (verificado no pubspec.yaml e no codigo-fonte do
+projeto), para evitar mais rodadas de tentativa e erro:
+
+1) firebase_auth_mocks ^0.14.1 -- MockFirebaseAuth NAO tem os parametros
+   shouldMockUser nem mockCreateUserWithEmailAndPassword. Para simular
+   createUserWithEmailAndPassword() lancando FirebaseAuthException, use o
+   pacote mock_exceptions (dependencia transitiva de firebase_auth_mocks):
+
+   import 'package:mock_exceptions/mock_exceptions.dart';
+   ...
+   whenCalling(Invocation.method(#createUserWithEmailAndPassword, null))
+       .on(mockAuth)
+       .thenThrow(FirebaseAuthException(code: 'email-already-in-use',
+           message: 'E-mail ja cadastrado'));
+
+   O mesmo pacote suporta simular falhas em document.set()/update() do
+   FakeFirebaseFirestore (fake_cloud_firestore ^3.1.0), evitando mocks
+   manuais de Mockito para Firestore:
+
+   whenCalling(Invocation.method(#set, null)).on(documentMock).thenThrow(...);
+
+2) any (do pacote mockito) e um getter, nao uma funcao generica --
+   any<Map<String, dynamic>>() da mesma forma nao funciona como chamada.
+   Prefira o mock_exceptions acima em vez de mocks manuais com any/argThat
+   para Firestore.
+
+3) TelaInicialScreen esta definida em package:sintonize/tela-inicial.dart --
+   adicione o import.
+
+4) A GenerosCadastroScreen real do projeto NAO usa SwitchListTile. O
+   build() real usa Container(height: MediaQuery.of(context).size.height *
+   0.5) > ListView.builder > Card > Row > Switch. Use find.byType(Switch)
+   em vez de find.byType(SwitchListTile). O ListView.builder e lazy: se
+   precisar dos 7 Switch materializados simultaneamente, pode ser
+   necessario usar tester.binding.setSurfaceSize() com um viewport maior
+   ANTES de pumpWidget (nao restaura garantidamente o MediaQuery.size em
+   todas as versoes do Flutter -- prefira testar por texto/genero
+   individual quando possivel, em vez de contar os 7 de uma vez).
+
+Restrição: o código da aplicação (lib/cadastro.dart e lib/generos-cadastro.dart)
+NAO pode ser alterado. Responda com o arquivo de teste completo corrigido.

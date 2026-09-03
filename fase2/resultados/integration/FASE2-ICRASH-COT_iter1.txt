@@ -1,0 +1,730 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart
+00:00 +0: CadastroScreen - validação não chama Firebase quando o nome está vazio
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly 4 matching candidates
+  Actual: _TypeWidgetFinder:<Found 10 widgets with type "TextFormField": [
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#f6b57),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#00731),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#99bac),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#37430),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#bfc87),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#f64d3),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#6b112),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#28799),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#56f1a),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#f8a51),
+          ]>
+   Which: is too many
+
+When the exception was thrown, this was the stack:
+#4      main.preencherCadastro (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:53:5)
+#5      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:93:15)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart line 53
+The test description was:
+  não chama Firebase quando o nome está vazio
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +0 -1: CadastroScreen - validação não chama Firebase quando o nome está vazio [E]
+  Test failed. See exception logs above.
+  The test description was: não chama Firebase quando o nome está vazio
+  
+00:00 +0 -1: CadastroScreen - validação não chama Firebase quando o e-mail está vazio
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly 4 matching candidates
+  Actual: _TypeWidgetFinder:<Found 10 widgets with type "TextFormField": [
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4b258]], state:
+_TextFormFieldState#8ec1f),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4b258]], state:
+_TextFormFieldState#5ab73),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4b258]], state:
+_TextFormFieldState#ca3f9),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4b258]], state:
+_TextFormFieldState#1f378),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4b258]], state:
+_TextFormFieldState#fa43d),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4b258]], state:
+_TextFormFieldState#3d285),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4b258]], state:
+_TextFormFieldState#13a86),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4b258]], state:
+_TextFormFieldState#244e7),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4b258]], state:
+_TextFormFieldState#0dfaf),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4b258]], state:
+_TextFormFieldState#27461),
+          ]>
+   Which: is too many
+
+When the exception was thrown, this was the stack:
+#4      main.preencherCadastro (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:53:5)
+#5      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:133:15)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart line 53
+The test description was:
+  não chama Firebase quando o e-mail está vazio
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -2: CadastroScreen - validação não chama Firebase quando o e-mail está vazio [E]
+  Test failed. See exception logs above.
+  The test description was: não chama Firebase quando o e-mail está vazio
+  
+00:01 +0 -2: CadastroScreen - validação não chama Firebase quando a senha tem menos de 6 caracteres
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly 4 matching candidates
+  Actual: _TypeWidgetFinder:<Found 10 widgets with type "TextFormField": [
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#d7087]], state:
+_TextFormFieldState#8994a),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#d7087]], state:
+_TextFormFieldState#48a76),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#d7087]], state:
+_TextFormFieldState#35491),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#d7087]], state:
+_TextFormFieldState#7e0be),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#d7087]], state:
+_TextFormFieldState#f66a9),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#d7087]], state:
+_TextFormFieldState#d9c09),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#d7087]], state:
+_TextFormFieldState#3c9ef),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#d7087]], state:
+_TextFormFieldState#d88ef),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#d7087]], state:
+_TextFormFieldState#85bcc),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#d7087]], state:
+_TextFormFieldState#70345),
+          ]>
+   Which: is too many
+
+When the exception was thrown, this was the stack:
+#4      main.preencherCadastro (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:53:5)
+#5      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:168:15)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart line 53
+The test description was:
+  não chama Firebase quando a senha tem menos de 6 caracteres
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -3: CadastroScreen - validação não chama Firebase quando a senha tem menos de 6 caracteres [E]
+  Test failed. See exception logs above.
+  The test description was: não chama Firebase quando a senha tem menos de 6 caracteres
+  
+00:01 +0 -3: CadastroScreen - validação não chama Firebase quando as senhas não coincidem
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly 4 matching candidates
+  Actual: _TypeWidgetFinder:<Found 10 widgets with type "TextFormField": [
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4cccb]], state:
+_TextFormFieldState#b4d07),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4cccb]], state:
+_TextFormFieldState#efb4d),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4cccb]], state:
+_TextFormFieldState#24f24),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4cccb]], state:
+_TextFormFieldState#8c933),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4cccb]], state:
+_TextFormFieldState#f5760),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4cccb]], state:
+_TextFormFieldState#fd3b6),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4cccb]], state:
+_TextFormFieldState#22443),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4cccb]], state:
+_TextFormFieldState#53ebc),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4cccb]], state:
+_TextFormFieldState#d0eac),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#4cccb]], state:
+_TextFormFieldState#ca843),
+          ]>
+   Which: is too many
+
+When the exception was thrown, this was the stack:
+#4      main.preencherCadastro (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:53:5)
+#5      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:204:15)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart line 53
+The test description was:
+  não chama Firebase quando as senhas não coincidem
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -4: CadastroScreen - validação não chama Firebase quando as senhas não coincidem [E]
+  Test failed. See exception logs above.
+  The test description was: não chama Firebase quando as senhas não coincidem
+  
+00:01 +0 -4: CadastroScreen - Firebase/Auth/Firestore cria conta, salva usuário no Firestore e navega para GenerosCadastroScreen
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly 4 matching candidates
+  Actual: _TypeWidgetFinder:<Found 10 widgets with type "TextFormField": [
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a46a1]], state:
+_TextFormFieldState#9192f),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a46a1]], state:
+_TextFormFieldState#80c53),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a46a1]], state:
+_TextFormFieldState#9b9da),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a46a1]], state:
+_TextFormFieldState#89c82),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a46a1]], state:
+_TextFormFieldState#bc97a),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a46a1]], state:
+_TextFormFieldState#d869d),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a46a1]], state:
+_TextFormFieldState#d1a35),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a46a1]], state:
+_TextFormFieldState#43bfb),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a46a1]], state:
+_TextFormFieldState#ac76d),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a46a1]], state:
+_TextFormFieldState#38b08),
+          ]>
+   Which: is too many
+
+When the exception was thrown, this was the stack:
+#4      main.preencherCadastro (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:53:5)
+#5      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:246:15)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart line 53
+The test description was:
+  cria conta, salva usuário no Firestore e navega para GenerosCadastroScreen
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -5: CadastroScreen - Firebase/Auth/Firestore cria conta, salva usuário no Firestore e navega para GenerosCadastroScreen [E]
+  Test failed. See exception logs above.
+  The test description was: cria conta, salva usuário no Firestore e navega para GenerosCadastroScreen
+  
+00:01 +0 -5: CadastroScreen - Firebase/Auth/Firestore exibe SnackBar quando o Firebase Auth retorna email-already-in-use
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly 4 matching candidates
+  Actual: _TypeWidgetFinder:<Found 10 widgets with type "TextFormField": [
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#16d5a]], state:
+_TextFormFieldState#68f18),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#16d5a]], state:
+_TextFormFieldState#0f2ed),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#16d5a]], state:
+_TextFormFieldState#e12c6),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#16d5a]], state:
+_TextFormFieldState#99d14),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#16d5a]], state:
+_TextFormFieldState#72a43),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#16d5a]], state:
+_TextFormFieldState#b6d16),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#16d5a]], state:
+_TextFormFieldState#00d40),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#16d5a]], state:
+_TextFormFieldState#163d5),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#16d5a]], state:
+_TextFormFieldState#8ba7a),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#16d5a]], state:
+_TextFormFieldState#7fac3),
+          ]>
+   Which: is too many
+
+When the exception was thrown, this was the stack:
+#4      main.preencherCadastro (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:53:5)
+#5      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:305:15)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart line 53
+The test description was:
+  exibe SnackBar quando o Firebase Auth retorna email-already-in-use
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -6: CadastroScreen - Firebase/Auth/Firestore exibe SnackBar quando o Firebase Auth retorna email-already-in-use [E]
+  Test failed. See exception logs above.
+  The test description was: exibe SnackBar quando o Firebase Auth retorna email-already-in-use
+  
+00:01 +0 -6: CadastroScreen - Firebase/Auth/Firestore não navega quando o Firestore falha ao criar o documento do usuário
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly 4 matching candidates
+  Actual: _TypeWidgetFinder:<Found 10 widgets with type "TextFormField": [
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#9e12a]], state:
+_TextFormFieldState#7fc49),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#9e12a]], state:
+_TextFormFieldState#10d62),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#9e12a]], state:
+_TextFormFieldState#ee76b),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#9e12a]], state:
+_TextFormFieldState#07ef2),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#9e12a]], state:
+_TextFormFieldState#1d4b8),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#9e12a]], state:
+_TextFormFieldState#a713b),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#9e12a]], state:
+_TextFormFieldState#445b4),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#9e12a]], state:
+_TextFormFieldState#d7795),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#9e12a]], state:
+_TextFormFieldState#15946),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#9e12a]], state:
+_TextFormFieldState#c08f6),
+          ]>
+   Which: is too many
+
+When the exception was thrown, this was the stack:
+#4      main.preencherCadastro (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:53:5)
+#5      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:371:15)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart line 53
+The test description was:
+  não navega quando o Firestore falha ao criar o documento do usuário
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -7: CadastroScreen - Firebase/Auth/Firestore não navega quando o Firestore falha ao criar o documento do usuário [E]
+  Test failed. See exception logs above.
+  The test description was: não navega quando o Firestore falha ao criar o documento do usuário
+  
+00:02 +0 -7: CadastroScreen - estado intermediário permanece na tela de cadastro enquanto uma operação assíncrona está pendente
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly 4 matching candidates
+  Actual: _TypeWidgetFinder:<Found 10 widgets with type "TextFormField": [
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#12904]], state:
+_TextFormFieldState#7ab95),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#12904]], state:
+_TextFormFieldState#166f7),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#12904]], state:
+_TextFormFieldState#6462a),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#12904]], state:
+_TextFormFieldState#94520),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#12904]], state:
+_TextFormFieldState#8300b),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#12904]], state:
+_TextFormFieldState#7ef1f),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#12904]], state:
+_TextFormFieldState#7b5ce),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#12904]], state:
+_TextFormFieldState#31e96),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#12904]], state:
+_TextFormFieldState#1ff84),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#12904]], state:
+_TextFormFieldState#9e1df),
+          ]>
+   Which: is too many
+
+When the exception was thrown, this was the stack:
+#4      main.preencherCadastro (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:53:5)
+#5      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:420:15)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart line 53
+The test description was:
+  permanece na tela de cadastro enquanto uma operação assíncrona está pendente
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -8: CadastroScreen - estado intermediário permanece na tela de cadastro enquanto uma operação assíncrona está pendente [E]
+  Test failed. See exception logs above.
+  The test description was: permanece na tela de cadastro enquanto uma operação assíncrona está pendente
+  
+00:02 +0 -8: GenerosCadastroScreen - validação exibe mensagem quando nenhum gênero é selecionado
+
+Warning: A call to tap() with finder "Found 1 widget with type "ElevatedButton" that are ancestors of widget with text "Confirmar": [
+  ElevatedButton(style: ButtonStyle#5cb77(textStyle: WidgetStatePropertyAll(null), backgroundColor: WidgetStateMapper<Color?>({WidgetState.disabled: null, WidgetState.any: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB)}), padding: WidgetStatePropertyAll(EdgeInsets(0.0, 15.0, 0.0, 15.0)), shape: WidgetStatePropertyAll(RoundedRectangleBorder(BorderSide(width: 0.0, style: none), BorderRadius.circular(15.0))), mouseCursor: WidgetStateMapper<MouseCursor?>({WidgetState.disabled: null, WidgetState.any: null})), dependencies: [IconTheme, InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#2a0aa]], state: _ButtonStyleState#9295a),
+]" derived an Offset (Offset(400.0, 618.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 618.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#34e67 relayoutBoundary=up13
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#687bc(_ReusableRenderView#2fb90), HitTestEntry<HitTestTarget>#6bbf9(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.pressionarConfirmar (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:69:18)
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:479:15)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Selecione pelo menos um gênero musical!":
+[]>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:481:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart line 481
+The test description was:
+  exibe mensagem quando nenhum gênero é selecionado
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -9: GenerosCadastroScreen - validação exibe mensagem quando nenhum gênero é selecionado [E]
+  Test failed. See exception logs above.
+  The test description was: exibe mensagem quando nenhum gênero é selecionado
+  
+00:02 +0 -9: GenerosCadastroScreen - Firestore seleciona Rock e salva generos_favoritos no Firestore
+
+Warning: A call to tap() with finder "Found 1 widget with type "ElevatedButton" that are ancestors of widget with text "Confirmar": [
+  ElevatedButton(style: ButtonStyle#5cb77(textStyle: WidgetStatePropertyAll(null), backgroundColor: WidgetStateMapper<Color?>({WidgetState.disabled: null, WidgetState.any: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB)}), padding: WidgetStatePropertyAll(EdgeInsets(0.0, 15.0, 0.0, 15.0)), shape: WidgetStatePropertyAll(RoundedRectangleBorder(BorderSide(width: 0.0, style: none), BorderRadius.circular(15.0))), mouseCursor: WidgetStateMapper<MouseCursor?>({WidgetState.disabled: null, WidgetState.any: null})), dependencies: [IconTheme, InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#b0449]], state: _ButtonStyleState#f34fd),
+]" derived an Offset (Offset(400.0, 618.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 618.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#92f67 relayoutBoundary=up13
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#5649f(_ReusableRenderView#2fb90), HitTestEntry<HitTestTarget>#aade2(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.pressionarConfirmar (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:69:18)
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:558:15)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: ['Rock']
+  Actual: <null>
+   Which: is not Iterable
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:571:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart line 571
+The test description was:
+  seleciona Rock e salva generos_favoritos no Firestore
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -10: GenerosCadastroScreen - Firestore seleciona Rock e salva generos_favoritos no Firestore [E]
+  Test failed. See exception logs above.
+  The test description was: seleciona Rock e salva generos_favoritos no Firestore
+  
+00:02 +0 -10: GenerosCadastroScreen - Firestore seleciona um gênero e exibe erro quando o Firestore está indisponível
+
+Warning: A call to tap() with finder "Found 1 widget with type "ElevatedButton" that are ancestors of widget with text "Confirmar": [
+  ElevatedButton(style: ButtonStyle#5cb77(textStyle: WidgetStatePropertyAll(null), backgroundColor: WidgetStateMapper<Color?>({WidgetState.disabled: null, WidgetState.any: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB)}), padding: WidgetStatePropertyAll(EdgeInsets(0.0, 15.0, 0.0, 15.0)), shape: WidgetStatePropertyAll(RoundedRectangleBorder(BorderSide(width: 0.0, style: none), BorderRadius.circular(15.0))), mouseCursor: WidgetStateMapper<MouseCursor?>({WidgetState.disabled: null, WidgetState.any: null})), dependencies: [IconTheme, InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#7cec2]], state: _ButtonStyleState#c6523),
+]" derived an Offset (Offset(400.0, 618.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 618.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#1a7a4 relayoutBoundary=up13
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#51910(_ReusableRenderView#2fb90), HitTestEntry<HitTestTarget>#2733b(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.pressionarConfirmar (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:69:18)
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:657:15)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Erro ao salvar os gêneros!": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:661:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart line 661
+The test description was:
+  seleciona um gênero e exibe erro quando o Firestore está indisponível
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -11: GenerosCadastroScreen - Firestore seleciona um gênero e exibe erro quando o Firestore está indisponível [E]
+  Test failed. See exception logs above.
+  The test description was: seleciona um gênero e exibe erro quando o Firestore está indisponível
+  
+00:02 +0 -11: GenerosCadastroScreen - autenticação usuário não autenticado provoca exceção ao confirmar gênero
+
+Warning: A call to tap() with finder "Found 1 widget with type "ElevatedButton" that are ancestors of widget with text "Confirmar": [
+  ElevatedButton(style: ButtonStyle#5cb77(textStyle: WidgetStatePropertyAll(null), backgroundColor: WidgetStateMapper<Color?>({WidgetState.disabled: null, WidgetState.any: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB)}), padding: WidgetStatePropertyAll(EdgeInsets(0.0, 15.0, 0.0, 15.0)), shape: WidgetStatePropertyAll(RoundedRectangleBorder(BorderSide(width: 0.0, style: none), BorderRadius.circular(15.0))), mouseCursor: WidgetStateMapper<MouseCursor?>({WidgetState.disabled: null, WidgetState.any: null})), dependencies: [IconTheme, InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#8c6da]], state: _ButtonStyleState#9005f),
+]" derived an Offset (Offset(400.0, 618.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 618.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#5add4 relayoutBoundary=up13
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#75378(_ReusableRenderView#2fb90), HitTestEntry<HitTestTarget>#bc990(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.pressionarConfirmar (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:69:18)
+#4      main.<anonymous closure>.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:741:19)
+#5      Throws.matchAsync (package:matcher/src/expect/throws_matcher.dart:85:37)
+#6      _expect (package:matcher/src/expect/expect.dart:137:26)
+#7      expectLater (package:matcher/src/expect/expect.dart:91:7)
+#8      expectLater (package:flutter_test/src/widget_tester.dart:507:8)
+#9      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:739:15)
+<asynchronous suspension>
+#10     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#11     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#12     StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: throws anything
+  Actual: <Closure: () => Future<Null>>
+   Which: returned a Future that emitted <null>
+
+When the exception was thrown, this was the stack:
+#0      fail (package:matcher/src/expect/expect.dart:187:31)
+#1      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:155:13)
+<asynchronous suspension>
+<asynchronous suspension>
+#8      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#9      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:739:9)
+<asynchronous suspension>
+#10     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#11     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 7 frames from dart:async and package:stack_trace)
+
+The test description was:
+  usuário não autenticado provoca exceção ao confirmar gênero
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -12: GenerosCadastroScreen - autenticação usuário não autenticado provoca exceção ao confirmar gênero [E]
+  Test failed. See exception logs above.
+  The test description was: usuário não autenticado provoca exceção ao confirmar gênero
+  
+00:02 +0 -12: Fluxo completo - Cadastro -> Generos cadastro bem-sucedido navega para GenerosCadastroScreen
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly 4 matching candidates
+  Actual: _TypeWidgetFinder:<Found 10 widgets with type "TextFormField": [
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a7b46]], state:
+_TextFormFieldState#ee479),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a7b46]], state:
+_TextFormFieldState#29b5b),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a7b46]], state:
+_TextFormFieldState#c7df4),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a7b46]], state:
+_TextFormFieldState#39256),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a7b46]], state:
+_TextFormFieldState#3add4),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a7b46]], state:
+_TextFormFieldState#22397),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a7b46]], state:
+_TextFormFieldState#45709),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a7b46]], state:
+_TextFormFieldState#e00a2),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a7b46]], state:
+_TextFormFieldState#5c771),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#a7b46]], state:
+_TextFormFieldState#3267b),
+          ]>
+   Which: is too many
+
+When the exception was thrown, this was the stack:
+#4      main.preencherCadastro (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:53:5)
+#5      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:767:15)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart line 53
+The test description was:
+  cadastro bem-sucedido navega para GenerosCadastroScreen
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -13: Fluxo completo - Cadastro -> Generos cadastro bem-sucedido navega para GenerosCadastroScreen [E]
+  Test failed. See exception logs above.
+  The test description was: cadastro bem-sucedido navega para GenerosCadastroScreen
+  
+00:03 +0 -13: Some tests failed.

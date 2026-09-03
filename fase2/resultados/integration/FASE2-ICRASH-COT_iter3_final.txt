@@ -1,0 +1,268 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart
+00:00 +0: não chama Firebase quando o nome contém números
+00:01 +1: não chama Firebase quando a data de nascimento é inválida
+00:01 +2: não chama Firebase quando o e-mail está vazio
+00:01 +3: não chama Firebase quando a senha possui menos de 6 caracteres
+00:02 +4: não chama Firebase quando as senhas não coincidem
+00:02 +5: não chama Firebase quando o CEP é inválido
+00:02 +6: cria usuário, salva dados no Firestore e navega para GenerosCadastroScreen
+00:03 +7: exibe erro quando o Firebase Auth retorna email-already-in-use
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Erro ao cadastrar: E-mail já cadastrado":
+[]>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:634:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart line 634
+The test description was:
+  exibe erro quando o Firebase Auth retorna email-already-in-use
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +7 -1: exibe erro quando o Firebase Auth retorna email-already-in-use [E]
+  Test failed. See exception logs above.
+  The test description was: exibe erro quando o Firebase Auth retorna email-already-in-use
+  
+00:03 +7 -1: exibe erro e não navega quando o Firestore falha ao criar usuário
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "CadastroScreen": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:722:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart line 722
+The test description was:
+  exibe erro e não navega quando o Firestore falha ao criar usuário
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +7 -2: exibe erro e não navega quando o Firestore falha ao criar usuário [E]
+  Test failed. See exception logs above.
+  The test description was: exibe erro e não navega quando o Firestore falha ao criar usuário
+  
+00:04 +7 -2: não exibe indicador de loading porque a aplicação não implementa loading visual
+00:04 +8 -2: exibe mensagem quando nenhum gênero é selecionado
+00:04 +9 -2: seleciona Rock e salva generos_favoritos no Firestore
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following FirebaseException was thrown running a test:
+[core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+
+When the exception was thrown, this was the stack:
+#0      MethodChannelFirebase.app (package:firebase_core_platform_interface/src/method_channel/method_channel_firebase.dart:195:5)
+#1      Firebase.app (package:firebase_core/src/firebase.dart:79:41)
+#2      FirebaseAuth.instance (package:firebase_auth/src/firebase_auth.dart:38:47)
+#3      _TelaInicialScreenState.fetchLastRecommendedMusic (package:sintonize/tela-inicial.dart:43:31)
+#4      _TelaInicialScreenState._loadLastRecommendedMusic (package:sintonize/tela-inicial.dart:160:29)
+#5      _TelaInicialScreenState.initState (package:sintonize/tela-inicial.dart:156:5)
+#6      StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5950:55)
+#7      ComponentElement.mount (package:flutter/src/widgets/framework.dart:5793:5)
+...     Normal element mounting (260 frames)
+#267    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#268    MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#269    Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+#270    Element.updateChildren (package:flutter/src/widgets/framework.dart:4255:32)
+#271    MultiChildRenderObjectElement.update (package:flutter/src/widgets/framework.dart:7295:17)
+#272    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#273    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#274    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#275    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#276    StatefulElement.update (package:flutter/src/widgets/framework.dart:6007:5)
+#277    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#278    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#279    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#280    ProxyElement.update (package:flutter/src/widgets/framework.dart:6149:5)
+#281    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#282    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#283    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#284    ProxyElement.update (package:flutter/src/widgets/framework.dart:6149:5)
+#285    _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#286    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#287    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#288    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#289    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#290    StatefulElement.update (package:flutter/src/widgets/framework.dart:6007:5)
+#291    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#292    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#293    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#294    ProxyElement.update (package:flutter/src/widgets/framework.dart:6149:5)
+#295    _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#296    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#297    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#298    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#299    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#300    StatefulElement.update (package:flutter/src/widgets/framework.dart:6007:5)
+#301    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#302    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#303    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#304    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#305    StatefulElement.update (package:flutter/src/widgets/framework.dart:6007:5)
+#306    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#307    SingleChildRenderObjectElement.update (package:flutter/src/widgets/framework.dart:7122:14)
+#308    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#309    SingleChildRenderObjectElement.update (package:flutter/src/widgets/framework.dart:7122:14)
+#310    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#311    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#312    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#313    ProxyElement.update (package:flutter/src/widgets/framework.dart:6149:5)
+#314    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#315    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#316    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#317    ProxyElement.update (package:flutter/src/widgets/framework.dart:6149:5)
+#318    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#319    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#320    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#321    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#322    BuildScope._tryRebuild (package:flutter/src/widgets/framework.dart:2750:15)
+#323    BuildScope._flushDirtyElements (package:flutter/src/widgets/framework.dart:2807:11)
+#324    BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3111:18)
+#325    AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:2131:19)
+#326    RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:495:5)
+#327    SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#328    SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)
+#329    AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:1960:9)
+#332    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#333    AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:1949:27)
+#334    WidgetTester.pump.<anonymous closure> (package:flutter_test/src/widget_tester.dart:652:53)
+#337    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#338    WidgetTester.pump (package:flutter_test/src/widget_tester.dart:652:27)
+#339    main.pressionarConfirmar (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:167:18)
+<asynchronous suspension>
+#340    main.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:889:9)
+<asynchronous suspension>
+#341    testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#342    TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The test description was:
+  seleciona Rock e salva generos_favoritos no Firestore
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +9 -3: seleciona Rock e salva generos_favoritos no Firestore [E]
+  Test failed. See exception logs above.
+  The test description was: seleciona Rock e salva generos_favoritos no Firestore
+  
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test (but after the test had completed):
+Expected: not null
+  Actual: <null>
+TelaInicialScreen acessa Firebase.instance diretamente e, neste ambiente de teste, a exceção
+[core/no-app] é o resultado observável da navegação.
+
+When the exception was thrown, this was the stack:
+#0      fail (package:matcher/src/expect/expect.dart:187:31)
+#1      _expect (package:matcher/src/expect/expect.dart:182:3)
+#2      expect (package:matcher/src/expect/expect.dart:65:3)
+#3      expect (package:flutter_test/src/widget_tester.dart:473:18)
+#4      main.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:936:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  Test failed. See exception logs above.
+  The test description was: seleciona Rock e salva generos_favoritos no Firestore
+  
+00:04 +9 -3: exibe erro e não navega quando o Firestore falha ao salvar gêneros
+00:04 +10 -3: usuário não autenticado gera exceção ao confirmar gênero
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      _GenerosCadastroScreenState._salvarGeneros (package:sintonize/generos-cadastro.dart:44:34)
+#1      _GenerosCadastroScreenState._confirmar (package:sintonize/generos-cadastro.dart:72:7)
+#2      _InkResponseState.handleTap (package:flutter/src/material/ink_well.dart:1224:21)
+#3      GestureRecognizer.invokeCallback (package:flutter/src/gestures/recognizer.dart:345:24)
+#4      TapGestureRecognizer.handleTapUp (package:flutter/src/gestures/tap.dart:758:11)
+#5      BaseTapGestureRecognizer._checkUp (package:flutter/src/gestures/tap.dart:383:5)
+#6      BaseTapGestureRecognizer.handlePrimaryPointer (package:flutter/src/gestures/tap.dart:314:7)
+#7      PrimaryPointerGestureRecognizer.handleEvent (package:flutter/src/gestures/recognizer.dart:721:9)
+#8      PointerRouter._dispatch (package:flutter/src/gestures/pointer_router.dart:97:12)
+#9      PointerRouter._dispatchEventToRoutes.<anonymous closure> (package:flutter/src/gestures/pointer_router.dart:140:9)
+#10     _LinkedHashMapMixin.forEach (dart:_compact_hash:765:13)
+#11     PointerRouter._dispatchEventToRoutes (package:flutter/src/gestures/pointer_router.dart:138:18)
+#12     PointerRouter.route (package:flutter/src/gestures/pointer_router.dart:128:7)
+#13     GestureBinding.handleEvent (package:flutter/src/gestures/binding.dart:528:19)
+#14     GestureBinding.dispatchEvent (package:flutter/src/gestures/binding.dart:498:22)
+#15     RendererBinding.dispatchEvent (package:flutter/src/rendering/binding.dart:473:11)
+#16     GestureBinding._handlePointerEventImmediately (package:flutter/src/gestures/binding.dart:437:7)
+#17     GestureBinding.handlePointerEvent (package:flutter/src/gestures/binding.dart:394:5)
+#18     TestWidgetsFlutterBinding.handlePointerEventForSource.<anonymous closure> (package:flutter_test/src/binding.dart:1301:42)
+#19     TestWidgetsFlutterBinding.withPointerEventSource (package:flutter_test/src/binding.dart:1311:11)
+#20     TestWidgetsFlutterBinding.handlePointerEventForSource (package:flutter_test/src/binding.dart:1301:5)
+#21     WidgetTester.sendEventToBinding.<anonymous closure> (package:flutter_test/src/widget_tester.dart:869:15)
+#24     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#25     WidgetTester.sendEventToBinding (package:flutter_test/src/widget_tester.dart:868:27)
+#26     TestGesture.up.<anonymous closure> (package:flutter_test/src/test_pointer.dart:587:26)
+#29     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#30     TestGesture.up (package:flutter_test/src/test_pointer.dart:580:27)
+#31     WidgetController.tapAt.<anonymous closure> (package:flutter_test/src/controller.dart:1150:21)
+<asynchronous suspension>
+#32     TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#33     main.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:1081:9)
+<asynchronous suspension>
+#34     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#35     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The test description was:
+  usuário não autenticado gera exceção ao confirmar gênero
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +10 -4: usuário não autenticado gera exceção ao confirmar gênero [E]
+  Test failed. See exception logs above.
+  The test description was: usuário não autenticado gera exceção ao confirmar gênero
+  
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test (but after the test had completed):
+Expected: not null
+  Actual: <null>
+currentUser!.uid é executado com currentUser == null e a exceção deve ser reportada pelo Flutter
+Test Framework.
+
+When the exception was thrown, this was the stack:
+#0      fail (package:matcher/src/expect/expect.dart:187:31)
+#1      _expect (package:matcher/src/expect/expect.dart:182:3)
+#2      expect (package:matcher/src/expect/expect.dart:65:3)
+#3      expect (package:flutter_test/src/widget_tester.dart:473:18)
+#4      main.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:1092:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  Test failed. See exception logs above.
+  The test description was: usuário não autenticado gera exceção ao confirmar gênero
+  
+00:04 +10 -4: fluxo completo de cadastro navega para GenerosCadastroScreen
+00:05 +11 -4: Some tests failed.

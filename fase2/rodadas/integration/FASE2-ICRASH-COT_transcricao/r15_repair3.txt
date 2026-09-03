@@ -1,0 +1,84 @@
+10 de 15 testes passaram apos a correcao anterior. Restam 5 falhas distintas:
+
+```
+1) 'nao chama Firebase quando o CEP esta em formato invalido'
+   Expected: no matching candidates (GenerosCadastroScreen)
+   Actual: Found 1 widget with type "GenerosCadastroScreen"
+   -> o teste usou cep: '50000000' esperando que fosse invalido, mas NAVEGOU mesmo assim.
+
+2) 'exibe erro quando o Firebase Auth retorna email-already-in-use'
+   Expected: exactly one matching candidate (texto do SnackBar)
+   Actual: Found 0 widgets with text "Erro ao cadastrar: E-mail ja cadastrado"
+   -> o whenCalling(Invocation.method(#createUserWithEmailAndPassword, null)).on(auth)
+      nao interceptou a chamada.
+
+3) 'exibe erro e nao navega quando o Firestore falha ao criar usuario'
+   Expected: exactly one matching candidate (CadastroScreen)
+   Actual: Found 0 widgets with type "CadastroScreen"
+   -> a navegacao para GenerosCadastroScreen ocorreu mesmo com o stub de falha do
+      Firestore configurado; o stub tambem nao interceptou.
+
+4) 'seleciona Rock, salva generos_favoritos e navega para TelaInicialScreen'
+   FirebaseException: [core/no-app] No Firebase App '[DEFAULT]' has been created
+   em _TelaInicialScreenState.fetchLastRecommendedMusic -> FirebaseAuth.instance
+
+5) 'usuario nao autenticado gera excecao ao confirmar genero'
+   Expected: throws anything
+   Actual: <Closure> returned a Future that emitted <null>
+   (usando expectLater(algunaClosure, throwsA(anything)))
+```
+
+Antes de corrigir, classifique a causa provável de cada uma das 5 falhas:
+(A) o teste presume um comportamento que não é o especificado, ou
+(B) o teste capturou um comportamento potencialmente incorreto da aplicação.
+Declare essa classificação explicitamente antes de prosseguir, uma por uma.
+
+Se (A): corrija o teste normalmente.
+
+Se (B): não enfraqueça a asserção nem reduza o escopo do teste para
+fazê-lo passar. Descreva o comportamento observado, o comportamento
+esperado, e por que você suspeita de um problema na aplicação, em vez de
+alterar o teste.
+
+Informações de causa raiz confirmadas no codigo-fonte real do projeto:
+
+1) A CadastroScreen real tem um _CEPInputFormatter (TextInputFormatter) aplicado ao
+   campo CEP que insere o traco automaticamente enquanto o usuario digita (a cada 5
+   digitos). Como tester.enterText() passa pelo pipeline de inputFormatters, o valor
+   '50000000' digitado é reformatado para '50000-000' ANTES da validacao, tornando-o
+   valido. Para testar CEP realmente invalido, use um valor que continua invalido
+   mesmo apos a formatacao, por exemplo '123' (fica com 3 digitos, menor que o exigido).
+
+2) e 3) createUserWithEmailAndPassword() e document.set() sao chamados com argumentos
+   nomeados/posicionais reais (nao null). O matcher
+   Invocation.method(#createUserWithEmailAndPassword, null) provavelmente nao
+   corresponde a uma chamada real feita com argumentos nomeados {email: ..., password:
+   ...}. Consulte a assinatura correta esperada por mock_exceptions para metodos com
+   parametros nomeados (pode ser necessario Invocation.method(#metodo, [],
+   {#email: anything, #password: anything}) ou equivalente) e ajuste ambos os stubs
+   (Auth e Firestore) de acordo.
+
+4) Esta e uma limitacao de testabilidade JA CONHECIDA e documentada em rodadas
+   anteriores deste mesmo experimento (nao e algo novo para investigar): TelaInicialScreen
+   acessa FirebaseAuth.instance/FirebaseFirestore.instance diretamente no initState,
+   sem receber essas dependencias por injecao como CadastroScreen/GenerosCadastroScreen
+   fazem. Isso torna IMPOSSIVEL testar a navegacao de sucesso ate TelaInicialScreen sem
+   modificar lib/tela-inicial.dart (fora do escopo permitido). Documente isso como uma
+   limitacao (por exemplo, capture a excecao com tester.takeException() ou envolva a
+   expectativa para refletir que a excecao [core/no-app] e o comportamento observavel
+   atual, em vez de esperar TelaInicialScreen renderizada) -- NAO tente contornar
+   inicializando Firebase.initializeApp() com opcoes falsas, pois isso causa
+   PlatformException: channel-error neste ambiente de teste puro.
+
+5) Excecoes lancadas de forma sincrona dentro de um callback onPressed (como
+   _salvarGeneros(), que nao e aguardado com await pelo _confirmar()) nao aparecem
+   como uma Future rejeitada capturavel por expectLater(..., throwsA(...)). Elas sao
+   relatadas via FlutterError.onError e capturaveis apenas por
+   tester.takeException() apos tester.pump(). Troque a asserção deste teste para:
+     await tester.tap(find.widgetWithText(ElevatedButton, 'Confirmar'));
+     await tester.pump();
+     expect(tester.takeException(), isNotNull);
+
+Restrição: o código da aplicação (lib/cadastro.dart, lib/generos-cadastro.dart e
+lib/tela-inicial.dart) NAO pode ser alterado. Esta é a ÚLTIMA iteração de reparo
+permitida (máximo 3) nesta rodada. Responda com o arquivo de teste completo corrigido.

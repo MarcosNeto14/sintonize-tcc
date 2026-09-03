@@ -1,0 +1,112 @@
+O teste falhou com 0 de 13 passando. A causa dominante e a mesma em quase todos: 
+
+```
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart
+00:00 +0: CadastroScreen - validação não chama Firebase quando o nome está vazio
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly 4 matching candidates
+  Actual: _TypeWidgetFinder:<Found 10 widgets with type "TextFormField": [
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#f6b57),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#00731),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#99bac),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#37430),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#bfc87),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#f64d3),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#6b112),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#28799),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#56f1a),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#b3e2e]], state:
+_TextFormFieldState#f8a51),
+          ]>
+   Which: is too many
+
+When the exception was thrown, this was the stack:
+#4      main.preencherCadastro (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:53:5)
+#5      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart:93:15)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_cot_test.dart line 53
+The test description was:
+  não chama Firebase quando o nome está vazio
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +0 -1: CadastroScreen - validação não chama Firebase quando o nome está vazio [E]
+  Test failed. See exception logs above.
+  The test description was: não chama Firebase quando o nome está vazio
+  
+00:00 +0 -1: CadastroScreen - validação não chama Firebase quando o e-mail está vazio
+... (mesmo padrao se repete nas demais falhas: 'Expected: exactly 4 matching candidates / Actual: Found 10 widgets with type TextFormField')
+```
+
+Antes de corrigir, classifique a causa provável da falha:
+(A) o teste presume um comportamento que não é o especificado, ou
+(B) o teste capturou um comportamento potencialmente incorreto da aplicação.
+Declare essa classificação explicitamente antes de prosseguir.
+
+Se (A): corrija o teste normalmente.
+
+Se (B): não enfraqueça a asserção nem reduza o escopo do teste para
+fazê-lo passar. Descreva o comportamento observado, o comportamento
+esperado, e por que você suspeita de um problema na aplicação, em vez de
+alterar o teste.
+
+Causa raiz confirmada no código-fonte real: o CadastroScreen fornecido no prompt era
+uma versão SIMPLIFICADA (4 campos). A CadastroScreen real do projeto
+(lib/cadastro.dart) tem 10 TextFormField, nesta ordem exata, cada um com um
+Text(label) acima (nao e InputDecoration.labelText):
+
+  0 - Nome (obrigatorio; letras/espacos/acentos apenas, sem numeros)
+  1 - Data de Nascimento (obrigatoria; formato dd/mm/aaaa, ex: '01/01/2000')
+  2 - E-mail (obrigatorio)
+  3 - Senha (obrigatoria; minimo 6 caracteres)
+  4 - Confirmar Senha (obrigatoria; deve ser igual a Senha)
+  5 - CEP (obrigatorio; formato XXXXX-XXX, ex: '50000-000')
+  6 - Rua (opcional, sem validator)
+  7 - Numero (obrigatorio; numerico, ex: '123')
+  8 - Bairro (opcional, sem validator)
+  9 - Cidade (opcional, sem validator)
+
+Ha tambem um DropdownButtonFormField<String> para Estado, SEM validator (portanto
+opcional, pode ficar sem selecao).
+
+Como _formKey.currentState!.validate() bloqueia o _submit() se qualquer campo
+obrigatorio estiver invalido, os testes precisam preencher TODOS os 6 campos
+obrigatorios (indices 0,1,2,3,4,5,7) com valores validos, nao apenas os 4 do prompt
+original, inclusive nos testes de validacao (que devem deixar EXATAMENTE o campo sob
+teste invalido/vazio e preencher os demais obrigatorios corretamente).
+
+Alem disso, com 10 campos + dropdown + botao, a tela e mais alta que o viewport padrao
+800x600 do flutter_test. Recomendo tester.binding.setSurfaceSize(const Size(800, 1600))
+logo apos pumpWidget, com try/finally para restaurar via
+tester.binding.setSurfaceSize(null) ao final de cada teste, e usar
+find.widgetWithText(ElevatedButton, 'Cadastrar') para localizar o botao sem
+ambiguidade.
+
+Restrição: o código da aplicação (lib/cadastro.dart e lib/generos-cadastro.dart) NAO
+pode ser alterado. Responda com o arquivo de teste completo corrigido.

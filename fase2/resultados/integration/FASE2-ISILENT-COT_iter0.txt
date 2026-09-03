@@ -1,0 +1,41 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/isilent_cot_test.dart
+test/fase2/integration/isilent_cot_test.dart:42:14: Error: 'FirebaseAuth' isn't a type.
+    required FirebaseAuth auth,
+             ^^^^^^^^^^^^
+test/fase2/integration/isilent_cot_test.dart:53:30: Error: Undefined name '_navigatorKey'.
+                Navigator.of(_navigatorKey.currentContext!).context,
+                             ^^^^^^^^^^^^^
+test/fase2/integration/isilent_cot_test.dart:53:30: Error: Local variable '_navigatorKey' can't be referenced before it is declared.
+                Navigator.of(_navigatorKey.currentContext!).context,
+                             ^^^^^^^^^^^^^
+test/fase2/integration/isilent_cot_test.dart:70:35: Context: This is the declaration of the variable '_navigatorKey'.
+  final GlobalKey<NavigatorState> _navigatorKey =
+                                  ^^^^^^^^^^^^^
+test/fase2/integration/isilent_cot_test.dart:83:25: Error: Undefined name '_navigatorKey'.
+          navigatorKey: _navigatorKey,
+                        ^^^^^^^^^^^^^
+test/fase2/integration/isilent_cot_test.dart:106:7: Error: Undefined name '_navigatorKey'.
+      _navigatorKey.currentState!.pushNamed('/criar-playlist');
+      ^^^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/isilent_cot_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/isilent_cot_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/isilent_cot_test.dart: test/fase2/integration/isilent_cot_test.dart:42:14: Error: 'FirebaseAuth' isn't a type.
+      required FirebaseAuth auth,
+               ^^^^^^^^^^^^
+  test/fase2/integration/isilent_cot_test.dart:53:30: Error: Undefined name '_navigatorKey'.
+                  Navigator.of(_navigatorKey.currentContext!).context,
+                               ^^^^^^^^^^^^^
+  test/fase2/integration/isilent_cot_test.dart:53:30: Error: Local variable '_navigatorKey' can't be referenced before it is declared.
+                  Navigator.of(_navigatorKey.currentContext!).context,
+                               ^^^^^^^^^^^^^
+  test/fase2/integration/isilent_cot_test.dart:70:35: Context: This is the declaration of the variable '_navigatorKey'.
+    final GlobalKey<NavigatorState> _navigatorKey =
+                                    ^^^^^^^^^^^^^
+  test/fase2/integration/isilent_cot_test.dart:83:25: Error: Undefined name '_navigatorKey'.
+            navigatorKey: _navigatorKey,
+                          ^^^^^^^^^^^^^
+  test/fase2/integration/isilent_cot_test.dart:106:7: Error: Undefined name '_navigatorKey'.
+        _navigatorKey.currentState!.pushNamed('/criar-playlist');
+        ^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

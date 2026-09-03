@@ -1,0 +1,6 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/isilent_cot_test.dart
+00:00 +0: deve criar playlist, salvar músicas no Firestore e voltar para a tela anterior
+00:00 +1: não deve salvar quando o nome da playlist estiver vazio e deve exibir SnackBar
+00:00 +2: não deve salvar nem fechar a tela quando o usuário não estiver autenticado
+00:01 +3: deve persistir exatamente userId, nome, musicas e dataCriacao em playlists
+00:01 +4: All tests passed!

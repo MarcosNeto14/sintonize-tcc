@@ -1,0 +1,77 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wsilent_fs_test.dart
+test/fase2/widget/wsilent_fs_test.dart:97:27: Error: Method not found: 'AuthExceptions'.
+          authExceptions: AuthExceptions(
+                          ^^^^^^^^^^^^^^
+test/fase2/widget/wsilent_fs_test.dart:97:11: Error: No named parameter with the name 'authExceptions'.
+          authExceptions: AuthExceptions(
+          ^^^^^^^^^^^^^^
+../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+  MockFirebaseAuth(
+  ^^^^^^^^^^^^^^^^
+test/fase2/widget/wsilent_fs_test.dart:133:27: Error: Method not found: 'AuthExceptions'.
+          authExceptions: AuthExceptions(
+                          ^^^^^^^^^^^^^^
+test/fase2/widget/wsilent_fs_test.dart:133:11: Error: No named parameter with the name 'authExceptions'.
+          authExceptions: AuthExceptions(
+          ^^^^^^^^^^^^^^
+../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+  MockFirebaseAuth(
+  ^^^^^^^^^^^^^^^^
+test/fase2/widget/wsilent_fs_test.dart:169:27: Error: Method not found: 'AuthExceptions'.
+          authExceptions: AuthExceptions(
+                          ^^^^^^^^^^^^^^
+test/fase2/widget/wsilent_fs_test.dart:169:11: Error: No named parameter with the name 'authExceptions'.
+          authExceptions: AuthExceptions(
+          ^^^^^^^^^^^^^^
+../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+  MockFirebaseAuth(
+  ^^^^^^^^^^^^^^^^
+test/fase2/widget/wsilent_fs_test.dart:205:27: Error: Method not found: 'AuthExceptions'.
+          authExceptions: AuthExceptions(
+                          ^^^^^^^^^^^^^^
+test/fase2/widget/wsilent_fs_test.dart:205:11: Error: No named parameter with the name 'authExceptions'.
+          authExceptions: AuthExceptions(
+          ^^^^^^^^^^^^^^
+../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+  MockFirebaseAuth(
+  ^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wsilent_fs_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wsilent_fs_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wsilent_fs_test.dart: test/fase2/widget/wsilent_fs_test.dart:97:27: Error: Method not found: 'AuthExceptions'.
+            authExceptions: AuthExceptions(
+                            ^^^^^^^^^^^^^^
+  test/fase2/widget/wsilent_fs_test.dart:97:11: Error: No named parameter with the name 'authExceptions'.
+            authExceptions: AuthExceptions(
+            ^^^^^^^^^^^^^^
+  ../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+    MockFirebaseAuth(
+    ^^^^^^^^^^^^^^^^
+  test/fase2/widget/wsilent_fs_test.dart:133:27: Error: Method not found: 'AuthExceptions'.
+            authExceptions: AuthExceptions(
+                            ^^^^^^^^^^^^^^
+  test/fase2/widget/wsilent_fs_test.dart:133:11: Error: No named parameter with the name 'authExceptions'.
+            authExceptions: AuthExceptions(
+            ^^^^^^^^^^^^^^
+  ../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+    MockFirebaseAuth(
+    ^^^^^^^^^^^^^^^^
+  test/fase2/widget/wsilent_fs_test.dart:169:27: Error: Method not found: 'AuthExceptions'.
+            authExceptions: AuthExceptions(
+                            ^^^^^^^^^^^^^^
+  test/fase2/widget/wsilent_fs_test.dart:169:11: Error: No named parameter with the name 'authExceptions'.
+            authExceptions: AuthExceptions(
+            ^^^^^^^^^^^^^^
+  ../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+    MockFirebaseAuth(
+    ^^^^^^^^^^^^^^^^
+  test/fase2/widget/wsilent_fs_test.dart:205:27: Error: Method not found: 'AuthExceptions'.
+            authExceptions: AuthExceptions(
+                            ^^^^^^^^^^^^^^
+  test/fase2/widget/wsilent_fs_test.dart:205:11: Error: No named parameter with the name 'authExceptions'.
+            authExceptions: AuthExceptions(
+            ^^^^^^^^^^^^^^
+  ../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+    MockFirebaseAuth(
+    ^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

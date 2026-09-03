@@ -1,0 +1,15 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wsilent_fs_test.dart
+test/fase2/widget/wsilent_fs_test.dart:289:22: Error: The getter 'obscureText' isn't defined for the type 'TextFormField'.
+ - 'TextFormField' is from 'package:flutter/src/material/text_form_field.dart' ('/C:/src/flutter/packages/flutter/lib/src/material/text_form_field.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'obscureText'.
+          senhaField.obscureText,
+                     ^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wsilent_fs_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wsilent_fs_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wsilent_fs_test.dart: test/fase2/widget/wsilent_fs_test.dart:289:22: Error: The getter 'obscureText' isn't defined for the type 'TextFormField'.
+   - 'TextFormField' is from 'package:flutter/src/material/text_form_field.dart' ('/C:/src/flutter/packages/flutter/lib/src/material/text_form_field.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'obscureText'.
+            senhaField.obscureText,
+                       ^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

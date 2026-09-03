@@ -1,0 +1,65 @@
+O teste falhou com o seguinte erro:
+
+```
+test/fase2/integration/icrash_fs_test.dart:79:28: Error: Undefined name 'TelaInicialScreen'.
+        expect(find.byType(TelaInicialScreen), findsOneWidget);
+                           ^^^^^^^^^^^^^^^^^
+00:00 +0 -1: Some tests failed.
+```
+
+Antes de corrigir, classifique a causa provável da falha:
+(A) o teste presume um comportamento que não é o especificado, ou
+(B) o teste capturou um comportamento potencialmente incorreto da aplicação.
+Declare essa classificação explicitamente antes de prosseguir.
+
+Se (A): corrija o teste normalmente.
+
+Se (B): não enfraqueça a asserção nem reduza o escopo do teste para
+fazê-lo passar. Descreva o comportamento observado, o comportamento
+esperado, e por que você suspeita de um problema na aplicação, em vez de
+alterar o teste.
+
+Contexto adicional necessário para a correção:
+1) TelaInicialScreen está definida em package:sintonize/tela-inicial.dart -- adicione o import.
+2) A GenerosCadastroScreen real do projeto NAO usa SwitchListTile. O build() real é:
+
+Container(
+  height: MediaQuery.of(context).size.height * 0.5,
+  child: ListView.builder(
+    itemCount: generos.length,
+    itemBuilder: (context, index) {
+      final genero = generos[index];
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: Card(
+          child: Padding(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(genero),
+                Switch(
+                  value: selecionados[genero]!,
+                  onChanged: (bool isSelected) {
+                    setState(() { selecionados[genero] = isSelected; });
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    },
+  ),
+)
+
+Ou seja, use find.byType(Switch) em vez de find.byType(SwitchListTile). A logica de
+_salvarGeneros()/_confirmar() e a lista de generos (Rock, Pop, Jazz, Blues, Hip-Hop,
+Reggae, Country) permanecem como no prompt original.
+
+3) O viewport padrao do flutter_test e 800x600; a tela de cadastro e a de generos sao
+mais altas que isso, entao pode ser necessario usar tester.ensureVisible()/
+scrollUntilVisible() antes de tap()/enterText() em elementos que podem estar fora do
+viewport inicial.
+
+Restrição: o código da aplicação (lib/cadastro.dart e lib/generos-cadastro.dart) NAO
+pode ser alterado. Responda com o arquivo de teste completo corrigido.

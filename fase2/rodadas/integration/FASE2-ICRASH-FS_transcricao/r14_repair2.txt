@@ -1,0 +1,92 @@
+O teste falhou com o seguinte erro:
+
+```
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_fs_test.dart
+00:00 +0: Fluxo de Cadastro e Seleção de Gêneros fluxo completo: cadastro, seleção de gêneros e salvamento no Firestore
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Too many elements
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:696:24)
+#1      WidgetController.widget (package:flutter_test/src/controller.dart:823:30)
+#2      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2422:15)
+#5      TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#6      WidgetController.scrollUntilVisible (package:flutter_test/src/controller.dart:2420:27)
+#7      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_fs_test.dart:56:22)
+<asynchronous suspension>
+#8      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#9      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The test description was:
+  fluxo completo: cadastro, seleção de gêneros e salvamento no Firestore
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: Fluxo de Cadastro e Seleção de Gêneros fluxo completo: cadastro, seleção de gêneros e salvamento no Firestore [E]
+  Test failed. See exception logs above.
+  The test description was: fluxo completo: cadastro, seleção de gêneros e salvamento no Firestore
+  
+00:01 +0 -1: Fluxo de Cadastro e Seleção de Gêneros não permite confirmar sem selecionar um gênero
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly 7 matching candidates
+  Actual: _TypeWidgetFinder:<Found 4 widgets with type "Switch": [
+            Switch(value: off, dependencies: [InheritedCupertinoTheme, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#3e2ad]]),
+            Switch(value: off, dependencies: [InheritedCupertinoTheme, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#3e2ad]]),
+            Switch(value: off, dependencies: [InheritedCupertinoTheme, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#3e2ad]]),
+            Switch(value: off, dependencies: [InheritedCupertinoTheme, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#3e2ad]]),
+          ]>
+   Which: is not enough
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_fs_test.dart:179:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_fs_test.dart line 179
+The test description was:
+  não permite confirmar sem selecionar um gênero
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -2: Fluxo de Cadastro e Seleção de Gêneros não permite confirmar sem selecionar um gênero [E]
+  Test failed. See exception logs above.
+  The test description was: não permite confirmar sem selecionar um gênero
+  
+00:01 +0 -2: Some tests failed.
+```
+
+Antes de corrigir, classifique a causa provável da falha:
+(A) o teste presume um comportamento que não é o especificado, ou
+(B) o teste capturou um comportamento potencialmente incorreto da aplicação.
+Declare essa classificação explicitamente antes de prosseguir.
+
+Se (A): corrija o teste normalmente.
+
+Se (B): não enfraqueça a asserção nem reduza o escopo do teste para
+fazê-lo passar. Descreva o comportamento observado, o comportamento
+esperado, e por que você suspeita de um problema na aplicação, em vez de
+alterar o teste.
+
+Duas falhas distintas: (1) scrollUntilVisible(botaoCadastrar, 300) lança "Bad state:
+Too many elements" -- possivelmente porque scrollUntilVisible busca um ancestral
+Scrollable e há mais de um na árvore, ou porque o finder do botão em si já é visível
+e não precisa de scroll. (2) find.byType(Switch) encontra apenas 4 de 7 widgets --
+isso é esperado: o ListView.builder é lazy e só constroi os itens visíveis dentro do
+Container de altura 50% da tela; testar a existência de exatamente 7 Switch requer
+antes rolar a lista (ou usar tester.binding.setSurfaceSize para um viewport maior).
+
+Restrição: o código da aplicação (lib/cadastro.dart e lib/generos-cadastro.dart) NAO
+pode ser alterado. Esta é a penúltima iteração de reparo permitida (máximo 3).
+Responda com o arquivo de teste completo corrigido.

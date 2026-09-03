@@ -1,0 +1,94 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_fs_test.dart
+00:00 +0: Fluxo de Cadastro e Seleção de Gêneros fluxo completo: cadastro, seleção de gêneros e salvamento no Firestore
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly 4 matching candidates
+  Actual: _TypeWidgetFinder:<Found 10 widgets with type "TextFormField": [
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#30d32]], state:
+_TextFormFieldState#d3b0f),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#30d32]], state:
+_TextFormFieldState#57db3),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#30d32]], state:
+_TextFormFieldState#cd929),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#30d32]], state:
+_TextFormFieldState#2de82),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#30d32]], state:
+_TextFormFieldState#e1596),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#30d32]], state:
+_TextFormFieldState#c028d),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#30d32]], state:
+_TextFormFieldState#3ae9d),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#30d32]], state:
+_TextFormFieldState#2415e),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#30d32]], state:
+_TextFormFieldState#d3160),
+            TextFormField(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope,
+_FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#30d32]], state:
+_TextFormFieldState#bfd7b),
+          ]>
+   Which: is too many
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_fs_test.dart:49:11)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_fs_test.dart line 49
+The test description was:
+  fluxo completo: cadastro, seleção de gêneros e salvamento no Firestore
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +0 -1: Fluxo de Cadastro e Seleção de Gêneros fluxo completo: cadastro, seleção de gêneros e salvamento no Firestore [E]
+  Test failed. See exception logs above.
+  The test description was: fluxo completo: cadastro, seleção de gêneros e salvamento no Firestore
+  
+00:00 +0 -1: Fluxo de Cadastro e Seleção de Gêneros não permite confirmar sem selecionar um gênero
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly 7 matching candidates
+  Actual: _TypeWidgetFinder:<Found 4 widgets with type "Switch": [
+            Switch(value: off, dependencies: [InheritedCupertinoTheme, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#65982]]),
+            Switch(value: off, dependencies: [InheritedCupertinoTheme, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#65982]]),
+            Switch(value: off, dependencies: [InheritedCupertinoTheme, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#65982]]),
+            Switch(value: off, dependencies: [InheritedCupertinoTheme, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#65982]]),
+          ]>
+   Which: is not enough
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_fs_test.dart:216:11)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/icrash_fs_test.dart line 216
+The test description was:
+  não permite confirmar sem selecionar um gênero
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -2: Fluxo de Cadastro e Seleção de Gêneros não permite confirmar sem selecionar um gênero [E]
+  Test failed. See exception logs above.
+  The test description was: não permite confirmar sem selecionar um gênero
+  
+00:01 +0 -2: Some tests failed.

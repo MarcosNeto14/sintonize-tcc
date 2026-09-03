@@ -1,0 +1,4 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/isilent_zs_test.dart
+00:00 +0: deve criar playlist com nome e música selecionada
+00:00 +1: deve exibir erro quando o nome da playlist estiver vazio
+00:00 +2: All tests passed!

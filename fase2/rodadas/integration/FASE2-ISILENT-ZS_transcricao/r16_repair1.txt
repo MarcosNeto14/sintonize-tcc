@@ -1,0 +1,25 @@
+O teste falhou com o seguinte erro:
+
+```
+test/fase2/integration/isilent_zs_test.dart:121:13: Error: 'Timestamp' isn't a type.
+        isA<Timestamp>(),
+            ^^^^^^^^^
+00:00 +0 -1: Some tests failed.
+```
+
+Antes de corrigir, classifique a causa provável da falha:
+(A) o teste presume um comportamento que não é o especificado, ou
+(B) o teste capturou um comportamento potencialmente incorreto da aplicação.
+Declare essa classificação explicitamente antes de prosseguir.
+
+Se (A): corrija o teste normalmente.
+
+Se (B): não enfraqueça a asserção nem reduza o escopo do teste para
+fazê-lo passar. Descreva o comportamento observado, o comportamento
+esperado, e por que você suspeita de um problema na aplicação, em vez de
+alterar o teste.
+
+Falta o import de package:cloud_firestore/cloud_firestore.dart (de onde vem Timestamp).
+
+Restrição: o código da aplicação (lib/criar_playlist.dart) NAO pode ser alterado.
+Responda com o arquivo de teste completo corrigido.

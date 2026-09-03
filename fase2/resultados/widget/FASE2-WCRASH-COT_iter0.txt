@@ -1,0 +1,11 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wcrash_cot_test.dart
+test/fase2/widget/wcrash_cot_test.dart:645:13: Error: Both Iterable and Map spread elements encountered in ambiguous literal.
+            {
+            ^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wcrash_cot_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wcrash_cot_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wcrash_cot_test.dart: test/fase2/widget/wcrash_cot_test.dart:645:13: Error: Both Iterable and Map spread elements encountered in ambiguous literal.
+              {
+              ^
+  .
+00:00 +0 -1: Some tests failed.

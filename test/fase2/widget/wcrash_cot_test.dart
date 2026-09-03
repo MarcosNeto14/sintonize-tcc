@@ -4,811 +4,724 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mock_exceptions/mock_exceptions.dart';
 import 'package:sintonize/criar_playlist.dart';
 
-import 'wcrash_cot_test.mocks.dart';
-
-@GenerateMocks([
-  FirebaseFirestore,
-  CollectionReference,
-  DocumentReference,
-  Query,
-  QuerySnapshot,
-])
 void main() {
-  group('CriarPlaylistScreen', () {
-    late FakeFirebaseFirestore firestore;
-    late MockFirebaseAuth auth;
+  TestWidgetsFlutterBinding.ensureInitialized();
 
-    Future<void> pumpScreen(
-      WidgetTester tester, {
-      required FirebaseAuth auth,
-      required FirebaseFirestore firestore,
-    }) async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: CriarPlaylistScreen(
-            editPlaylist: const {},
-            auth: auth,
-            firestore: firestore,
-          ),
+  late FakeFirebaseFirestore firestore;
+  late MockFirebaseAuth auth;
+
+  const editPlaylist = <String, dynamic>{};
+
+  Future<void> seedMusicas(
+    FakeFirebaseFirestore firestore,
+  ) async {
+    await firestore.collection('musica').add({
+      'track_name': 'Bohemian Rhapsody',
+      'artist_name': 'Queen',
+    });
+
+    await firestore.collection('musica').add({
+      'track_name': 'Imagine',
+      'artist_name': 'John Lennon',
+    });
+
+    await firestore.collection('musica').add({
+      'track_name': 'Billie Jean',
+      'artist_name': 'Michael Jackson',
+    });
+  }
+
+  Future<void> pumpScreen(
+    WidgetTester tester, {
+    FakeFirebaseFirestore? customFirestore,
+    MockFirebaseAuth? customAuth,
+  }) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: CriarPlaylistScreen(
+          editPlaylist: editPlaylist,
+          auth: customAuth ?? auth,
+          firestore: customFirestore ?? firestore,
         ),
-      );
+      ),
+    );
 
-      // Aguarda o Future iniciado no initState.
-      await tester.pumpAndSettle();
-    }
+    // Permite que _fetchMusicas termine e o setState seja processado.
+    await tester.pump();
+  }
 
-    Future<void> adicionarMusicas(
-      FakeFirebaseFirestore firestore,
-      List<Map<String, dynamic>> musicas,
-    ) async {
-      for (final musica in musicas) {
-        await firestore.collection('musica').add(musica);
-      }
-    }
+  setUp(() {
+    firestore = FakeFirebaseFirestore();
 
-    setUp(() {
-      firestore = FakeFirebaseFirestore();
-      auth = MockFirebaseAuth();
-    });
+    final user = MockUser(
+      uid: 'user-test-123',
+      email: 'teste@sintonize.com',
+      displayName: 'Usuário Teste',
+    );
 
-    group('Renderização', () {
-      testWidgets(
-        'deve renderizar os principais elementos da tela',
-        (WidgetTester tester) async {
-          await pumpScreen(
-            tester,
-            auth: auth,
-            firestore: firestore,
-          );
+    auth = MockFirebaseAuth(
+      signedIn: true,
+      mockUser: user,
+    );
+  });
 
-          expect(find.text('Criando Playlist'), findsOneWidget);
-          expect(find.text('Nome da Playlist'), findsOneWidget);
-          expect(
-            find.text('Pesquisar Música ou Artista'),
-            findsOneWidget,
-          );
-          expect(find.text('Salvar Playlist'), findsOneWidget);
-          expect(find.byIcon(Icons.arrow_back), findsOneWidget);
-          expect(find.byIcon(Icons.person), findsOneWidget);
-          expect(find.byIcon(Icons.search), findsOneWidget);
-        },
-      );
+  group('CriarPlaylistScreen - renderização', () {
+    testWidgets(
+      'deve renderizar os elementos principais e as músicas carregadas',
+      (tester) async {
+        await seedMusicas(firestore);
 
-      testWidgets(
-        'deve carregar e exibir as músicas vindas do Firestore',
-        (WidgetTester tester) async {
-          await adicionarMusicas(
-            firestore,
-            [
-              {
-                'track_name': 'shape of you',
-                'artist_name': 'ed sheeran',
+        await pumpScreen(tester);
+
+        expect(find.text('Criando Playlist'), findsOneWidget);
+        expect(find.text('Nome da Playlist'), findsOneWidget);
+        expect(find.text('Pesquisar Música ou Artista'), findsOneWidget);
+        expect(find.text('Salvar Playlist'), findsOneWidget);
+
+        expect(
+          find.text('Bohemian Rhapsody - Queen'),
+          findsOneWidget,
+        );
+        expect(
+          find.text('Imagine - John Lennon'),
+          findsOneWidget,
+        );
+        expect(
+          find.text('Billie Jean - Michael Jackson'),
+          findsOneWidget,
+        );
+
+        expect(find.byIcon(Icons.person), findsOneWidget);
+        expect(find.byIcon(Icons.search), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'deve mostrar CircularProgressIndicator quando o Firestore não possui músicas',
+      (tester) async {
+        await pumpScreen(tester);
+
+        expect(find.byType(CircularProgressIndicator), findsOneWidget);
+        expect(find.text('Salvar Playlist'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'deve voltar quando o botão de voltar for pressionado',
+      (tester) async {
+        await seedMusicas(firestore);
+
+        var returned = false;
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Builder(
+              builder: (context) {
+                return ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => CriarPlaylistScreen(
+                          editPlaylist: editPlaylist,
+                          auth: auth,
+                          firestore: firestore,
+                        ),
+                      ),
+                    );
+                  },
+                  child: const Text('Abrir playlist'),
+                );
               },
-              {
-                'track_name': 'believer',
-                'artist_name': 'imagine dragons',
-              },
-            ],
-          );
+            ),
+          ),
+        );
 
-          await pumpScreen(
-            tester,
-            auth: auth,
-            firestore: firestore,
-          );
+        await tester.tap(find.text('Abrir playlist'));
+        await tester.pump();
+        await tester.pump();
 
-          expect(
-            find.text('Shape Of You - Ed Sheeran'),
-            findsOneWidget,
-          );
-          expect(
-            find.text('Believer - Imagine Dragons'),
-            findsOneWidget,
-          );
-        },
-      );
+        expect(find.text('Criando Playlist'), findsOneWidget);
 
-      testWidgets(
-        'deve exibir o indicador de carregamento quando não existem músicas',
-        (WidgetTester tester) async {
-          // Não adiciona músicas ao FakeFirestore.
-          await tester.pumpWidget(
-            MaterialApp(
-              home: CriarPlaylistScreen(
-                editPlaylist: const {},
-                auth: auth,
-                firestore: firestore,
+        await tester.tap(find.byIcon(Icons.arrow_back));
+        await tester.pumpAndSettle();
+
+        returned = find.text('Abrir playlist').evaluate().isNotEmpty;
+
+        expect(returned, isTrue);
+      },
+    );
+  });
+
+  group('CriarPlaylistScreen - validação', () {
+    testWidgets(
+      'deve exibir erro quando tentar salvar sem informar o nome da playlist',
+      (tester) async {
+        await seedMusicas(firestore);
+
+        await pumpScreen(tester);
+
+        await tester.tap(find.text('Salvar Playlist'));
+        await tester.pump();
+
+        expect(
+          find.text('Nome da playlist é obrigatório'),
+          findsOneWidget,
+        );
+
+        // Nenhuma playlist deve ter sido criada.
+        final snapshot = await firestore.collection('playlists').get();
+        expect(snapshot.docs, isEmpty);
+      },
+    );
+
+    testWidgets(
+      'deve aceitar um nome de playlist preenchido',
+      (tester) async {
+        await seedMusicas(firestore);
+
+        await pumpScreen(tester);
+
+        final nomeField = find.widgetWithText(
+          TextField,
+          'Nome da Playlist',
+        );
+
+        await tester.enterText(nomeField, 'Minha Playlist');
+        await tester.pump();
+
+        expect(find.text('Minha Playlist'), findsOneWidget);
+      },
+    );
+  });
+
+  group('CriarPlaylistScreen - pesquisa', () {
+    testWidgets(
+      'deve filtrar músicas pelo nome da faixa',
+      (tester) async {
+        await seedMusicas(firestore);
+
+        await pumpScreen(tester);
+
+        final searchField = find.widgetWithText(
+          TextField,
+          'Pesquisar Música ou Artista',
+        );
+
+        await tester.enterText(searchField, 'bohemian');
+        await tester.pump();
+
+        expect(
+          find.text('Bohemian Rhapsody - Queen'),
+          findsOneWidget,
+        );
+        expect(
+          find.text('Imagine - John Lennon'),
+          findsNothing,
+        );
+        expect(
+          find.text('Billie Jean - Michael Jackson'),
+          findsNothing,
+        );
+      },
+    );
+
+    testWidgets(
+      'deve filtrar músicas pelo nome do artista',
+      (tester) async {
+        await seedMusicas(firestore);
+
+        await pumpScreen(tester);
+
+        final searchField = find.widgetWithText(
+          TextField,
+          'Pesquisar Música ou Artista',
+        );
+
+        await tester.enterText(searchField, 'michael');
+        await tester.pump();
+
+        expect(
+          find.text('Billie Jean - Michael Jackson'),
+          findsOneWidget,
+        );
+        expect(
+          find.text('Bohemian Rhapsody - Queen'),
+          findsNothing,
+        );
+        expect(
+          find.text('Imagine - John Lennon'),
+          findsNothing,
+        );
+      },
+    );
+
+    testWidgets(
+      'deve fazer pesquisa case-insensitive',
+      (tester) async {
+        await seedMusicas(firestore);
+
+        await pumpScreen(tester);
+
+        final searchField = find.widgetWithText(
+          TextField,
+          'Pesquisar Música ou Artista',
+        );
+
+        await tester.enterText(searchField, 'QUEEN');
+        await tester.pump();
+
+        expect(
+          find.text('Bohemian Rhapsody - Queen'),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'deve não mostrar músicas quando a pesquisa não encontrar resultados',
+      (tester) async {
+        await seedMusicas(firestore);
+
+        await pumpScreen(tester);
+
+        final searchField = find.widgetWithText(
+          TextField,
+          'Pesquisar Música ou Artista',
+        );
+
+        await tester.enterText(searchField, 'artista inexistente');
+        await tester.pump();
+
+        expect(
+          find.text('Bohemian Rhapsody - Queen'),
+          findsNothing,
+        );
+        expect(
+          find.text('Imagine - John Lennon'),
+          findsNothing,
+        );
+        expect(
+          find.text('Billie Jean - Michael Jackson'),
+          findsNothing,
+        );
+
+        // A implementação usa a lista vazia como condição para
+        // CircularProgressIndicator, portanto o estado de "sem resultados"
+        // também apresenta o indicador de progresso.
+        expect(find.byType(CircularProgressIndicator), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'deve retornar todas as músicas quando a pesquisa for limpa',
+      (tester) async {
+        await seedMusicas(firestore);
+
+        await pumpScreen(tester);
+
+        final searchField = find.widgetWithText(
+          TextField,
+          'Pesquisar Música ou Artista',
+        );
+
+        await tester.enterText(searchField, 'queen');
+        await tester.pump();
+
+        expect(
+          find.text('Bohemian Rhapsody - Queen'),
+          findsOneWidget,
+        );
+        expect(
+          find.text('Imagine - John Lennon'),
+          findsNothing,
+        );
+
+        await tester.enterText(searchField, '');
+        await tester.pump();
+
+        expect(
+          find.text('Bohemian Rhapsody - Queen'),
+          findsOneWidget,
+        );
+        expect(
+          find.text('Imagine - John Lennon'),
+          findsOneWidget,
+        );
+        expect(
+          find.text('Billie Jean - Michael Jackson'),
+          findsOneWidget,
+        );
+      },
+    );
+  });
+
+  group('CriarPlaylistScreen - seleção de músicas', () {
+    testWidgets(
+      'deve selecionar uma música ao tocar no checkbox',
+      (tester) async {
+        await seedMusicas(firestore);
+
+        await pumpScreen(tester);
+
+        final tile = find.text('Bohemian Rhapsody - Queen');
+
+        final listTile = find.ancestor(
+          of: tile,
+          matching: find.byType(ListTile),
+        );
+
+        final checkboxButton = find.descendant(
+          of: listTile,
+          matching: find.byIcon(Icons.check_box_outline_blank),
+        );
+
+        expect(checkboxButton, findsOneWidget);
+
+        await tester.tap(checkboxButton);
+        await tester.pump();
+
+        expect(
+          find.descendant(
+            of: listTile,
+            matching: find.byIcon(Icons.check_box),
+          ),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'deve desselecionar uma música quando o checkbox selecionado for pressionado novamente',
+      (tester) async {
+        await seedMusicas(firestore);
+
+        await pumpScreen(tester);
+
+        final tile = find.text('Bohemian Rhapsody - Queen');
+
+        final listTile = find.ancestor(
+          of: tile,
+          matching: find.byType(ListTile),
+        );
+
+        await tester.tap(
+          find.descendant(
+            of: listTile,
+            matching: find.byIcon(Icons.check_box_outline_blank),
+          ),
+        );
+        await tester.pump();
+
+        expect(
+          find.descendant(
+            of: listTile,
+            matching: find.byIcon(Icons.check_box),
+          ),
+          findsOneWidget,
+        );
+
+        await tester.tap(
+          find.descendant(
+            of: listTile,
+            matching: find.byIcon(Icons.check_box),
+          ),
+        );
+        await tester.pump();
+
+        expect(
+          find.descendant(
+            of: listTile,
+            matching: find.byIcon(Icons.check_box_outline_blank),
+          ),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'deve permitir selecionar várias músicas',
+      (tester) async {
+        await seedMusicas(firestore);
+
+        await pumpScreen(tester);
+
+        final firstTile = find.ancestor(
+          of: find.text('Bohemian Rhapsody - Queen'),
+          matching: find.byType(ListTile),
+        );
+
+        final secondTile = find.ancestor(
+          of: find.text('Imagine - John Lennon'),
+          matching: find.byType(ListTile),
+        );
+
+        await tester.tap(
+          find.descendant(
+            of: firstTile,
+            matching: find.byIcon(Icons.check_box_outline_blank),
+          ),
+        );
+
+        await tester.tap(
+          find.descendant(
+            of: secondTile,
+            matching: find.byIcon(Icons.check_box_outline_blank),
+          ),
+        );
+
+        await tester.pump();
+
+        expect(
+          find.descendant(
+            of: firstTile,
+            matching: find.byIcon(Icons.check_box),
+          ),
+          findsOneWidget,
+        );
+
+        expect(
+          find.descendant(
+            of: secondTile,
+            matching: find.byIcon(Icons.check_box),
+          ),
+          findsOneWidget,
+        );
+      },
+    );
+  });
+
+  group('CriarPlaylistScreen - scroll', () {
+    testWidgets(
+      'deve permitir rolar a lista de músicas',
+      (tester) async {
+        for (var i = 0; i < 30; i++) {
+          await firestore.collection('musica').add({
+            'track_name': 'Musica $i',
+            'artist_name': 'Artista $i',
+          });
+        }
+
+        await pumpScreen(tester);
+
+        final listView = find.byType(ListView);
+        expect(listView, findsOneWidget);
+
+        // O item 29 começa fora da viewport.
+        expect(
+          find.text('Musica 29 - Artista 29'),
+          findsNothing,
+        );
+
+        await tester.scrollUntilVisible(
+          find.text('Musica 29 - Artista 29'),
+          300,
+          scrollable: listView,
+        );
+
+        await tester.pump();
+
+        expect(
+          find.text('Musica 29 - Artista 29'),
+          findsOneWidget,
+        );
+      },
+    );
+  });
+
+  group('CriarPlaylistScreen - salvamento', () {
+    testWidgets(
+      'deve salvar a playlist com usuário, nome e músicas selecionadas',
+      (tester) async {
+        await seedMusicas(firestore);
+
+        await pumpScreen(tester);
+
+        await tester.enterText(
+          find.widgetWithText(
+            TextField,
+            'Nome da Playlist',
+          ),
+          'Minha Playlist',
+        );
+
+        final firstTile = find.ancestor(
+          of: find.text('Bohemian Rhapsody - Queen'),
+          matching: find.byType(ListTile),
+        );
+
+        final secondTile = find.ancestor(
+          of: find.text('Imagine - John Lennon'),
+          matching: find.byType(ListTile),
+        );
+
+        await tester.tap(
+          find.descendant(
+            of: firstTile,
+            matching: find.byIcon(Icons.check_box_outline_blank),
+          ),
+        );
+
+        await tester.tap(
+          find.descendant(
+            of: secondTile,
+            matching: find.byIcon(Icons.check_box_outline_blank),
+          ),
+        );
+
+        await tester.pump();
+
+        await tester.tap(find.text('Salvar Playlist'));
+        await tester.pumpAndSettle();
+
+        final snapshot = await firestore.collection('playlists').get();
+
+        expect(snapshot.docs, hasLength(1));
+
+        final playlist = snapshot.docs.first.data();
+
+        expect(playlist['userId'], 'user-test-123');
+
+        // Observação importante:
+        // o widget atualmente grava "Nova Playlist", e não
+        // o conteúdo de _playlistName.
+        expect(playlist['nome'], 'Nova Playlist');
+
+        expect(
+          playlist['musicas'],
+          containsAll(<String>[
+            'Bohemian Rhapsody',
+            'Imagine',
+          ]),
+        );
+
+        expect(playlist['musicas'], hasLength(2));
+        expect(playlist['dataCriacao'], isA<Timestamp>());
+
+        // O Navigator.pop() executado após o add() remove a tela.
+        expect(find.text('Criando Playlist'), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'não deve salvar quando não existe usuário autenticado',
+      (tester) async {
+        await seedMusicas(firestore);
+
+        final authWithoutUser = MockFirebaseAuth(
+          signedIn: false,
+        );
+
+        await pumpScreen(
+          tester,
+          customAuth: authWithoutUser,
+        );
+
+        await tester.enterText(
+          find.widgetWithText(
+            TextField,
+            'Nome da Playlist',
+          ),
+          'Playlist sem usuário',
+        );
+
+        await tester.tap(find.text('Salvar Playlist'));
+        await tester.pumpAndSettle();
+
+        final snapshot = await firestore.collection('playlists').get();
+
+        expect(snapshot.docs, isEmpty);
+
+        // Como o código não trata explicitamente currentUser == null,
+        // também não há SnackBar de erro nesse cenário.
+        expect(find.byType(SnackBar), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'deve exibir SnackBar quando o Firestore falhar ao salvar',
+      (tester) async {
+        final failingFirestore = FakeFirebaseFirestore(
+          securityRules: '''
+          service cloud.firestore {
+            match /databases/{database}/documents {
+              match /musica/{document} {
+                allow read, write: if true;
+              }
+
+              match /playlists/{document} {
+                allow read: if true;
+                allow write: if false;
+              }
+            }
+          }
+          ''',
+          authObject: auth.authForFakeFirestore,
+        );
+
+        await failingFirestore.collection('musica').add({
+          'track_name': 'Bohemian Rhapsody',
+          'artist_name': 'Queen',
+        });
+
+        await pumpScreen(
+          tester,
+          customFirestore: failingFirestore,
+        );
+
+        await tester.enterText(
+          find.widgetWithText(
+            TextField,
+            'Nome da Playlist',
+          ),
+          'Playlist com erro',
+        );
+
+        await tester.tap(find.text('Salvar Playlist'));
+        await tester.pump();
+
+        expect(
+          find.textContaining('Erro ao salvar a playlist'),
+          findsOneWidget,
+        );
+
+        final snapshot =
+            await failingFirestore.collection('playlists').get();
+
+        expect(snapshot.docs, isEmpty);
+      },
+    );
+  });
+
+  group('CriarPlaylistScreen - erros do Firestore', () {
+    testWidgets(
+      'deve capturar erro ao buscar músicas sem quebrar a tela',
+      (tester) async {
+        final musicaQuery = firestore.collection('musica');
+
+        whenCalling(
+          Invocation.method(#get, null),
+        ).on(musicaQuery).thenThrow(
+              FirebaseException(
+                plugin: 'cloud_firestore',
+                code: 'unavailable',
+                message: 'Falha de rede',
               ),
-            ),
-          );
-
-          await tester.pumpAndSettle();
-
-          // O código de produção usa isEmpty tanto para "carregando"
-          // quanto para uma coleção vazia.
-          expect(
-            find.byType(CircularProgressIndicator),
-            findsOneWidget,
-          );
-        },
-      );
-    });
-
-    group('Validação', () {
-      testWidgets(
-        'deve exibir erro ao tentar salvar sem informar o nome',
-        (WidgetTester tester) async {
-          await pumpScreen(
-            tester,
-            auth: auth,
-            firestore: firestore,
-          );
-
-          await tester.tap(find.text('Salvar Playlist'));
-          await tester.pump();
-
-          expect(
-            find.text('Nome da playlist é obrigatório'),
-            findsOneWidget,
-          );
-        },
-      );
-
-      testWidgets(
-        'deve exibir erro quando o nome informado é vazio',
-        (WidgetTester tester) async {
-          await pumpScreen(
-            tester,
-            auth: auth,
-            firestore: firestore,
-          );
-
-          await tester.enterText(
-            find.byType(TextField).first,
-            '',
-          );
-
-          await tester.tap(find.text('Salvar Playlist'));
-          await tester.pump();
-
-          expect(
-            find.text('Nome da playlist é obrigatório'),
-            findsOneWidget,
-          );
-        },
-      );
-
-      testWidgets(
-        'deve aceitar um nome válido da playlist',
-        (WidgetTester tester) async {
-          await pumpScreen(
-            tester,
-            auth: auth,
-            firestore: firestore,
-          );
-
-          final nomeField = find.byType(TextField).first;
-
-          await tester.enterText(
-            nomeField,
-            'Minha Playlist',
-          );
-
-          expect(
-            find.text('Minha Playlist'),
-            findsOneWidget,
-          );
-        },
-      );
-    });
-
-    group('Pesquisa e interação com músicas', () {
-      testWidgets(
-        'deve filtrar músicas pelo nome da música',
-        (WidgetTester tester) async {
-          await adicionarMusicas(
-            firestore,
-            [
-              {
-                'track_name': 'shape of you',
-                'artist_name': 'ed sheeran',
-              },
-              {
-                'track_name': 'believer',
-                'artist_name': 'imagine dragons',
-              },
-            ],
-          );
-
-          await pumpScreen(
-            tester,
-            auth: auth,
-            firestore: firestore,
-          );
-
-          final searchField = find.byType(TextField).at(1);
-
-          await tester.enterText(
-            searchField,
-            'shape',
-          );
-
-          await tester.pump();
-
-          expect(
-            find.text('Shape Of You - Ed Sheeran'),
-            findsOneWidget,
-          );
-          expect(
-            find.text('Believer - Imagine Dragons'),
-            findsNothing,
-          );
-        },
-      );
-
-      testWidgets(
-        'deve filtrar músicas pelo nome do artista',
-        (WidgetTester tester) async {
-          await adicionarMusicas(
-            firestore,
-            [
-              {
-                'track_name': 'shape of you',
-                'artist_name': 'ed sheeran',
-              },
-              {
-                'track_name': 'believer',
-                'artist_name': 'imagine dragons',
-              },
-            ],
-          );
-
-          await pumpScreen(
-            tester,
-            auth: auth,
-            firestore: firestore,
-          );
-
-          final searchField = find.byType(TextField).at(1);
-
-          await tester.enterText(
-            searchField,
-            'imagine',
-          );
-
-          await tester.pump();
-
-          expect(
-            find.text('Believer - Imagine Dragons'),
-            findsOneWidget,
-          );
-          expect(
-            find.text('Shape Of You - Ed Sheeran'),
-            findsNothing,
-          );
-        },
-      );
-
-      testWidgets(
-        'deve realizar pesquisa sem diferenciar maiúsculas e minúsculas',
-        (WidgetTester tester) async {
-          await adicionarMusicas(
-            firestore,
-            [
-              {
-                'track_name': 'Shape of You',
-                'artist_name': 'Ed Sheeran',
-              },
-            ],
-          );
-
-          await pumpScreen(
-            tester,
-            auth: auth,
-            firestore: firestore,
-          );
-
-          final searchField = find.byType(TextField).at(1);
-
-          await tester.enterText(
-            searchField,
-            'SHAPE',
-          );
-
-          await tester.pump();
-
-          expect(
-            find.text('Shape Of You - Ed Sheeran'),
-            findsOneWidget,
-          );
-        },
-      );
-
-      testWidgets(
-        'deve remover da lista as músicas que não correspondem à pesquisa',
-        (WidgetTester tester) async {
-          await adicionarMusicas(
-            firestore,
-            [
-              {
-                'track_name': 'hello',
-                'artist_name': 'adele',
-              },
-              {
-                'track_name': 'yellow',
-                'artist_name': 'coldplay',
-              },
-            ],
-          );
-
-          await pumpScreen(
-            tester,
-            auth: auth,
-            firestore: firestore,
-          );
-
-          final searchField = find.byType(TextField).at(1);
-
-          await tester.enterText(
-            searchField,
-            'adele',
-          );
-
-          await tester.pump();
-
-          expect(
-            find.text('Hello - Adele'),
-            findsOneWidget,
-          );
-          expect(
-            find.text('Yellow - Coldplay'),
-            findsNothing,
-          );
-        },
-      );
-
-      testWidgets(
-        'deve permitir selecionar e desselecionar uma música',
-        (WidgetTester tester) async {
-          await adicionarMusicas(
-            firestore,
-            [
-              {
-                'track_name': 'hello',
-                'artist_name': 'adele',
-              },
-            ],
-          );
-
-          await pumpScreen(
-            tester,
-            auth: auth,
-            firestore: firestore,
-          );
-
-          expect(
-            find.byIcon(Icons.check_box_outline_blank),
-            findsOneWidget,
-          );
-
-          await tester.tap(
-            find.byIcon(Icons.check_box_outline_blank),
-          );
-          await tester.pump();
-
-          expect(
-            find.byIcon(Icons.check_box),
-            findsOneWidget,
-          );
-
-          await tester.tap(
-            find.byIcon(Icons.check_box),
-          );
-          await tester.pump();
-
-          expect(
-            find.byIcon(Icons.check_box_outline_blank),
-            findsOneWidget,
-          );
-        },
-      );
-
-      testWidgets(
-        'deve permitir scroll pela lista de músicas',
-        (WidgetTester tester) async {
-          final musicas = List.generate(
-            30,
-            (index) => {
-              'track_name': 'musica $index',
-              'artist_name': 'artista $index',
-            },
-          );
-
-          await adicionarMusicas(
-            firestore,
-            musicas,
-          );
-
-          await pumpScreen(
-            tester,
-            auth: auth,
-            firestore: firestore,
-          );
-
-          expect(find.byType(ListView), findsOneWidget);
-
-          // Move a lista para baixo.
-          await tester.drag(
-            find.byType(ListView),
-            const Offset(0, -500),
-          );
-
-          await tester.pumpAndSettle();
-
-          // Uma música inicialmente fora da viewport deve poder
-          // ser encontrada após o scroll.
-          expect(
-            find.text('Musica 20 - Artista 20'),
-            findsOneWidget,
-          );
-        },
-      );
-    });
-
-    group('Salvamento com sucesso', () {
-      testWidgets(
-        'deve salvar a playlist com usuário autenticado',
-        (WidgetTester tester) async {
-          final mockUser = MockUser(
-            uid: 'usuario-123',
-            email: 'teste@sintonize.com',
-          );
-          auth = MockFirebaseAuth(
-            mockUser: mockUser,
-          );
-
-          await adicionarMusicas(
-            firestore,
-            [
-              {
-                'track_name': 'hello',
-                'artist_name': 'adele',
-              },
-              {
-                'track_name': 'yellow',
-                'artist_name': 'coldplay',
-              },
-            ],
-          );
-
-          // Cria uma tela anterior para podermos verificar o Navigator.pop.
-          await tester.pumpWidget(
-            MaterialApp(
-              initialRoute: '/',
-              routes: {
-                '/': (_) => const Scaffold(
-                      body: Text('Tela anterior'),
-                    ),
-                '/playlist': (_) => CriarPlaylistScreen(
-                      editPlaylist: const {},
-                      auth: auth,
-                      firestore: firestore,
-                    ),
-              },
-            ),
-          );
-          Navigator.of(
-            tester.element(find.text('Tela anterior')),
-          ).pushNamed('/playlist');
-          await tester.pumpAndSettle();
-
-          // Informa o nome.
-          await tester.enterText(
-            find.byType(TextField).first,
-            'Minha Playlist',
-          );
-          // Seleciona "Hello".
-          await tester.tap(
-            find.byIcon(Icons.check_box_outline_blank).first,
-          );
-          await tester.pump();
-          await tester.tap(
-            find.text('Salvar Playlist'),
-          );
-          await tester.pumpAndSettle();
-
-          // O Navigator.pop deve ter retornado para a tela anterior.
-          expect(
-            find.text('Tela anterior'),
-            findsOneWidget,
-          );
-
-          // Verifica o documento criado no Firestore fake.
-          final snapshot =
-              await firestore.collection('playlists').get();
-          expect(snapshot.docs, hasLength(1));
-          final playlist = snapshot.docs.first.data();
-          expect(
-            playlist['userId'],
-            'usuario-123',
-          );
-          expect(
-            playlist['musicas'],
-            ['hello'],
-          );
-          // O widget atualmente salva "Nova Playlist", apesar de
-          // receber o texto digitado pelo usuário.
-          expect(
-            playlist['nome'],
-            'Nova Playlist',
-          );
-          expect(
-            playlist['dataCriacao'],
-            isA<Timestamp>(),
-          );
-        },
-      );
-
-      testWidgets(
-        'não deve salvar quando não existe usuário autenticado',
-        (WidgetTester tester) async {
-          // MockFirebaseAuth sem mockUser => currentUser == null.
-          auth = MockFirebaseAuth();
-
-          await adicionarMusicas(
-            firestore,
-            [
-              {
-                'track_name': 'hello',
-                'artist_name': 'adele',
-              },
-            ],
-          );
-
-          await pumpScreen(
-            tester,
-            auth: auth,
-            firestore: firestore,
-          );
-
-          await tester.enterText(
-            find.byType(TextField).first,
-            'Minha Playlist',
-          );
-          await tester.tap(
-            find.byIcon(Icons.check_box_outline_blank),
-          );
-          await tester.tap(
-            find.text('Salvar Playlist'),
-          );
-          await tester.pumpAndSettle();
-
-          final snapshot =
-              await firestore.collection('playlists').get();
-          expect(snapshot.docs, isEmpty);
-
-          // Como o código de produção não trata currentUser == null
-          // com SnackBar ou outra mensagem, apenas verificamos que
-          // não houve persistência.
-          expect(
-            find.text('Criando Playlist'),
-            findsOneWidget,
-          );
-        },
-      );
-    });
-
-    group('Navegação', () {
-      testWidgets(
-        'deve voltar ao pressionar o botão de voltar',
-        (WidgetTester tester) async {
-          await tester.pumpWidget(
-            MaterialApp(
-              initialRoute: '/',
-              routes: {
-                '/': (_) => const Scaffold(
-                      body: Text('Tela inicial'),
-                    ),
-                '/playlist': (_) => CriarPlaylistScreen(
-                      editPlaylist: const {},
-                      auth: auth,
-                      firestore: firestore,
-                    ),
-              },
-            ),
-          );
-          Navigator.of(
-            tester.element(find.text('Tela inicial')),
-          ).pushNamed('/playlist');
-          await tester.pumpAndSettle();
-
-          expect(
-            find.text('Criando Playlist'),
-            findsOneWidget,
-          );
-
-          await tester.tap(
-            find.byIcon(Icons.arrow_back),
-          );
-          await tester.pumpAndSettle();
-
-          expect(
-            find.text('Tela inicial'),
-            findsOneWidget,
-          );
-          expect(
-            find.text('Criando Playlist'),
-            findsNothing,
-          );
-        },
-      );
-    });
-
-    group('Erros do Firestore', () {
-      testWidgets(
-        'não deve quebrar quando falha ao buscar músicas',
-        (WidgetTester tester) async {
-          final firestoreMock = MockFirebaseFirestore();
-          final musicaCollection =
-              MockCollectionReference<Map<String, dynamic>>();
-          final snapshot = MockQuerySnapshot<Map<String, dynamic>>();
-
-          when(
-            firestoreMock.collection('musica'),
-          ).thenReturn(musicaCollection);
-          when(
-            musicaCollection.get(),
-          ).thenAnswer(
-            (_) async => snapshot,
-          );
-          when(snapshot.docs).thenReturn([]);
-
-          await tester.pumpWidget(
-            MaterialApp(
-              home: CriarPlaylistScreen(
-                editPlaylist: const {},
-                auth: auth,
-                firestore: firestoreMock,
-              ),
-            ),
-          );
-
-          await tester.pumpAndSettle();
-
-          expect(
-            find.text('Criando Playlist'),
-            findsOneWidget,
-          );
-        },
-      );
-
-      testWidgets(
-        'deve exibir SnackBar quando ocorre erro ao salvar',
-        (WidgetTester tester) async {
-          final firestoreMock = MockFirebaseFirestore();
-          final musicaCollection =
-              MockCollectionReference<Map<String, dynamic>>();
-          final playlistsCollection =
-              MockCollectionReference<Map<String, dynamic>>();
-          final documentReference =
-              MockDocumentReference<Map<String, dynamic>>();
-          final snapshot = MockQuerySnapshot<Map<String, dynamic>>();
-
-          when(
-            firestoreMock.collection('musica'),
-          ).thenReturn(musicaCollection);
-          when(
-            musicaCollection.get(),
-          ).thenAnswer(
-            (_) async => snapshot,
-          );
-          when(snapshot.docs).thenReturn([]);
-
-          when(
-            firestoreMock.collection('playlists'),
-          ).thenReturn(playlistsCollection);
-          when(
-            playlistsCollection.add(any),
-          ).thenAnswer(
-            (_) async => throw Exception('Erro de rede'),
-          );
-          when(
-            playlistsCollection.doc(any),
-          ).thenReturn(documentReference);
-
-          final mockUser = MockUser(
-            uid: 'usuario-123',
-            email: 'teste@sintonize.com',
-          );
-          auth = MockFirebaseAuth(
-            mockUser: mockUser,
-          );
-
-          await pumpScreen(
-            tester,
-            auth: auth,
-            firestore: firestoreMock,
-          );
-
-          await tester.enterText(
-            find.byType(TextField).first,
-            'Minha Playlist',
-          );
-          await tester.tap(
-            find.text('Salvar Playlist'),
-          );
-          await tester.pump();
-
-          expect(
-            find.textContaining(
-              'Erro ao salvar a playlist:',
-            ),
-            findsOneWidget,
-          );
-          expect(
-            find.textContaining('Erro de rede'),
-            findsOneWidget,
-          );
-        },
-      );
-    });
-
-    group('Formato dos dados', () {
-      testWidgets(
-        'deve formatar nome da música e artista com iniciais maiúsculas',
-        (WidgetTester tester) async {
-          await adicionarMusicas(
-            firestore,
-            [
-              {
-                'track_name': 'my favorite song',
-                'artist_name': 'the beatles',
-              },
-            ],
-          );
-
-          await pumpScreen(
-            tester,
-            auth: auth,
-            firestore: firestore,
-          );
-
-          expect(
-            find.text('My Favorite Song - The Beatles'),
-            findsOneWidget,
-          );
-        },
-      );
-
-      testWidgets(
-        'deve usar "Desconhecido" quando artist_name é null',
-        (WidgetTester tester) async {
-          await adicionarMusicas(
-            firestore,
-            [
-              {
-                'track_name': 'unknown artist song',
-                'artist_name': null,
-              },
-            ],
-          );
-
-          await pumpScreen(
-            tester,
-            auth: auth,
-            firestore: firestore,
-          );
-
-          expect(
-            find.text('Unknown Artist Song - Desconhecido'),
-            findsOneWidget,
-          );
-        },
-      );
-    });
+            );
+
+        await pumpScreen(tester);
+
+        expect(find.text('Criando Playlist'), findsOneWidget);
+        expect(find.text('Nome da Playlist'), findsOneWidget);
+        expect(find.text('Salvar Playlist'), findsOneWidget);
+
+        // _fetchMusicas captura a exceção e não altera
+        // _musicasFiltradas, que continua vazia.
+        expect(find.byType(CircularProgressIndicator), findsOneWidget);
+      },
+    );
   });
 }

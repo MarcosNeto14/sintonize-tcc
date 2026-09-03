@@ -1,0 +1,45 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wcrash_cot_test.dart
+00:00 +0: CriarPlaylistScreen - renderização deve renderizar os elementos principais e as músicas carregadas
+00:01 +1: CriarPlaylistScreen - renderização deve mostrar CircularProgressIndicator quando o Firestore não possui músicas
+00:01 +2: CriarPlaylistScreen - renderização deve voltar quando o botão de voltar for pressionado
+00:01 +3: CriarPlaylistScreen - validação deve exibir erro quando tentar salvar sem informar o nome da playlist
+00:01 +4: CriarPlaylistScreen - validação deve aceitar um nome de playlist preenchido
+00:01 +5: CriarPlaylistScreen - pesquisa deve filtrar músicas pelo nome da faixa
+00:01 +6: CriarPlaylistScreen - pesquisa deve filtrar músicas pelo nome do artista
+00:01 +7: CriarPlaylistScreen - pesquisa deve fazer pesquisa case-insensitive
+00:01 +8: CriarPlaylistScreen - pesquisa deve não mostrar músicas quando a pesquisa não encontrar resultados
+00:02 +9: CriarPlaylistScreen - pesquisa deve retornar todas as músicas quando a pesquisa for limpa
+00:02 +10: CriarPlaylistScreen - seleção de músicas deve selecionar uma música ao tocar no checkbox
+00:02 +11: CriarPlaylistScreen - seleção de músicas deve desselecionar uma música quando o checkbox selecionado for pressionado novamente
+00:02 +12: CriarPlaylistScreen - seleção de músicas deve permitir selecionar várias músicas
+00:02 +13: CriarPlaylistScreen - scroll deve permitir rolar a lista de músicas
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+type 'ListView' is not a subtype of type 'Scrollable' in type cast
+
+When the exception was thrown, this was the stack:
+#0      WidgetController.widget (package:flutter_test/src/controller.dart:823:44)
+#1      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2422:15)
+#4      TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#5      WidgetController.scrollUntilVisible (package:flutter_test/src/controller.dart:2420:27)
+#6      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/widget/wcrash_cot_test.dart:519:22)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The test description was:
+  deve permitir rolar a lista de músicas
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +13 -1: CriarPlaylistScreen - scroll deve permitir rolar a lista de músicas [E]
+  Test failed. See exception logs above.
+  The test description was: deve permitir rolar a lista de músicas
+  
+00:03 +13 -1: CriarPlaylistScreen - salvamento deve salvar a playlist com usuário, nome e músicas selecionadas
+00:03 +14 -1: CriarPlaylistScreen - salvamento não deve salvar quando não existe usuário autenticado
+00:03 +15 -1: CriarPlaylistScreen - salvamento deve exibir SnackBar quando o Firestore falhar ao salvar
+00:03 +16 -1: CriarPlaylistScreen - erros do Firestore deve capturar erro ao buscar músicas sem quebrar a tela
+00:03 +17 -1: Some tests failed.

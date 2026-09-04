@@ -1,0 +1,855 @@
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 93.0.0 (107.0.0 available)
+  _flutterfire_internals 1.3.52 (1.3.77 available)
+  analyzer 10.0.1 (14.3.0 available)
+  async 2.11.0 (2.13.1 available)
+  boolean_selector 2.1.1 (2.1.2 available)
+  build 4.0.5 (4.0.11 available)
+  build_config 1.3.0 (1.3.3 available)
+  build_daemon 4.1.1 (4.1.6 available)
+  build_runner 2.13.1 (2.16.1 available)
+  built_value 8.12.5 (8.13.0 available)
+  clock 1.1.2 (1.1.3 available)
+  cloud_firestore 5.6.4 (6.9.0 available)
+  cloud_firestore_platform_interface 6.6.4 (8.0.7 available)
+  cloud_firestore_web 4.4.4 (5.7.3 available)
+  code_builder 4.11.1 (4.12.0 available)
+  crypto 3.0.6 (3.0.7 available)
+  dart_style 3.1.7 (3.1.13 available)
+  equatable 2.0.8 (2.1.0 available)
+  fake_cloud_firestore 3.1.0 (4.2.0 available)
+  firebase_auth 5.5.0 (6.6.1 available)
+  firebase_auth_mocks 0.14.2 (0.15.2 available)
+  firebase_auth_platform_interface 7.6.0 (9.0.7 available)
+  firebase_auth_web 5.14.0 (6.2.7 available)
+  firebase_core 3.12.0 (4.14.0 available)
+  firebase_core_platform_interface 5.4.0 (8.1.1 available)
+  firebase_core_web 2.21.0 (3.11.0 available)
+  flutter_lints 5.0.0 (6.0.0 available)
+  flutter_plugin_android_lifecycle 2.0.24 (2.0.35 available)
+  geolocator 13.0.2 (14.0.3 available)
+  geolocator_android 4.6.1 (5.0.3 available)
+  geolocator_apple 2.3.9 (2.3.14 available)
+  geolocator_platform_interface 4.2.4 (4.3.0 available)
+  geolocator_web 4.1.1 (4.1.4 available)
+  geolocator_windows 0.2.3 (0.2.5 available)
+  glob 2.1.3 (2.2.0 available)
+  google_maps 8.1.1 (8.3.0 available)
+  google_maps_flutter 2.10.0 (2.18.0 available)
+  google_maps_flutter_android 2.14.12 (2.19.13 available)
+  google_maps_flutter_ios 2.13.2 (2.18.6 available)
+  google_maps_flutter_platform_interface 2.11.0 (2.16.1 available)
+  google_maps_flutter_web 0.5.10 (0.6.3 available)
+  html 0.15.5 (0.15.7 available)
+  http 0.13.6 (1.6.0 available)
+  io 1.0.5 (1.1.0 available)
+  json_annotation 4.9.0 (4.12.0 available)
+  lints 5.1.1 (6.1.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.17.0 (1.19.0 available)
+  mime 2.0.0 (2.1.0 available)
+  mockito 5.6.4 (5.8.1 available)
+  package_config 2.2.0 (3.0.0 available)
+  pool 1.5.2 (1.5.3 available)
+  process 5.0.5 (5.0.6 available)
+  pub_semver 2.2.0 (2.2.1 available)
+  pubspec_parse 1.5.0 (1.6.0 available)
+  rx 0.4.0 (0.5.0 available)
+  sanitize_html 2.1.0 (2.2.0 available)
+  source_gen 4.2.2 (4.3.0 available)
+  source_span 1.10.0 (1.10.2 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  stream_transform 2.1.1 (2.1.2 available)
+  string_scanner 1.3.0 (1.4.1 available)
+  term_glyph 1.2.1 (1.2.2 available)
+  test_api 0.7.10 (0.7.14 available)
+  uuid 4.5.1 (4.6.0 available)
+  vector_math 2.2.0 (2.4.2 available)
+  vm_service 14.3.0 (15.3.0 available)
+  web 1.1.0 (1.1.1 available)
+  yaml 3.1.3 (3.1.4 available)
+Got dependencies!
+70 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart
+00:00 +0: CadastroScreen - renderização deve renderizar os principais campos do formulário
+00:01 +1: CadastroScreen - renderização deve iniciar o estado sem estado selecionado
+00:01 +2: CadastroScreen - validação deve mostrar erros quando o formulário estiver vazio
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(400.0, 870.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 870.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#8df08 relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#5970c(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#fe732(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:77:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "O nome é obrigatório": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:80:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart line 80
+The test description was:
+  deve mostrar erros quando o formulário estiver vazio
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +2 -1: CadastroScreen - validação deve mostrar erros quando o formulário estiver vazio [E]
+  Test failed. See exception logs above.
+  The test description was: deve mostrar erros quando o formulário estiver vazio
+  
+00:02 +2 -1: CadastroScreen - validação deve rejeitar nome contendo números
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(400.0, 870.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 870.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#dbbb4 relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#1a1b5(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#de140(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:100:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "O nome não pode conter números ou caracteres
+especiais": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:103:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart line 103
+The test description was:
+  deve rejeitar nome contendo números
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +2 -2: CadastroScreen - validação deve rejeitar nome contendo números [E]
+  Test failed. See exception logs above.
+  The test description was: deve rejeitar nome contendo números
+  
+00:03 +2 -2: CadastroScreen - validação deve rejeitar nome contendo caracteres especiais
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(400.0, 870.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 870.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#efc26 relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#b988b(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#f9c48(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:120:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "O nome não pode conter números ou caracteres
+especiais": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:123:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart line 123
+The test description was:
+  deve rejeitar nome contendo caracteres especiais
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +2 -3: CadastroScreen - validação deve rejeitar nome contendo caracteres especiais [E]
+  Test failed. See exception logs above.
+  The test description was: deve rejeitar nome contendo caracteres especiais
+  
+00:03 +2 -3: CadastroScreen - validação deve aceitar nome com caracteres acentuados
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(400.0, 870.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 870.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#2fce1 relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#4c3a4(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#ac5fa(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:147:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:04 +3 -3: CadastroScreen - validação deve rejeitar data com formato inválido
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(400.0, 870.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 870.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#a1308 relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#240fa(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#bfc13(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:163:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:04 +4 -3: CadastroScreen - validação deve rejeitar mês inválido
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(400.0, 870.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 870.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#950f1 relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#12b82(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#d216e(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:182:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Mês deve ser entre 01 e 12": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:185:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart line 185
+The test description was:
+  deve rejeitar mês inválido
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +4 -4: CadastroScreen - validação deve rejeitar mês inválido [E]
+  Test failed. See exception logs above.
+  The test description was: deve rejeitar mês inválido
+  
+00:05 +4 -4: CadastroScreen - validação deve rejeitar dia inválido
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(400.0, 870.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 870.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#0a9b8 relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#b8116(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#9bef6(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:199:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Dia deve ser entre 01 e 28": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:202:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart line 202
+The test description was:
+  deve rejeitar dia inválido
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +4 -5: CadastroScreen - validação deve rejeitar dia inválido [E]
+  Test failed. See exception logs above.
+  The test description was: deve rejeitar dia inválido
+  
+00:05 +4 -5: CadastroScreen - validação deve rejeitar data futura
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(400.0, 870.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 870.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#6f7be relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#8c5bb(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#cb78e(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:215:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "A data não pode ser no futuro": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:218:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart line 218
+The test description was:
+  deve rejeitar data futura
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +4 -6: CadastroScreen - validação deve rejeitar data futura [E]
+  Test failed. See exception logs above.
+  The test description was: deve rejeitar data futura
+  
+00:06 +4 -6: CadastroScreen - validação deve rejeitar e-mail inválido
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(400.0, 870.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 870.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#60a8d relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#305ff(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#21fe3(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:231:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "E-mail inválido": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:234:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart line 234
+The test description was:
+  deve rejeitar e-mail inválido
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +4 -7: CadastroScreen - validação deve rejeitar e-mail inválido [E]
+  Test failed. See exception logs above.
+  The test description was: deve rejeitar e-mail inválido
+  
+00:06 +4 -7: CadastroScreen - validação deve rejeitar senha com menos de 6 caracteres
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(400.0, 870.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 870.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#fc17b relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#4a717(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#4baa4(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:246:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "A senha deve ter pelo menos 6 caracteres":
+[]>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:249:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart line 249
+The test description was:
+  deve rejeitar senha com menos de 6 caracteres
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +4 -8: CadastroScreen - validação deve rejeitar senha com menos de 6 caracteres [E]
+  Test failed. See exception logs above.
+  The test description was: deve rejeitar senha com menos de 6 caracteres
+  
+00:07 +4 -8: CadastroScreen - validação deve rejeitar senhas diferentes
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(400.0, 870.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 870.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#b2a64 relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#e71ca(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#033ce(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:263:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "As senhas não coincidem": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:266:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart line 266
+The test description was:
+  deve rejeitar senhas diferentes
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +4 -9: CadastroScreen - validação deve rejeitar senhas diferentes [E]
+  Test failed. See exception logs above.
+  The test description was: deve rejeitar senhas diferentes
+  
+00:07 +4 -9: CadastroScreen - validação deve rejeitar CEP em formato inválido
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(400.0, 870.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 870.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#1d603 relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#9848b(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#0e1bc(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:279:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "CEP inválido. Formato correto: XXXXX-XXX":
+[]>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:282:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart line 282
+The test description was:
+  deve rejeitar CEP em formato inválido
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:08 +4 -10: CadastroScreen - validação deve rejeitar CEP em formato inválido [E]
+  Test failed. See exception logs above.
+  The test description was: deve rejeitar CEP em formato inválido
+  
+00:08 +4 -10: CadastroScreen - validação deve rejeitar número que não seja numérico
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(400.0, 870.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 870.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#45a3f relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#6ccfc(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#ed800(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:295:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "O número deve ser numérico": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:298:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart line 298
+The test description was:
+  deve rejeitar número que não seja numérico
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:09 +4 -11: CadastroScreen - validação deve rejeitar número que não seja numérico [E]
+  Test failed. See exception logs above.
+  The test description was: deve rejeitar número que não seja numérico
+  
+00:09 +4 -11: CadastroScreen - interações deve aplicar máscara de data de nascimento
+00:09 +5 -11: CadastroScreen - interações deve aplicar máscara de CEP
+00:09 +6 -11: CadastroScreen - interações deve permitir selecionar um estado
+
+Warning: A call to tap() with finder "Found 1 widget with type "DropdownButtonFormField<String>": [
+  DropdownButtonFormField<String>(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope, _FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#dbe22]], state: _DropdownButtonFormFieldState<String>#2ba5c),
+]" derived an Offset (Offset(400.0, 801.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 801.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#158ab relayoutBoundary=up24
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#f5689(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#8c170(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:335:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "PE": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:338:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart line 338
+The test description was:
+  deve permitir selecionar um estado
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:10 +6 -12: CadastroScreen - interações deve permitir selecionar um estado [E]
+  Test failed. See exception logs above.
+  The test description was: deve permitir selecionar um estado
+  
+00:10 +6 -12: CadastroScreen - interações campos de senha devem estar ocultos
+00:10 +7 -12: CadastroScreen - navegação deve navegar para a tela de login
+
+Warning: A call to tap() with finder "Found 1 widget with text "Já tem uma conta? Faça login": [
+  Text("Já tem uma conta? Faça login", inherit: true, color: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), size: 16.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(400.0, 934.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 934.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#a580e relayoutBoundary=up35
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#e6531(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#1a749(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:376:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "LoginScreen": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:379:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart line 379
+The test description was:
+  deve navegar para a tela de login
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:10 +7 -13: CadastroScreen - navegação deve navegar para a tela de login [E]
+  Test failed. See exception logs above.
+  The test description was: deve navegar para a tela de login
+  
+00:10 +7 -13: CadastroScreen - cadastro deve criar usuário, salvar dados no Firestore e navegar
+
+Warning: A call to tap() with finder "Found 1 widget with type "DropdownButtonFormField<String>": [
+  DropdownButtonFormField<String>(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope, _FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#23d7c]], state: _DropdownButtonFormFieldState<String>#47f8b),
+]" derived an Offset (Offset(400.0, 801.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 801.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#de5b0 relayoutBoundary=up24
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#4b6d2(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#9616f(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:413:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.last (dart:core/iterable.dart:679:7)
+#1      _LastFinderMixin.filter (package:flutter_test/src/finders.dart:1367:28)
+#3      _AncestorFinderMixin.allCandidates (package:flutter_test/src/finders.dart:1814:49)
+#4      FinderBase.evaluate (package:flutter_test/src/finders.dart:987:76)
+#5      WidgetController.widgetList (package:flutter_test/src/controller.dart:843:19)
+#6      WidgetController._maybeViewOf (package:flutter_test/src/controller.dart:790:34)
+#7      WidgetController.tap (package:flutter_test/src/controller.dart:1073:31)
+#8      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:418:22)
+<asynchronous suspension>
+#9      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#10     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 2 frames from dart:async-patch and package:stack_trace)
+
+The test description was:
+  deve criar usuário, salvar dados no Firestore e navegar
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:11 +7 -14: CadastroScreen - cadastro deve criar usuário, salvar dados no Firestore e navegar [E]
+  Test failed. See exception logs above.
+  The test description was: deve criar usuário, salvar dados no Firestore e navegar
+  
+00:11 +7 -14: CadastroScreen - cadastro não deve tentar cadastrar quando houver erros de validação
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(400.0, 870.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 870.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderParagraph#2d59d relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#071ab(_ReusableRenderView#04cab), HitTestEntry<HitTestTarget>#f188c(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:458:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "O nome é obrigatório": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart:461:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart line 461
+The test description was:
+  não deve tentar cadastrar quando houver erros de validação
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:12 +7 -15: CadastroScreen - cadastro não deve tentar cadastrar quando houver erros de validação [E]
+  Test failed. See exception logs above.
+  The test description was: não deve tentar cadastrar quando houver erros de validação
+  
+00:12 +7 -15: Some tests failed.

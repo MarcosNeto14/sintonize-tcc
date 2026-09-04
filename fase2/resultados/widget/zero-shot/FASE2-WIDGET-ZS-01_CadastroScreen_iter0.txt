@@ -1,0 +1,25 @@
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart
+test/fase2/widget/cadastro_screen_zs_test.dart:354:20: Error: The getter 'obscureText' isn't defined for the type 'TextFormField'.
+ - 'TextFormField' is from 'package:flutter/src/material/text_form_field.dart' ('../../../flutter/packages/flutter/lib/src/material/text_form_field.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'obscureText'.
+      expect(senha.obscureText, isTrue);
+                   ^^^^^^^^^^^
+test/fase2/widget/cadastro_screen_zs_test.dart:355:24: Error: The getter 'obscureText' isn't defined for the type 'TextFormField'.
+ - 'TextFormField' is from 'package:flutter/src/material/text_form_field.dart' ('../../../flutter/packages/flutter/lib/src/material/text_form_field.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'obscureText'.
+      expect(confirmar.obscureText, isTrue);
+                       ^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart [E]
+  Failed to load "C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart":
+  Compilation failed for testPath=C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/widget/cadastro_screen_zs_test.dart: test/fase2/widget/cadastro_screen_zs_test.dart:354:20: Error: The getter 'obscureText' isn't defined for the type 'TextFormField'.
+   - 'TextFormField' is from 'package:flutter/src/material/text_form_field.dart' ('../../../flutter/packages/flutter/lib/src/material/text_form_field.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'obscureText'.
+        expect(senha.obscureText, isTrue);
+                     ^^^^^^^^^^^
+  test/fase2/widget/cadastro_screen_zs_test.dart:355:24: Error: The getter 'obscureText' isn't defined for the type 'TextFormField'.
+   - 'TextFormField' is from 'package:flutter/src/material/text_form_field.dart' ('../../../flutter/packages/flutter/lib/src/material/text_form_field.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'obscureText'.
+        expect(confirmar.obscureText, isTrue);
+                         ^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

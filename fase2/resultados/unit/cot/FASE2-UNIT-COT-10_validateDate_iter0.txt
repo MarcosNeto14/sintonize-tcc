@@ -1,0 +1,11 @@
+00:00 +17: Validators.validateDate Cenários de falha - campos não numéricos deve retornar erro quando houver espaços na entrada
+00:00 +17 -1: Validators.validateDate Cenários de falha - campos não numéricos deve retornar erro quando houver espaços na entrada [E]
+  Expected: 'Data inválida. Certifique-se de que todos os campos são números'
+    Actual: <null>
+     Which: not an <Instance of 'String'>
+
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test\fase2\unit\validate_date_cot_test.dart 136:9   main.<fn>.<fn>.<fn>
+
+00:00 +31 -1: Some tests failed.

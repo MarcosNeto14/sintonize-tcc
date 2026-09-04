@@ -1,0 +1,17 @@
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/unit/format_name_cot_test.dart
+00:00 +0: Validators.formatName Cenários de sucesso deve formatar uma única palavra
+00:00 +1: Validators.formatName Cenários de sucesso deve formatar um nome com duas palavras
+00:00 +2: Validators.formatName Cenários de sucesso deve formatar um nome com várias palavras
+00:00 +3: Validators.formatName Cenários de sucesso deve manter um nome que já está formatado
+00:00 +4: Validators.formatName Cenários de sucesso deve preservar palavras totalmente em maiúsculas
+00:00 +5: Validators.formatName Cenários de sucesso deve formatar uma palavra com uma única letra
+00:00 +6: Validators.formatName Cenários de sucesso deve preservar caracteres especiais no início da palavra
+00:00 +7: Validators.formatName Cenários de sucesso deve preservar números
+00:00 +8: Validators.formatName Cenários de sucesso deve preservar palavras que começam com números
+00:00 +9: Validators.formatName Cenários de sucesso deve formatar caracteres acentuados
+00:00 +10: Validators.formatName Casos de borda deve retornar uma string vazia quando a entrada for vazia
+00:00 +11: Validators.formatName Casos de borda deve lançar RangeError quando a entrada contém apenas espaços
+00:00 +12: Validators.formatName Casos de borda deve lançar RangeError quando existem espaços consecutivos
+00:00 +13: Validators.formatName Casos de borda deve lançar RangeError quando existe espaço no início
+00:00 +14: Validators.formatName Casos de borda deve lançar RangeError quando existe espaço no final
+00:00 +15: All tests passed!

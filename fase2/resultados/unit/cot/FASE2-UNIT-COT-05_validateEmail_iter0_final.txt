@@ -1,0 +1,26 @@
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/unit/validate_email_cot_test.dart
+00:00 +0: Validators.validateEmail Cenários de sucesso deve retornar null para um e-mail simples e válido
+00:00 +1: Validators.validateEmail Cenários de sucesso deve retornar null para e-mail contendo números
+00:00 +2: Validators.validateEmail Cenários de sucesso deve retornar null para e-mail com caracteres permitidos
+00:00 +3: Validators.validateEmail Cenários de sucesso deve retornar null para domínio contendo hífen
+00:00 +4: Validators.validateEmail Cenários de sucesso deve retornar null para domínio contendo múltiplos níveis
+00:00 +5: Validators.validateEmail Cenários de sucesso deve retornar null para TLD com exatamente 2 caracteres
+00:00 +6: Validators.validateEmail Cenários de sucesso deve retornar null para TLD com mais de 2 caracteres
+00:00 +7: Validators.validateEmail Cenários de sucesso deve aceitar letras maiúsculas e minúsculas
+00:00 +8: Validators.validateEmail Cenários de falha deve retornar mensagem de obrigatório quando o valor for null
+00:00 +9: Validators.validateEmail Cenários de falha deve retornar mensagem de obrigatório quando o valor for vazio
+00:00 +10: Validators.validateEmail Cenários de falha deve retornar e-mail inválido quando não houver @
+00:00 +11: Validators.validateEmail Cenários de falha deve retornar e-mail inválido quando não houver domínio
+00:00 +12: Validators.validateEmail Cenários de falha deve retornar e-mail inválido quando não houver TLD
+00:00 +13: Validators.validateEmail Cenários de falha deve retornar e-mail inválido quando o TLD tiver apenas um caractere
+00:00 +14: Validators.validateEmail Cenários de falha deve retornar e-mail inválido quando houver espaços
+00:00 +15: Validators.validateEmail Cenários de falha deve retornar e-mail inválido quando houver caracteres não permitidos
+00:00 +16: Validators.validateEmail Cenários de falha deve retornar e-mail inválido quando houver mais de um @
+00:00 +17: Validators.validateEmail Cenários de falha deve retornar e-mail inválido para string contendo apenas espaços
+00:00 +18: Validators.validateEmail Casos de borda deve aceitar o menor TLD permitido pela expressão regular
+00:00 +19: Validators.validateEmail Casos de borda deve aceitar TLD longo
+00:00 +20: Validators.validateEmail Casos de borda deve aceitar vários pontos no domínio
+00:00 +21: Validators.validateEmail Casos de borda deve aceitar caracteres permitidos em posições diferentes do usuário
+00:00 +22: Validators.validateEmail Casos de borda deve rejeitar e-mail com espaço no final
+00:00 +23: Validators.validateEmail Casos de borda deve rejeitar e-mail com espaço no início
+00:00 +24: All tests passed!

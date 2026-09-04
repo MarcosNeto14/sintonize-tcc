@@ -1,0 +1,30 @@
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/unit/validate_email_login_cot_test.dart
+00:00 +0: Validators.validateEmailLogin Cenários de sucesso deve retornar null para um e-mail válido
+00:00 +1: Validators.validateEmailLogin Cenários de sucesso deve retornar null para e-mail com subdomínio
+00:00 +2: Validators.validateEmailLogin Cenários de sucesso deve retornar null para e-mail com ponto antes do @
+00:00 +3: Validators.validateEmailLogin Cenários de sucesso deve retornar null para e-mail contendo números
+00:00 +4: Validators.validateEmailLogin Cenários de sucesso deve retornar null para e-mail com caracteres especiais
+00:00 +5: Validators.validateEmailLogin Cenários de falha deve retornar mensagem de campo obrigatório quando valor for null
+00:00 +6: Validators.validateEmailLogin Cenários de falha deve retornar mensagem de campo obrigatório quando valor for vazio
+00:00 +7: Validators.validateEmailLogin Cenários de falha deve retornar mensagem de e-mail inválido quando não houver @
+00:00 +8: Validators.validateEmailLogin Cenários de falha deve retornar mensagem de e-mail inválido quando não houver domínio
+00:00 +9: Validators.validateEmailLogin Cenários de falha deve retornar mensagem de e-mail inválido quando não houver extensão
+00:00 +10: Validators.validateEmailLogin Cenários de falha deve retornar mensagem de e-mail inválido quando @ estiver no início
+00:00 +11: Validators.validateEmailLogin Cenários de falha deve retornar mensagem de e-mail inválido quando não houver conteúdo após o ponto
+00:00 +12: Validators.validateEmailLogin Casos de borda deve rejeitar uma string contendo apenas espaços
+00:00 +13: Validators.validateEmailLogin Casos de borda deve rejeitar e-mail contendo espaço no domínio
+00:00 +13 -1: Validators.validateEmailLogin Casos de borda deve rejeitar e-mail contendo espaço no domínio [E]
+  Expected: 'Por favor, insira um e-mail válido'
+    Actual: <null>
+     Which: not an <Instance of 'String'>
+
+  package:matcher                                           expect
+  package:flutter_test/src/widget_tester.dart 473:18        expect
+  test\fase2\unit\validate_email_login_cot_test.dart 116:9  main.<fn>.<fn>.<fn>
+
+00:00 +13 -1: Validators.validateEmailLogin Casos de borda deve rejeitar e-mail com dois @ consecutivos
+00:00 +14 -1: Validators.validateEmailLogin Casos de borda deve aceitar ponto imediatamente antes do @ conforme regex atual
+00:00 +15 -1: Validators.validateEmailLogin Casos de borda deve aceitar ponto imediatamente depois do @ conforme regex atual
+00:00 +16 -1: Validators.validateEmailLogin Casos de borda deve aceitar texto após um e-mail válido conforme regex atual
+00:00 +17 -1: Validators.validateEmailLogin Casos de borda deve aceitar e-mail com domínio contendo múltiplos níveis
+00:00 +18 -1: Some tests failed.

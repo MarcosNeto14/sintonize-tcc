@@ -1,0 +1,17 @@
+Nenhuma reexecução foi realizada nesta rodada. Classificação (B) na
+iteração 1: o modelo determinou que a falha reflete um comportamento
+real e potencialmente incorreto da aplicação (regex permissiva de
+`validateEmailLogin`, sem `$` de fim de string e sem exclusão de espaços
+no domínio), não um erro do teste. Conforme o protocolo do repositório
+("não editar arquivos de teste gerados por LLM para fazê-los passar"), o
+teste foi mantido inalterado. O estado final da suíte é o mesmo da
+iteração 0: 17/18 testes passam, 1 falha documentada como achado.
+
+Saída de referência (idêntica à da iteração 0):
+
+00:00 +13 -1: Validators.validateEmailLogin Casos de borda deve rejeitar e-mail contendo espaço no domínio [E]
+  Expected: 'Por favor, insira um e-mail válido'
+    Actual: <null>
+     Which: not an <Instance of 'String'>
+
+00:00 +18 -1: Some tests failed.

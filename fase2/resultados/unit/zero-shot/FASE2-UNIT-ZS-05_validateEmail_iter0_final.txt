@@ -1,0 +1,27 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/unit/validate_email_zs_test.dart
+00:00 +0: Validators.validateEmail sucesso deve retornar null para um e-mail válido
+00:00 +1: Validators.validateEmail sucesso deve aceitar e-mail com números
+00:00 +2: Validators.validateEmail sucesso deve aceitar caracteres permitidos antes do @
+00:00 +3: Validators.validateEmail sucesso deve aceitar domínio com subdomínio
+00:00 +4: Validators.validateEmail sucesso deve aceitar domínio com hífen
+00:00 +5: Validators.validateEmail sucesso deve aceitar domínio com TLD de dois caracteres
+00:00 +6: Validators.validateEmail sucesso deve aceitar TLD com mais de dois caracteres
+00:00 +7: Validators.validateEmail falha deve retornar mensagem de obrigatório quando o valor for null
+00:00 +8: Validators.validateEmail falha deve retornar mensagem de obrigatório quando o valor estiver vazio
+00:00 +9: Validators.validateEmail falha deve rejeitar e-mail sem @
+00:00 +10: Validators.validateEmail falha deve rejeitar e-mail sem domínio
+00:00 +11: Validators.validateEmail falha deve rejeitar e-mail sem parte local
+00:00 +12: Validators.validateEmail falha deve rejeitar e-mail sem extensão
+00:00 +13: Validators.validateEmail falha deve rejeitar TLD com apenas um caractere
+00:00 +14: Validators.validateEmail falha deve rejeitar e-mail com espaços
+00:00 +15: Validators.validateEmail falha deve rejeitar e-mail com dois @
+00:00 +16: Validators.validateEmail falha deve rejeitar e-mail que começa com @
+00:00 +17: Validators.validateEmail falha deve rejeitar e-mail que termina com @
+00:00 +18: Validators.validateEmail casos de borda deve rejeitar e-mail contendo apenas espaços
+00:00 +19: Validators.validateEmail casos de borda deve rejeitar e-mail com espaço no início
+00:00 +20: Validators.validateEmail casos de borda deve rejeitar e-mail com espaço no final
+00:00 +21: Validators.validateEmail casos de borda deve rejeitar domínio sem TLD válido
+00:00 +22: Validators.validateEmail casos de borda deve rejeitar caracteres não permitidos
+00:00 +23: Validators.validateEmail casos de borda deve rejeitar e-mail com ponto após o @ sem domínio válido
+00:00 +24: Validators.validateEmail casos de borda deve aceitar o menor TLD permitido pelo padrão
+00:00 +25: All tests passed!

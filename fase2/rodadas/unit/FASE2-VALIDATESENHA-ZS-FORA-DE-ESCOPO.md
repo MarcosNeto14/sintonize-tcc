@@ -1,17 +1,36 @@
-# FASE2-UNIT-ZS-02_validateSenha — Documentação da Rodada
+# FASE2-VALIDATESENHA-ZS — FORA DO ESCOPO DAS 30 RODADAS LIMPAS
 
-> **Nota de execução:** esta rodada foi **refeita do zero, em conversa nova**,
-> após a reversão dos bugs U-SILENT/U-CRASH. Uma execução anterior, feita por
-> engano contra o código com o U-SILENT ainda ativo, está preservada — fora da
-> contagem de 30 — em
-> `fase2/rodadas/unit/FASE2-VALIDATESENHA-ZS-ACHADO-EXTRA-BUG-ATIVO.md`.
+> ⚠️ **ESTA RODADA NÃO FAZ PARTE DA CONTAGEM DE 30 RODADAS LIMPAS.**
+>
+> Ela foi executada e commitada como "rodada 2/30" (ID `FASE2-UNIT-ZS-02`,
+> commit `96bf975`) enquanto o escopo vigente das rodadas limpas era
+> "10 funções unitárias × 3 estratégias". Em **2026-09-03** o autor do TCC
+> revisou o escopo de volta ao desenho original — **8 funções unitárias +
+> CadastroScreen (widget) + fluxo de login (integração)** — para preservar a
+> distribuição da pirâmide nos três níveis e permitir a comparação final
+> Fase 1 × Fase 2 em unitário, widget e integração, e não só em unitário.
+>
+> Com isso, `validateSenha` e `capitalize` **saíram do grupo limpo**: as duas
+> já têm dado próprio nas rodadas U-SILENT e U-CRASH do piloto. Esta rodada
+> passa a ser **material extra**, preservada integralmente (execução, teste,
+> resultado e análise permanecem válidos e reprodutíveis) mas fora da
+> contagem oficial.
+>
+> **Nota de execução original:** esta rodada foi refeita do zero, em conversa
+> nova, após a reversão dos bugs U-SILENT/U-CRASH. Uma execução anterior,
+> feita por engano contra o código com o U-SILENT ainda ativo, está preservada
+> em `fase2/rodadas/unit/FASE2-VALIDATESENHA-ZS-ACHADO-EXTRA-BUG-ATIVO.md`.
 > O incidente está registrado em `fase2/propostas_bugs_fase2.md`.
+>
+> Os dois artefatos de `validateSenha` formam, juntos, um par controlado
+> (mesma função, mesmo prompt, mesma estratégia, com e sem o bug) — ver a
+> observação 2 na análise abaixo.
 
 ## Metadados
 
 | Campo | Valor |
 |---|---|
-| **ID da Rodada** | FASE2-UNIT-ZS-02 |
+| **ID da Rodada** | FASE2-VALIDATESENHA-ZS (executada como `FASE2-UNIT-ZS-02`; fora da contagem após a revisão de escopo) |
 | **Função testada** | `Validators.validateSenha` |
 | **Arquivo de origem** | `lib/utils/validators.dart` |
 | **Nível da pirâmide** | Unitário |
@@ -22,7 +41,7 @@
 | **Conversa nova?** | Sim |
 | **Framework de teste** | flutter_test |
 | **Versão do Flutter** | 3.41.7 (channel stable), Dart 3.11.5 — a rodada `FASE2-UNIT-ZS-01` rodou em 3.41.6; o ambiente foi atualizado entre as duas |
-| **Arquivo de teste** | `test/fase2/unit/validate_senha_zs_test.dart` |
+| **Arquivo de teste** | `test/fase2/unit/validate_senha_zs_FORA_DE_ESCOPO_test.dart` |
 | **Execução** | Conduzida por automação de navegador (Claude in Chrome) interagindo com o ChatGPT, mesmo padrão das 18 rodadas do piloto e das 4 reexecuções — não pelo autor manualmente no teclado |
 
 ---
@@ -83,7 +102,7 @@ espaço (`'abc 12'`).
 00:00 +8: All tests passed!
 ```
 
-(saída completa em `fase2/resultados/unit/zero-shot/FASE2-UNIT-ZS-02_validateSenha_iter0_final.txt`)
+(saída completa em `fase2/resultados/unit/zero-shot/FASE2-VALIDATESENHA-ZS-FORA-DE-ESCOPO_iter0_final.txt`)
 
 ---
 

@@ -1,0 +1,108 @@
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/integration/login_flow_zs_test.dart
+00:00 +0: LoginScreen - autenticação usuário preenche credenciais válidas, toca em Entrar e navega para TelaInicialScreen
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following FirebaseException was thrown running a test:
+[core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+
+When the exception was thrown, this was the stack:
+#0      MethodChannelFirebase.app (package:firebase_core_platform_interface/src/method_channel/method_channel_firebase.dart:195:5)
+#1      Firebase.app (package:firebase_core/src/firebase.dart:79:41)
+#2      FirebaseAuth.instance (package:firebase_auth/src/firebase_auth.dart:38:47)
+#3      _TelaInicialScreenState.fetchLastRecommendedMusic (package:sintonize/tela-inicial.dart:43:31)
+#4      _TelaInicialScreenState._loadLastRecommendedMusic (package:sintonize/tela-inicial.dart:160:29)
+#5      _TelaInicialScreenState.initState (package:sintonize/tela-inicial.dart:156:5)
+#6      StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5950:55)
+#7      ComponentElement.mount (package:flutter/src/widgets/framework.dart:5793:5)
+...     Normal element mounting (260 frames)
+#267    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#268    MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#269    Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+#270    Element.updateChildren (package:flutter/src/widgets/framework.dart:4255:32)
+#271    MultiChildRenderObjectElement.update (package:flutter/src/widgets/framework.dart:7295:17)
+#272    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#273    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#274    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#275    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#276    StatefulElement.update (package:flutter/src/widgets/framework.dart:6007:5)
+#277    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#278    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#279    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#280    ProxyElement.update (package:flutter/src/widgets/framework.dart:6149:5)
+#281    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#282    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#283    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#284    ProxyElement.update (package:flutter/src/widgets/framework.dart:6149:5)
+#285    _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#286    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#287    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#288    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#289    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#290    StatefulElement.update (package:flutter/src/widgets/framework.dart:6007:5)
+#291    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#292    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#293    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#294    ProxyElement.update (package:flutter/src/widgets/framework.dart:6149:5)
+#295    _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#296    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#297    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#298    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#299    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#300    StatefulElement.update (package:flutter/src/widgets/framework.dart:6007:5)
+#301    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#302    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#303    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#304    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#305    StatefulElement.update (package:flutter/src/widgets/framework.dart:6007:5)
+#306    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#307    SingleChildRenderObjectElement.update (package:flutter/src/widgets/framework.dart:7122:14)
+#308    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#309    SingleChildRenderObjectElement.update (package:flutter/src/widgets/framework.dart:7122:14)
+#310    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#311    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#312    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#313    ProxyElement.update (package:flutter/src/widgets/framework.dart:6149:5)
+#314    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#315    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#316    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#317    ProxyElement.update (package:flutter/src/widgets/framework.dart:6149:5)
+#318    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#319    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#320    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#321    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#322    BuildScope._tryRebuild (package:flutter/src/widgets/framework.dart:2750:15)
+#323    BuildScope._flushDirtyElements (package:flutter/src/widgets/framework.dart:2807:11)
+#324    BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3111:18)
+#325    AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:2131:19)
+#326    RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:495:5)
+#327    SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#328    SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)
+#329    AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:1960:9)
+#332    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#333    AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:1949:27)
+#334    WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:719:23)
+#337    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#338    WidgetTester.pumpAndSettle (package:flutter_test/src/widget_tester.dart:712:27)
+#339    main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/login_flow_zs_test.dart:93:22)
+<asynchronous suspension>
+#340    testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#341    TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The test description was:
+  usuário preenche credenciais válidas, toca em Entrar e navega para TelaInicialScreen
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +0 -1: LoginScreen - autenticação usuário preenche credenciais válidas, toca em Entrar e navega para TelaInicialScreen [E]
+  Test failed. See exception logs above.
+  The test description was: usuário preenche credenciais válidas, toca em Entrar e navega para TelaInicialScreen
+  
+00:04 +0 -1: LoginScreen - autenticação Firebase retorna user-not-found e LoginScreen exibe SnackBar vermelho
+00:04 +1 -1: LoginScreen - autenticação Firebase retorna wrong-password e LoginScreen exibe SnackBar vermelho
+00:05 +2 -1: LoginScreen - autenticação Firebase retorna invalid-credential e LoginScreen exibe mensagem correspondente
+00:05 +3 -1: LoginScreen - autenticação Firebase retorna código desconhecido e LoginScreen exibe erro genérico
+00:05 +4 -1: LoginScreen - validação campos vazios exibem mensagens de validação
+00:06 +5 -1: LoginScreen - validação e-mail inválido impede a autenticação
+00:06 +6 -1: LoginScreen - validação senha com menos de seis caracteres impede a autenticação
+00:06 +7 -1: Some tests failed.

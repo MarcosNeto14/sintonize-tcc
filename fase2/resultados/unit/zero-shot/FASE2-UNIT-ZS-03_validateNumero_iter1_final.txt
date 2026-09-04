@@ -1,0 +1,17 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/unit/validate_numero_zs_test.dart
+00:00 +0: Validators.validateNumero quando o valor é obrigatório deve retornar erro quando o valor for null
+00:00 +1: Validators.validateNumero quando o valor é obrigatório deve retornar erro quando o valor for vazio
+00:00 +2: Validators.validateNumero quando o valor não é numérico deve retornar erro para texto
+00:00 +3: Validators.validateNumero quando o valor não é numérico deve retornar erro para caracteres especiais
+00:00 +4: Validators.validateNumero quando o valor não é numérico deve retornar erro para número decimal
+00:00 +5: Validators.validateNumero quando o valor não é numérico deve retornar erro para valor contendo apenas espaços
+00:00 +6: Validators.validateNumero quando o valor é numérico deve retornar null para um número inteiro positivo
+00:00 +7: Validators.validateNumero quando o valor é numérico deve retornar null para zero
+00:00 +8: Validators.validateNumero quando o valor é numérico deve retornar null para um número inteiro negativo
+00:00 +9: Validators.validateNumero quando o valor é numérico deve retornar null para o maior inteiro suportado pelo Dart
+00:00 +10: Validators.validateNumero quando o valor é numérico deve retornar null para número com espaço no final
+00:00 +11: Validators.validateNumero casos de borda deve retornar null para uma string contendo um único dígito
+00:00 +12: Validators.validateNumero casos de borda deve retornar erro para uma string contendo apenas espaços
+00:00 +13: Validators.validateNumero casos de borda deve retornar erro para uma string com sinal sem número
+00:00 +14: Validators.validateNumero casos de borda deve retornar null para número com zeros à esquerda
+00:00 +15: All tests passed!

@@ -1,0 +1,15 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/unit/format_name_zs_test.dart
+00:00 +0: Validators.formatName Casos de sucesso deve retornar o nome vazio quando receber uma string vazia
+00:00 +1: Validators.formatName Casos de sucesso deve capitalizar a primeira letra de um nome simples
+00:00 +2: Validators.formatName Casos de sucesso deve capitalizar a primeira letra de cada palavra
+00:00 +3: Validators.formatName Casos de sucesso deve preservar o restante das letras da palavra
+00:00 +4: Validators.formatName Casos de sucesso deve funcionar com uma única letra
+00:00 +5: Validators.formatName Casos de falha deve lançar RangeError quando houver espaços consecutivos
+00:00 +6: Validators.formatName Casos de falha deve lançar RangeError quando houver apenas espaços
+00:00 +7: Validators.formatName Casos de falha deve lançar RangeError quando o nome começar com espaço
+00:00 +8: Validators.formatName Casos de falha deve lançar RangeError quando o nome terminar com espaço
+00:00 +9: Validators.formatName Casos de borda deve preservar espaços simples entre as palavras
+00:00 +10: Validators.formatName Casos de borda deve aceitar caracteres especiais dentro da palavra
+00:00 +11: Validators.formatName Casos de borda deve manter números no restante da palavra
+00:00 +12: Validators.formatName Casos de borda deve manter uma palavra que já começa com letra maiúscula
+00:00 +13: All tests passed!

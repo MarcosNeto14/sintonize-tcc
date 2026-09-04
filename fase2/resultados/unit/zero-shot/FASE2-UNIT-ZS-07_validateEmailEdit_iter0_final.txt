@@ -1,0 +1,22 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/unit/validate_email_edit_zs_test.dart
+00:00 +0: Validators.validateEmailEdit sucesso deve retornar null para um e-mail válido
+00:00 +1: Validators.validateEmailEdit sucesso deve aceitar e-mail com números
+00:00 +2: Validators.validateEmailEdit sucesso deve aceitar caracteres permitidos antes do @
+00:00 +3: Validators.validateEmailEdit sucesso deve aceitar subdomínio
+00:00 +4: Validators.validateEmailEdit sucesso deve aceitar domínio com hífen
+00:00 +5: Validators.validateEmailEdit sucesso deve aceitar domínio com múltiplos níveis
+00:00 +6: Validators.validateEmailEdit falha deve retornar mensagem de erro quando não houver @
+00:00 +7: Validators.validateEmailEdit falha deve retornar mensagem de erro quando não houver domínio
+00:00 +8: Validators.validateEmailEdit falha deve retornar mensagem de erro quando não houver extensão
+00:00 +9: Validators.validateEmailEdit falha deve retornar mensagem de erro para e-mail com espaços
+00:00 +10: Validators.validateEmailEdit falha deve retornar mensagem de erro para e-mail com extensão menor que dois caracteres
+00:00 +11: Validators.validateEmailEdit falha deve retornar mensagem de erro para e-mail com ponto antes da extensão ausente
+00:00 +12: Validators.validateEmailEdit falha deve retornar mensagem de erro quando houver múltiplos @
+00:00 +13: Validators.validateEmailEdit casos de borda deve retornar null para valor null
+00:00 +14: Validators.validateEmailEdit casos de borda deve retornar null para string vazia
+00:00 +15: Validators.validateEmailEdit casos de borda deve rejeitar e-mail contendo apenas espaços
+00:00 +16: Validators.validateEmailEdit casos de borda deve rejeitar e-mail com espaço no início
+00:00 +17: Validators.validateEmailEdit casos de borda deve rejeitar e-mail com espaço no final
+00:00 +18: Validators.validateEmailEdit casos de borda deve aceitar letras maiúsculas
+00:00 +19: Validators.validateEmailEdit casos de borda deve rejeitar domínio sem ponto
+00:00 +20: All tests passed!

@@ -1,0 +1,10 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/unit/validate_senha_zs_test.dart
+00:00 +0: Validators.validateSenha Falhas de validação deve retornar mensagem de erro quando a senha for null
+00:00 +1: Validators.validateSenha Falhas de validação deve retornar mensagem de erro quando a senha estiver vazia
+00:00 +2: Validators.validateSenha Falhas de validação deve retornar mensagem de erro quando a senha tiver menos de 6 caracteres
+00:00 +3: Validators.validateSenha Falhas de validação deve retornar mensagem de erro para uma senha com apenas 1 caractere
+00:00 +4: Validators.validateSenha Sucesso de validação deve retornar null quando a senha tiver exatamente 6 caracteres
+00:00 +5: Validators.validateSenha Sucesso de validação deve retornar null quando a senha tiver mais de 6 caracteres
+00:00 +6: Validators.validateSenha Sucesso de validação deve retornar null quando a senha contiver letras, números e símbolos
+00:00 +7: Validators.validateSenha Sucesso de validação deve retornar null quando a senha contiver espaços
+00:00 +8: All tests passed!

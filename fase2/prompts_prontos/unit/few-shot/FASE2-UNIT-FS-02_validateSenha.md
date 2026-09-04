@@ -55,7 +55,7 @@ Agora, gere testes para esta função, seguindo o mesmo padrão dos exemplos:
     if (value == null || value.isEmpty) {
       return 'Por favor, insira sua senha';
     }
-    if (value.length < 7) {
+    if (value.length < 6) {
       return 'A senha deve ter pelo menos 6 caracteres';
     }
     return null;

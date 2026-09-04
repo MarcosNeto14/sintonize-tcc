@@ -347,3 +347,80 @@ USILENT foi mantido verbatim por representar uma discrepância
 doc-vs-código plausível em contexto real, cuja detecção (ou não) pelo
 modelo é parte do que está sendo observado. Em nenhum dos dois casos o
 arquivo real (validators.dart) foi alterado.
+
+---
+
+## Nota de incidente — bugs U-SILENT/U-CRASH ainda ativos no início das rodadas de controle limpo (2026-09-03)
+
+**O que aconteceu.** As 18 rodadas do piloto (bugs plantados) foram
+executadas contra `lib/utils/validators.dart` **com os bugs injetados**, o
+que é o esperado. Encerrado o piloto, iniciaram-se as 30 rodadas de
+**controle limpo** (10 funções × 3 estratégias) — mas os bugs U-SILENT e
+U-CRASH **nunca haviam sido revertidos** no arquivo. A rodada
+`FASE2-UNIT-ZS-01_validateNome` não foi afetada (`validateNome` não é alvo
+de nenhum bug plantado), porém a rodada seguinte, de `validateSenha`, foi
+executada contra o código ainda contendo o U-SILENT (`value.length < 7`).
+
+**Como foi detectado.** Ao consultar
+`fase2/Template_Documentacao_Rodada_Fase2.md` para preencher a
+documentação, notou-se que a tabela de convenção de IDs lista
+`validateSenha` como alvo do U-SILENT — o que levou à conferência do
+código-fonte e à confirmação de que o bug seguia ativo, junto com o
+U-CRASH em `capitalize`.
+
+**Alcance.** Das 30 rodadas de controle limpo, 6 estariam contaminadas se
+o problema não fosse corrigido: `validateSenha` × 3 estratégias
+(U-SILENT) e `capitalize` × 3 estratégias (U-CRASH). As outras 8 funções
+não são alvo de nenhum bug plantado.
+
+**Como foi resolvido.**
+
+1. A rodada já executada foi **preservada integralmente**, com nomes de
+   arquivo que a marcam como fora da contagem oficial:
+   `fase2/rodadas/unit/FASE2-VALIDATESENHA-ZS-ACHADO-EXTRA-BUG-ATIVO.md`,
+   `test/fase2/unit/validate_senha_zs_ACHADO_EXTRA_BUG_ATIVO_test.dart` e
+   `fase2/resultados/unit/zero-shot/FASE2-VALIDATESENHA-ZS-ACHADO-EXTRA-BUG-ATIVO_iter0_final.txt`.
+   Ela **não entra na contagem de 30**. Foi mantida porque produziu um
+   achado próprio: detecção espontânea do U-SILENT na geração inicial,
+   categoria **(C)**, com 10/10 e zero iterações de reparo.
+2. Os dois bugs foram revertidos em `lib/utils/validators.dart`:
+   `validateSenha` voltou a `value.length < 6` e `capitalize` recuperou a
+   guarda `if (word.isEmpty) return word;`.
+3. A reversão foi verificada de duas formas:
+   `git diff main -- lib/utils/validators.dart` retorna **vazio** (o
+   arquivo é byte-idêntico ao estado pré-bugs usado no Estudo 1), e a
+   suíte unitária da Fase 1 (`flutter test test/unit/`) passa a aprovar
+   todos os testes de `validateSenha` e `capitalize`, incluindo os de
+   fronteira de 6 caracteres e os de espaço múltiplo.
+4. A rodada oficial `FASE2-UNIT-ZS-02_validateSenha` foi **refeita do
+   zero, em conversa nova**, após a reversão.
+
+**Consequência conhecida e aceita.** Os testes do piloto em
+`test/fase2/unit/{ucrash,usilent}_*_test.dart` foram escritos contra o
+código **com** os bugs e, após a reversão, deixam de passar por
+construção. Isso é esperado e **não deve ser "corrigido"**: os resultados
+daquelas rodadas já estão arquivados em `fase2/resultados/`, e o estado do
+código no momento de cada execução está preservado no histórico do git.
+O mesmo vale para o arquivo de teste do achado extra descrito acima.
+
+**Estado dos demais bugs.** Os 4 bugs restantes — W-CRASH e I-SILENT em
+`lib/criar_playlist.dart`, W-SILENT em `lib/login.dart`, I-CRASH em
+`lib/generos-cadastro.dart` — **seguem ativos** e não foram revertidos,
+por não afetarem nenhuma das 30 rodadas de controle limpo, que são todas
+unitárias sobre `lib/utils/validators.dart`.
+
+**Achado colateral (pré-existente, não relacionado à Fase 2).** Ao rodar
+a suíte da Fase 1 para verificar a reversão, 6 testes de
+`test/unit/format_name_cot_test.dart` falham. Não é efeito da reversão:
+tanto esse arquivo de teste quanto `validators.dart` são byte-idênticos a
+`main`, e o teste é puro (sem Firebase ou dependência externa), logo a
+falha existe igualmente no estado `main`. As causas são duas
+características **reais e documentadas** de `formatName` — ela preserva a
+caixa do restante da palavra (`'joao silva'` → `'JOaO SIlVa'`, e o teste
+espera `'Joao Silva'`, semântica de `capitalize`) e nunca teve a guarda
+`if (word.isEmpty)`, lançando `RangeError` com espaços múltiplos. O
+resultado arquivado em `results/unit/cot/UNIT-COT-08.txt` registra esses
+mesmos 8 testes como aprovados, o que indica uma divergência entre o
+artefato arquivado e o arquivo de teste hoje versionado na Fase 1. Fica
+**registrado sem correção** — mexer nisso alteraria artefatos da Fase 1,
+o que o protocolo proíbe.

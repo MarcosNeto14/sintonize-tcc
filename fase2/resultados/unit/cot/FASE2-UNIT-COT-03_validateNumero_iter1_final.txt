@@ -1,0 +1,21 @@
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/unit/validate_numero_cot_test.dart
+00:00 +0: Validators.validateNumero Cenários de falha deve retornar mensagem de obrigatório quando o valor for null
+00:00 +1: Validators.validateNumero Cenários de falha deve retornar mensagem de obrigatório quando o valor for vazio
+00:00 +2: Validators.validateNumero Cenários de falha deve retornar mensagem de erro para texto não numérico
+00:00 +3: Validators.validateNumero Cenários de falha deve retornar mensagem de erro para texto parcialmente numérico
+00:00 +4: Validators.validateNumero Cenários de falha deve retornar mensagem de erro para número decimal
+00:00 +5: Validators.validateNumero Cenários de falha deve retornar mensagem de erro para string contendo apenas espaços
+00:00 +6: Validators.validateNumero Cenários de falha deve retornar mensagem de erro para sinal positivo isolado
+00:00 +7: Validators.validateNumero Cenários de falha deve retornar mensagem de erro para sinal negativo isolado
+00:00 +8: Validators.validateNumero Cenários de sucesso deve retornar null para um número inteiro positivo
+00:00 +9: Validators.validateNumero Cenários de sucesso deve retornar null para zero
+00:00 +10: Validators.validateNumero Cenários de sucesso deve retornar null para um número inteiro negativo
+00:00 +11: Validators.validateNumero Cenários de sucesso deve retornar null para número com zeros à esquerda
+00:00 +12: Validators.validateNumero Cenários de sucesso deve retornar null para -0
+00:00 +13: Validators.validateNumero Cenários de sucesso deve retornar null para um inteiro grande dentro do limite da plataforma
+00:00 +14: Validators.validateNumero Cenários de sucesso deve retornar null para número com espaços ao redor
+00:00 +15: Validators.validateNumero Cenários de sucesso deve retornar null para número seguido de quebra de linha
+00:00 +16: Validators.validateNumero Casos de borda deve rejeitar um valor maior que o limite de int de 64 bits
+00:00 +17: Validators.validateNumero Casos de borda deve rejeitar um valor menor que o limite de int de 64 bits
+00:00 +18: Validators.validateNumero Casos de borda deve rejeitar uma string contendo apenas um ponto
+00:00 +19: All tests passed!

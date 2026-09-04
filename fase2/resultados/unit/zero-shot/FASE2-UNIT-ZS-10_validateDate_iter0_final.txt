@@ -1,0 +1,35 @@
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/unit/validate_date_zs_test.dart
+00:00 +0: Validators.validateDate quando a data é obrigatória deve retornar erro quando o valor for null
+00:00 +1: Validators.validateDate quando a data é obrigatória deve retornar erro quando o valor estiver vazio
+00:00 +2: Validators.validateDate quando o formato é inválido deve retornar erro quando não houver três partes
+00:00 +3: Validators.validateDate quando o formato é inválido deve retornar erro quando houver mais de três partes
+00:00 +4: Validators.validateDate quando o formato é inválido deve retornar erro quando não houver separador "/"
+00:00 +5: Validators.validateDate quando o formato é inválido deve retornar erro quando houver separadores incorretos
+00:00 +6: Validators.validateDate quando os campos não são numéricos deve retornar erro quando o dia não for numérico
+00:00 +7: Validators.validateDate quando os campos não são numéricos deve retornar erro quando o mês não for numérico
+00:00 +8: Validators.validateDate quando os campos não são numéricos deve retornar erro quando o ano não for numérico
+00:00 +9: Validators.validateDate quando os campos não são numéricos deve retornar erro quando todos os campos não forem numéricos
+00:00 +10: Validators.validateDate quando o mês é inválido deve rejeitar mês 00
+00:00 +11: Validators.validateDate quando o mês é inválido deve rejeitar mês 13
+00:00 +12: Validators.validateDate quando o mês é inválido deve rejeitar mês negativo
+00:00 +13: Validators.validateDate quando o dia é inválido deve rejeitar dia 00
+00:00 +14: Validators.validateDate quando o dia é inválido deve rejeitar dia 32 em um mês de 31 dias
+00:00 +15: Validators.validateDate quando o dia é inválido deve rejeitar dia 31 em abril
+00:00 +16: Validators.validateDate quando o dia é inválido deve rejeitar dia 30 em fevereiro
+00:00 +17: Validators.validateDate quando o dia é inválido deve rejeitar dia 29 em fevereiro de um ano não bissexto
+00:00 +18: Validators.validateDate quando a data é válida deve aceitar uma data comum
+00:00 +19: Validators.validateDate quando a data é válida deve aceitar o primeiro dia do ano
+00:00 +20: Validators.validateDate quando a data é válida deve aceitar o último dia de janeiro
+00:00 +21: Validators.validateDate quando a data é válida deve aceitar o último dia de abril
+00:00 +22: Validators.validateDate quando a data é válida deve aceitar 28 de fevereiro em ano não bissexto
+00:00 +23: Validators.validateDate quando a data é válida deve aceitar 29 de fevereiro em ano bissexto
+00:00 +24: Validators.validateDate quando a data é válida deve aceitar 29 de fevereiro em ano bissexto divisível por 400
+00:00 +25: Validators.validateDate quando a data é válida deve rejeitar 29 de fevereiro em ano divisível por 100 mas não por 400
+00:00 +26: Validators.validateDate quando a data é válida deve aceitar o último dia de dezembro
+00:00 +27: Validators.validateDate quando a data está no futuro deve rejeitar uma data futura
+00:00 +28: Validators.validateDate quando a data está no futuro deve aceitar a data de hoje
+00:00 +29: Validators.validateDate casos de borda deve aceitar valores sem zero à esquerda
+00:00 +30: Validators.validateDate casos de borda deve aceitar ano com um único dígito quando interpretado pelo DateTime
+00:00 +31: Validators.validateDate casos de borda deve aceitar o ano 0
+00:00 +32: Validators.validateDate casos de borda deve aceitar espaços apenas se int.tryParse conseguir interpretá-los
+00:00 +33: All tests passed!

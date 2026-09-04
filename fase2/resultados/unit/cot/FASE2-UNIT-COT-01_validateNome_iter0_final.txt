@@ -1,0 +1,23 @@
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/unit/validate_nome_cot_test.dart
+00:00 +0: Validators.validateNome Cenários de sucesso deve retornar null para um nome simples
+00:00 +1: Validators.validateNome Cenários de sucesso deve retornar null para um nome completo com espaços
+00:00 +2: Validators.validateNome Cenários de sucesso deve retornar null para nome com letras maiúsculas e minúsculas
+00:00 +3: Validators.validateNome Cenários de sucesso deve retornar null para nome com caracteres acentuados
+00:00 +4: Validators.validateNome Cenários de sucesso deve retornar null para um nome com espaço no início e no fim
+00:00 +5: Validators.validateNome Cenários de falha deve retornar mensagem de obrigatório quando o valor for null
+00:00 +6: Validators.validateNome Cenários de falha deve retornar mensagem de obrigatório quando o valor estiver vazio
+00:00 +7: Validators.validateNome Cenários de falha deve rejeitar nome contendo números
+00:00 +8: Validators.validateNome Cenários de falha deve rejeitar nome contendo caracteres especiais
+00:00 +9: Validators.validateNome Cenários de falha deve rejeitar nome contendo hífen
+00:00 +10: Validators.validateNome Cenários de falha deve rejeitar nome contendo ponto
+00:00 +11: Validators.validateNome Cenários de falha deve rejeitar nome contendo underscore
+00:00 +12: Validators.validateNome Cenários de falha deve rejeitar nome contendo emoji
+00:00 +13: Validators.validateNome Cenários de falha deve rejeitar nome contendo símbolos
+00:00 +14: Validators.validateNome Cenários de falha deve rejeitar nome com caracteres Unicode fora do intervalo permitido
+00:00 +15: Validators.validateNome Casos de borda deve considerar uma string contendo apenas espaços como válida
+00:00 +16: Validators.validateNome Casos de borda deve considerar tabulação como caractere válido
+00:00 +17: Validators.validateNome Casos de borda deve considerar quebra de linha como caractere válido
+00:00 +18: Validators.validateNome Casos de borda deve aceitar caracteres no intervalo suportado de À a ÿ
+00:00 +19: Validators.validateNome Casos de borda deve rejeitar uma mistura de letras e caracteres inválidos
+00:00 +20: Validators.validateNome Casos de borda deve aceitar um nome com múltiplos espaços entre as palavras
+00:00 +21: All tests passed!

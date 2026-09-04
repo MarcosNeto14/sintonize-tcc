@@ -1,0 +1,6 @@
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/unit/format_name_fs_test.dart
+00:00 +0: formatName deve retornar string vazia quando nome é vazio
+00:00 +1: formatName deve colocar a primeira letra do nome em maiúscula
+00:00 +2: formatName deve colocar a primeira letra de cada palavra em maiúscula
+00:00 +3: formatName deve manter o restante das letras como estão
+00:00 +4: All tests passed!

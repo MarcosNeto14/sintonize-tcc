@@ -1,0 +1,39 @@
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/unit/validate_email_edit_cot_test.dart
+00:00 +0: Validators.validateEmailEdit Cenários de sucesso deve retornar null quando o valor for null
+00:00 +1: Validators.validateEmailEdit Cenários de sucesso deve retornar null quando o valor for vazio
+00:00 +2: Validators.validateEmailEdit Cenários de sucesso deve aceitar um e-mail simples válido
+00:00 +3: Validators.validateEmailEdit Cenários de sucesso deve aceitar e-mail contendo números
+00:00 +4: Validators.validateEmailEdit Cenários de sucesso deve aceitar caracteres permitidos no usuário
+00:00 +5: Validators.validateEmailEdit Cenários de sucesso deve aceitar percentual no usuário
+00:00 +6: Validators.validateEmailEdit Cenários de sucesso deve aceitar hífen no usuário
+00:00 +7: Validators.validateEmailEdit Cenários de sucesso deve aceitar domínio contendo hífen
+00:00 +8: Validators.validateEmailEdit Cenários de sucesso deve aceitar domínio com subdomínio
+00:00 +9: Validators.validateEmailEdit Cenários de sucesso deve aceitar TLD com exatamente 2 caracteres
+00:00 +10: Validators.validateEmailEdit Cenários de sucesso deve aceitar TLD com mais de 2 caracteres
+00:00 +11: Validators.validateEmailEdit Cenários de sucesso deve aceitar letras maiúsculas e minúsculas
+00:00 +12: Validators.validateEmailEdit Cenários de falha deve rejeitar e-mail sem @
+00:00 +13: Validators.validateEmailEdit Cenários de falha deve rejeitar e-mail sem domínio
+00:00 +14: Validators.validateEmailEdit Cenários de falha deve rejeitar e-mail sem TLD
+00:00 +15: Validators.validateEmailEdit Cenários de falha deve rejeitar TLD com apenas um caractere
+00:00 +16: Validators.validateEmailEdit Cenários de falha deve rejeitar usuário vazio antes do @
+00:00 +17: Validators.validateEmailEdit Cenários de falha deve rejeitar domínio vazio
+00:00 +18: Validators.validateEmailEdit Cenários de falha deve rejeitar e-mail contendo espaços
+00:00 +19: Validators.validateEmailEdit Cenários de falha deve rejeitar espaço no domínio
+00:00 +20: Validators.validateEmailEdit Cenários de falha deve rejeitar e-mail com caracteres não permitidos
+00:00 +21: Validators.validateEmailEdit Cenários de falha deve rejeitar e-mail com dois @
+00:00 +22: Validators.validateEmailEdit Cenários de falha deve rejeitar e-mail iniciado com @
+00:00 +23: Validators.validateEmailEdit Cenários de falha deve rejeitar e-mail terminado com @
+00:00 +24: Validators.validateEmailEdit Cenários de falha deve rejeitar e-mail terminado com ponto
+00:00 +25: Validators.validateEmailEdit Cenários de falha deve rejeitar e-mail contendo espaço entre os componentes
+00:00 +26: Validators.validateEmailEdit Casos de borda deve aceitar usuário contendo ponto
+00:00 +27: Validators.validateEmailEdit Casos de borda deve aceitar usuário contendo underscore
+00:00 +28: Validators.validateEmailEdit Casos de borda deve aceitar usuário contendo múltiplos caracteres permitidos
+00:00 +29: Validators.validateEmailEdit Casos de borda deve aceitar TLD com exatamente dois caracteres
+00:00 +30: Validators.validateEmailEdit Casos de borda deve rejeitar TLD com um caractere
+00:00 +31: Validators.validateEmailEdit Casos de borda deve aceitar TLD com muitos caracteres
+00:00 +32: Validators.validateEmailEdit Casos de borda deve rejeitar uma string contendo apenas espaços
+00:00 +33: Validators.validateEmailEdit Casos de borda deve rejeitar string contendo apenas @
+00:00 +34: Validators.validateEmailEdit Comportamentos específicos da implementação atual deve aceitar ponto no usuário conforme permitido pela regex
+00:00 +35: Validators.validateEmailEdit Comportamentos específicos da implementação atual deve aceitar hífen no início do domínio conforme permitido pela regex
+00:00 +36: Validators.validateEmailEdit Comportamentos específicos da implementação atual deve aceitar ponto no início do domínio conforme permitido pela regex
+00:00 +37: All tests passed!

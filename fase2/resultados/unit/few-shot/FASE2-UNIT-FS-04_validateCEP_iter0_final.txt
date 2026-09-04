@@ -1,0 +1,9 @@
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/unit/validate_cep_fs_test.dart
+00:00 +0: validateCEP deve retornar mensagem de erro quando valor é null
+00:00 +1: validateCEP deve retornar mensagem de erro quando valor é vazio
+00:00 +2: validateCEP deve aceitar CEP no formato XXXXX-XXX
+00:00 +3: validateCEP deve rejeitar CEP sem hífen
+00:00 +4: validateCEP deve rejeitar CEP com poucos dígitos
+00:00 +5: validateCEP deve rejeitar CEP com muitos dígitos
+00:00 +6: validateCEP deve rejeitar CEP contendo letras
+00:00 +7: All tests passed!

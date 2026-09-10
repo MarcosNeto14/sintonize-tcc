@@ -41,29 +41,31 @@ class _GenerosCadastroScreenState extends State<GenerosCadastroScreen> {
   }
 
   Future<void> _salvarGeneros() async {
-    final uid = _auth.currentUser!.uid;
+    final user = _auth.currentUser;
 
-    try {
-      final generosSelecionados = selecionados.entries
-          .where((entry) => entry.value)
-          .map((entry) => entry.key)
-          .toList();
+    if (user != null) {
+      try {
+        final generosSelecionados = selecionados.entries
+            .where((entry) => entry.value)
+            .map((entry) => entry.key)
+            .toList();
 
-      await _firestore
-          .collection('usuarios')
-          .doc(uid)
-          .update({
-        'generos_favoritos': generosSelecionados,
-      });
+        await _firestore
+            .collection('usuarios')
+            .doc(user.uid)
+            .update({
+          'generos_favoritos': generosSelecionados,
+        });
 
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const TelaInicialScreen()),
-      );
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Erro ao salvar os gêneros!')),
-      );
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const TelaInicialScreen()),
+        );
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Erro ao salvar os gêneros!')),
+        );
+      }
     }
   }
 

@@ -1,0 +1,214 @@
+
+O teste falhou com o seguinte erro:
+
+```
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/widget/login_screen_cot_test.dart
+test/fase2/widget/login_screen_cot_test.dart:191:22: Error: Method not found: 'MockUserCredential'.
+        (_) async => MockUserCredential(
+                     ^^^^^^^^^^^^^^^^^^
+test/fase2/widget/login_screen_cot_test.dart:282:22: Error: Method not found: 'MockUserCredential'.
+        (_) async => MockUserCredential(
+                     ^^^^^^^^^^^^^^^^^^
+test/fase2/widget/login_screen_cot_test.dart:317:22: Error: Method not found: 'MockUserCredential'.
+        (_) async => MockUserCredential(
+                     ^^^^^^^^^^^^^^^^^^
+test/fase2/widget/login_screen_cot_test.dart:347:22: Error: Method not found: 'MockUserCredential'.
+        (_) async => MockUserCredential(
+                     ^^^^^^^^^^^^^^^^^^
+test/fase2/widget/login_screen_cot_test.dart:74:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          email: anyNamed('email'),
+                 ^
+test/fase2/widget/login_screen_cot_test.dart:75:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          password: anyNamed('password'),
+                    ^
+test/fase2/widget/login_screen_cot_test.dart:101:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          email: anyNamed('email'),
+                 ^
+test/fase2/widget/login_screen_cot_test.dart:102:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          password: anyNamed('password'),
+                    ^
+test/fase2/widget/login_screen_cot_test.dart:128:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          email: anyNamed('email'),
+                 ^
+test/fase2/widget/login_screen_cot_test.dart:129:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          password: anyNamed('password'),
+                    ^
+test/fase2/widget/login_screen_cot_test.dart:152:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          email: anyNamed('email'),
+                 ^
+test/fase2/widget/login_screen_cot_test.dart:153:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          password: anyNamed('password'),
+                    ^
+test/fase2/widget/login_screen_cot_test.dart:177:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          email: anyNamed('email'),
+                 ^
+test/fase2/widget/login_screen_cot_test.dart:178:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          password: anyNamed('password'),
+                    ^
+test/fase2/widget/login_screen_cot_test.dart:187:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          email: anyNamed('email'),
+                 ^
+test/fase2/widget/login_screen_cot_test.dart:188:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          password: anyNamed('password'),
+                    ^
+test/fase2/widget/login_screen_cot_test.dart:278:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          email: anyNamed('email'),
+                 ^
+test/fase2/widget/login_screen_cot_test.dart:279:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          password: anyNamed('password'),
+                    ^
+test/fase2/widget/login_screen_cot_test.dart:313:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          email: anyNamed('email'),
+                 ^
+test/fase2/widget/login_screen_cot_test.dart:314:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          password: anyNamed('password'),
+                    ^
+test/fase2/widget/login_screen_cot_test.dart:343:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          email: anyNamed('email'),
+                 ^
+test/fase2/widget/login_screen_cot_test.dart:344:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          password: anyNamed('password'),
+                    ^
+test/fase2/widget/login_screen_cot_test.dart:386:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          email: anyNamed('email'),
+                 ^
+test/fase2/widget/login_screen_cot_test.dart:387:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          password: anyNamed('password'),
+                    ^
+test/fase2/widget/login_screen_cot_test.dart:421:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          email: anyNamed('email'),
+                 ^
+test/fase2/widget/login_screen_cot_test.dart:422:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          password: anyNamed('password'),
+                    ^
+test/fase2/widget/login_screen_cot_test.dart:456:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          email: anyNamed('email'),
+                 ^
+test/fase2/widget/login_screen_cot_test.dart:457:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          password: anyNamed('password'),
+                    ^
+test/fase2/widget/login_screen_cot_test.dart:491:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          email: anyNamed('email'),
+                 ^
+test/fase2/widget/login_screen_cot_test.dart:492:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          password: anyNamed('password'),
+                    ^
+test/fase2/widget/login_screen_cot_test.dart:526:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          email: anyNamed('email'),
+                 ^
+test/fase2/widget/login_screen_cot_test.dart:527:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+          password: anyNamed('password'),
+                    ^
+00:00 +0 -1: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/widget/login_screen_cot_test.dart [E]
+  Failed to load "C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/widget/login_screen_cot_test.dart":
+  Compilation failed for testPath=C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/widget/login_screen_cot_test.dart: test/fase2/widget/login_screen_cot_test.dart:191:22: Error: Method not found: 'MockUserCredential'.
+          (_) async => MockUserCredential(
+                       ^^^^^^^^^^^^^^^^^^
+  test/fase2/widget/login_screen_cot_test.dart:282:22: Error: Method not found: 'MockUserCredential'.
+          (_) async => MockUserCredential(
+                       ^^^^^^^^^^^^^^^^^^
+  test/fase2/widget/login_screen_cot_test.dart:317:22: Error: Method not found: 'MockUserCredential'.
+          (_) async => MockUserCredential(
+                       ^^^^^^^^^^^^^^^^^^
+  test/fase2/widget/login_screen_cot_test.dart:347:22: Error: Method not found: 'MockUserCredential'.
+          (_) async => MockUserCredential(
+                       ^^^^^^^^^^^^^^^^^^
+  test/fase2/widget/login_screen_cot_test.dart:74:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+  test/fase2/widget/login_screen_cot_test.dart:75:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+  test/fase2/widget/login_screen_cot_test.dart:101:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+  test/fase2/widget/login_screen_cot_test.dart:102:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+  test/fase2/widget/login_screen_cot_test.dart:128:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+  test/fase2/widget/login_screen_cot_test.dart:129:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+  test/fase2/widget/login_screen_cot_test.dart:152:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+  test/fase2/widget/login_screen_cot_test.dart:153:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+  test/fase2/widget/login_screen_cot_test.dart:177:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+  test/fase2/widget/login_screen_cot_test.dart:178:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+  test/fase2/widget/login_screen_cot_test.dart:187:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+  test/fase2/widget/login_screen_cot_test.dart:188:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+  test/fase2/widget/login_screen_cot_test.dart:278:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+  test/fase2/widget/login_screen_cot_test.dart:279:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+  test/fase2/widget/login_screen_cot_test.dart:313:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+  test/fase2/widget/login_screen_cot_test.dart:314:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+  test/fase2/widget/login_screen_cot_test.dart:343:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+  test/fase2/widget/login_screen_cot_test.dart:344:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+  test/fase2/widget/login_screen_cot_test.dart:386:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+  test/fase2/widget/login_screen_cot_test.dart:387:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+  test/fase2/widget/login_screen_cot_test.dart:421:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+  test/fase2/widget/login_screen_cot_test.dart:422:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+  test/fase2/widget/login_screen_cot_test.dart:456:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+  test/fase2/widget/login_screen_cot_test.dart:457:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+  test/fase2/widget/login_screen_cot_test.dart:491:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+  test/fase2/widget/login_screen_cot_test.dart:492:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+  test/fase2/widget/login_screen_cot_test.dart:526:18: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+  test/fase2/widget/login_screen_cot_test.dart:527:21: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+  .
+00:00 +0 -1: Some tests failed.
+```
+
+Antes de corrigir, classifique a causa provável da falha:
+(A) o teste presume um comportamento que não é o especificado, ou
+(B) o teste capturou um comportamento potencialmente incorreto da aplicação.
+Declare essa classificação explicitamente antes de prosseguir.
+
+Se (A): corrija o teste normalmente.
+
+Se (B): não enfraqueça a asserção nem reduza o escopo do teste para
+fazê-lo passar. Descreva o comportamento observado, o comportamento
+esperado, e por que você suspeita de um problema na aplicação, em vez de
+alterar o teste.

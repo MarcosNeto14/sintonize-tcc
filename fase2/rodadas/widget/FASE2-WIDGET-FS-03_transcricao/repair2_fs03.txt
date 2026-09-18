@@ -1,0 +1,188 @@
+
+O teste falhou com o seguinte erro:
+
+```
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/widget/criar_playlist_screen_fs_test.dart
+00:00 +0: CriarPlaylistScreen Widget deve mostrar os campos e botão da tela
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure>.pumpCriarPlaylist (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/criar_playlist_screen_fs_test.dart:29:7)
+<asynchronous suspension>
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/criar_playlist_screen_fs_test.dart:33:7)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  deve mostrar os campos e botão da tela
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:08 +0 -1: CriarPlaylistScreen Widget deve mostrar os campos e botão da tela [E]
+  Test failed. See exception logs above.
+  The test description was: deve mostrar os campos e botão da tela
+  
+00:08 +0 -1: CriarPlaylistScreen Widget deve mostrar mensagem de erro quando nome da playlist está vazio
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure>.pumpCriarPlaylist (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/criar_playlist_screen_fs_test.dart:29:7)
+<asynchronous suspension>
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/criar_playlist_screen_fs_test.dart:44:9)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  deve mostrar mensagem de erro quando nome da playlist está vazio
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:11 +0 -2: CriarPlaylistScreen Widget deve mostrar mensagem de erro quando nome da playlist está vazio [E]
+  Test failed. See exception logs above.
+  The test description was: deve mostrar mensagem de erro quando nome da playlist está vazio
+  
+00:11 +0 -2: CriarPlaylistScreen Widget deve carregar músicas do Firestore
+00:12 +1 -2: CriarPlaylistScreen Widget deve formatar nome da música e artista
+00:12 +2 -2: CriarPlaylistScreen Widget deve usar Desconhecido quando artista não existir
+══╡ EXCEPTION CAUGHT BY WIDGETS LIBRARY ╞═══════════════════════════════════════════════════════════
+The following StateError was thrown building:
+Bad state: Cannot get field that does not exist
+
+When the exception was thrown, this was the stack:
+#0      MockDocumentSnapshot.get (package:fake_cloud_firestore/src/mock_document_snapshot.dart:36:7)
+#1      MockDocumentSnapshot.[] (package:fake_cloud_firestore/src/mock_document_snapshot.dart:93:33)
+#2      MockQueryDocumentSnapshot.[] (package:fake_cloud_firestore/src/mock_query_document_snapshot.dart:14:48)
+#3      _CriarPlaylistScreenState.build.<anonymous closure> (package:sintonize/criar_playlist.dart:170:35)
+#4      SliverChildBuilderDelegate.build (package:flutter/src/widgets/scroll_delegate.dart:552:22)
+#5      SliverMultiBoxAdaptorElement._build (package:flutter/src/widgets/sliver.dart:1055:28)
+  ... [pilha do framework elidida pelo operador] ...
+<asynchronous suspension>
+#69     main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/criar_playlist_screen_fs_test.dart:91:9)
+<asynchronous suspension>
+#70     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#71     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Minha Musica - Desconhecido": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/criar_playlist_screen_fs_test.dart:93:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/criar_playlist_screen_fs_test.dart line 93
+The test description was:
+  deve usar Desconhecido quando artista não existir
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:12 +2 -3: CriarPlaylistScreen Widget deve usar Desconhecido quando artista não existir [E]
+  Test failed. See exception logs above.
+  The test description was: deve usar Desconhecido quando artista não existir
+  
+00:12 +2 -3: CriarPlaylistScreen Widget deve filtrar músicas pelo nome da música
+00:12 +3 -3: CriarPlaylistScreen Widget deve filtrar músicas pelo nome do artista
+00:12 +4 -3: CriarPlaylistScreen Widget deve filtrar ignorando maiúsculas e minúsculas
+00:12 +5 -3: CriarPlaylistScreen Widget deve selecionar uma música
+00:13 +6 -3: CriarPlaylistScreen Widget deve desmarcar uma música previamente selecionada
+00:13 +7 -3: CriarPlaylistScreen Widget deve salvar playlist para usuário autenticado
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: an object with length of <1>
+  Actual: []
+   Which: has length of <0>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/criar_playlist_screen_fs_test.dart:273:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/criar_playlist_screen_fs_test.dart line 273
+The test description was:
+  deve salvar playlist para usuário autenticado
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:13 +7 -4: CriarPlaylistScreen Widget deve salvar playlist para usuário autenticado [E]
+  Test failed. See exception logs above.
+  The test description was: deve salvar playlist para usuário autenticado
+  
+00:13 +7 -4: CriarPlaylistScreen Widget não deve salvar playlist quando não existe usuário autenticado
+00:13 +8 -4: CriarPlaylistScreen Widget deve voltar ao tocar no botão de voltar
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/criar_playlist_screen_fs_test.dart:341:9)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  deve voltar ao tocar no botão de voltar
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:17 +8 -5: CriarPlaylistScreen Widget deve voltar ao tocar no botão de voltar [E]
+  Test failed. See exception logs above.
+  The test description was: deve voltar ao tocar no botão de voltar
+  
+00:17 +8 -5: Some tests failed.
+```
+
+Antes de corrigir, classifique a causa provável da falha:
+(A) o teste presume um comportamento que não é o especificado, ou
+(B) o teste capturou um comportamento potencialmente incorreto da aplicação.
+Declare essa classificação explicitamente antes de prosseguir.
+
+Se (A): corrija o teste normalmente.
+
+Se (B): não enfraqueça a asserção nem reduza o escopo do teste para
+fazê-lo passar. Descreva o comportamento observado, o comportamento
+esperado, e por que você suspeita de um problema na aplicação, em vez de
+alterar o teste.

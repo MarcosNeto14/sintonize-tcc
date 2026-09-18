@@ -424,3 +424,52 @@ mesmos 8 testes como aprovados, o que indica uma divergência entre o
 artefato arquivado e o arquivo de teste hoje versionado na Fase 1. Fica
 **registrado sem correção** — mexer nisso alteraria artefatos da Fase 1,
 o que o protocolo proíbe.
+
+---
+
+## Bug não plantado descoberto por rodada — `artist_name` ausente (FASE2-WIDGET-FS-03)
+
+**Descoberto em:** `FASE2-WIDGET-FS-03_CriarPlaylistScreen` (few-shot), 2026-09-18.
+Classificado pelo próprio modelo como **(B)** em duas iterações consecutivas,
+sem enfraquecer a asserção. **Não corrigido** — alterar a aplicação sob teste
+durante uma rodada é proibido pelo protocolo.
+
+**Local:** `lib/criar_playlist.dart:168-170`
+
+```dart
+var musica = _musicasFiltradas[index];
+String musicaNome = _formatName(musica['track_name']);
+String artistName = _formatName(
+    musica['artist_name'] ?? 'Desconhecido');
+```
+
+**Defeito:** o `?? 'Desconhecido'` é **código morto** quando o campo não
+existe. O operador `[]` de um `DocumentSnapshot` lança
+`StateError: Cannot get field that does not exist` **antes** de o `??` ser
+avaliado — o `??` só trata o caso de o campo existir com valor `null`.
+
+**Impacto:** um único documento da coleção `musica` sem o campo `artist_name`
+derruba a renderização de **toda a lista**, não apenas daquele item. O mesmo
+vale para `track_name`, que nem sequer tem a tentativa de guarda.
+
+**Evidência (pilha do teste):**
+
+```
+Bad state: Cannot get field that does not exist
+#0  MockDocumentSnapshot.get (package:fake_cloud_firestore/...:36:7)
+#1  MockDocumentSnapshot.[] (package:fake_cloud_firestore/...:93:33)
+#3  _CriarPlaylistScreenState.build.<anonymous closure>
+    (package:sintonize/criar_playlist.dart:170:35)
+```
+
+**Observação para a análise:** este é o **primeiro achado (B) da Fase 2 que é
+um defeito de lógica da aplicação**, e não uma limitação de testabilidade
+(como o acesso direto a `FirebaseAuth.instance` em `TelaInicialScreen`). É
+também um bug **não plantado** — não faz parte do conjunto W-CRASH / W-SILENT
+/ I-CRASH / I-SILENT / U-CRASH / U-SILENT do piloto. A rodada zero-shot do
+mesmo alvo (`FASE2-WIDGET-ZS-03`, 8/8) **não gerou nenhum teste que
+exercitasse esse caminho**, então não o encontrou.
+
+**Correção sugerida (não aplicada):** trocar o acesso por
+`musica.data()` com verificação de chave, ou usar
+`(musica.data() as Map<String, dynamic>?)?['artist_name'] ?? 'Desconhecido'`.

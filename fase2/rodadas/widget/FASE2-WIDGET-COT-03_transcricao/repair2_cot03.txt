@@ -1,0 +1,63 @@
+
+O teste falhou com o seguinte erro:
+
+```
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/widget/criar_playlist_screen_cot_test.dart
+00:00 +0: CriarPlaylistScreen renderiza os elementos básicos da tela
+00:03 +1: CriarPlaylistScreen exibe indicador de carregamento antes das músicas serem carregadas
+00:03 +2: CriarPlaylistScreen exibe as músicas depois que o Firestore termina de carregar
+00:05 +3: CriarPlaylistScreen formata corretamente nomes de músicas e artistas
+00:05 +4: CriarPlaylistScreen permite digitar o nome da playlist
+00:06 +5: CriarPlaylistScreen filtra músicas pelo nome da música
+00:07 +6: CriarPlaylistScreen filtra músicas pelo nome do artista
+00:07 +7: CriarPlaylistScreen a pesquisa não diferencia maiúsculas de minúsculas
+00:08 +8: CriarPlaylistScreen marca uma música quando o usuário toca no checkbox
+00:09 +9: CriarPlaylistScreen desmarca uma música previamente selecionada
+00:10 +10: CriarPlaylistScreen exibe erro quando tenta salvar sem informar nome da playlist
+00:11 +11: CriarPlaylistScreen salva playlist com usuário autenticado e músicas selecionadas
+00:11 +12: CriarPlaylistScreen não salva playlist quando não existe usuário autenticado
+00:11 +13: CriarPlaylistScreen não salva playlist quando o nome é uma string vazia
+00:12 +14: CriarPlaylistScreen aceita nome contendo apenas espaços conforme a validação atual
+00:12 +15: CriarPlaylistScreen volta para a tela anterior ao tocar no botão de voltar
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Criando Playlist": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/criar_playlist_screen_cot_test.dart:520:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/widget/criar_playlist_screen_cot_test.dart line 520
+The test description was:
+  volta para a tela anterior ao tocar no botão de voltar
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:13 +15 -1: CriarPlaylistScreen volta para a tela anterior ao tocar no botão de voltar [E]
+  Test failed. See exception logs above.
+  The test description was: volta para a tela anterior ao tocar no botão de voltar
+  
+00:13 +15 -1: CriarPlaylistScreen exibe indicador quando a coleção de músicas está vazia
+00:14 +16 -1: CriarPlaylistScreen permite selecionar várias músicas
+00:14 +17 -1: CriarPlaylistScreen pesquisa sem resultados não exibe nenhuma música
+00:15 +18 -1: Some tests failed.
+```
+
+Antes de corrigir, classifique a causa provável da falha:
+(A) o teste presume um comportamento que não é o especificado, ou
+(B) o teste capturou um comportamento potencialmente incorreto da aplicação.
+Declare essa classificação explicitamente antes de prosseguir.
+
+Se (A): corrija o teste normalmente.
+
+Se (B): não enfraqueça a asserção nem reduza o escopo do teste para
+fazê-lo passar. Descreva o comportamento observado, o comportamento
+esperado, e por que você suspeita de um problema na aplicação, em vez de
+alterar o teste.

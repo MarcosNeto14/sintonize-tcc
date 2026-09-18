@@ -1,0 +1,81 @@
+
+O teste falhou com o seguinte erro:
+
+```
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/integration/cadastro_flow_zs_test.dart
+00:00 +0: Fluxo de cadastro do Sintonize deve completar o cadastro, selecionar gêneros e salvar no Firestore
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: at least one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "PE": []>
+   Which: means none were found but some were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.preencherCadastro (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/cadastro_flow_zs_test.dart:158:7)
+<asynchronous suspension>
+#5      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/cadastro_flow_zs_test.dart:215:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/cadastro_flow_zs_test.dart line 158
+The test description was:
+  deve completar o cadastro, selecionar gêneros e salvar no Firestore
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -1: Fluxo de cadastro do Sintonize deve completar o cadastro, selecionar gêneros e salvar no Firestore [E]
+  Test failed. See exception logs above.
+  The test description was: deve completar o cadastro, selecionar gêneros e salvar no Firestore
+  
+Warning: At least one test in this suite creates an HttpClient. When running a test suite that uses
+TestWidgetsFlutterBinding, all HTTP requests will return status code 400, and no network request
+will actually be made. Any test expecting a real network connection and status code will fail.
+To test code that needs an HttpClient, provide your own HttpClient implementation to the code under
+test, so that your test can consistently provide a testable response to the code under test.
+00:02 +0 -1: Fluxo de cadastro do Sintonize deve exibir erro quando Firebase Auth falha ao cadastrar
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: at least one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "PE": []>
+   Which: means none were found but some were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.preencherCadastro (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/cadastro_flow_zs_test.dart:158:7)
+<asynchronous suspension>
+#5      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/cadastro_flow_zs_test.dart:412:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2/integration/cadastro_flow_zs_test.dart line 158
+The test description was:
+  deve exibir erro quando Firebase Auth falha ao cadastrar
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -2: Fluxo de cadastro do Sintonize deve exibir erro quando Firebase Auth falha ao cadastrar [E]
+  Test failed. See exception logs above.
+  The test description was: deve exibir erro quando Firebase Auth falha ao cadastrar
+  
+00:03 +0 -2: Fluxo de cadastro do Sintonize não deve salvar gêneros quando não existe usuário autenticado
+00:03 +1 -2: Some tests failed.
+```
+
+Antes de corrigir, classifique a causa provável da falha:
+(A) o teste presume um comportamento que não é o especificado, ou
+(B) o teste capturou um comportamento potencialmente incorreto da aplicação.
+Declare essa classificação explicitamente antes de prosseguir.
+
+Se (A): corrija o teste normalmente.
+
+Se (B): não enfraqueça a asserção nem reduza o escopo do teste para
+fazê-lo passar. Descreva o comportamento observado, o comportamento
+esperado, e por que você suspeita de um problema na aplicação, em vez de
+alterar o teste.

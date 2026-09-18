@@ -1,0 +1,159 @@
+
+O teste falhou com o seguinte erro:
+
+```
+test/fase2/integration/cadastro_flow_cot_test.dart:19:8: Error: Error when reading 'test/fase2/integration/cadastro_fluxo_test.mocks.dart': O sistema não pode encontrar o arquivo especificado
+import 'cadastro_fluxo_test.mocks.dart';
+       ^
+test/fase2/integration/cadastro_flow_cot_test.dart:525:11: Error: No named parameter with the name 'exceptionForCreateUserWithEmailAndPassword'.
+          exceptionForCreateUserWithEmailAndPassword:
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+  MockFirebaseAuth(
+  ^^^^^^^^^^^^^^^^
+test/fase2/integration/cadastro_flow_cot_test.dart:580:31: Error: Method not found: 'MockFirebaseFirestore'.
+        final firestoreMock = MockFirebaseFirestore();
+                              ^^^^^^^^^^^^^^^^^^^^^
+test/fase2/integration/cadastro_flow_cot_test.dart:581:26: Error: Method not found: 'MockCollectionReference'.
+        final usuarios = MockCollectionReference();
+                         ^^^^^^^^^^^^^^^^^^^^^^^
+test/fase2/integration/cadastro_flow_cot_test.dart:582:27: Error: Method not found: 'MockDocumentReference'.
+        final documento = MockDocumentReference();
+                          ^^^^^^^^^^^^^^^^^^^^^
+test/fase2/integration/cadastro_flow_cot_test.dart:717:31: Error: Method not found: 'MockFirebaseFirestore'.
+        final firestoreMock = MockFirebaseFirestore();
+                              ^^^^^^^^^^^^^^^^^^^^^
+test/fase2/integration/cadastro_flow_cot_test.dart:718:26: Error: Method not found: 'MockCollectionReference'.
+        final usuarios = MockCollectionReference();
+                         ^^^^^^^^^^^^^^^^^^^^^^^
+test/fase2/integration/cadastro_flow_cot_test.dart:719:27: Error: Method not found: 'MockDocumentReference'.
+        final documento = MockDocumentReference();
+                          ^^^^^^^^^^^^^^^^^^^^^
+test/fase2/integration/cadastro_flow_cot_test.dart:238:20: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+test/fase2/integration/cadastro_flow_cot_test.dart:239:23: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+test/fase2/integration/cadastro_flow_cot_test.dart:279:20: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+test/fase2/integration/cadastro_flow_cot_test.dart:280:23: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+test/fase2/integration/cadastro_flow_cot_test.dart:332:20: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+test/fase2/integration/cadastro_flow_cot_test.dart:333:23: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+test/fase2/integration/cadastro_flow_cot_test.dart:385:20: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+test/fase2/integration/cadastro_flow_cot_test.dart:386:23: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+test/fase2/integration/cadastro_flow_cot_test.dart:431:20: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+test/fase2/integration/cadastro_flow_cot_test.dart:432:23: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+test/fase2/integration/cadastro_flow_cot_test.dart:477:20: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+test/fase2/integration/cadastro_flow_cot_test.dart:478:23: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+test/fase2/integration/cadastro_flow_cot_test.dart:513:20: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            email: anyNamed('email'),
+                   ^
+test/fase2/integration/cadastro_flow_cot_test.dart:514:23: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+            password: anyNamed('password'),
+                      ^
+00:00 +0 -1: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart [E]
+  Failed to load "C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart":
+  Compilation failed for testPath=C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart: test/fase2/integration/cadastro_flow_cot_test.dart:19:8: Error: Error when reading 'test/fase2/integration/cadastro_fluxo_test.mocks.dart': O sistema não pode encontrar o arquivo especificado
+  import 'cadastro_fluxo_test.mocks.dart';
+         ^
+  test/fase2/integration/cadastro_flow_cot_test.dart:525:11: Error: No named parameter with the name 'exceptionForCreateUserWithEmailAndPassword'.
+            exceptionForCreateUserWithEmailAndPassword:
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ../../../AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_mocks-0.14.2/lib/src/firebase_auth_mocks_base.dart:39:3: Context: Found this candidate, but the arguments don't match.
+    MockFirebaseAuth(
+    ^^^^^^^^^^^^^^^^
+  test/fase2/integration/cadastro_flow_cot_test.dart:580:31: Error: Method not found: 'MockFirebaseFirestore'.
+          final firestoreMock = MockFirebaseFirestore();
+                                ^^^^^^^^^^^^^^^^^^^^^
+  test/fase2/integration/cadastro_flow_cot_test.dart:581:26: Error: Method not found: 'MockCollectionReference'.
+          final usuarios = MockCollectionReference();
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+  test/fase2/integration/cadastro_flow_cot_test.dart:582:27: Error: Method not found: 'MockDocumentReference'.
+          final documento = MockDocumentReference();
+                            ^^^^^^^^^^^^^^^^^^^^^
+  test/fase2/integration/cadastro_flow_cot_test.dart:717:31: Error: Method not found: 'MockFirebaseFirestore'.
+          final firestoreMock = MockFirebaseFirestore();
+                                ^^^^^^^^^^^^^^^^^^^^^
+  test/fase2/integration/cadastro_flow_cot_test.dart:718:26: Error: Method not found: 'MockCollectionReference'.
+          final usuarios = MockCollectionReference();
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+  test/fase2/integration/cadastro_flow_cot_test.dart:719:27: Error: Method not found: 'MockDocumentReference'.
+          final documento = MockDocumentReference();
+                            ^^^^^^^^^^^^^^^^^^^^^
+  test/fase2/integration/cadastro_flow_cot_test.dart:238:20: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+              email: anyNamed('email'),
+                     ^
+  test/fase2/integration/cadastro_flow_cot_test.dart:239:23: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+              password: anyNamed('password'),
+                        ^
+  test/fase2/integration/cadastro_flow_cot_test.dart:279:20: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+              email: anyNamed('email'),
+                     ^
+  test/fase2/integration/cadastro_flow_cot_test.dart:280:23: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+              password: anyNamed('password'),
+                        ^
+  test/fase2/integration/cadastro_flow_cot_test.dart:332:20: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+              email: anyNamed('email'),
+                     ^
+  test/fase2/integration/cadastro_flow_cot_test.dart:333:23: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+              password: anyNamed('password'),
+                        ^
+  test/fase2/integration/cadastro_flow_cot_test.dart:385:20: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+              email: anyNamed('email'),
+                     ^
+  test/fase2/integration/cadastro_flow_cot_test.dart:386:23: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+              password: anyNamed('password'),
+                        ^
+  test/fase2/integration/cadastro_flow_cot_test.dart:431:20: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+              email: anyNamed('email'),
+                     ^
+  test/fase2/integration/cadastro_flow_cot_test.dart:432:23: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+              password: anyNamed('password'),
+                        ^
+  test/fase2/integration/cadastro_flow_cot_test.dart:477:20: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+              email: anyNamed('email'),
+                     ^
+  test/fase2/integration/cadastro_flow_cot_test.dart:478:23: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+              password: anyNamed('password'),
+                        ^
+  test/fase2/integration/cadastro_flow_cot_test.dart:513:20: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+              email: anyNamed('email'),
+                     ^
+  test/fase2/integration/cadastro_flow_cot_test.dart:514:23: Error: The argument type 'Null' can't be assigned to the parameter type 'String'.
+              password: anyNamed('password'),
+                        ^
+  .
+00:00 +0 -1: Some tests failed.
+```
+
+Antes de corrigir, classifique a causa provável da falha:
+(A) o teste presume um comportamento que não é o especificado, ou
+(B) o teste capturou um comportamento potencialmente incorreto da aplicação.
+Declare essa classificação explicitamente antes de prosseguir.
+
+Se (A): corrija o teste normalmente.
+
+Se (B): não enfraqueça a asserção nem reduza o escopo do teste para
+fazê-lo passar. Descreva o comportamento observado, o comportamento
+esperado, e por que você suspeita de um problema na aplicação, em vez de
+alterar o teste.

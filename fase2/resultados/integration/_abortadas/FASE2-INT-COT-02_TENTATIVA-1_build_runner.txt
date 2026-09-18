@@ -1,0 +1,15 @@
+  0s compiling builders/jit
+  1s compiling builders/jit
+  3s compiling builders/jit
+  4s compiling builders/jit
+  5s compiling builders/jit
+  6s compiling builders/jit
+  7s compiling builders/jit
+  8s compiling builders/jit
+  0s mockito:mockBuilder on 111 inputs; test/fase2/integration/cadastro_flow_cot_test.dart
+  41s mockito:mockBuilder on 111 inputs: 1 output; spent 24s analyzing, 11s sdk, 4s resolving, 2s reading; test/fase2/integration/cadastro_flow_fs_test.dart
+  42s mockito:mockBuilder on 111 inputs: 1 output, 24 no-op; spent 24s analyzing, 11s sdk, 4s resolving, 2s reading; test/fase2/unit/validate_cep_fs_test.dart
+  43s mockito:mockBuilder on 111 inputs: 1 output, 56 no-op; spent 24s analyzing, 11s sdk, 4s resolving, 3s reading; test/fase2/widget/wcrash_fs_test.dart
+  44s mockito:mockBuilder on 111 inputs: 1 output, 107 no-op; spent 25s analyzing, 11s sdk, 4s resolving, 3s reading, 1s building; test/widget/login_cot_test.dart
+  45s mockito:mockBuilder on 111 inputs: 1 output, 110 no-op; spent 25s analyzing, 11s sdk, 4s resolving, 3s reading, 1s building
+  Built with build_runner/jit in 56s; wrote 1 output.

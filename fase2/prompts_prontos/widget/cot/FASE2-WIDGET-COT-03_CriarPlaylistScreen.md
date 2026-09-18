@@ -315,6 +315,8 @@ class _CriarPlaylistScreenState extends State<CriarPlaylistScreen> {
 
 O widget faz parte do projeto Flutter "sintonize".
 Use `import 'package:sintonize/...'` para os imports.
+O widget está em `lib/criar_playlist.dart` — use
+`import 'package:sintonize/criar_playlist.dart';` para importá-lo.
 
 Dependências disponíveis para mocking:
 - firebase_auth_mocks (MockFirebaseAuth)

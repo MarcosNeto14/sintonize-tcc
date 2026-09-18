@@ -333,6 +333,7 @@ Requisitos:
   usuário não autenticado)
 - Os testes devem ser executáveis com `flutter test test/integration/`
 - Use `import 'package:sintonize/...'` para os imports do projeto
+- O widget está em `lib/criar_playlist.dart` — use `import 'package:sintonize/criar_playlist.dart';` para importá-lo.
 
 ---
 

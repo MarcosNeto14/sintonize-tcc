@@ -334,6 +334,7 @@ Dependências disponíveis:
 - fake_cloud_firestore (FakeFirebaseFirestore)
 - mockito
 Use `import 'package:sintonize/...'` para os imports do projeto.
+O widget está em `lib/criar_playlist.dart` — use `import 'package:sintonize/criar_playlist.dart';` para importá-lo.
 
 ---
 

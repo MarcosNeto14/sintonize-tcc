@@ -375,6 +375,8 @@ class _CriarPlaylistScreenState extends State<CriarPlaylistScreen> {
 }
 ```
 
+O widget está em `lib/criar_playlist.dart` — use `import 'package:sintonize/criar_playlist.dart';` para importá-lo.
+
 Dependências disponíveis:
 - firebase_auth_mocks
 - fake_cloud_firestore

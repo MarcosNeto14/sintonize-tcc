@@ -18,6 +18,10 @@
 | **Arquivo de teste** | `test/fase2/unit/format_name_cot_test.dart` |
 | **Execução** | Conduzida por automação de navegador (Claude in Chrome) interagindo com o ChatGPT — não pelo autor manualmente no teclado |
 
+> Ver nota de metodologia "`formatName` não é um alvo limpo (reclassificação)"
+> em `fase2/propostas_bugs_fase2.md` — esta função carrega um bug real
+> pré-existente e não conta como alvo limpo em análises agregadas.
+
 **Verificação pré-rodada:** `formatName` não é alvo de nenhum bug plantado
 da Fase 2, mas tem o bug real pré-existente (`RangeError` em `word[0]`
 para strings com espaços consecutivos/extremidade), já documentado nas

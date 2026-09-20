@@ -337,6 +337,38 @@ as duas funções.
 
 ---
 
+## Nota de metodologia — `formatName` não é um alvo limpo (reclassificação)
+
+`formatName` **não deve ser contabilizada como alvo limpo** em nenhuma
+análise agregada da Fase 2 — taxa de aprovação do grupo de controle,
+comparação com a Fase 1, ou qualquer estatística que trate as 10 funções
+unitárias como um conjunto homogêneo sem bug plantado. Ela deve ser
+tratada à parte.
+
+O motivo: o crash real de `formatName` (`RangeError` em `word[0]` quando
+`split(' ')` produz string vazia, por espaço múltiplo ou nas
+extremidades), descoberto na Fase 1, **nunca foi corrigido no código**.
+A correção que chegou a ser aplicada durante a rodada original
+`UNIT-COT-08` foi revertida para preservar a validade experimental do
+Estudo 1 (commit `5f99585`, que reverte `formatName` "para versão
+original (sem `.toLowerCase()`, sem guards de trim/regex)"). Ou seja,
+`formatName` carrega um bug real pré-existente e ativo, não é um alvo
+verdadeiramente livre de bugs — mesmo não fazendo parte dos 6 bugs
+plantados desta fase.
+
+Nas rodadas `FASE2-UNIT-ZS-08` e `FASE2-UNIT-COT-08` (Fase 2), o modelo
+identificou esse mesmo bug de forma espontânea e independente
+(categoria **C**, sem falha nem reparo), replicando o que já havia
+acontecido nas 3 rodadas da Fase 1 (`UNIT-ZS-08`, `UNIT-FS-08`,
+`UNIT-COT-08` originais). Contando as duas fases, são **5 detecções
+independentes** do mesmo bug real.
+
+Ver também a "Nota de incidente" abaixo (achado colateral sobre a
+divergência de artefatos do `UNIT-COT-08` da Fase 1) para quem for ler
+os dois achados em conjunto.
+
+---
+
 ## Nota de metodologia — tratamento dos comentários originais em U-CRASH e U-SILENT
 
 Os comentários originais de documentação em UCRASH e USILENT foram
@@ -403,11 +435,22 @@ daquelas rodadas já estão arquivados em `fase2/resultados/`, e o estado do
 código no momento de cada execução está preservado no histórico do git.
 O mesmo vale para o arquivo de teste do achado extra descrito acima.
 
-**Estado dos demais bugs.** Os 4 bugs restantes — W-CRASH e I-SILENT em
-`lib/criar_playlist.dart`, W-SILENT em `lib/login.dart`, I-CRASH em
-`lib/generos-cadastro.dart` — **seguem ativos** e não foram revertidos,
-por não afetarem nenhuma das 30 rodadas de controle limpo, que são todas
-unitárias sobre `lib/utils/validators.dart`.
+**Estado dos demais bugs.** Dos 4 bugs restantes, 3 — W-CRASH e I-SILENT
+em `lib/criar_playlist.dart`, I-CRASH em `lib/generos-cadastro.dart` —
+**seguem ativos** e não foram revertidos, por não afetarem nenhuma das 30
+rodadas de controle limpo, que são todas unitárias sobre
+`lib/utils/validators.dart`. O quarto, **W-SILENT** (`lib/login.dart`),
+**foi revertido** para liberar o fluxo de login como alvo limpo de
+integração: a reversão foi confirmada por
+`git diff main -- lib/login.dart`, que mostra apenas a injeção de
+dependência de `auth` (construtor `LoginScreen({this.auth})`), sem
+qualquer troca de mensagem de erro — a nota de protocolo correspondente
+está em `fase2/prompts_prontos/integration/zero-shot/FASE2-INT-ZS-01_loginFlow.md`.
+Como consequência conhecida e aceita (mesmo padrão do U-SILENT/U-CRASH
+acima), os testes do piloto que dependiam do bug ativo
+(`test/fase2/widget/wsilent_*_test.dart`) ficam órfãos por construção
+após a reversão — os resultados arquivados permanecem válidos como
+registro do estado do código no momento da execução.
 
 **Achado colateral (pré-existente, não relacionado à Fase 2).** Ao rodar
 a suíte da Fase 1 para verificar a reversão, 6 testes de

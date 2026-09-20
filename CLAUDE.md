@@ -8,6 +8,14 @@ This is a **TCC (undergraduate thesis) experiment**, not a product. The Flutter 
 
 The experiment is **fully manual and documented**: each "round" (one function × one strategy) has a markdown doc capturing the exact prompt sent, the exact LLM response, the test file produced, the `flutter test` output, and any repair iterations (max 3). The whole point is reproducibility and traceability — do not "improve" outputs after the fact.
 
+The work is organized in **three stages**, each with its own artifact tree. See "Experiment structure and progress" at the bottom for the full picture, and read that section before assuming anything about counts, branches, or which model was used.
+
+| Stage | Rounds | Model | Artifacts | Status |
+|---|---|---|---|---|
+| **Fase 1** — pilot study | 48 | ChatGPT | `prompts/`, `results/`, `analise/` | complete |
+| **Fase 2** — main study | 60 | ChatGPT | `fase2/` | complete |
+| **Fase 2 – Gemini** — replication | 60 | Gemini | `fase2-gemini/` | in progress |
+
 ## Commands
 
 ```bash
@@ -15,8 +23,10 @@ flutter pub get                          # install deps
 flutter test test/unit/                  # run all unit tests
 flutter test test/unit/validate_nome_zs_test.dart   # run a single test file
 flutter test test/widget/                # run widget tests
+flutter test test/fase2/unit/            # Fase 2 tests (also widget/, integration/)
 flutter analyze                          # lint (uses flutter_lints)
 flutter --version                        # required when filling out round metadata
+git branch --show-current                # ALWAYS check before running a Fase 2 round
 ```
 
 Dart SDK constraint: `>=2.17.0 <4.0.0` (per `pubspec.yaml`).
@@ -57,15 +67,44 @@ results/unit/{zero-shot,few-shot,cot}/<output of flutter test>
 
 Same pattern for widget tests under `test/widget/` and `prompts/integration/` (note: the `integration/` prompts directory currently holds the *widget* test rounds — `WIDGET-ZS-NN_*.md` etc.).
 
+**Fase 2 IDs** use a `FASE2-` prefix and live in a parallel tree. Planted-bug rounds are named after the bug, clean-target rounds keep the Fase 1 shape:
+
+```
+fase2/prompts_prontos/FASE2-{U,W,I}{CRASH,SILENT}-{ZS,FS,COT}.md      # planted bug
+fase2/prompts_prontos/unit/{zero-shot,few-shot,cot}/FASE2-UNIT-{ZS,FS,COT}-NN_<func>.md
+fase2/rodadas/{unit,widget,integration}/<ID>.md                        # round docs
+fase2/resultados/<level>/<strategy>/<ID>_iter<N>[_final].txt
+test/fase2/{unit,widget,integration}/<name>_{zs,fs,cot}_test.dart
+```
+
+Bug IDs: `UCRASH` (`capitalize`), `USILENT` (`validateSenha`), `WCRASH` (`CriarPlaylistScreen._filterMusicas`), `WSILENT` (`LoginScreen.login()`), `ICRASH` (`GenerosCadastroScreen._salvarGeneros`), `ISILENT` (`CriarPlaylistScreen._salvarPlaylist`).
+
+A `_REEXEC` suffix marks a round re-run with a corrected prompt. It is documented as a **new** round alongside the original, never as a replacement. Four exist in Fase 2 (`WSILENT-FS`, `ICRASH-{ZS,FS,COT}`) and are not counted in the headline 60.
+
+`fase2-gemini/` mirrors this layout exactly, with `prompts_prontos/` byte-identical to Fase 2's.
+
 ## Workflow for a new round
 
-1. Open the round doc (e.g. `prompts/unit/cot/UNIT-COT-04_validateCEP.md`).
-2. Copy the prompt template from `prompts/PROMPT_TEMPLATES.md` for the strategy, substitute the target function's code verbatim from `lib/utils/validators.dart`.
-3. Start a **new** ChatGPT conversation (one round = one fresh conversation; cross-contamination invalidates the comparison).
-4. Paste the LLM's generated Dart code into the corresponding `test/unit/<func>_<strategy>_test.dart` file.
-5. Run `flutter test test/unit/<that_file>.dart` and save the terminal output under `results/unit/<strategy>/`.
-6. Fill in the round doc using `prompts/Template_Documentacao_Rodada.md` — metadata (model version, date, Flutter version), exact prompt, exact response, metrics.
-7. If tests fail: use the repair prompt from `PROMPT_TEMPLATES.md` in the **same** conversation, **max 3 iterations**, document each iteration.
+**The LLM depends on the stage.** Fase 1 and Fase 2 used ChatGPT; the Fase 2 – Gemini replication uses Gemini. Check which stage the round belongs to before opening a conversation — using the wrong model silently invalidates the round.
+
+1. **Check out the right branch for the block** (see the branch map below) and verify the code state. Getting this wrong has already contaminated rounds once — see the 2026-09-03 incident note in `fase2/propostas_bugs_fase2.md`.
+2. Open the round doc (e.g. `prompts/unit/cot/UNIT-COT-04_validateCEP.md`, or for Fase 2 the ready-made prompt under `fase2/prompts_prontos/`).
+3. For Fase 1, copy the prompt template from `prompts/PROMPT_TEMPLATES.md` and substitute the target function's code verbatim from `lib/utils/validators.dart`. Fase 2 prompts are already complete — paste them verbatim, changing nothing.
+4. Start a **new** conversation with the stage's LLM (one round = one fresh conversation; cross-contamination invalidates the comparison).
+5. **Record the model version** — ask the LLM what version it is and record the answer *literally*, plus an external check of which model is served on that date. See "Model version must be recorded per session" below. This is mandatory for every Fase 2 – Gemini round.
+6. Paste the LLM's generated Dart code into the corresponding test file (`test/unit/<func>_<strategy>_test.dart`, or `test/fase2/<level>/...`).
+7. Run `flutter test <that_file>` and save the terminal output under the stage's results directory.
+8. Fill in the round doc from the stage's template — `prompts/Template_Documentacao_Rodada.md` (Fase 1), `fase2/Template_Documentacao_Rodada_Fase2.md` (Fase 2), or `fase2-gemini/Template_Documentacao_Rodada_Fase2.md` (Gemini, which adds the two model-version fields).
+9. If tests fail: use the repair prompt in the **same** conversation, **max 3 iterations**, documenting each iteration and the model's A/B/C self-classification.
+
+### Model version must be recorded per session
+
+During Fase 2 the model served without login **changed from GPT-5.5 to GPT-5.6 mid-study, with no announcement**, and this was only noticed months later. Every round from now on records two independent fields:
+
+- **Model declared by the LLM** — ask at the start of the session, record the answer verbatim.
+- **External version check** — confirm from an outside source which model is served on that date.
+
+They are independent on purpose. A model's self-report is not reliable evidence: asked directly during Fase 2, ChatGPT declared itself "GPT-5.6 Luna", a name matching no public OpenAI nomenclature. **When the two fields disagree, record the disagreement — do not resolve it.**
 
 ## What not to do
 
@@ -73,12 +112,69 @@ Same pattern for widget tests under `test/widget/` and `prompts/integration/` (n
 - Don't edit LLM-generated test files in `test/unit/` or `test/widget/` to make them pass. If a test fails, it fails — record it. The only allowed mutation path is the documented repair loop.
 - Don't rewrite round docs to reflect a "cleaner" history. Prompts, responses, and outputs must be the actual artifacts.
 - Don't add new dependencies casually; the experiment is anchored to the pinned versions in `pubspec.yaml` and `pubspec.lock`.
+- Don't touch completed stages. `prompts/`, `results/`, `analise/` (Fase 1) and `fase2/` (Fase 2) are finished artifact trees and the comparison groups for everything that follows.
+- Don't adapt the prompts in `fase2-gemini/prompts_prontos/` for Gemini. They are byte-identical copies of the Fase 2 prompts on purpose — the model is the *only* variable that changes. That includes the "colar no ChatGPT" operator line, which sits above the `---` separator and is not part of what gets sent to the model.
 
-## Tracking progress
+## Experiment structure and progress
 
-All 48 rounds are complete:
-- **Unit (30 rounds):** ZS, FS, COT × 10 functions — all docs, tests, and results archived in `prompts/unit/`, `test/unit/`, `results/unit/`.
-- **Widget (9 rounds):** ZS, FS, COT × 3 screens (login, criar_playlist, cadastro) — all docs, tests, and results archived in `prompts/widget/`, `test/widget/`, `results/widget/`.
-- **Integration (9 rounds):** ZS, FS, COT × 3 flows (login, cadastro, playlist) — all docs, tests, and results archived in `prompts/integration/`, `test/integration/`, `results/integration/`.
-- **E2E manual (4 flows):** Roteiros in `e2e-manual/`; all 4 flows executed and documented (Chrome/Web, 2026-05-25).
-- **E2E automated:** Not executed (out of scope for this experiment).
+### Fase 1 — pilot study (48 rounds, ChatGPT, complete)
+
+**No longer the thesis's main study**, but its artifacts are preserved and must not be altered.
+
+- **Unit (30 rounds):** ZS, FS, COT × 10 functions — `prompts/unit/`, `test/unit/`, `results/unit/`.
+- **Widget (9 rounds):** ZS, FS, COT × 3 screens (login, criar_playlist, cadastro) — `prompts/widget/`, `test/widget/`, `results/widget/`.
+- **Integration (9 rounds):** ZS, FS, COT × 3 flows (login, cadastro, playlist) — `prompts/integration/`, `test/integration/`, `results/integration/`.
+- **E2E manual (4 flows):** roteiros in `e2e-manual/`; all 4 executed and documented (Chrome/Web, 2026-05-25).
+- **E2E automated:** not executed (out of scope).
+- Analysis in `analise/` covers these 48 rounds only.
+
+### Fase 2 — main study (60 rounds, ChatGPT, complete)
+
+Artifacts in `fase2/`. Repeats the ZS/FS/COT comparison, now against six deliberately planted bugs plus clean targets, using a revised repair prompt that asks the model to self-classify each failure as (A) bad test or (B) real application bug.
+
+| Block | Rounds | Notes |
+|---|---|---|
+| Planted bug | 18 | 6 bugs × 3 strategies |
+| `formatName` | 3 | see the caveat below — not a clean target |
+| Clean targets, original | 27 | |
+| Clean targets, added later | 12 | to balance widget and integration coverage |
+| **Total** | **60** | |
+
+Four `_REEXEC` rounds (corrected prompts for `WSILENT-FS` and `ICRASH-{ZS,FS,COT}`) exist alongside the originals and are not part of the 60.
+
+### Fase 2 – Gemini — replication (60 rounds, in progress)
+
+Artifacts in `fase2-gemini/`. Same prompts, same targets, same planted bugs, same protocol (max 3 repair iterations, A/B/C self-classification, logged-out session). **The model is the only variable that changes.** The prompts are byte-identical copies, verified by `diff -r` and per-file `sha256sum`.
+
+Infrastructure is ready; **no round has been executed yet**. Submission is manual. Read `fase2-gemini/README.md` before starting one.
+
+### Branch ↔ round-block map
+
+This is the easiest thing to get wrong, and getting it wrong silently invalidates a round.
+
+| Branch | Code state | Use for |
+|---|---|---|
+| `fase2-gemini-piloto` | all 6 planted bugs active (created from `295fa34`) | the 18 planted-bug rounds |
+| `fase2-alvos-limpos` | all 6 bugs reverted | all clean-target rounds, including the 3 `formatName` ones |
+| `fase2-prep` | **intermediate — only 3 of 6 bugs active** | nothing; see below |
+
+**Do not treat `fase2-prep` as "the branch with the bugs".** U-CRASH and U-SILENT were reverted on it in `8d08ff2`, and W-SILENT in `b9cd1e1`; only W-CRASH, I-CRASH and I-SILENT remain. That false premise is exactly what this note exists to prevent. The only commit with all six simultaneously active is `295fa34`, which is why `fase2-gemini-piloto` branches from it.
+
+Verify the pilot state before running anything — all six must match:
+
+```bash
+grep -n "value.length < 7"                    lib/utils/validators.dart   # U-SILENT
+grep -c "word.isEmpty"                        lib/utils/validators.dart   # U-CRASH: must be 0
+grep -n "musica\['artist_name'\].toLowerCase" lib/criar_playlist.dart     # W-CRASH
+grep -n "'nome': 'Nova Playlist'"             lib/criar_playlist.dart     # I-SILENT
+grep -n "currentUser!.uid"                    lib/generos-cadastro.dart   # I-CRASH
+grep -n -A1 "e.code == 'user-not-found'"      lib/login.dart              # W-SILENT
+```
+
+For clean-target blocks, `git diff main -- lib/utils/validators.dart` must be empty.
+
+### Caveat — `formatName` is not a clean target
+
+`formatName` carries a **pre-existing real defect**: it never had the `if (word.isEmpty)` guard and throws `RangeError` on multiple spaces. This is not a planted bug and was never reverted — it is **identical on `main`, `fase2-prep` and `fase2-alvos-limpos`**, so it is not branch contamination.
+
+Its three rounds run on `fase2-alvos-limpos` alongside the rest of the unit block, but **must not be counted as clean targets** in the analysis. The methodology note recording this reclassification is commit `54aeeb5`, which exists **only on `fase2-prep`** — reading `fase2/propostas_bugs_fase2.md` from `fase2-alvos-limpos` will not show it.

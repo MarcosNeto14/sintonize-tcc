@@ -1,0 +1,23 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart
+test/fase2/integration/cadastro_flow_cot_test.dart:364:9: Error: Method not found: 'whenCalling'.
+        whenCalling(
+        ^^^^^^^^^^^
+test/fase2/integration/cadastro_flow_cot_test.dart:437:9: Error: Method not found: 'whenCalling'.
+        whenCalling(
+        ^^^^^^^^^^^
+test/fase2/integration/cadastro_flow_cot_test.dart:608:9: Error: Method not found: 'whenCalling'.
+        whenCalling(
+        ^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart: test/fase2/integration/cadastro_flow_cot_test.dart:364:9: Error: Method not found: 'whenCalling'.
+          whenCalling(
+          ^^^^^^^^^^^
+  test/fase2/integration/cadastro_flow_cot_test.dart:437:9: Error: Method not found: 'whenCalling'.
+          whenCalling(
+          ^^^^^^^^^^^
+  test/fase2/integration/cadastro_flow_cot_test.dart:608:9: Error: Method not found: 'whenCalling'.
+          whenCalling(
+          ^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

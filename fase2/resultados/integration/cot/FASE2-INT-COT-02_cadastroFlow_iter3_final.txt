@@ -1,0 +1,124 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart
+00:00 +0: CadastroScreen - validação local não chama Firebase quando campos obrigatórios estão vazios
+00:00 +1: CadastroScreen - validação local não chama Firebase quando o e-mail é inválido
+00:01 +2: CadastroScreen - validação local não chama Firebase quando a data de nascimento é inválida
+00:02 +3: CadastroScreen - validação local não chama Firebase quando a senha tem menos de seis caracteres
+00:02 +4: CadastroScreen - validação local não chama Firebase quando as senhas não coincidem
+00:03 +5: CadastroScreen - validação local não chama Firebase quando o CEP é inválido
+00:03 +6: CadastroScreen - validação local não chama Firebase quando o número do endereço não é numérico
+00:03 +7: Fluxo ponta a ponta cria conta, salva usuário, navega para gêneros, salva gêneros e vai para tela inicial
+
+Warning: A call to drag() with finder "Found 1 widget with the given widget (Scrollable(axisDirection: down, physics: null, restorationId: null)): [
+  Scrollable(axisDirection: down, physics: null, restorationId: null, dependencies: [InheritedCupertinoTheme, MediaQuery, ScrollConfiguration, UnmanagedRestorationScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#9a891]], state: ScrollableState#84ed1(tickers: tracking 0 tickers, position: ScrollPositionWithSingleContext#4bffa(offset: 412.0, range: 0.0..412.0, viewport: 600.0, ScrollableState, ClampingScrollPhysics -> RangeMaintainingScrollPhysics, IdleScrollActivity#669de, ScrollDirection.idle), effective physics: ClampingScrollPhysics -> RangeMaintainingScrollPhysics)),
+]" derived an Offset (Offset(400.0, 300.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderClipRect#f8673 relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(RenderPointerListener#3e61e@Offset(377.0, 4.0), RenderSemanticsAnnotations#6688c@Offset(377.0, 4.0), RenderMouseRegion#c98cd@Offset(377.0, 4.0), RenderSemanticsAnnotations#dc5f8@Offset(377.0, 4.0), RenderAnimatedOpacity#f9c06@Offset(377.0, 4.0), RenderSemanticsAnnotations#1a9c5@Offset(377.0, 4.0), RenderRepaintBoundary#bc463@Offset(377.0, 4.0), RenderIndexedSemantics#0452f@Offset(377.0, 4.0), RenderSliverList@(mainAxis: 244.0, crossAxis: 377.0), RenderSliverPadding@(mainAxis: 252.0, crossAxis: 377.0), RenderShrinkWrappingViewport#0e73c@Offset(377.0, 252.0), RenderIgnorePointer#4f3b3@Offset(377.0, 252.0), RenderSemanticsAnnotations#498b7@Offset(377.0, 252.0), RenderPointerListener#7a02b@Offset(377.0, 252.0), RenderSemanticsGestureHandler#1e6ff@Offset(377.0, 252.0), RenderPointerListener#646ec@Offset(377.0, 252.0), _RenderScrollSemantics#91fe8@Offset(377.0, 252.0), RenderRepaintBoundary#ba2a2@Offset(377.0, 252.0), RenderCustomPaint#ad51a@Offset(377.0, 252.0), RenderMouseRegion#460fe@Offset(377.0, 252.0), RenderPointerListener#dbc08@Offset(377.0, 252.0), RenderSemanticsGestureHandler#f63e1@Offset(377.0, 252.0), RenderPointerListener#f0c38@Offset(377.0, 252.0), RenderRepaintBoundary#29ded@Offset(377.0, 252.0), _RenderInkFeatures#b9dbd@Offset(377.0, 252.0), RenderCustomPaint#f4e60@Offset(377.0, 252.0), RenderClipPath#5fd50@Offset(377.0, 252.0), RenderClipRRect#a50e1@Offset(377.0, 252.0), RenderSemanticsAnnotations#d2294@Offset(377.0, 252.0), RenderCustomPaint#3f042@Offset(377.0, 252.0), RenderAnimatedOpacity#72856@Offset(377.0, 252.0), RenderCustomSingleChildLayoutBox#2511d@Offset(400.0, 300.0), _RenderLayoutBuilder#36e09@Offset(400.0, 300.0), RenderRepaintBoundary#99ed9@Offset(400.0, 300.0), RenderIgnorePointer#456c9@Offset(400.0, 300.0), RenderRepaintBoundary#c927b@Offset(400.0, 300.0), RenderSemanticsAnnotations#9943e@Offset(400.0, 300.0), RenderOffstage#c863a@Offset(400.0, 300.0), RenderSemanticsAnnotations#bccd4@Offset(400.0, 300.0), _RenderTheater#bd0aa@Offset(400.0, 300.0), RenderAbsorbPointer#167cf@Offset(400.0, 300.0), RenderPointerListener#b5170@Offset(400.0, 300.0), RenderSemanticsAnnotations#48a6b@Offset(400.0, 300.0), RenderCustomPaint#52ed1@Offset(400.0, 300.0), RenderSemanticsAnnotations#7c08d@Offset(400.0, 300.0), RenderSemanticsAnnotations#f7d30@Offset(400.0, 300.0), RenderSemanticsAnnotations#10bbd@Offset(400.0, 300.0), RenderTapRegionSurface#6cbbd@Offset(400.0, 300.0), RenderSemanticsAnnotations#62483@Offset(400.0, 300.0), RenderSemanticsAnnotations#f196e@Offset(400.0, 300.0), HitTestEntry<HitTestTarget>#da1d4(_ReusableRenderView#7667f), HitTestEntry<HitTestTarget>#0823c(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.drag (package:flutter_test/src/controller.dart:1599:7)
+#3      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2469:17)
+#4      _rootRun (dart:async/zone_root.dart:35:13)
+#5      _CustomZone.run (dart:async/zone.dart:726:19)
+#6      TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#7      WidgetController.dragUntilVisible (package:flutter_test/src/controller.dart:2462:27)
+#8      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2432:13)
+#9      _rootRun (dart:async/zone_root.dart:35:13)
+#10     _CustomZone.run (dart:async/zone.dart:726:19)
+#11     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#12     WidgetController.scrollUntilVisible (package:flutter_test/src/controller.dart:2420:27)
+#13     main.selecionarEstado (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart:87:24)
+<asynchronous suspension>
+#14     main.preencherCadastroValido (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart:174:5)
+<asynchronous suspension>
+#15     main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart:798:9)
+<asynchronous suspension>
+#16     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#17     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#18     StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "drag()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+
+Warning: A call to drag() with finder "Found 1 widget with the given widget (Scrollable(axisDirection: down, physics: null, restorationId: null)): [
+  Scrollable(axisDirection: down, physics: null, restorationId: null, dependencies: [InheritedCupertinoTheme, MediaQuery, ScrollConfiguration, UnmanagedRestorationScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#9a891]], state: ScrollableState#84ed1(tickers: tracking 0 tickers, position: ScrollPositionWithSingleContext#4bffa(offset: 412.0, range: 0.0..412.0, viewport: 600.0, ScrollableState, ClampingScrollPhysics -> RangeMaintainingScrollPhysics, IdleScrollActivity#669de, ScrollDirection.idle), effective physics: ClampingScrollPhysics -> RangeMaintainingScrollPhysics)),
+]" derived an Offset (Offset(400.0, 300.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderClipRect#f8673 relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(RenderPointerListener#a717b@Offset(377.0, 42.0), RenderSemanticsAnnotations#8ab3c@Offset(377.0, 42.0), RenderMouseRegion#84768@Offset(377.0, 42.0), RenderSemanticsAnnotations#242ef@Offset(377.0, 42.0), RenderAnimatedOpacity#f9831@Offset(377.0, 42.0), RenderSemanticsAnnotations#421dc@Offset(377.0, 42.0), RenderRepaintBoundary#c6b92@Offset(377.0, 42.0), RenderIndexedSemantics#121a3@Offset(377.0, 42.0), RenderSliverList@(mainAxis: 252.0, crossAxis: 377.0), RenderSliverPadding@(mainAxis: 252.0, crossAxis: 377.0), RenderShrinkWrappingViewport#0e73c@Offset(377.0, 252.0), RenderIgnorePointer#4f3b3@Offset(377.0, 252.0), RenderSemanticsAnnotations#498b7@Offset(377.0, 252.0), RenderPointerListener#7a02b@Offset(377.0, 252.0), RenderSemanticsGestureHandler#1e6ff@Offset(377.0, 252.0), RenderPointerListener#646ec@Offset(377.0, 252.0), _RenderScrollSemantics#91fe8@Offset(377.0, 252.0), RenderRepaintBoundary#ba2a2@Offset(377.0, 252.0), RenderCustomPaint#ad51a@Offset(377.0, 252.0), RenderMouseRegion#460fe@Offset(377.0, 252.0), RenderPointerListener#dbc08@Offset(377.0, 252.0), RenderSemanticsGestureHandler#f63e1@Offset(377.0, 252.0), RenderPointerListener#f0c38@Offset(377.0, 252.0), RenderRepaintBoundary#29ded@Offset(377.0, 252.0), _RenderInkFeatures#b9dbd@Offset(377.0, 252.0), RenderCustomPaint#f4e60@Offset(377.0, 252.0), RenderClipPath#5fd50@Offset(377.0, 252.0), RenderClipRRect#a50e1@Offset(377.0, 252.0), RenderSemanticsAnnotations#d2294@Offset(377.0, 252.0), RenderCustomPaint#3f042@Offset(377.0, 252.0), RenderAnimatedOpacity#72856@Offset(377.0, 252.0), RenderCustomSingleChildLayoutBox#2511d@Offset(400.0, 300.0), _RenderLayoutBuilder#36e09@Offset(400.0, 300.0), RenderRepaintBoundary#99ed9@Offset(400.0, 300.0), RenderIgnorePointer#456c9@Offset(400.0, 300.0), RenderRepaintBoundary#c927b@Offset(400.0, 300.0), RenderSemanticsAnnotations#9943e@Offset(400.0, 300.0), RenderOffstage#c863a@Offset(400.0, 300.0), RenderSemanticsAnnotations#bccd4@Offset(400.0, 300.0), _RenderTheater#bd0aa@Offset(400.0, 300.0), RenderAbsorbPointer#167cf@Offset(400.0, 300.0), RenderPointerListener#b5170@Offset(400.0, 300.0), RenderSemanticsAnnotations#48a6b@Offset(400.0, 300.0), RenderCustomPaint#52ed1@Offset(400.0, 300.0), RenderSemanticsAnnotations#7c08d@Offset(400.0, 300.0), RenderSemanticsAnnotations#f7d30@Offset(400.0, 300.0), RenderSemanticsAnnotations#10bbd@Offset(400.0, 300.0), RenderTapRegionSurface#6cbbd@Offset(400.0, 300.0), RenderSemanticsAnnotations#62483@Offset(400.0, 300.0), RenderSemanticsAnnotations#f196e@Offset(400.0, 300.0), HitTestEntry<HitTestTarget>#beaed(_ReusableRenderView#7667f), HitTestEntry<HitTestTarget>#5efe5(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.drag (package:flutter_test/src/controller.dart:1599:7)
+#3      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2469:17)
+<asynchronous suspension>
+#4      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#5      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2432:7)
+<asynchronous suspension>
+#6      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#7      main.selecionarEstado (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart:87:11)
+<asynchronous suspension>
+#8      main.preencherCadastroValido (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart:174:5)
+<asynchronous suspension>
+#9      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart:798:9)
+<asynchronous suspension>
+#10     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#11     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#12     StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "drag()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+
+Warning: A call to tap() with finder "Found 1 widget with text "Confirmar": [
+  Text("Confirmar", inherit: true, color: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), family: Piazzolla, size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery, _ScrollableScope]),
+]" derived an Offset (Offset(400.0, 552.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#c7b8d relayoutBoundary=up25
+The hit test result at that offset is: HitTestResult(_RenderInkFeatures#ee82c@Offset(400.0, 0.0), RenderPhysicalModel#35aa1@Offset(400.0, 0.0), RenderPointerListener#034a1@Offset(400.0, 0.0), RenderSemanticsGestureHandler#747b3@Offset(400.0, 0.0), RenderSemanticsAnnotations#db971@Offset(400.0, 0.0), RenderPositionedBox#3bc62@Offset(400.0, 0.0), RenderClipRect#1851b@Offset(400.0, 0.0), RenderOffstage#51bc5@Offset(400.0, 0.0), RenderConstrainedBox#6ba24@Offset(400.0, 0.0), RenderCustomMultiChildLayoutBox#86e7c@Offset(400.0, 552.0), _RenderInkFeatures#9358b@Offset(400.0, 552.0), RenderPhysicalModel#306a7@Offset(400.0, 552.0), RenderSemanticsAnnotations#1cc16@Offset(400.0, 552.0), RenderRepaintBoundary#611db@Offset(400.0, 552.0), RenderIgnorePointer#8089e@Offset(400.0, 552.0), RenderAnimatedOpacity#8c098@Offset(400.0, 552.0), RenderAnimatedOpacity#fba46@Offset(400.0, 552.0), _RenderColoredBox#9cd62@Offset(400.0, 552.0), RenderAnimatedOpacity#63037@Offset(400.0, 552.0), RenderIgnorePointer#23e6d@Offset(400.0, 552.0), RenderAnimatedOpacity#eb5aa@Offset(400.0, 552.0), RenderRepaintBoundary#f4427@Offset(400.0, 552.0), RenderSemanticsAnnotations#d38df@Offset(400.0, 552.0), RenderOffstage#09d08@Offset(400.0, 552.0), RenderSemanticsAnnotations#d0b9a@Offset(400.0, 552.0), _RenderTheater#bd0aa@Offset(400.0, 552.0), RenderAbsorbPointer#167cf@Offset(400.0, 552.0), RenderPointerListener#b5170@Offset(400.0, 552.0), RenderSemanticsAnnotations#48a6b@Offset(400.0, 552.0), RenderCustomPaint#52ed1@Offset(400.0, 552.0), RenderSemanticsAnnotations#7c08d@Offset(400.0, 552.0), RenderSemanticsAnnotations#f7d30@Offset(400.0, 552.0), RenderSemanticsAnnotations#10bbd@Offset(400.0, 552.0), RenderTapRegionSurface#6cbbd@Offset(400.0, 552.0), RenderSemanticsAnnotations#62483@Offset(400.0, 552.0), RenderSemanticsAnnotations#f196e@Offset(400.0, 552.0), HitTestEntry<HitTestTarget>#1c2bf(_ReusableRenderView#7667f), HitTestEntry<HitTestTarget>#7771d(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.tapAndSettle (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart:51:18)
+<asynchronous suspension>
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart:885:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+type 'Null' is not a subtype of type 'List<dynamic>' in type cast
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart:900:17)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  cria conta, salva usuário, navega para gêneros, salva gêneros e vai para tela inicial
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +7 -1: Fluxo ponta a ponta cria conta, salva usuário, navega para gêneros, salva gêneros e vai para tela inicial [E]
+  Test failed. See exception logs above.
+  The test description was: cria conta, salva usuário, navega para gêneros, salva gêneros e vai para tela inicial
+  
+00:05 +7 -1: GenerosCadastroScreen - validação mostra erro ao confirmar sem selecionar nenhum gênero
+00:05 +8 -1: GenerosCadastroScreen - autenticação não salva e permanece na tela quando não há usuário autenticado
+00:05 +9 -1: Some tests failed.

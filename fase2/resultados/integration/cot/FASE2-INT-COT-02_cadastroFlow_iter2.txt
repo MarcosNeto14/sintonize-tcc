@@ -1,0 +1,40 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart
+00:00 +0: CadastroScreen - validação local não chama Firebase quando campos obrigatórios estão vazios
+00:00 +1: CadastroScreen - validação local não chama Firebase quando o e-mail é inválido
+00:01 +2: CadastroScreen - validação local não chama Firebase quando a data de nascimento é inválida
+00:01 +3: CadastroScreen - validação local não chama Firebase quando a senha tem menos de seis caracteres
+00:02 +4: CadastroScreen - validação local não chama Firebase quando as senhas não coincidem
+00:02 +5: CadastroScreen - validação local não chama Firebase quando o CEP é inválido
+00:03 +6: CadastroScreen - validação local não chama Firebase quando o número do endereço não é numérico
+00:03 +7: Fluxo ponta a ponta cria conta, salva usuário, navega para gêneros, salva gêneros e vai para tela inicial
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.last (dart:core/iterable.dart:679:7)
+#1      _LastFinderMixin.filter (package:flutter_test/src/finders.dart:1367:28)
+#3      Iterable.single (dart:core/iterable.dart:694:13)
+#4      WidgetController.element (package:flutter_test/src/controller.dart:883:30)
+#5      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2382:32)
+#6      main.preencherCadastroValido (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart:125:18)
+<asynchronous suspension>
+#7      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2/integration/cadastro_flow_cot_test.dart:757:9)
+<asynchronous suspension>
+#8      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#9      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 2 frames from dart:async-patch and package:stack_trace)
+
+The test description was:
+  cria conta, salva usuário, navega para gêneros, salva gêneros e vai para tela inicial
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +7 -1: Fluxo ponta a ponta cria conta, salva usuário, navega para gêneros, salva gêneros e vai para tela inicial [E]
+  Test failed. See exception logs above.
+  The test description was: cria conta, salva usuário, navega para gêneros, salva gêneros e vai para tela inicial
+  
+00:04 +7 -1: GenerosCadastroScreen - validação mostra erro ao confirmar sem selecionar nenhum gênero
+00:04 +8 -1: GenerosCadastroScreen - autenticação não salva e permanece na tela quando não há usuário autenticado
+00:04 +9 -1: Some tests failed.

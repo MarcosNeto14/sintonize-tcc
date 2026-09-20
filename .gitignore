@@ -13,6 +13,12 @@ migrate_working_dir/
 # Claude Code local settings
 .claude/
 
+# Arquivo compactado da replicacao com Gemini.
+# Os artefatos da Fase 2 - Gemini ja sao versionados em fase2-gemini/, entao o
+# .rar seria uma segunda copia dos mesmos dados dentro do repositorio.
+# fase2.rar e fase2/rodadas.rar continuam rastreados de proposito.
+/fase2-gemini.rar
+
 # IntelliJ related
 *.iml
 *.ipr

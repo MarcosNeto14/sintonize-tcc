@@ -42,7 +42,10 @@ que a réplica quer medir.
 
 1. Sessão **com login**, em conta **Gemini Pro** (plano pago).
 2. Modelo **fixado em 3.8 Flash** no seletor, antes de colar o prompt.
-3. **Print do seletor por sessão**, arquivado em `evidencias/`.
+3. **Conferir a pílula ao lado do campo de texto a cada conversa nova** — ela
+   deve dizer "Flash", não "Flash-Lite". É o controle por rodada.
+4. **Print do seletor uma vez por sessão de trabalho** (por bloco/dia),
+   arquivado em `evidencias/`. Um print por rodada é redundante.
 
 **Por que 3.8 Flash.** É o default de uso geral do produto ("Ajuda para
 tudo"), o mesmo papel que GPT-5.5/5.6 cumpria para quem abria o ChatGPT.
@@ -279,6 +282,15 @@ servido sem login **mudou no meio do estudo, sem aviso**, e a mudança
 não há como saber em qual rodada a troca aconteceu, e a comparação entre
 estratégias fica contaminada por uma variável não controlada.
 
+**Nota de 2026-09-21 — a pergunta de versão foi aposentada.** Perguntado
+diretamente, o Gemini **não declara versão alguma**: responde "Eu sou o
+Gemini, um grande modelo de linguagem desenvolvido pelo Google (...)", sem
+número. A resposta literal e o print estão em
+`evidencias/2026-09-21_gemini_pergunta_de_versao_nao_declara.png` e valem
+como **resposta padrão da réplica**, registrada uma vez. Repeti-la a cada
+rodada só gastaria uma mensagem por conversa sem produzir dado. O campo ✦ de
+autodeclaração passa a citar esse registro; o controle efetivo é o seletor.
+
 **Nota de 2026-09-21.** A verificação externa feita nesta data apontava
 `3.6 Flash` como modelo gratuito do app desde julho/2026. O seletor real, no
 mesmo dia, oferecia `3.5 Flash Lite`, `3.8 Flash` e `3.1 Pro` — sem 3.6. A
@@ -303,10 +315,9 @@ Quando os dois campos divergirem, **registre a divergência; não a resolva**.
    seletor antes de qualquer coisa — uma conversa por rodada, sem contexto
    anterior. Cross-contamination invalida a comparação. Ver a seção de
    mudança de condição acima.
-3. **Printar o seletor** com 3.8 Flash ativo e arquivar em `evidencias/`.
-   Perguntar a versão do modelo e anotar a resposta **literal** (campo ✦). O
-   print é a evidência primária; a autodeclaração é o segundo campo, e as
-   duas podem divergir — registre a divergência, não a resolva.
+3. Conferir a pílula ("Flash", não "Flash-Lite"). Print do seletor uma vez
+   por sessão de trabalho, em `evidencias/`. **A pergunta de versão não é
+   repetida a cada rodada** — ver abaixo.
 4. Colar o prompt da rodada, do separador `---` em diante, **verbatim**.
 5. Salvar o teste gerado, rodar `flutter test` e arquivar a saída em
    `resultados/<nível>/<estratégia>/`.

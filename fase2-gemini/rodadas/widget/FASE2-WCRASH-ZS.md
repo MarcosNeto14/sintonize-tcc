@@ -86,6 +86,174 @@ executado.
 
 Nenhum dos dois cobre o W-CRASH.
 
+### Bloco 1 — abandonado pelo próprio modelo
+
+Gerado primeiro, interrompido no meio da seção "O que foi coberto" e
+substituído pelo bloco 2. Não foi executado. Registrado por ser parte da
+resposta.
+
+```dart
+import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
+import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:sintonize/criar_playlist.dart';
+
+void main() {
+  late MockFirebaseAuth mockAuth;
+  late FakeFirebaseFirestore fakeFirestore;
+
+  setUp(() {
+    mockAuth = MockFirebaseAuth(
+      signedIn: true,
+      mockUser: MockUser(
+        uid: 'user_123',
+        email: 'teste@sintonize.com',
+      ),
+    );
+    fakeFirestore = FakeFirebaseFirestore();
+  });
+
+  Widget buildTestableWidget() {
+    return MaterialApp(
+      home: CriarPlaylistScreen(
+        editPlaylist: const {},
+        auth: mockAuth,
+        firestore: fakeFirestore,
+      ),
+    );
+  }
+
+  group('CriarPlaylistScreen Tests', () {
+    testWidgets('Exibe CircularProgressIndicator enquanto não há músicas carregadas',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(buildTestableWidget());
+
+      // Antes do retorno assíncrono do Firestore
+      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+      expect(find.text('Criando Playlist'), findsOneWidget);
+    });
+
+    testWidgets('Carrega e renderiza a lista de músicas do Firestore',
+        (WidgetTester tester) async {
+      await fakeFirestore.collection('musica').add({
+        'track_name': 'yellow',
+        'artist_name': 'coldplay',
+      });
+
+      await tester.pumpWidget(buildTestableWidget());
+      await tester.pumpAndSettle();
+
+      expect(find.byType(CircularProgressIndicator), findsNothing);
+      expect(find.text('Yellow - Coldplay'), findsOneWidget);
+    });
+
+    testWidgets('Filtra músicas corretamente pelo campo de pesquisa',
+        (WidgetTester tester) async {
+      await fakeFirestore.collection('musica').add({
+        'track_name': 'bohemian rhapsody',
+        'artist_name': 'queen',
+      });
+      await fakeFirestore.collection('musica').add({
+        'track_name': 'shape of you',
+        'artist_name': 'ed sheeran',
+      });
+
+      await tester.pumpWidget(buildTestableWidget());
+      await tester.pumpAndSettle();
+
+      expect(find.text('Bohemian Rhapsody - Queen'), findsOneWidget);
+      expect(find.text('Shape Of You - Ed Sheeran'), findsOneWidget);
+
+      final searchField = find.widgetWithText(TextField, 'Pesquisar Música ou Artista');
+      await tester.enterText(searchField, 'queen');
+      await tester.pumpAndSettle();
+
+      expect(find.text('Bohemian Rhapsody - Queen'), findsOneWidget);
+      expect(find.text('Shape Of You - Ed Sheeran'), findsNothing);
+    });
+
+    testWidgets('Alterna seleção de músicas ao clicar no checkbox',
+        (WidgetTester tester) async {
+      await fakeFirestore.collection('musica').add({
+        'track_name': 'imagine',
+        'artist_name': 'john lennon',
+      });
+
+      await tester.pumpWidget(buildTestableWidget());
+      await tester.pumpAndSettle();
+
+      final checkboxOutline = find.byIcon(Icons.check_box_outline_blank);
+      expect(checkboxOutline, findsOneWidget);
+
+      // Clica para marcar
+      await tester.tap(checkboxOutline);
+      await tester.pumpAndSettle();
+
+      expect(find.byIcon(Icons.check_box), findsOneWidget);
+      expect(find.byIcon(Icons.check_box_outline_blank), findsNothing);
+
+      // Clica para desmarcar
+      await tester.tap(find.byIcon(Icons.check_box));
+      await tester.pumpAndSettle();
+
+      expect(find.byIcon(Icons.check_box_outline_blank), findsOneWidget);
+      expect(find.byIcon(Icons.check_box), findsNothing);
+    });
+
+    testWidgets('Valida formulário exibindo SnackBar se nome da playlist estiver vazio',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(buildTestableWidget());
+      await tester.pumpAndSettle();
+
+      final salvarButton = find.widgetWithText(ElevatedButton, 'Salvar Playlist');
+      await tester.tap(salvarButton);
+      await tester.pump(); // Inicia animação do SnackBar
+
+      expect(find.text('Nome da playlist é obrigatório'), findsOneWidget);
+      expect(find.byType(SnackBar), findsOneWidget);
+    });
+
+    testWidgets('Salva a playlist no Firestore com sucesso quando dados são válidos',
+        (WidgetTester tester) async {
+      await fakeFirestore.collection('musica').add({
+        'track_name': 'starboy',
+        'artist_name': 'the weeknd',
+      });
+
+      await tester.pumpWidget(buildTestableWidget());
+      await tester.pumpAndSettle();
+
+      // Digita o nome da playlist
+      final nameField = find.widgetWithText(TextField, 'Nome da Playlist');
+      await tester.enterText(nameField, 'Minhas Favoritas');
+
+      // Seleciona uma música
+      await tester.tap(find.byIcon(Icons.check_box_outline_blank));
+      await tester.pumpAndSettle();
+
+      // Clica em salvar
+      final salvarButton = find.widgetWithText(ElevatedButton, 'Salvar Playlist');
+      await tester.tap(salvarButton);
+      await tester.pumpAndSettle();
+
+      // Verifica inserção no Firestore
+      final snapshot = await fakeFirestore.collection('playlists').get();
+      expect(snapshot.docs.length, 1);
+
+      final playlistData = snapshot.docs.first.data();
+      expect(playlistData['userId'], 'user_123');
+      expect(playlistData['musicas'], contains('starboy'));
+      expect(playlistData['dataCriacao'], isNotNull);
+    });
+  });
+}
+```
+
+Corte exato onde o modelo interrompeu: `O que foi coberto:` /
+`Estado assíncrono inicial: Ex` — e em seguida, sem separacao, o texto de
+abertura do bloco 2.
+
 ### Bloco 2 — adotado
 
 O código integral está em `test/fase2-gemini/widget/wcrash_zs_test.dart`.

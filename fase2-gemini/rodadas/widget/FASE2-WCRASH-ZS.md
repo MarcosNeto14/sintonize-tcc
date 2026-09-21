@@ -94,13 +94,21 @@ O código integral está em `test/fase2-gemini/widget/wcrash_zs_test.dart`.
 
 1. **Prompt conferido antes de cada envio**, linha a linha, contra o arquivo
    de origem. Igualdade exata nas duas tentativas.
-2. **Formatação normalizada por `dart format`.** A extração direta do bloco
-   de código pela automação foi **bloqueada pelo guard de dados da
-   extensão** (o código contém `'userId': user.uid` e e-mails de mock). O
-   código foi recuperado pela extração de texto da página, que descarta
-   espaços à esquerda, e reindentado com `dart format` — determinístico e
-   reproduzível. **Nenhum token, string, nome ou asserção foi alterado.**
-   Mesma limitação da rodada 6; ver a nota de método no README.
+2. **Código arquivado verbatim, com a indentação original.** A extração
+   direta do bloco de código pela automação foi **bloqueada pelo guard de
+   dados da extensão** (o código contém `'userId': user.uid` e e-mails de
+   mock). A automação recuperou o código pela extração de texto da página,
+   que descarta espaços à esquerda; essa primeira versão foi reindentada com
+   `dart format`. **O operador então colou manualmente a resposta original**,
+   e o arquivo foi substituído pela versão verbatim. A comparação entre as
+   duas, ignorando espaço em branco, deu **identidade token a token** — ou
+   seja, a reconstrução automática não havia alterado nada de substantivo —,
+   mas o que está arquivado agora é o texto do modelo, sem normalização. O
+   teste foi reexecutado sobre a versão verbatim: mesmo resultado, 5/5.
+
+   Para as próximas rodadas cujo código a automação não conseguir extrair
+   diretamente, o caminho é o mesmo: colagem manual do operador. Ver a nota
+   de método no README.
 
 ---
 

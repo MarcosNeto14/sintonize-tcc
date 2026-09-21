@@ -89,6 +89,22 @@ resposta"**. A distribuição dessas tentativas ao longo das 60 rodadas é dado
 da réplica e deve entrar na análise: é uma diferença operacional em relação à
 Fase 2 com ChatGPT, onde nenhuma recusa foi registrada.
 
+## Extração do código gerado — limitação da automação
+
+Quando a rodada é executada por automação de navegador, a leitura direta do
+bloco de código da resposta é **bloqueada pelo guard de dados da extensão**
+sempre que o código contém algo que pareça credencial: senhas de teste,
+`user.uid`, e-mails de mock. Ocorreu nas rodadas 6 e 7.
+
+O caminho alternativo da automação — extrair o texto da página — funciona,
+mas **descarta os espaços à esquerda de cada linha**, destruindo a indentação.
+Reindentar com `dart format` é determinístico e não altera nenhum token, mas
+o arquivo deixa de ser o texto literal do modelo.
+
+**Procedimento:** quando a extração direta falhar, o operador cola a resposta
+manualmente e o arquivo verbatim substitui a versão reconstruída. Registrar
+no doc da rodada qual dos dois caminhos foi usado.
+
 ## Estrutura
 
 ```

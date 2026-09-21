@@ -80,8 +80,8 @@ Got dependencies!
 Try `flutter pub outdated` for more information.
 00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2-gemini/widget/wcrash_zs_test.dart
 00:00 +0: Deve renderizar os campos básicos e buscar as músicas com sucesso
-00:04 +1: Deve exibir SnackBar de erro ao tentar salvar sem preencher o nome
-00:04 +2: Deve filtrar a lista de músicas ao digitar no campo de busca
-00:05 +3: Deve alternar o ícone de seleção ao clicar no checkbox de uma música
-00:05 +4: Deve salvar a playlist no Firestore quando o formulário for válido
-00:05 +5: All tests passed!
+00:01 +1: Deve exibir SnackBar de erro ao tentar salvar sem preencher o nome
+00:01 +2: Deve filtrar a lista de músicas ao digitar no campo de busca
+00:01 +3: Deve alternar o ícone de seleção ao clicar no checkbox de uma música
+00:01 +4: Deve salvar a playlist no Firestore quando o formulário for válido
+00:02 +5: All tests passed!

@@ -15,7 +15,7 @@ void main() {
       mockUser: MockUser(uid: 'test_user_123', email: 'test@sintonize.com'),
     );
 
-// Popula o Firestore falso com dados iniciais para a coleção 'musica'
+    // Popula o Firestore falso com dados iniciais para a coleção 'musica'
     await firestore.collection('musica').add({
       'track_name': 'bohemian rhapsody',
       'artist_name': 'queen',
@@ -36,28 +36,24 @@ void main() {
     );
   }
 
-  testWidgets(
-      'Deve renderizar os campos básicos e buscar as músicas com sucesso',
+  testWidgets('Deve renderizar os campos básicos e buscar as músicas com sucesso',
       (WidgetTester tester) async {
     await tester.pumpWidget(buildTestableWidget());
 
-// Processa a requisição assíncrona do initState (_fetchMusicas)
+    // Processa a requisição assíncrona do initState (_fetchMusicas)
     await tester.pumpAndSettle();
 
     expect(find.text('Criando Playlist'), findsOneWidget);
     expect(find.widgetWithText(TextField, 'Nome da Playlist'), findsOneWidget);
-    expect(find.widgetWithText(TextField, 'Pesquisar Música ou Artista'),
-        findsOneWidget);
-    expect(
-        find.widgetWithText(ElevatedButton, 'Salvar Playlist'), findsOneWidget);
+    expect(find.widgetWithText(TextField, 'Pesquisar Música ou Artista'), findsOneWidget);
+    expect(find.widgetWithText(ElevatedButton, 'Salvar Playlist'), findsOneWidget);
 
-// Verifica se os itens foram formatados e renderizados na lista
+    // Verifica se os itens foram formatados e renderizados na lista
     expect(find.text('Bohemian Rhapsody - Queen'), findsOneWidget);
     expect(find.text('Hotel California - Eagles'), findsOneWidget);
   });
 
-  testWidgets(
-      'Deve exibir SnackBar de erro ao tentar salvar sem preencher o nome',
+  testWidgets('Deve exibir SnackBar de erro ao tentar salvar sem preencher o nome',
       (WidgetTester tester) async {
     await tester.pumpWidget(buildTestableWidget());
     await tester.pumpAndSettle();
@@ -74,17 +70,16 @@ void main() {
     await tester.pumpWidget(buildTestableWidget());
     await tester.pumpAndSettle();
 
-    final searchField =
-        find.widgetWithText(TextField, 'Pesquisar Música ou Artista');
+    final searchField = find.widgetWithText(TextField, 'Pesquisar Música ou Artista');
 
-// Filtra pelo artista 'Queen'
+    // Filtra pelo artista 'Queen'
     await tester.enterText(searchField, 'queen');
     await tester.pumpAndSettle();
 
     expect(find.text('Bohemian Rhapsody - Queen'), findsOneWidget);
     expect(find.text('Hotel California - Eagles'), findsNothing);
 
-// Limpa a busca
+    // Limpa a busca
     await tester.enterText(searchField, '');
     await tester.pumpAndSettle();
 
@@ -92,24 +87,22 @@ void main() {
     expect(find.text('Hotel California - Eagles'), findsOneWidget);
   });
 
-  testWidgets(
-      'Deve alternar o ícone de seleção ao clicar no checkbox de uma música',
+  testWidgets('Deve alternar o ícone de seleção ao clicar no checkbox de uma música',
       (WidgetTester tester) async {
     await tester.pumpWidget(buildTestableWidget());
     await tester.pumpAndSettle();
 
-// Encontra o botão de seleção do primeiro item
-    final checkboxIconInitial =
-        find.widgetWithIcon(IconButton, Icons.check_box_outline_blank).first;
+    // Encontra o botão de seleção do primeiro item
+    final checkboxIconInitial = find.widgetWithIcon(IconButton, Icons.check_box_outline_blank).first;
     expect(checkboxIconInitial, findsOneWidget);
 
-// Clica para selecionar
+    // Clica para selecionar
     await tester.tap(checkboxIconInitial);
     await tester.pumpAndSettle();
 
     expect(find.byIcon(Icons.check_box), findsOneWidget);
 
-// Clica novamente para desmarcar
+    // Clica novamente para desmarcar
     await tester.tap(find.widgetWithIcon(IconButton, Icons.check_box));
     await tester.pumpAndSettle();
 
@@ -117,29 +110,27 @@ void main() {
     expect(find.byIcon(Icons.check_box_outline_blank), findsNWidgets(2));
   });
 
-  testWidgets(
-      'Deve salvar a playlist no Firestore quando o formulário for válido',
+  testWidgets('Deve salvar a playlist no Firestore quando o formulário for válido',
       (WidgetTester tester) async {
     await tester.pumpWidget(buildTestableWidget());
     await tester.pumpAndSettle();
 
-// Preenche o nome da playlist
+    // Preenche o nome da playlist
     final nomeField = find.widgetWithText(TextField, 'Nome da Playlist');
     await tester.enterText(nomeField, 'Minhas Favoritas');
     await tester.pumpAndSettle();
 
-// Seleciona a primeira música da lista
-    final checkboxBtn =
-        find.widgetWithIcon(IconButton, Icons.check_box_outline_blank).first;
+    // Seleciona a primeira música da lista
+    final checkboxBtn = find.widgetWithIcon(IconButton, Icons.check_box_outline_blank).first;
     await tester.tap(checkboxBtn);
     await tester.pumpAndSettle();
 
-// Clica em salvar
+    // Clica em salvar
     final salvarBtn = find.widgetWithText(ElevatedButton, 'Salvar Playlist');
     await tester.tap(salvarBtn);
     await tester.pumpAndSettle();
 
-// Valida se o documento foi persistido no FakeFirebaseFirestore
+    // Valida se o documento foi persistido no FakeFirebaseFirestore
     final snapshot = await firestore.collection('playlists').get();
     expect(snapshot.docs.length, 1);
 

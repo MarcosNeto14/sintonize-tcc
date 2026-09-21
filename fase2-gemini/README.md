@@ -12,9 +12,42 @@ Os artefatos do ChatGPT em `fase2/` são o grupo de comparação e
 
 ## Status
 
-**Nenhuma rodada executada.** Esta pasta contém apenas a infraestrutura:
+**Nenhuma das 60 rodadas executada.** Esta pasta contém a infraestrutura:
 prompts copiados, template de documentação e o mapeamento de estado de
 código. A submissão dos prompts continua manual.
+
+Uma rodada foi executada em 2026-09-21 sob a condição antiga (sem login) e
+**descartada**; está preservada em `piloto-flash-lite/`, fora da contagem.
+
+## ⚠ Mudança de condição — 2026-09-21: sessão COM login, fixada em 3.6 Flash
+
+A condição "sessão sem login", herdada da Fase 2, **foi abandonada nesta
+réplica**. Motivo:
+
+Sem login, o seletor do app Gemini **trava em 3.5 Flash Lite** — o tier mais
+barato — com 3.6 Flash e 3.1 Pro atrás de login (print em
+`evidencias/2026-09-21_gemini_seletor_modelo_sem_login.png`). A Fase 2
+deslogada, no ChatGPT, recebeu GPT-5.5/5.6, o topo do que era servido.
+
+"Sem login" nunca foi o controle de fato — era um **proxy para "tier gratuito
+padrão"**. No ChatGPT o proxy funcionou; no Gemini ele aponta para outro
+lugar. Mantida a condição, a réplica compararia o carro-chefe de um contra o
+modelo mais fraco do outro: uma variável não controlada, na direção oposta à
+que a réplica quer medir.
+
+**Regra a partir de agora, uniforme para as 60 rodadas:**
+
+1. Sessão **com login**.
+2. Modelo **fixado em 3.6 Flash** no seletor, antes de colar o prompt.
+3. **Print do seletor por sessão**, arquivado em `evidencias/`.
+
+Consequência positiva: os dois campos ✦ deixam de depender de autodeclaração.
+O seletor nomeia o modelo, o print é a evidência, e uma troca silenciosa no
+meio do estudo — o incidente GPT-5.5→5.6 da Fase 2 — passa a ser detectável
+sessão a sessão.
+
+O desvio a registrar na redação é a sessão logada. Ele é menor que o desvio
+que evita.
 
 ## Estrutura
 
@@ -244,10 +277,14 @@ Quando os dois campos divergirem, **registre a divergência; não a resolva**.
 
 1. Ativar o estado de código do bloco (`git checkout` conforme o mapeamento) e
    rodar a verificação correspondente.
-2. Abrir **conversa nova** no Gemini, **sem login** — uma conversa por rodada,
-   sem contexto anterior. Cross-contamination invalida a comparação.
-3. Perguntar a versão do modelo e anotar a resposta **literal** (campo ✦), mais
-   a verificação externa.
+2. Abrir **conversa nova** no Gemini, **com login**, e **fixar 3.6 Flash** no
+   seletor antes de qualquer coisa — uma conversa por rodada, sem contexto
+   anterior. Cross-contamination invalida a comparação. Ver a seção de
+   mudança de condição acima.
+3. **Printar o seletor** com 3.6 Flash ativo e arquivar em `evidencias/`.
+   Perguntar a versão do modelo e anotar a resposta **literal** (campo ✦). O
+   print é a evidência primária; a autodeclaração é o segundo campo, e as
+   duas podem divergir — registre a divergência, não a resolva.
 4. Colar o prompt da rodada, do separador `---` em diante, **verbatim**.
 5. Salvar o teste gerado, rodar `flutter test` e arquivar a saída em
    `resultados/<nível>/<estratégia>/`.

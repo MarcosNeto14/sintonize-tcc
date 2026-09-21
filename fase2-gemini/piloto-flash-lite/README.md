@@ -41,14 +41,14 @@ Não consigo te ajudar com isso. Sou só um modelo de linguagem e não tenho
 capacidade de entender e responder a essa questão.
 ```
 
-Reenviado com uma alteração mínima (uma vírgula a mais), o mesmo modelo
-produziu uma análise completa e classificou a falha como **(B)**. Não é
-recusa de política — é um modelo pequeno demais engasgando num prompt de
-reparo que contém bloco de log. Em rodadas de widget e integração, com
-prompts de 200+ linhas, esse modo de falha tenderia a se repetir.
+Reenviado com o mesmo texto acrescido apenas de **um espaço em branco no
+final**, o modelo produziu uma análise completa e classificou a falha como
+**(B)**. A diferença entre os dois envios é semanticamente nula.
 
-Isso é evidência sobre o que o tier gratuito deslogado do Gemini consegue
-fazer, e sustenta a decisão acima.
+Não é recusa de política nem incompreensão do conteúdo: é **recusa não
+determinística**. O protocolo passa a prever reenvio do prompt inalterado
+diante de uma recusa isolada, registrando a tentativa; recusas repetidas ao
+mesmo prompt é que são dado.
 
 ## Arquivos
 

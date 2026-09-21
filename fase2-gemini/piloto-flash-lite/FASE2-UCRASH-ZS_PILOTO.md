@@ -200,15 +200,20 @@ Arquivo completo: `FASE2-UCRASH-ZS_iter0.txt`. Trecho da falha:
   capacidade de entender e responder a essa questão.
   ```
 
-  O operador então reenviou o prompt **com uma alteração mínima (uma vírgula
-  a mais)** e obteve a resposta completa abaixo. **O texto efetivamente
-  aceito não é byte-idêntico ao prompt da rodada.** Posição exata da vírgula:
-  `[PENDENTE — confirmar com o operador]`.
+  O operador então reenviou o mesmo prompt acrescido de **um espaço em branco
+  no final** — nenhuma outra alteração — e obteve a resposta completa abaixo.
+  O texto não é byte-idêntico ao prompt da rodada, mas a diferença é
+  **semanticamente nula**: um caractere de espaço em posição terminal.
 
-  Não há indício de recusa de política: o conteúdo é benigno e a mesma
-  pergunta, minimamente reescrita, foi respondida em profundidade. A leitura
-  é de fragilidade do tier (3.5 Flash Lite) diante de um prompt com bloco de
-  log embutido.
+  **Interpretação: recusa não determinística.** Não é recusa de política (o
+  conteúdo é benigno) nem incompreensão do conteúdo (o mesmo texto, sem
+  reescrita alguma, foi respondido em profundidade na segunda tentativa). O
+  que se observa é variação entre execuções da mesma entrada.
+
+  **Consequência para o protocolo:** uma recusa isolada não deve ser tratada
+  como resultado da rodada. O reenvio do prompt inalterado é a resposta
+  correta, e deve ser registrado como tentativa. Recusas repetidas ao mesmo
+  prompt, aí sim, são dado.
 
 - **Resposta do LLM (ao prompt alterado):**
 
@@ -239,7 +244,7 @@ Arquivo completo: `FASE2-UCRASH-ZS_iter0.txt`. Trecho da falha:
 | **★ Autoclassificação do modelo** | **(B)** na iteração 1. Há também evidência de **(C)** na geração inicial: antes de qualquer falha, o modelo escreveu `AVISO DE BUG CONHECIDO NA IMPLEMENTAÇÃO` em dois testes e asseriu `throwsA(isA<RangeError>())`, ou seja, reconheceu e tratou o U-CRASH já ao gerar. |
 | **★ Classificação humana (auditoria)** | **Erro de teste sobre bug real.** O `RangeError` é o U-CRASH e foi corretamente capturado — nisso o modelo acerta. Mas *o teste que falhou* está errado por conta própria: assere `returnsNormally` para uma entrada (`'  '`) estruturalmente idêntica à que ele mesmo assere que lança (`'Ana  Silva'`). A falha não decorre do bug da aplicação; decorre da contradição interna da resposta. |
 | **★ Concordância** | **Parcial.** Concordância sobre a existência do bug; discordância sobre a causa *desta* falha. O modelo atribuiu a falha ao bug (B) e não percebeu que havia se contradito — o caminho (B) do prompt, ao proibir enfraquecer asserções, o impediu de revisar a asserção que de fato estava errada. |
-| **★ Observações** | 1) O bug foi detectado espontaneamente (C), o resultado mais forte possível para uma rodada de bug plantado — e veio do tier mais fraco do Gemini, em zero-shot. 2) O prompt de reparo verbatim foi recusado; ver o desvio na Iteração 1. 3) A interação (B) × contradição interna é um modo de falha do protocolo de reparo que vale observar nas demais rodadas: quando a resposta inicial se contradiz, a instrução (B) pode travar a correção legítima. |
+| **★ Observações** | 1) O bug foi detectado espontaneamente (C), o resultado mais forte possível para uma rodada de bug plantado — e veio do tier mais fraco do Gemini, em zero-shot. 2) O prompt de reparo foi recusado na primeira tentativa e respondido na segunda, com o texto semanticamente inalterado: recusa não determinística, ver a Iteração 1. 3) A interação (B) × contradição interna é um modo de falha do protocolo de reparo que vale observar nas demais rodadas: quando a resposta inicial se contradiz, a instrução (B) pode travar a correção legítima. |
 
 ---
 

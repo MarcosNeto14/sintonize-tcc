@@ -3,8 +3,11 @@
 Réplica das rodadas da Fase 2 trocando o LLM de ChatGPT para Gemini. Tudo o
 mais é mantido idêntico: mesmos alvos, mesmos bugs plantados, mesmas três
 estratégias de prompt, mesmo protocolo de reparo (máx. 3 iterações com
-autoclassificação A/B/C), mesma execução em sessão sem login. **A única
-variável que muda é o modelo.**
+autoclassificação A/B/C). **A única variável que muda é o modelo.**
+
+Uma constante da Fase 2 **não** se mantém: a sessão sem login. Ver a seção
+de mudança de condição abaixo — deslogado, o Gemini serve apenas o tier mais
+barato, o que tornaria a comparação desigual em vez de controlada.
 
 Os artefatos do ChatGPT em `fase2/` são o grupo de comparação e
 **permanecem intocados**. Nada nesta pasta altera `fase2/`, `prompts/`,
@@ -19,13 +22,13 @@ código. A submissão dos prompts continua manual.
 Uma rodada foi executada em 2026-09-21 sob a condição antiga (sem login) e
 **descartada**; está preservada em `piloto-flash-lite/`, fora da contagem.
 
-## ⚠ Mudança de condição — 2026-09-21: sessão COM login, fixada em 3.6 Flash
+## ⚠ Mudança de condição — 2026-09-21: sessão COM login, fixada em 3.8 Flash
 
 A condição "sessão sem login", herdada da Fase 2, **foi abandonada nesta
 réplica**. Motivo:
 
 Sem login, o seletor do app Gemini **trava em 3.5 Flash Lite** — o tier mais
-barato — com 3.6 Flash e 3.1 Pro atrás de login (print em
+barato — com os demais modelos atrás de login (print em
 `evidencias/2026-09-21_gemini_seletor_modelo_sem_login.png`). A Fase 2
 deslogada, no ChatGPT, recebeu GPT-5.5/5.6, o topo do que era servido.
 
@@ -37,17 +40,26 @@ que a réplica quer medir.
 
 **Regra a partir de agora, uniforme para as 60 rodadas:**
 
-1. Sessão **com login**.
-2. Modelo **fixado em 3.6 Flash** no seletor, antes de colar o prompt.
+1. Sessão **com login**, em conta **Gemini Pro** (plano pago).
+2. Modelo **fixado em 3.8 Flash** no seletor, antes de colar o prompt.
 3. **Print do seletor por sessão**, arquivado em `evidencias/`.
+
+**Por que 3.8 Flash.** É o default de uso geral do produto ("Ajuda para
+tudo"), o mesmo papel que GPT-5.5/5.6 cumpria para quem abria o ChatGPT.
+`3.1 Pro` casaria melhor em capacidade bruta, mas tem cota mesmo no plano
+pago e rebaixa para Flash no meio da sessão sem aviso — reintroduzindo
+exatamente a troca silenciosa que os campos ✦ existem para detectar.
+
+**Desvio de tier a registrar na redação.** A Fase 2 rodou no ChatGPT
+gratuito e deslogado; a réplica roda em conta Gemini Pro. O desvio existe e
+vai para as limitações. Ele é menor e mais defensável que o alternativo, que
+seria comparar o carro-chefe de um produto contra o modelo mais barato do
+outro.
 
 Consequência positiva: os dois campos ✦ deixam de depender de autodeclaração.
 O seletor nomeia o modelo, o print é a evidência, e uma troca silenciosa no
 meio do estudo — o incidente GPT-5.5→5.6 da Fase 2 — passa a ser detectável
 sessão a sessão.
-
-O desvio a registrar na redação é a sessão logada. Ele é menor que o desvio
-que evita.
 
 ## Estrutura
 
@@ -56,6 +68,8 @@ fase2-gemini/
 ├── README.md                              (este arquivo)
 ├── Template_Documentacao_Rodada_Fase2.md  (template + 2 campos novos ✦)
 ├── prompts_prontos/                       (cópia byte-idêntica de fase2/prompts_prontos/)
+├── evidencias/                            (prints do seletor de modelo, um por sessão)
+├── piloto-flash-lite/                     (rodada descartada da condição antiga — fora das 60)
 ├── rodadas/{unit,widget,integration}/     (documentação por rodada — vazio)
 └── resultados/{unit,widget,integration}/{zero-shot,few-shot,cot}/
                                            (saídas de flutter test — vazio)
@@ -265,6 +279,14 @@ servido sem login **mudou no meio do estudo, sem aviso**, e a mudança
 não há como saber em qual rodada a troca aconteceu, e a comparação entre
 estratégias fica contaminada por uma variável não controlada.
 
+**Nota de 2026-09-21.** A verificação externa feita nesta data apontava
+`3.6 Flash` como modelo gratuito do app desde julho/2026. O seletor real, no
+mesmo dia, oferecia `3.5 Flash Lite`, `3.8 Flash` e `3.1 Pro` — sem 3.6. A
+linha de modelos havia mudado sem que as fontes acompanhassem. É o incidente
+que estes campos existem para capturar, ocorrendo antes da rodada 1: por isso
+a **evidência primária passa a ser o print do seletor**, e a fonte externa
+vira corroboração.
+
 Os dois campos são **independentes de propósito**. A autodeclaração de um
 modelo sobre a própria identidade não é evidência confiável — na execução com
 ChatGPT o modelo se autodeclarou "GPT-5.6 Luna", nome que não corresponde a
@@ -277,11 +299,11 @@ Quando os dois campos divergirem, **registre a divergência; não a resolva**.
 
 1. Ativar o estado de código do bloco (`git checkout` conforme o mapeamento) e
    rodar a verificação correspondente.
-2. Abrir **conversa nova** no Gemini, **com login**, e **fixar 3.6 Flash** no
+2. Abrir **conversa nova** no Gemini, **com login**, e **fixar 3.8 Flash** no
    seletor antes de qualquer coisa — uma conversa por rodada, sem contexto
    anterior. Cross-contamination invalida a comparação. Ver a seção de
    mudança de condição acima.
-3. **Printar o seletor** com 3.6 Flash ativo e arquivar em `evidencias/`.
+3. **Printar o seletor** com 3.8 Flash ativo e arquivar em `evidencias/`.
    Perguntar a versão do modelo e anotar a resposta **literal** (campo ✦). O
    print é a evidência primária; a autodeclaração é o segundo campo, e as
    duas podem divergir — registre a divergência, não a resolva.

@@ -64,6 +64,31 @@ O seletor nomeia o modelo, o print é a evidência, e uma troca silenciosa no
 meio do estudo — o incidente GPT-5.5→5.6 da Fase 2 — passa a ser detectável
 sessão a sessão.
 
+## Recusas não determinísticas — procedimento
+
+O Gemini recusa prompts benignos de forma intermitente. **O mesmo texto, sem
+uma única edição, produz recusa numa execução e resposta completa na
+seguinte.** Ocorrências até agora:
+
+| Quando | Modelo | Tipo de prompt | Texto da recusa |
+|---|---|---|---|
+| Piloto descartado, iteração de reparo | 3.5 Flash Lite | reparo, com bloco de log | "Não consigo te ajudar com isso. Sou só um modelo de linguagem..." |
+| Rodada 6 (`USILENT-COT`), tentativa 1 | **3.8 Flash** | **geração, sem bloco de log** | "Não posso te ajudar com isso. Sou apenas um modelo de linguagem..." |
+
+As duas explicações plausíveis no início — fragilidade do tier mais barato, e
+o bloco de log embutido no prompt de reparo — **foram descartadas pela
+segunda ocorrência**, que é 3.8 Flash, prompt de geração, sem log.
+
+**Procedimento:** reenviar o prompt **inalterado**, em conversa nova, e
+registrar a tentativa no doc da rodada. Uma recusa isolada **não é resultado
+da rodada**. Recusas repetidas ao mesmo prompt, sim — nesse caso, parar e
+documentar em vez de insistir.
+
+Cada doc de rodada registra o campo **"Tentativas de envio até obter
+resposta"**. A distribuição dessas tentativas ao longo das 60 rodadas é dado
+da réplica e deve entrar na análise: é uma diferença operacional em relação à
+Fase 2 com ChatGPT, onde nenhuma recusa foi registrada.
+
 ## Estrutura
 
 ```

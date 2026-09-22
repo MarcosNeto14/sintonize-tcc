@@ -3,8 +3,11 @@
 Réplica das rodadas da Fase 2 trocando o LLM de ChatGPT para Gemini. Tudo o
 mais é mantido idêntico: mesmos alvos, mesmos bugs plantados, mesmas três
 estratégias de prompt, mesmo protocolo de reparo (máx. 3 iterações com
-autoclassificação A/B/C), mesma execução em sessão sem login. **A única
-variável que muda é o modelo.**
+autoclassificação A/B/C). **A única variável que muda é o modelo.**
+
+Uma constante da Fase 2 **não** se mantém: a sessão sem login. Ver a seção
+de mudança de condição abaixo — deslogado, o Gemini serve apenas o tier mais
+barato, o que tornaria a comparação desigual em vez de controlada.
 
 Os artefatos do ChatGPT em `fase2/` são o grupo de comparação e
 **permanecem intocados**. Nada nesta pasta altera `fase2/`, `prompts/`,
@@ -12,9 +15,95 @@ Os artefatos do ChatGPT em `fase2/` são o grupo de comparação e
 
 ## Status
 
-**Nenhuma rodada executada.** Esta pasta contém apenas a infraestrutura:
+**Nenhuma das 60 rodadas executada.** Esta pasta contém a infraestrutura:
 prompts copiados, template de documentação e o mapeamento de estado de
 código. A submissão dos prompts continua manual.
+
+Uma rodada foi executada em 2026-09-21 sob a condição antiga (sem login) e
+**descartada**; está preservada em `piloto-flash-lite/`, fora da contagem.
+
+## ⚠ Mudança de condição — 2026-09-21: sessão COM login, fixada em 3.8 Flash
+
+A condição "sessão sem login", herdada da Fase 2, **foi abandonada nesta
+réplica**. Motivo:
+
+Sem login, o seletor do app Gemini **trava em 3.5 Flash Lite** — o tier mais
+barato — com os demais modelos atrás de login (print em
+`evidencias/2026-09-21_gemini_seletor_modelo_sem_login.png`). A Fase 2
+deslogada, no ChatGPT, recebeu GPT-5.5/5.6, o topo do que era servido.
+
+"Sem login" nunca foi o controle de fato — era um **proxy para "tier gratuito
+padrão"**. No ChatGPT o proxy funcionou; no Gemini ele aponta para outro
+lugar. Mantida a condição, a réplica compararia o carro-chefe de um contra o
+modelo mais fraco do outro: uma variável não controlada, na direção oposta à
+que a réplica quer medir.
+
+**Regra a partir de agora, uniforme para as 60 rodadas:**
+
+1. Sessão **com login**, em conta **Gemini Pro** (plano pago).
+2. Modelo **fixado em 3.8 Flash** no seletor, antes de colar o prompt.
+3. **Conferir a pílula ao lado do campo de texto a cada conversa nova** — ela
+   deve dizer "Flash", não "Flash-Lite". É o controle por rodada.
+4. **Print do seletor uma vez por sessão de trabalho** (por bloco/dia),
+   arquivado em `evidencias/`. Um print por rodada é redundante.
+
+**Por que 3.8 Flash.** É o default de uso geral do produto ("Ajuda para
+tudo"), o mesmo papel que GPT-5.5/5.6 cumpria para quem abria o ChatGPT.
+`3.1 Pro` casaria melhor em capacidade bruta, mas tem cota mesmo no plano
+pago e rebaixa para Flash no meio da sessão sem aviso — reintroduzindo
+exatamente a troca silenciosa que os campos ✦ existem para detectar.
+
+**Desvio de tier a registrar na redação.** A Fase 2 rodou no ChatGPT
+gratuito e deslogado; a réplica roda em conta Gemini Pro. O desvio existe e
+vai para as limitações. Ele é menor e mais defensável que o alternativo, que
+seria comparar o carro-chefe de um produto contra o modelo mais barato do
+outro.
+
+Consequência positiva: os dois campos ✦ deixam de depender de autodeclaração.
+O seletor nomeia o modelo, o print é a evidência, e uma troca silenciosa no
+meio do estudo — o incidente GPT-5.5→5.6 da Fase 2 — passa a ser detectável
+sessão a sessão.
+
+## Recusas não determinísticas — procedimento
+
+O Gemini recusa prompts benignos de forma intermitente. **O mesmo texto, sem
+uma única edição, produz recusa numa execução e resposta completa na
+seguinte.** Ocorrências até agora:
+
+| Quando | Modelo | Tipo de prompt | Texto da recusa |
+|---|---|---|---|
+| Piloto descartado, iteração de reparo | 3.5 Flash Lite | reparo, com bloco de log | "Não consigo te ajudar com isso. Sou só um modelo de linguagem..." |
+| Rodada 6 (`USILENT-COT`), tentativa 1 | **3.8 Flash** | **geração, sem bloco de log** | "Não posso te ajudar com isso. Sou apenas um modelo de linguagem..." |
+
+As duas explicações plausíveis no início — fragilidade do tier mais barato, e
+o bloco de log embutido no prompt de reparo — **foram descartadas pela
+segunda ocorrência**, que é 3.8 Flash, prompt de geração, sem log.
+
+**Procedimento:** reenviar o prompt **inalterado**, em conversa nova, e
+registrar a tentativa no doc da rodada. Uma recusa isolada **não é resultado
+da rodada**. Recusas repetidas ao mesmo prompt, sim — nesse caso, parar e
+documentar em vez de insistir.
+
+Cada doc de rodada registra o campo **"Tentativas de envio até obter
+resposta"**. A distribuição dessas tentativas ao longo das 60 rodadas é dado
+da réplica e deve entrar na análise: é uma diferença operacional em relação à
+Fase 2 com ChatGPT, onde nenhuma recusa foi registrada.
+
+## Extração do código gerado — limitação da automação
+
+Quando a rodada é executada por automação de navegador, a leitura direta do
+bloco de código da resposta é **bloqueada pelo guard de dados da extensão**
+sempre que o código contém algo que pareça credencial: senhas de teste,
+`user.uid`, e-mails de mock. Ocorreu nas rodadas 6 e 7.
+
+O caminho alternativo da automação — extrair o texto da página — funciona,
+mas **descarta os espaços à esquerda de cada linha**, destruindo a indentação.
+Reindentar com `dart format` é determinístico e não altera nenhum token, mas
+o arquivo deixa de ser o texto literal do modelo.
+
+**Procedimento:** quando a extração direta falhar, o operador cola a resposta
+manualmente e o arquivo verbatim substitui a versão reconstruída. Registrar
+no doc da rodada qual dos dois caminhos foi usado.
 
 ## Estrutura
 
@@ -23,6 +112,8 @@ fase2-gemini/
 ├── README.md                              (este arquivo)
 ├── Template_Documentacao_Rodada_Fase2.md  (template + 2 campos novos ✦)
 ├── prompts_prontos/                       (cópia byte-idêntica de fase2/prompts_prontos/)
+├── evidencias/                            (prints do seletor de modelo, um por sessão)
+├── piloto-flash-lite/                     (rodada descartada da condição antiga — fora das 60)
 ├── rodadas/{unit,widget,integration}/     (documentação por rodada — vazio)
 └── resultados/{unit,widget,integration}/{zero-shot,few-shot,cot}/
                                            (saídas de flutter test — vazio)
@@ -232,6 +323,23 @@ servido sem login **mudou no meio do estudo, sem aviso**, e a mudança
 não há como saber em qual rodada a troca aconteceu, e a comparação entre
 estratégias fica contaminada por uma variável não controlada.
 
+**Nota de 2026-09-21 — a pergunta de versão foi aposentada.** Perguntado
+diretamente, o Gemini **não declara versão alguma**: responde "Eu sou o
+Gemini, um grande modelo de linguagem desenvolvido pelo Google (...)", sem
+número. A resposta literal e o print estão em
+`evidencias/2026-09-21_gemini_pergunta_de_versao_nao_declara.png` e valem
+como **resposta padrão da réplica**, registrada uma vez. Repeti-la a cada
+rodada só gastaria uma mensagem por conversa sem produzir dado. O campo ✦ de
+autodeclaração passa a citar esse registro; o controle efetivo é o seletor.
+
+**Nota de 2026-09-21.** A verificação externa feita nesta data apontava
+`3.6 Flash` como modelo gratuito do app desde julho/2026. O seletor real, no
+mesmo dia, oferecia `3.5 Flash Lite`, `3.8 Flash` e `3.1 Pro` — sem 3.6. A
+linha de modelos havia mudado sem que as fontes acompanhassem. É o incidente
+que estes campos existem para capturar, ocorrendo antes da rodada 1: por isso
+a **evidência primária passa a ser o print do seletor**, e a fonte externa
+vira corroboração.
+
 Os dois campos são **independentes de propósito**. A autodeclaração de um
 modelo sobre a própria identidade não é evidência confiável — na execução com
 ChatGPT o modelo se autodeclarou "GPT-5.6 Luna", nome que não corresponde a
@@ -244,10 +352,13 @@ Quando os dois campos divergirem, **registre a divergência; não a resolva**.
 
 1. Ativar o estado de código do bloco (`git checkout` conforme o mapeamento) e
    rodar a verificação correspondente.
-2. Abrir **conversa nova** no Gemini, **sem login** — uma conversa por rodada,
-   sem contexto anterior. Cross-contamination invalida a comparação.
-3. Perguntar a versão do modelo e anotar a resposta **literal** (campo ✦), mais
-   a verificação externa.
+2. Abrir **conversa nova** no Gemini, **com login**, e **fixar 3.8 Flash** no
+   seletor antes de qualquer coisa — uma conversa por rodada, sem contexto
+   anterior. Cross-contamination invalida a comparação. Ver a seção de
+   mudança de condição acima.
+3. Conferir a pílula ("Flash", não "Flash-Lite"). Print do seletor uma vez
+   por sessão de trabalho, em `evidencias/`. **A pergunta de versão não é
+   repetida a cada rodada** — ver abaixo.
 4. Colar o prompt da rodada, do separador `---` em diante, **verbatim**.
 5. Salvar o teste gerado, rodar `flutter test` e arquivar a saída em
    `resultados/<nível>/<estratégia>/`.

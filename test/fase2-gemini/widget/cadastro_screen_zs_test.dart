@@ -34,7 +34,6 @@ void main() {
       final element = find.byWidget(widget).evaluate().firstOrNull;
       if (element == null) return false;
 
-      // O _buildTextField coloca o Text e o TextFormField dentro da mesma Column
       final parentColumn = element.findAncestorWidgetOfExactType<Column>();
       if (parentColumn == null) return false;
 
@@ -44,9 +43,26 @@ void main() {
     });
   }
 
+  /// Garante que o widget seja visível rolando a SingleChildScrollView se necessário
+  Future<void> scrollAndTap(WidgetTester tester, Finder finder) async {
+    final scrollable = find.byType(Scrollable).first;
+    await tester.scrollUntilVisible(
+      finder,
+      50.0,
+      scrollable: scrollable,
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(finder);
+    await tester.pumpAndSettle();
+  }
+
   group('CadastroScreen - Renderização e Estrutura Inicial', () {
     testWidgets('Deve renderizar todos os campos de formulário e botões essenciais',
         (WidgetTester tester) async {
+      tester.view.physicalSize = const Size(1080, 2400);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(() => tester.view.resetPhysicalSize());
+
       await tester.pumpWidget(createWidgetUnderTest());
 
       expect(find.text('Nome'), findsOneWidget);
@@ -70,12 +86,14 @@ void main() {
   group('CadastroScreen - Validações do Formulário', () {
     testWidgets('Deve exibir erros obrigatórios ao tentar submeter formulário em branco',
         (WidgetTester tester) async {
+      tester.view.physicalSize = const Size(1080, 2400);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(() => tester.view.resetPhysicalSize());
+
       await tester.pumpWidget(createWidgetUnderTest());
 
       final cadastrarBtn = find.widgetWithText(ElevatedButton, 'Cadastrar');
-      await tester.ensureVisible(cadastrarBtn);
-      await tester.tap(cadastrarBtn);
-      await tester.pumpAndSettle();
+      await scrollAndTap(tester, cadastrarBtn);
 
       expect(find.text('O nome é obrigatório'), findsOneWidget);
       expect(find.text('A data de nascimento é obrigatória'), findsOneWidget);
@@ -87,22 +105,22 @@ void main() {
 
     testWidgets('Validações de regras específicas: Nome com caracteres inválidos e Senha curta',
         (WidgetTester tester) async {
+      tester.view.physicalSize = const Size(1080, 2400);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(() => tester.view.resetPhysicalSize());
+
       await tester.pumpWidget(createWidgetUnderTest());
 
       // Nome com números
       final nomeField = findFieldByLabel('Nome');
-      await tester.ensureVisible(nomeField);
       await tester.enterText(nomeField, 'Marcos 123');
 
       // Senha curta (< 6 caracteres)
       final senhaField = findFieldByLabel('Senha');
-      await tester.ensureVisible(senhaField);
       await tester.enterText(senhaField, '123');
 
       final cadastrarBtn = find.widgetWithText(ElevatedButton, 'Cadastrar');
-      await tester.ensureVisible(cadastrarBtn);
-      await tester.tap(cadastrarBtn);
-      await tester.pumpAndSettle();
+      await scrollAndTap(tester, cadastrarBtn);
 
       expect(
         find.text('O nome não pode conter números ou caracteres especiais'),
@@ -116,31 +134,29 @@ void main() {
 
     testWidgets('Validações de Formato de E-mail, Data Inválida e Divergência de Senhas',
         (WidgetTester tester) async {
+      tester.view.physicalSize = const Size(1080, 2400);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(() => tester.view.resetPhysicalSize());
+
       await tester.pumpWidget(createWidgetUnderTest());
 
       // E-mail inválido
       final emailField = findFieldByLabel('E-mail');
-      await tester.ensureVisible(emailField);
       await tester.enterText(emailField, 'emailinvalido.com');
 
-      // Data inválida (dia inexistente para fevereiro)
+      // Data inválida (ano 2020 foi bissexto, fevereiro só vai até dia 29)
       final dataField = findFieldByLabel('Data de Nascimento');
-      await tester.ensureVisible(dataField);
-      await tester.enterText(dataField, '31022020'); // Formatador converte para 31/02/2020
+      await tester.enterText(dataField, '31022020');
 
       // Senha e confirmação diferentes
       final senhaField = findFieldByLabel('Senha');
-      await tester.ensureVisible(senhaField);
       await tester.enterText(senhaField, 'senha123');
 
       final confSenhaField = findFieldByLabel('Confirmar Senha');
-      await tester.ensureVisible(confSenhaField);
       await tester.enterText(confSenhaField, 'senhaDiferente');
 
       final cadastrarBtn = find.widgetWithText(ElevatedButton, 'Cadastrar');
-      await tester.ensureVisible(cadastrarBtn);
-      await tester.tap(cadastrarBtn);
-      await tester.pumpAndSettle();
+      await scrollAndTap(tester, cadastrarBtn);
 
       expect(find.text('E-mail inválido'), findsOneWidget);
       expect(find.text('Dia deve ser entre 01 e 29'), findsOneWidget);
@@ -151,11 +167,16 @@ void main() {
   group('CadastroScreen - Fluxo de Sucesso e Navegação', () {
     testWidgets('Preenchimento correto cadastra usuário no Auth e persiste no Firestore',
         (WidgetTester tester) async {
+      tester.view.physicalSize = const Size(1080, 2400);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(() => tester.view.resetPhysicalSize());
+
       await tester.pumpWidget(createWidgetUnderTest());
 
       Future<void> preencherCampo(String label, String valor) async {
         final campo = findFieldByLabel(label);
-        await tester.ensureVisible(campo);
+        final scrollable = find.byType(Scrollable).first;
+        await tester.scrollUntilVisible(campo, 50.0, scrollable: scrollable);
         await tester.enterText(campo, valor);
       }
 
@@ -172,9 +193,7 @@ void main() {
 
       // Seleciona o Dropdown de Estado
       final dropdown = find.byType(DropdownButtonFormField<String>);
-      await tester.ensureVisible(dropdown);
-      await tester.tap(dropdown);
-      await tester.pumpAndSettle();
+      await scrollAndTap(tester, dropdown);
 
       final itemPE = find.widgetWithText(DropdownMenuItem<String>, 'PE').last;
       await tester.tap(itemPE);
@@ -182,9 +201,7 @@ void main() {
 
       // Clica em cadastrar
       final cadastrarBtn = find.widgetWithText(ElevatedButton, 'Cadastrar');
-      await tester.ensureVisible(cadastrarBtn);
-      await tester.tap(cadastrarBtn);
-      await tester.pumpAndSettle();
+      await scrollAndTap(tester, cadastrarBtn);
 
       // 1. Verifica criação no Auth
       expect(mockAuth.currentUser, isNotNull);
@@ -207,13 +224,15 @@ void main() {
 
     testWidgets('Toque em "Já tem uma conta? Faça login" deve abrir LoginScreen',
         (WidgetTester tester) async {
+      tester.view.physicalSize = const Size(1080, 2400);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(() => tester.view.resetPhysicalSize());
+
       await tester.pumpWidget(createWidgetUnderTest());
 
       final loginBtn =
           find.widgetWithText(TextButton, 'Já tem uma conta? Faça login');
-      await tester.ensureVisible(loginBtn);
-      await tester.tap(loginBtn);
-      await tester.pumpAndSettle();
+      await scrollAndTap(tester, loginBtn);
 
       expect(find.byType(LoginScreen), findsOneWidget);
     });

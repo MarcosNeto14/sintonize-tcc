@@ -1,0 +1,3 @@
+  0s mockito:mockBuilder on 1 input; test/fase2-gemini/widget/login_screen_cot_test.dart
+  17s mockito:mockBuilder on 1 input: 1 output; spent 13s analyzing, 3s resolving
+  Built with build_runner/jit in 20s; wrote 1 output.

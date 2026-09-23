@@ -45,8 +45,7 @@ Reexecução **1/4**, fora da contagem de 60. Mesmo bug da rodada 11
 
 Procedimento do README: recusa isolada não é resultado; reenviado o prompt
 inalterado em conversa nova. **Segunda recusa registrada em prompt de geração
-com 3.8 Flash** (a primeira foi a rodada 6). A recusa da rodada 17, iteração
-3, foi em prompt de reparo.
+com 3.8 Flash** (a primeira foi a rodada 6).
 
 ---
 

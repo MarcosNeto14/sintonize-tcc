@@ -1,0 +1,488 @@
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 93.0.0 (108.0.0 available)
+  _flutterfire_internals 1.3.52 (1.3.77 available)
+  analyzer 10.0.1 (14.4.0 available)
+  async 2.11.0 (2.13.1 available)
+  boolean_selector 2.1.1 (2.1.2 available)
+  build 4.0.5 (4.0.11 available)
+  build_config 1.3.0 (1.3.3 available)
+  build_daemon 4.1.1 (4.1.6 available)
+  build_runner 2.13.1 (2.16.1 available)
+  built_value 8.12.5 (8.13.0 available)
+  cel 0.5.4+1 (0.6.0 available)
+  clock 1.1.2 (1.1.3 available)
+  cloud_firestore 5.6.4 (6.10.0 available)
+  cloud_firestore_platform_interface 6.6.4 (8.0.7 available)
+  cloud_firestore_web 4.4.4 (5.7.3 available)
+  code_builder 4.11.1 (4.12.0 available)
+  crypto 3.0.6 (3.0.7 available)
+  dart_style 3.1.7 (3.1.13 available)
+  equatable 2.0.8 (3.0.0 available)
+  fake_cloud_firestore 3.1.0 (4.3.0 available)
+  fake_firebase_security_rules 0.5.4 (0.6.0 available)
+  firebase_auth 5.5.0 (6.7.0 available)
+  firebase_auth_mocks 0.14.2 (0.15.2 available)
+  firebase_auth_platform_interface 7.6.0 (9.1.0 available)
+  firebase_auth_web 5.14.0 (6.3.0 available)
+  firebase_core 3.12.0 (4.15.0 available)
+  firebase_core_platform_interface 5.4.0 (8.1.1 available)
+  firebase_core_web 2.21.0 (3.12.0 available)
+  flutter_lints 5.0.0 (6.0.0 available)
+  flutter_plugin_android_lifecycle 2.0.24 (2.0.35 available)
+  geolocator 13.0.2 (14.0.3 available)
+  geolocator_android 4.6.1 (5.0.3 available)
+  geolocator_apple 2.3.9 (2.3.14 available)
+  geolocator_platform_interface 4.2.4 (4.3.0 available)
+  geolocator_web 4.1.1 (4.1.4 available)
+  geolocator_windows 0.2.3 (0.2.5 available)
+  glob 2.1.3 (2.2.0 available)
+  google_maps 8.1.1 (8.3.0 available)
+  google_maps_flutter 2.10.0 (2.18.1 available)
+  google_maps_flutter_android 2.14.12 (2.19.13 available)
+  google_maps_flutter_ios 2.13.2 (2.18.6 available)
+  google_maps_flutter_platform_interface 2.11.0 (2.17.0 available)
+  google_maps_flutter_web 0.5.10 (0.6.3+1 available)
+  html 0.15.5 (0.15.7 available)
+  http 0.13.6 (1.6.0 available)
+  io 1.0.5 (1.1.0 available)
+  json_annotation 4.9.0 (4.12.0 available)
+  lints 5.1.1 (6.1.0 available)
+  logger 2.7.0 (2.8.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.17.0 (1.19.0 available)
+  mime 2.0.0 (2.1.0 available)
+  mockito 5.6.4 (5.8.1 available)
+  package_config 2.2.0 (3.0.0 available)
+  platform 3.1.6 (3.2.0 available)
+  pool 1.5.2 (1.5.3 available)
+  process 5.0.5 (5.0.6 available)
+  pub_semver 2.2.0 (2.2.1 available)
+  pubspec_parse 1.5.0 (1.6.0 available)
+  rx 0.4.0 (0.5.0 available)
+  sanitize_html 2.1.0 (2.2.0 available)
+  source_gen 4.2.2 (4.3.0 available)
+  source_span 1.10.0 (1.10.2 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  stream_transform 2.1.1 (2.1.2 available)
+  string_scanner 1.3.0 (1.4.1 available)
+  term_glyph 1.2.1 (1.2.2 available)
+  test_api 0.7.10 (0.7.14 available)
+  uuid 4.5.1 (4.6.0 available)
+  vector_math 2.2.0 (2.4.3 available)
+  vm_service 14.3.0 (15.3.0 available)
+  web 1.1.0 (1.1.1 available)
+  webdriver 3.1.0 (3.2.0 available)
+  yaml 3.1.3 (3.1.4 available)
+Got dependencies!
+75 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_cot_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 1. Renderização Básica Deve renderizar todos os campos de texto, botões e labels corretamente
+══╡ EXCEPTION CAUGHT BY IMAGE RESOURCE SERVICE ╞════════════════════════════════════════════════════
+The following FormatException was thrown while resolving an image:
+Message corrupted
+
+When the exception was thrown, this was the stack:
+#0      StandardMessageCodec.readValueOfType (package:flutter/src/services/message_codecs.dart:533:9)
+#1      StandardMessageCodec.readValue (package:flutter/src/services/message_codecs.dart:477:12)
+#2      StandardMessageCodec.decodeMessage (package:flutter/src/services/message_codecs.dart:339:28)
+#3      new _AssetManifestBin.fromStandardMessageCodecMessage (package:flutter/src/services/asset_manifest.dart:85:55)
+<asynchronous suspension>
+#9      CachingAssetBundle.loadStructuredBinaryData.<anonymous closure> (package:flutter/src/services/asset_bundle.dart:273:11)
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+Image provider: ScrollAwareImageProvider<Object>()
+Image configuration: ImageConfiguration(bundle: PlatformAssetBundle#99588(), devicePixelRatio: 3.0,
+  locale: en_US, textDirection: TextDirection.ltr, size: Size(150.0, 150.0), platform: android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: 1. Renderização Básica Deve renderizar todos os campos de texto, botões e labels corretamente [E]
+  Test failed. See exception logs above.
+  The test description was: Deve renderizar todos os campos de texto, botões e labels corretamente
+  
+00:01 +0 -1: 2. Validação de Formulário Deve exibir mensagens de erro ao submeter com campos em branco
+══╡ EXCEPTION CAUGHT BY IMAGE RESOURCE SERVICE ╞════════════════════════════════════════════════════
+The following FormatException was thrown while resolving an image:
+Message corrupted
+
+When the exception was thrown, this was the stack:
+#0      StandardMessageCodec.readValueOfType (package:flutter/src/services/message_codecs.dart:533:9)
+#1      StandardMessageCodec.readValue (package:flutter/src/services/message_codecs.dart:477:12)
+#2      StandardMessageCodec.decodeMessage (package:flutter/src/services/message_codecs.dart:339:28)
+#3      new _AssetManifestBin.fromStandardMessageCodecMessage (package:flutter/src/services/asset_manifest.dart:85:55)
+<asynchronous suspension>
+#9      CachingAssetBundle.loadStructuredBinaryData.<anonymous closure> (package:flutter/src/services/asset_bundle.dart:273:11)
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+Image provider: ScrollAwareImageProvider<Object>()
+Image configuration: ImageConfiguration(bundle: PlatformAssetBundle#99588(), devicePixelRatio: 3.0,
+  locale: en_US, textDirection: TextDirection.ltr, size: Size(150.0, 150.0), platform: android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -2: 2. Validação de Formulário Deve exibir mensagens de erro ao submeter com campos em branco [E]
+  Test failed. See exception logs above.
+  The test description was: Deve exibir mensagens de erro ao submeter com campos em branco
+  
+00:02 +0 -2: 2. Validação de Formulário Deve exibir erros para campos preenchidos com dados inválidos
+══╡ EXCEPTION CAUGHT BY IMAGE RESOURCE SERVICE ╞════════════════════════════════════════════════════
+The following FormatException was thrown while resolving an image:
+Message corrupted
+
+When the exception was thrown, this was the stack:
+#0      StandardMessageCodec.readValueOfType (package:flutter/src/services/message_codecs.dart:533:9)
+#1      StandardMessageCodec.readValue (package:flutter/src/services/message_codecs.dart:477:12)
+#2      StandardMessageCodec.decodeMessage (package:flutter/src/services/message_codecs.dart:339:28)
+#3      new _AssetManifestBin.fromStandardMessageCodecMessage (package:flutter/src/services/asset_manifest.dart:85:55)
+<asynchronous suspension>
+#9      CachingAssetBundle.loadStructuredBinaryData.<anonymous closure> (package:flutter/src/services/asset_bundle.dart:273:11)
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+Image provider: ScrollAwareImageProvider<Object>()
+Image configuration: ImageConfiguration(bundle: PlatformAssetBundle#99588(), devicePixelRatio: 3.0,
+  locale: en_US, textDirection: TextDirection.ltr, size: Size(150.0, 150.0), platform: android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Too many elements
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:696:24)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:883:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2382:32)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_cot_test.dart:191:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  Deve exibir erros para campos preenchidos com dados inválidos
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -3: 2. Validação de Formulário Deve exibir erros para campos preenchidos com dados inválidos [E]
+  Test failed. See exception logs above.
+  The test description was: Deve exibir erros para campos preenchidos com dados inválidos
+  
+00:03 +0 -3: 2. Validação de Formulário Deve validar que data de nascimento não pode estar no futuro
+══╡ EXCEPTION CAUGHT BY IMAGE RESOURCE SERVICE ╞════════════════════════════════════════════════════
+The following FormatException was thrown while resolving an image:
+Message corrupted
+
+When the exception was thrown, this was the stack:
+#0      StandardMessageCodec.readValueOfType (package:flutter/src/services/message_codecs.dart:533:9)
+#1      StandardMessageCodec.readValue (package:flutter/src/services/message_codecs.dart:477:12)
+#2      StandardMessageCodec.decodeMessage (package:flutter/src/services/message_codecs.dart:339:28)
+#3      new _AssetManifestBin.fromStandardMessageCodecMessage (package:flutter/src/services/asset_manifest.dart:85:55)
+<asynchronous suspension>
+#9      CachingAssetBundle.loadStructuredBinaryData.<anonymous closure> (package:flutter/src/services/asset_bundle.dart:273:11)
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+Image provider: ScrollAwareImageProvider<Object>()
+Image configuration: ImageConfiguration(bundle: PlatformAssetBundle#99588(), devicePixelRatio: 3.0,
+  locale: en_US, textDirection: TextDirection.ltr, size: Size(150.0, 150.0), platform: android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +0 -4: 2. Validação de Formulário Deve validar que data de nascimento não pode estar no futuro [E]
+  Test failed. See exception logs above.
+  The test description was: Deve validar que data de nascimento não pode estar no futuro
+  
+00:04 +0 -4: 3. Interação do Usuário e Integração HTTP (ViaCEP) Deve formatar a data automaticamente com barras ao digitar
+══╡ EXCEPTION CAUGHT BY IMAGE RESOURCE SERVICE ╞════════════════════════════════════════════════════
+The following FormatException was thrown while resolving an image:
+Message corrupted
+
+When the exception was thrown, this was the stack:
+#0      StandardMessageCodec.readValueOfType (package:flutter/src/services/message_codecs.dart:533:9)
+#1      StandardMessageCodec.readValue (package:flutter/src/services/message_codecs.dart:477:12)
+#2      StandardMessageCodec.decodeMessage (package:flutter/src/services/message_codecs.dart:339:28)
+#3      new _AssetManifestBin.fromStandardMessageCodecMessage (package:flutter/src/services/asset_manifest.dart:85:55)
+<asynchronous suspension>
+#9      CachingAssetBundle.loadStructuredBinaryData.<anonymous closure> (package:flutter/src/services/asset_bundle.dart:273:11)
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+Image provider: ScrollAwareImageProvider<Object>()
+Image configuration: ImageConfiguration(bundle: PlatformAssetBundle#99588(), devicePixelRatio: 3.0,
+  locale: en_US, textDirection: TextDirection.ltr, size: Size(150.0, 150.0), platform: android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +0 -5: 3. Interação do Usuário e Integração HTTP (ViaCEP) Deve formatar a data automaticamente com barras ao digitar [E]
+  Test failed. See exception logs above.
+  The test description was: Deve formatar a data automaticamente com barras ao digitar
+  
+00:04 +0 -5: 3. Interação do Usuário e Integração HTTP (ViaCEP) Deve buscar o CEP e preencher os dados de endereço quando o CEP tiver 9 dígitos
+══╡ EXCEPTION CAUGHT BY IMAGE RESOURCE SERVICE ╞════════════════════════════════════════════════════
+The following FormatException was thrown while resolving an image:
+Message corrupted
+
+When the exception was thrown, this was the stack:
+#0      StandardMessageCodec.readValueOfType (package:flutter/src/services/message_codecs.dart:533:9)
+#1      StandardMessageCodec.readValue (package:flutter/src/services/message_codecs.dart:477:12)
+#2      StandardMessageCodec.decodeMessage (package:flutter/src/services/message_codecs.dart:339:28)
+#3      new _AssetManifestBin.fromStandardMessageCodecMessage (package:flutter/src/services/asset_manifest.dart:85:55)
+<asynchronous suspension>
+#9      CachingAssetBundle.loadStructuredBinaryData.<anonymous closure> (package:flutter/src/services/asset_bundle.dart:273:11)
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+Image provider: ScrollAwareImageProvider<Object>()
+Image configuration: ImageConfiguration(bundle: PlatformAssetBundle#99588(), devicePixelRatio: 3.0,
+  locale: en_US, textDirection: TextDirection.ltr, size: Size(150.0, 150.0), platform: android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Too many elements
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:696:24)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:883:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2382:32)
+#3      main.<anonymous closure>.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_cot_test.dart:249:22)
+<asynchronous suspension>
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_cot_test.dart:241:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  Deve buscar o CEP e preencher os dados de endereço quando o CEP tiver 9 dígitos
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +0 -6: 3. Interação do Usuário e Integração HTTP (ViaCEP) Deve buscar o CEP e preencher os dados de endereço quando o CEP tiver 9 dígitos [E]
+  Test failed. See exception logs above.
+  The test description was: Deve buscar o CEP e preencher os dados de endereço quando o CEP tiver 9 dígitos
+  
+00:05 +0 -6: 3. Interação do Usuário e Integração HTTP (ViaCEP) Deve mostrar SnackBar quando CEP não for encontrado pelo ViaCEP
+══╡ EXCEPTION CAUGHT BY IMAGE RESOURCE SERVICE ╞════════════════════════════════════════════════════
+The following FormatException was thrown while resolving an image:
+Message corrupted
+
+When the exception was thrown, this was the stack:
+#0      StandardMessageCodec.readValueOfType (package:flutter/src/services/message_codecs.dart:533:9)
+#1      StandardMessageCodec.readValue (package:flutter/src/services/message_codecs.dart:477:12)
+#2      StandardMessageCodec.decodeMessage (package:flutter/src/services/message_codecs.dart:339:28)
+#3      new _AssetManifestBin.fromStandardMessageCodecMessage (package:flutter/src/services/asset_manifest.dart:85:55)
+<asynchronous suspension>
+#9      CachingAssetBundle.loadStructuredBinaryData.<anonymous closure> (package:flutter/src/services/asset_bundle.dart:273:11)
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+Image provider: ScrollAwareImageProvider<Object>()
+Image configuration: ImageConfiguration(bundle: PlatformAssetBundle#99588(), devicePixelRatio: 3.0,
+  locale: en_US, textDirection: TextDirection.ltr, size: Size(150.0, 150.0), platform: android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Too many elements
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:696:24)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:883:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2382:32)
+#3      main.<anonymous closure>.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_cot_test.dart:272:22)
+<asynchronous suspension>
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_cot_test.dart:264:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  Deve mostrar SnackBar quando CEP não for encontrado pelo ViaCEP
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +0 -7: 3. Interação do Usuário e Integração HTTP (ViaCEP) Deve mostrar SnackBar quando CEP não for encontrado pelo ViaCEP [E]
+  Test failed. See exception logs above.
+  The test description was: Deve mostrar SnackBar quando CEP não for encontrado pelo ViaCEP
+  
+00:06 +0 -7: 3. Interação do Usuário e Integração HTTP (ViaCEP) Deve navegar para LoginScreen ao clicar em "Já tem uma conta? Faça login"
+══╡ EXCEPTION CAUGHT BY IMAGE RESOURCE SERVICE ╞════════════════════════════════════════════════════
+The following FormatException was thrown while resolving an image:
+Message corrupted
+
+When the exception was thrown, this was the stack:
+#0      StandardMessageCodec.readValueOfType (package:flutter/src/services/message_codecs.dart:533:9)
+#1      StandardMessageCodec.readValue (package:flutter/src/services/message_codecs.dart:477:12)
+#2      StandardMessageCodec.decodeMessage (package:flutter/src/services/message_codecs.dart:339:28)
+#3      new _AssetManifestBin.fromStandardMessageCodecMessage (package:flutter/src/services/asset_manifest.dart:85:55)
+<asynchronous suspension>
+#9      CachingAssetBundle.loadStructuredBinaryData.<anonymous closure> (package:flutter/src/services/asset_bundle.dart:273:11)
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+Image provider: ScrollAwareImageProvider<Object>()
+Image configuration: ImageConfiguration(bundle: PlatformAssetBundle#99588(), devicePixelRatio: 3.0,
+  locale: en_US, textDirection: TextDirection.ltr, size: Size(150.0, 150.0), platform: android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY IMAGE RESOURCE SERVICE ╞════════════════════════════════════════════════════
+The following FormatException was thrown while resolving an image:
+Message corrupted
+
+When the exception was thrown, this was the stack:
+#0      StandardMessageCodec.readValueOfType (package:flutter/src/services/message_codecs.dart:533:9)
+#1      StandardMessageCodec.readValue (package:flutter/src/services/message_codecs.dart:477:12)
+#2      StandardMessageCodec.decodeMessage (package:flutter/src/services/message_codecs.dart:339:28)
+#3      new _AssetManifestBin.fromStandardMessageCodecMessage (package:flutter/src/services/asset_manifest.dart:85:55)
+<asynchronous suspension>
+#9      CachingAssetBundle.loadStructuredBinaryData.<anonymous closure> (package:flutter/src/services/asset_bundle.dart:273:11)
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+Image provider: ScrollAwareImageProvider<Object>()
+Image configuration: ImageConfiguration(bundle: PlatformAssetBundle#99588(), devicePixelRatio: 3.0,
+  locale: en_US, textDirection: TextDirection.ltr, size: Size(200.0, 200.0), platform: android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY IMAGE RESOURCE SERVICE ╞════════════════════════════════════════════════════
+The following FormatException was thrown while resolving an image:
+Message corrupted
+
+When the exception was thrown, this was the stack:
+#0      StandardMessageCodec.readValueOfType (package:flutter/src/services/message_codecs.dart:533:9)
+#1      StandardMessageCodec.readValue (package:flutter/src/services/message_codecs.dart:477:12)
+#2      StandardMessageCodec.decodeMessage (package:flutter/src/services/message_codecs.dart:339:28)
+#3      new _AssetManifestBin.fromStandardMessageCodecMessage (package:flutter/src/services/asset_manifest.dart:85:55)
+<asynchronous suspension>
+#9      CachingAssetBundle.loadStructuredBinaryData.<anonymous closure> (package:flutter/src/services/asset_bundle.dart:273:11)
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+Image provider: ScrollAwareImageProvider<Object>()
+Image configuration: ImageConfiguration(bundle: PlatformAssetBundle#99588(), devicePixelRatio: 3.0,
+  locale: en_US, textDirection: TextDirection.ltr, size: Size(150.0, 150.0), platform: android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (3) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +0 -8: 3. Interação do Usuário e Integração HTTP (ViaCEP) Deve navegar para LoginScreen ao clicar em "Já tem uma conta? Faça login" [E]
+  Test failed. See exception logs above.
+  The test description was: Deve navegar para LoginScreen ao clicar em "Já tem uma conta? Faça login"
+  
+00:07 +0 -8: 4. Cenário de Sucesso Deve registrar no Auth, salvar no Firestore e navegar para GenerosCadastroScreen
+══╡ EXCEPTION CAUGHT BY IMAGE RESOURCE SERVICE ╞════════════════════════════════════════════════════
+The following FormatException was thrown while resolving an image:
+Message corrupted
+
+When the exception was thrown, this was the stack:
+#0      StandardMessageCodec.readValueOfType (package:flutter/src/services/message_codecs.dart:533:9)
+#1      StandardMessageCodec.readValue (package:flutter/src/services/message_codecs.dart:477:12)
+#2      StandardMessageCodec.decodeMessage (package:flutter/src/services/message_codecs.dart:339:28)
+#3      new _AssetManifestBin.fromStandardMessageCodecMessage (package:flutter/src/services/asset_manifest.dart:85:55)
+<asynchronous suspension>
+#9      CachingAssetBundle.loadStructuredBinaryData.<anonymous closure> (package:flutter/src/services/asset_bundle.dart:273:11)
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+Image provider: ScrollAwareImageProvider<Object>()
+Image configuration: ImageConfiguration(bundle: PlatformAssetBundle#99588(), devicePixelRatio: 3.0,
+  locale: en_US, textDirection: TextDirection.ltr, size: Size(150.0, 150.0), platform: android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Too many elements
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:696:24)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:883:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2382:32)
+#3      main.<anonymous closure>.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_cot_test.dart:319:22)
+<asynchronous suspension>
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_cot_test.dart:297:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  Deve registrar no Auth, salvar no Firestore e navegar para GenerosCadastroScreen
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:09 +0 -9: 4. Cenário de Sucesso Deve registrar no Auth, salvar no Firestore e navegar para GenerosCadastroScreen [E]
+  Test failed. See exception logs above.
+  The test description was: Deve registrar no Auth, salvar no Firestore e navegar para GenerosCadastroScreen
+  
+00:09 +0 -9: 5. Cenários de Erro (Firebase) Deve exibir SnackBar com a mensagem de erro quando FirebaseAuth falhar
+══╡ EXCEPTION CAUGHT BY IMAGE RESOURCE SERVICE ╞════════════════════════════════════════════════════
+The following FormatException was thrown while resolving an image:
+Message corrupted
+
+When the exception was thrown, this was the stack:
+#0      StandardMessageCodec.readValueOfType (package:flutter/src/services/message_codecs.dart:533:9)
+#1      StandardMessageCodec.readValue (package:flutter/src/services/message_codecs.dart:477:12)
+#2      StandardMessageCodec.decodeMessage (package:flutter/src/services/message_codecs.dart:339:28)
+#3      new _AssetManifestBin.fromStandardMessageCodecMessage (package:flutter/src/services/asset_manifest.dart:85:55)
+<asynchronous suspension>
+#9      CachingAssetBundle.loadStructuredBinaryData.<anonymous closure> (package:flutter/src/services/asset_bundle.dart:273:11)
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+Image provider: ScrollAwareImageProvider<Object>()
+Image configuration: ImageConfiguration(bundle: PlatformAssetBundle#99588(), devicePixelRatio: 3.0,
+  locale: en_US, textDirection: TextDirection.ltr, size: Size(150.0, 150.0), platform: android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Too many elements
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:696:24)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:883:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2382:32)
+#3      main.<anonymous closure>.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_cot_test.dart:398:22)
+<asynchronous suspension>
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_cot_test.dart:384:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  Deve exibir SnackBar com a mensagem de erro quando FirebaseAuth falhar
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:10 +0 -10: 5. Cenários de Erro (Firebase) Deve exibir SnackBar com a mensagem de erro quando FirebaseAuth falhar [E]
+  Test failed. See exception logs above.
+  The test description was: Deve exibir SnackBar com a mensagem de erro quando FirebaseAuth falhar
+  
+00:10 +0 -10: (tearDownAll)
+00:10 +0 -10: Some tests failed.

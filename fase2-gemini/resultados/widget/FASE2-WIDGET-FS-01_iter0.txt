@@ -78,10 +78,10 @@ Downloading packages...
 Got dependencies!
 75 packages have newer versions incompatible with dependency constraints.
 Try `flutter pub outdated` for more information.
-00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_zs_test.dart
-00:00 +0: CadastroScreen - Renderização e Estrutura Inicial Deve renderizar todos os campos de formulário e botões essenciais
-00:03 +1: CadastroScreen - Validações do Formulário Deve exibir erros obrigatórios ao tentar submeter formulário em branco
-00:04 +2: CadastroScreen - Validações do Formulário Validações de regras específicas: Nome com caracteres inválidos e Senha curta
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_fs_test.dart
+00:00 +0: CadastroScreen Widget Tests deve renderizar os componentes principais da tela de cadastro
+00:01 +1: CadastroScreen Widget Tests deve exibir mensagens de erro para campos obrigatórios vazios
+00:02 +2: CadastroScreen Widget Tests deve validar nome com caracteres especiais ou números
 ══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
 The following StateError was thrown running a test:
 Bad state: Too many elements
@@ -95,7 +95,7 @@ When the exception was thrown, this was the stack:
 #7      WidgetTester.enterText.<anonymous closure> (package:flutter_test/src/widget_tester.dart:1160:13)
 #10     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
 #11     WidgetTester.enterText (package:flutter_test/src/widget_tester.dart:1159:27)
-#12     main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_zs_test.dart:83:20)
+#12     main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_fs_test.dart:80:20)
 <asynchronous suspension>
 #13     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
 <asynchronous suspension>
@@ -105,13 +105,13 @@ When the exception was thrown, this was the stack:
 (elided 5 frames from dart:async and package:stack_trace)
 
 The test description was:
-  Validações de regras específicas: Nome com caracteres inválidos e Senha curta
+  deve validar nome com caracteres especiais ou números
 ════════════════════════════════════════════════════════════════════════════════════════════════════
-00:05 +2 -1: CadastroScreen - Validações do Formulário Validações de regras específicas: Nome com caracteres inválidos e Senha curta [E]
+00:03 +2 -1: CadastroScreen Widget Tests deve validar nome com caracteres especiais ou números [E]
   Test failed. See exception logs above.
-  The test description was: Validações de regras específicas: Nome com caracteres inválidos e Senha curta
+  The test description was: deve validar nome com caracteres especiais ou números
   
-00:05 +2 -1: CadastroScreen - Validações do Formulário Validações de Formato de E-mail, Data Inválida e Divergência de Senhas
+00:03 +2 -1: CadastroScreen Widget Tests deve validar formato incorreto de e-mail
 ══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
 The following StateError was thrown running a test:
 Bad state: Too many elements
@@ -125,7 +125,7 @@ When the exception was thrown, this was the stack:
 #7      WidgetTester.enterText.<anonymous closure> (package:flutter_test/src/widget_tester.dart:1160:13)
 #10     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
 #11     WidgetTester.enterText (package:flutter_test/src/widget_tester.dart:1159:27)
-#12     main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_zs_test.dart:120:20)
+#12     main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_fs_test.dart:97:20)
 <asynchronous suspension>
 #13     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
 <asynchronous suspension>
@@ -135,13 +135,43 @@ When the exception was thrown, this was the stack:
 (elided 5 frames from dart:async and package:stack_trace)
 
 The test description was:
-  Validações de Formato de E-mail, Data Inválida e Divergência de Senhas
+  deve validar formato incorreto de e-mail
 ════════════════════════════════════════════════════════════════════════════════════════════════════
-00:06 +2 -2: CadastroScreen - Validações do Formulário Validações de Formato de E-mail, Data Inválida e Divergência de Senhas [E]
+00:03 +2 -2: CadastroScreen Widget Tests deve validar formato incorreto de e-mail [E]
   Test failed. See exception logs above.
-  The test description was: Validações de Formato de E-mail, Data Inválida e Divergência de Senhas
+  The test description was: deve validar formato incorreto de e-mail
   
-00:06 +2 -2: CadastroScreen - Fluxo de Sucesso e Navegação Preenchimento correto cadastra usuário no Auth e persiste no Firestore
+00:03 +2 -2: CadastroScreen Widget Tests deve validar tamanho mínimo da senha e divergência na confirmação
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Too many elements
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:696:24)
+#1      WidgetController.state (package:flutter_test/src/controller.dart:927:42)
+#2      WidgetTester.showKeyboard.<anonymous closure> (package:flutter_test/src/widget_tester.dart:1125:42)
+#5      TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#6      WidgetTester.showKeyboard (package:flutter_test/src/widget_tester.dart:1124:27)
+#7      WidgetTester.enterText.<anonymous closure> (package:flutter_test/src/widget_tester.dart:1160:13)
+#10     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#11     WidgetTester.enterText (package:flutter_test/src/widget_tester.dart:1159:27)
+#12     main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_fs_test.dart:115:20)
+<asynchronous suspension>
+#13     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#14     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The test description was:
+  deve validar tamanho mínimo da senha e divergência na confirmação
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +2 -3: CadastroScreen Widget Tests deve validar tamanho mínimo da senha e divergência na confirmação [E]
+  Test failed. See exception logs above.
+  The test description was: deve validar tamanho mínimo da senha e divergência na confirmação
+  
+00:04 +2 -3: CadastroScreen Widget Tests deve validar máscara e formato do campo CEP
 ══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
 The following StateError was thrown running a test:
 Bad state: Too many elements
@@ -150,22 +180,50 @@ When the exception was thrown, this was the stack:
 #0      Iterable.single (dart:core/iterable.dart:696:24)
 #1      WidgetController.element (package:flutter_test/src/controller.dart:883:30)
 #2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2382:32)
-#3      main.<anonymous closure>.<anonymous closure>.preencherCampo (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_zs_test.dart:174:22)
-#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_zs_test.dart:178:13)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_fs_test.dart:141:20)
 <asynchronous suspension>
-#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
 <asynchronous suspension>
-#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
 <asynchronous suspension>
 <asynchronous suspension>
 (elided one frame from package:stack_trace)
 
 The test description was:
-  Preenchimento correto cadastra usuário no Auth e persiste no Firestore
+  deve validar máscara e formato do campo CEP
 ════════════════════════════════════════════════════════════════════════════════════════════════════
-00:07 +2 -3: CadastroScreen - Fluxo de Sucesso e Navegação Preenchimento correto cadastra usuário no Auth e persiste no Firestore [E]
+00:04 +2 -4: CadastroScreen Widget Tests deve validar máscara e formato do campo CEP [E]
   Test failed. See exception logs above.
-  The test description was: Preenchimento correto cadastra usuário no Auth e persiste no Firestore
+  The test description was: deve validar máscara e formato do campo CEP
   
-00:07 +2 -3: CadastroScreen - Fluxo de Sucesso e Navegação Toque em "Já tem uma conta? Faça login" deve abrir LoginScreen
-00:07 +3 -3: Some tests failed.
+00:04 +2 -4: CadastroScreen Widget Tests deve cadastrar usuário no Firebase Auth, salvar no Firestore e navegar com sucesso
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Too many elements
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:696:24)
+#1      WidgetController.state (package:flutter_test/src/controller.dart:927:42)
+#2      WidgetTester.showKeyboard.<anonymous closure> (package:flutter_test/src/widget_tester.dart:1125:42)
+#5      TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#6      WidgetTester.showKeyboard (package:flutter_test/src/widget_tester.dart:1124:27)
+#7      WidgetTester.enterText.<anonymous closure> (package:flutter_test/src/widget_tester.dart:1160:13)
+#10     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#11     WidgetTester.enterText (package:flutter_test/src/widget_tester.dart:1159:27)
+#12     main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/widget/cadastro_screen_fs_test.dart:163:20)
+<asynchronous suspension>
+#13     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#14     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The test description was:
+  deve cadastrar usuário no Firebase Auth, salvar no Firestore e navegar com sucesso
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +2 -5: CadastroScreen Widget Tests deve cadastrar usuário no Firebase Auth, salvar no Firestore e navegar com sucesso [E]
+  Test failed. See exception logs above.
+  The test description was: deve cadastrar usuário no Firebase Auth, salvar no Firestore e navegar com sucesso
+  
+00:05 +2 -5: Some tests failed.

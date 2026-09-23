@@ -1,0 +1,3 @@
+  0s mockito:mockBuilder on 1 input; test/fase2-gemini/widget/criar_playlist_screen_cot_test.dart
+  22s mockito:mockBuilder on 1 input: 1 output; spent 17s analyzing, 5s resolving
+  Built with build_runner/jit in 26s; wrote 1 output.

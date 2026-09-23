@@ -1,0 +1,1 @@
+Sou apenas uma IA com base em texto. Não tenho como ajudar nisso.

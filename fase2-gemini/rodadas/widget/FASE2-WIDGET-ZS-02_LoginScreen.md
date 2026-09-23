@@ -66,7 +66,7 @@ Rodada **46/60**. Bloco 2 (alvos limpos), lote 10 (`LoginScreen`). Execução au
 1. **(B) certo, e o teste some.** A iteração 1 diagnostica com precisão a limitação de testabilidade já conhecida da `TelaInicialScreen` (acesso estático a `FirebaseAuth.instance` no `initState`, `tela-inicial.dart:43`) — a mesma das rodadas 10, 12 e 15 e das 6 confirmações da Fase 2. Mas o arquivo devolvido não traz mais o teste de login com sucesso, embora o prompt de reparo diga para não reduzir o escopo em caso de (B). A suíte final é verde porque não exercita o caminho feliz.
 2. Iterações 2 e 3 repetem, no Gemini, a sequência de erros do ChatGPT neste alvo: `firebase_auth_mocks` sem exceção configurada → `mockito` sem geração de código (`Null` em retorno não anulável) → fake manual.
 3. 8 testes na suíte final: renderização, 3 validações, 2 erros de autenticação (usuário não encontrado, senha incorreta) e 2 navegações secundárias.
-4. ChatGPT na mesma rodada: 12 testes, 11/12 após 2 iterações.
+4. ChatGPT na mesma rodada: 9 → 12 testes, 7 → 11/12 após 2 iterações.
 
 ---
 

@@ -1,0 +1,11 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/playlist_flow_cot_test.dart
+test/fase2-gemini/integration/playlist_flow_cot_test.dart:43:5: Error: 'FirebaseAuth' isn't a type.
+    FirebaseAuth? auth,
+    ^^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/playlist_flow_cot_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/playlist_flow_cot_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/playlist_flow_cot_test.dart: test/fase2-gemini/integration/playlist_flow_cot_test.dart:43:5: Error: 'FirebaseAuth' isn't a type.
+      FirebaseAuth? auth,
+      ^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

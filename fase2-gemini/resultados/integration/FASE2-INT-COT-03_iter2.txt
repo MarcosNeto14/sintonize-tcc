@@ -1,0 +1,8 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/playlist_flow_cot_test.dart
+00:00 +0: Deve exibir indicador de carregamento antes de resolver a busca de músicas
+00:00 +1: Deve validar nome obrigatório exibindo SnackBar e não salvando no Firestore
+00:00 +2: Deve filtrar as faixas da lista conforme digitação no campo de pesquisa
+00:00 +3: Fluxo ponta a ponta: busca, seleciona música, salva e persiste com sucesso no Firestore
+00:01 +4: Não deve criar playlist caso o usuário não esteja autenticado
+00:01 +5: Deve exibir SnackBar de erro caso o Firestore lance uma exceção ao salvar
+00:01 +6: All tests passed!

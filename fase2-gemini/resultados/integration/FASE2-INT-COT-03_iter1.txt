@@ -1,0 +1,57 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/playlist_flow_cot_test.dart
+00:00 +0: Deve exibir indicador de carregamento antes de resolver a busca de músicas
+00:00 +1: Deve validar nome obrigatório exibindo SnackBar e não salvando no Firestore
+00:00 +2: Deve filtrar as faixas da lista conforme digitação no campo de pesquisa
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _TextWidgetFinder:<Found 1 widget with text "Imagine - John Lennon": [
+            Text("Imagine - John Lennon", dependencies: [DefaultSelectionStyle, DefaultTextStyle,
+MediaQuery]),
+          ]>
+   Which: means one was found but none were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/playlist_flow_cot_test.dart:91:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/playlist_flow_cot_test.dart line 91
+The test description was:
+  Deve filtrar as faixas da lista conforme digitação no campo de pesquisa
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +2 -1: Deve filtrar as faixas da lista conforme digitação no campo de pesquisa [E]
+  Test failed. See exception logs above.
+  The test description was: Deve filtrar as faixas da lista conforme digitação no campo de pesquisa
+  
+00:01 +2 -1: Fluxo ponta a ponta: busca, seleciona música, salva e persiste com sucesso no Firestore
+00:01 +3 -1: Não deve criar playlist caso o usuário não esteja autenticado
+00:01 +4 -1: Deve exibir SnackBar de erro caso o Firestore lance uma exceção ao salvar
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+type 'Null' is not a subtype of type 'CollectionReference<Map<String, dynamic>>'
+
+When the exception was thrown, this was the stack:
+#0      MockFirebaseFirestore.collection (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/playlist_flow_cot_test.dart:12:7)
+#1      main.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/playlist_flow_cot_test.dart:163:24)
+#2      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:29)
+<asynchronous suspension>
+#3      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  Deve exibir SnackBar de erro caso o Firestore lance uma exceção ao salvar
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +4 -2: Deve exibir SnackBar de erro caso o Firestore lance uma exceção ao salvar [E]
+  Test failed. See exception logs above.
+  The test description was: Deve exibir SnackBar de erro caso o Firestore lance uma exceção ao salvar
+  
+00:01 +4 -2: Some tests failed.

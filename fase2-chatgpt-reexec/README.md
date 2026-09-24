@@ -11,7 +11,7 @@ modelos meça só o modelo. Ver
 
 Nada nesta pasta altera `fase2/`, `fase2/_execucao-assistida/` ou `fase2-gemini/`.
 
-**Status:** 5 rodadas executadas (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`, `FASE2-WSILENT-FS`, `FASE2-WSILENT-COT`).
+**Status:** 6 rodadas executadas (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`, `FASE2-WSILENT-FS`, `FASE2-WSILENT-COT`, `FASE2-WSILENT-FS_REEXEC`).
 
 ---
 
@@ -112,7 +112,7 @@ não se distribui ao acaso:
 - reportar duas métricas: compilação e detecção do bug **entre as rodadas que
   chegaram a executar**.
 
-**Ocorrências:** `FASE2-WSILENT-FS` (rodada 4) repetiu o padrão: pedido de caminho nos três reparos, cópia do widget colada no teste na iteração 2, nenhuma iteração compilada.
+**Ocorrências:** `FASE2-WSILENT-FS_REEXEC` (rodada 6): pedido de caminho nos três reparos, placeholder literal como import, nenhuma iteração compilada; na execução assistida, o caminho fornecido no reparo 2 levou a mesma rodada a 10/11. `FASE2-WSILENT-FS` (rodada 4) repetiu o padrão: pedido de caminho nos três reparos, cópia do widget colada no teste na iteração 2, nenhuma iteração compilada.
 
 **Primeira ocorrência:** `FASE2-WCRASH-FS`, rodada 1. O modelo pediu o
 caminho nos reparos 1, 2 e 3 e a rodada terminou sem compilar. Na Fase 2
@@ -317,7 +317,7 @@ separador do prompt e a seção de reparo.
 | 16 | FASE2-ISILENT-ZS | I-SILENT | ZS | original | sim (`criar_playlist.dart`) | pendente |
 | 17 | FASE2-ISILENT-FS | I-SILENT | FS | original | não | pendente |
 | 18 | FASE2-ISILENT-COT | I-SILENT | COT | original | sim (`criar_playlist.dart`) | pendente |
-| 19 | FASE2-WSILENT-FS_REEXEC | W-SILENT | FS | corrigido (`FASE2--REEXEC.md`, l. 37–225) | não | pendente |
+| 19 | FASE2-WSILENT-FS_REEXEC | W-SILENT | FS | corrigido (`FASE2--REEXEC.md`, l. 37–225) | não | **feita (6/15)** — não compila; W-SILENT canonizado sem menção |
 | 20 | FASE2-ICRASH-ZS_REEXEC | I-CRASH | ZS | corrigido (l. 226–1010) | sim (`cadastro.dart`, `generos-cadastro.dart`) | pendente |
 | 21 | FASE2-ICRASH-FS_REEXEC | I-CRASH | FS | corrigido (l. 1011–1841) | não | pendente |
 | 22 | FASE2-ICRASH-COT_REEXEC | I-CRASH | COT | corrigido (l. 1842–2624) | genérica (`package:sintonize/...`) | pendente |

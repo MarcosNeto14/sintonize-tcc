@@ -8,13 +8,14 @@ This is a **TCC (undergraduate thesis) experiment**, not a product. The Flutter 
 
 The experiment is **fully manual and documented**: each "round" (one function × one strategy) has a markdown doc capturing the exact prompt sent, the exact LLM response, the test file produced, the `flutter test` output, and any repair iterations (max 3). The whole point is reproducibility and traceability — do not "improve" outputs after the fact.
 
-The work is organized in **three stages**, each with its own artifact tree. See "Experiment structure and progress" at the bottom for the full picture, and read that section before assuming anything about counts, branches, or which model was used.
+The work is organized in **four stages**, each with its own artifact tree. See "Experiment structure and progress" at the bottom for the full picture, and read that section before assuming anything about counts, branches, or which model was used.
 
-| Stage | Rounds | Model | Artifacts | Status |
-|---|---|---|---|---|
-| **Fase 1** — pilot study | 48 | ChatGPT | `prompts/`, `results/`, `analise/` | complete |
-| **Fase 2** — main study | 60 | ChatGPT | `fase2/` | complete |
-| **Fase 2 – Gemini** — replication | 60 | Gemini | `fase2-gemini/` | in progress |
+| Stage | Rounds | Model | Artifacts | Branch | Status |
+|---|---|---|---|---|---|
+| **Fase 1** — pilot study | 48 | ChatGPT | `prompts/`, `results/`, `analise/` | `main` | complete |
+| **Fase 2** — main study | 60 = 42 clean + 18 planted-bug (+4 `_REEXEC`) | ChatGPT | `fase2/`; 15 operator-assisted bug rounds isolated in `fase2/_execucao-assistida/` | `fase2-prep` / `fase2-alvos-limpos` | complete |
+| **Fase 2 – Gemini** — replication | 60 (+4 `_REEXEC`) | Gemini 3.8 Flash | `fase2-gemini/` | bug rounds: `fase2-gemini-piloto`; clean: `fase2-gemini-alvos-limpos` | complete |
+| **Fase 2 – ChatGPT re-run** — the 22 bug rounds, fixed repair template | 18 (+4 `_REEXEC`) | ChatGPT | `fase2-chatgpt-reexec/`, `test/fase2-chatgpt-reexec/` | `fase2-gemini-piloto` | infrastructure only, 0/22 |
 
 ## Commands
 
@@ -85,13 +86,13 @@ A `_REEXEC` suffix marks a round re-run with a corrected prompt. It is documente
 
 ## Workflow for a new round
 
-**The LLM depends on the stage.** Fase 1 and Fase 2 used ChatGPT; the Fase 2 – Gemini replication uses Gemini. Check which stage the round belongs to before opening a conversation — using the wrong model silently invalidates the round.
+**The LLM depends on the stage.** Fase 1, Fase 2 and the Fase 2 – ChatGPT re-run use ChatGPT; the Fase 2 – Gemini replication used Gemini. Check which stage the round belongs to before opening a conversation — using the wrong model silently invalidates the round.
 
 1. **Check out the right branch for the block** (see the branch map below) and verify the code state. Getting this wrong has already contaminated rounds once — see the 2026-09-03 incident note in `fase2/propostas_bugs_fase2.md`.
 2. Open the round doc (e.g. `prompts/unit/cot/UNIT-COT-04_validateCEP.md`, or for Fase 2 the ready-made prompt under `fase2/prompts_prontos/`).
 3. For Fase 1, copy the prompt template from `prompts/PROMPT_TEMPLATES.md` and substitute the target function's code verbatim from `lib/utils/validators.dart`. Fase 2 prompts are already complete — paste them verbatim, changing nothing.
 4. Start a **new** conversation with the stage's LLM (one round = one fresh conversation; cross-contamination invalidates the comparison).
-5. **Record the model version** — ask the LLM what version it is and record the answer *literally*, plus an external check of which model is served on that date. See "Model version must be recorded per session" below. This is mandatory for every Fase 2 – Gemini round.
+5. **Record the model version** — ask the LLM what version it is and record the answer *literally*, plus an external check of which model is served on that date. See "Model version must be recorded per session" below. This is mandatory for every Fase 2 – Gemini and ChatGPT re-run round.
 6. Paste the LLM's generated Dart code into the corresponding test file (`test/unit/<func>_<strategy>_test.dart`, or `test/fase2/<level>/...`).
 7. Run `flutter test <that_file>` and save the terminal output under the stage's results directory.
 8. Fill in the round doc from the stage's template — `prompts/Template_Documentacao_Rodada.md` (Fase 1), `fase2/Template_Documentacao_Rodada_Fase2.md` (Fase 2), or `fase2-gemini/Template_Documentacao_Rodada_Fase2.md` (Gemini, which adds the two model-version fields).
@@ -144,11 +145,33 @@ Four `_REEXEC` rounds (corrected prompts for `WSILENT-FS` and `ICRASH-{ZS,FS,COT
 
 **Isolated, operator-assisted rounds.** In 15 planted-bug rounds (the 4 `_REEXEC` included), the operator added information to the repair prompt beyond the fixed template: real paths, real API signatures, the real `build()`, and findings from earlier rounds. The Gemini replica used the bare template, so these 15 rounds are excluded from the cross-model comparison. Their artifacts, including their 15 test files, were moved unchanged to `fase2/_execucao-assistida/`, which sits outside `test/`. The clean re-run goes in `fase2-chatgpt-reexec/`. The other 7 planted-bug rounds had no enriched repair and stay in `fase2/`. See `fase2/_execucao-assistida/README.md`.
 
-### Fase 2 – Gemini — replication (60 rounds, in progress)
+### Fase 2 – Gemini — replication (60 rounds, complete)
 
-Artifacts in `fase2-gemini/`. Same prompts, same targets, same planted bugs, same protocol (max 3 repair iterations, A/B/C self-classification, logged-out session). **The model is the only variable that changes.** The prompts are byte-identical copies, verified by `diff -r` and per-file `sha256sum`.
+Artifacts in `fase2-gemini/`. It uses the same prompts, targets, planted bugs and protocol as Fase 2 (max 3 repair iterations, A/B/C self-classification, bare repair template). **The model is the only variable that changes.** The prompts are byte-identical copies, verified by `diff -r` and per-file `sha256sum`. The one deviation is the session: it ran logged in, with the model pinned to 3.8 Flash, because logged out Gemini serves only Flash Lite. The reasoning is in `fase2-gemini/README.md`.
 
-Infrastructure is ready; **no round has been executed yet**. Submission is manual. Read `fase2-gemini/README.md` before starting one.
+All 60 rounds and the 4 `_REEXEC` were executed between 2026-09-22 and 2026-09-24. The docs are split across two branches, and neither branch holds all of them. The 18 bug rounds and 4 `_REEXEC` are on `fase2-gemini-piloto`; the 42 clean-target rounds are on `fase2-gemini-alvos-limpos`.
+
+### Fase 2 – ChatGPT re-run (22 rounds, not started)
+
+`fase2-chatgpt-reexec/` re-runs the 18 planted-bug rounds and the 4 `_REEXEC` on ChatGPT, under the replica's protocol: the repair prompt is the fixed template plus terminal output, and nothing else. Its purpose is to remove the operator-assisted repairs isolated in `fase2/_execucao-assistida/`.
+
+- Rounds run on `fase2-gemini-piloto`.
+- Generated tests go to `test/fase2-chatgpt-reexec/`.
+- The prompts are byte-identical copies of the 18 bug prompts and `FASE2--REEXEC.md`.
+- Read `fase2-chatgpt-reexec/README.md` before starting a round.
+
+**Session condition: logged out**, the same as the 49 ChatGPT rounds that are already valid. Changing it mid-set would create a new variable inside ChatGPT, where the comparison between strategies is the study's primary one.
+
+Per-session control:
+- **(a)** Ask the model its version before the prompt, and record the answer literally as a self-report. It is not reliable on its own.
+- **(b)** Record an external source on which model is served without login on that date, with URL and access date. Repeat (b) every day of execution: this is the check that was missing in Fase 2 and let the GPT-5.5→5.6 switch go unnoticed.
+- **(c)** Save one screenshot per work session in `evidencias/`.
+
+**Exit criterion:** if the external source shows the logged-out tier now serves a model clearly inferior to the paid default, the condition no longer means "default model". The re-run then moves to logged in, with the justification written before the next round.
+
+**Session conditions across the two models.** ChatGPT runs logged out, as the original Fase 2 did. Gemini ran logged in on a Pro account, pinned to 3.8 Flash, because logged out was not viable: the selector locks to Flash Lite, the weakest tier. The author also reports that logged-out sessions blocked the repair loop, but no versioned artifact supports that report yet. Details, evidence and the pending item (d) are in `fase2-chatgpt-reexec/README.md`, section "Condições de sessão nos dois modelos".
+
+Of the 22, the 7 rounds that had no enriched repair (U-CRASH ×3, U-SILENT ×3, W-CRASH-ZS) also remain valid in `fase2/`.
 
 ### Branch ↔ round-block map
 
@@ -156,8 +179,9 @@ This is the easiest thing to get wrong, and getting it wrong silently invalidate
 
 | Branch | Code state | Use for |
 |---|---|---|
-| `fase2-gemini-piloto` | all 6 planted bugs active (created from `295fa34`) | the 18 planted-bug rounds |
+| `fase2-gemini-piloto` | all 6 planted bugs active (created from `295fa34`) | the 18 planted-bug rounds (+4 `_REEXEC`) — Gemini replica and ChatGPT re-run |
 | `fase2-alvos-limpos` | all 6 bugs reverted | all clean-target rounds, including the 3 `formatName` ones |
+| `fase2-gemini-alvos-limpos` | same code as `fase2-alvos-limpos` | the Gemini replica's 42 clean-target docs; also carries `fase2/_execucao-assistida/` and `fase2-chatgpt-reexec/` |
 | `fase2-prep` | **intermediate — only 3 of 6 bugs active** | nothing; see below |
 
 **Do not treat `fase2-prep` as "the branch with the bugs".** U-CRASH and U-SILENT were reverted on it in `8d08ff2`, and W-SILENT in `b9cd1e1`; only W-CRASH, I-CRASH and I-SILENT remain. That false premise is exactly what this note exists to prevent. The only commit with all six simultaneously active is `295fa34`, which is why `fase2-gemini-piloto` branches from it.

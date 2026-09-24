@@ -20,7 +20,7 @@ Nada nesta pasta altera `fase2/`, `fase2/_execucao-assistida/` ou `fase2-gemini/
 O protocolo é o de `fase2-gemini/README.md`, seção "Protocolo por rodada", com o
 ChatGPT no lugar do Gemini:
 
-1. `git checkout fase2-gemini-piloto` e rodar os 6 greps da seção de branches.
+1. `git checkout fase2-chatgpt-reexec` e rodar os 6 greps da seção de branches.
    As 6 linhas precisam aparecer.
 2. Abrir **conversa nova** no ChatGPT, na condição de sessão definida abaixo. Uma
    conversa por rodada, sem contexto anterior.
@@ -123,32 +123,45 @@ No Gemini roda o padrão do produto, que fica no meio da linha.
 
 **Motivos do Gemini logado, cada um com o que o sustenta:**
 
-**a. Deslogado, o Gemini serve o tier mais fraco.** Sem login, o seletor trava em
-3.5 Flash Lite, o tier mais fraco. O ChatGPT deslogado servia o modelo padrão.
-Mantida a condição, a comparação seria carro-chefe × modelo mais barato.
-Evidência:
+**a. Deslogado, o Gemini rebaixa o modelo em relação ao padrão do produto.** Sem
+login, o seletor do Gemini travava em 3.5 Flash Lite, abaixo do 3.8 Flash, que é o
+padrão do produto. Evidência:
 - `fase2-gemini/evidencias/2026-09-21_gemini_seletor_modelo_sem_login.png`
 - `fase2-gemini/README.md`, seção "Mudança de condição".
 
-**b. Deslogado, a conversa bloqueava o ciclo de reparo.** Depois de uma resposta
-em Canvas, a conversa passava a rejeitar mensagens (erro 1184).
-**Relato do autor, sem artefato versionado.** A NOTA_BLOQUEIO da tentativa
-abortada de `UCRASH-ZS` em 2026-09-20 não está em nenhuma branch, em nenhum
-commit, nem no working tree. Nenhum doc de `fase2-gemini/` menciona "1184" ou
-"Canvas". A rodada preservada em `fase2-gemini/piloto-flash-lite/` é de
-2026-09-21, outra tentativa, e não registra esse erro.
+À época, acreditava-se que o ChatGPT deslogado servia o modelo padrão. A fonte de
+2026-09-24 (item d) mostra que ele servia GPT-5.6 Luna, o modelo do tier gratuito.
+A decisão de logar o Gemini se sustenta pelo rebaixamento em relação ao padrão do
+produto e pelo item b, não mais pela comparação entre os dois modelos.
 
-**c. Deslogado, o Gemini não comportava prompts longos nem mais de duas
-respostas.** **Relato do autor, a confirmar em artefato.** Isso seria
-incompatível com o protocolo de até 3 iterações de reparo. Nenhum artefato
-confirma nem contradiz o relato:
-- O piloto deslogado (`fase2-gemini/piloto-flash-lite/FASE2-UCRASH-ZS_PILOTO.md`)
-  obteve duas respostas na mesma conversa: a geração e o reparo 1, este depois
-  de uma recusa.
-- A rodada terminou porque o reparo 1 veio como (B), sem código, e não por
-  limite da conversa.
-- A recusa ao prompt de reparo está registrada ali, mas foi destravada por
-  reenvio, e o prompt da rodada tem 1.950 bytes.
+**b. Deslogado, a conversa bloqueava o ciclo de reparo.** Depois de uma resposta
+em Canvas, a conversa passava a rejeitar qualquer mensagem seguinte com o erro
+1184. O bloqueio persistiu em 5 reenvios. Como o Gemini abre Canvas
+espontaneamente para respostas de código, o prompt de reparo, obrigatório no
+protocolo, não podia ser enviado.
+
+Evidência: a tentativa abortada de `UCRASH-ZS` em 2026-09-20, versionada em
+`fase2-gemini/rodadas/unit/_abortadas/2026-09-20_UCRASH-ZS_deslogado/`:
+- `FASE2-UCRASH-ZS_transcricao/NOTA_BLOQUEIO.md`: o erro, os reenvios e o diagnóstico;
+- `FASE2-UCRASH-ZS_transcricao/canvas_gerado_verbatim.dart`;
+- `FASE2-UCRASH-ZS_transcricao/prompt_geracao_enviado.txt`;
+- `FASE2-UCRASH-ZS_transcricao/prompt_reparo_iter1_NAO_ENVIADO.txt`;
+- `FASE2-UCRASH-ZS_iter0.txt`: 6 testes passaram e 2 falharam.
+
+**c. Relato do autor: deslogado, o Gemini não aceitava prompts longos nem
+entregava mais de duas respostas por conversa.** **Não sustenta a decisão; fica
+registrado por transparência.** O bloqueio do reparo em si está documentado no
+item b. Já as duas causas do relato foram testadas e **descartadas
+explicitamente** pela `NOTA_BLOQUEIO.md` do item b:
+- *"O **mesmo** prompt de reparo, enviado como **primeira** mensagem de uma
+  conversa nova, é aceito e respondido normalmente [...] Logo **não é** tamanho
+  da mensagem"*;
+- *"um follow-up curto ("ok") foi aceito normalmente. Logo **não é** limite de
+  turnos por conversa."*
+
+Fica registrado como relato do autor contradito pelo artefato de 2026-09-20.
+
+**Os motivos que sustentam a decisão de logar o Gemini são a e b.**
 
 **d. No ChatGPT, logar em conta gratuita não mudaria o modelo.** A sessão
 deslogada e a conta Free logada recebem o mesmo modelo, GPT-5.6 Luna. A
@@ -174,16 +187,25 @@ Fontes, ambas consultadas em 2026-09-24:
 
 ## Branches
 
-As 22 rodadas rodam em **`fase2-gemini-piloto`**, criada a partir de `295fa34`,
-o único commit com os 6 bugs plantados ativos ao mesmo tempo. Não use
+As 22 rodadas rodam em **`fase2-chatgpt-reexec`**, a branch de execução desta
+reexecução. Ela foi criada de `fase2-gemini-alvos-limpos`, então tem os docs
+completos (`fase2/`, `fase2/_execucao-assistida/`, `fase2-gemini/` e esta pasta).
+O `lib/` dela foi trazido de `fase2-gemini-piloto` num commit próprio ("Reativa os
+6 bugs plantados..."). Com isso, o `lib/` fica igual ao da piloto, com os 6 bugs
+ativos.
+
+A referência do estado com bugs continua sendo `fase2-gemini-piloto`, criada a
+partir de `295fa34`, o único commit com os 6 bugs ativos ao mesmo tempo. Não use
 `fase2-prep`, que só tem 3 dos 6 bugs ativos. Detalhes em
 `fase2-gemini/README.md`, seção "Mapeamento rodada ↔ estado do código".
 
 Conferido em 2026-09-24:
-- a branch existe localmente e no remoto;
+- `fase2-gemini-piloto` existe localmente e no remoto;
 - `295fa34` é ancestral dela;
-- `lib/` é idêntico ao de `295fa34`;
-- as 6 linhas abaixo aparecem.
+- o `lib/` dela é idêntico ao de `295fa34`;
+- entre ela e `fase2-gemini-alvos-limpos`, o `lib/` difere só nas 6 reversões
+  de bug;
+- as 6 linhas abaixo aparecem em `fase2-chatgpt-reexec`.
 
 **Verificação do estado — as 6 linhas devem aparecer antes de qualquer rodada:**
 

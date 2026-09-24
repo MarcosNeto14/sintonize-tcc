@@ -26,7 +26,7 @@ Ver `fase2-chatgpt-reexec/README.md`.
 | **✦ Verificação externa da versão** | [print do seletor/da tela em `evidencias/` + qual modelo é servido nesta data segundo fonte externa — URL + data de consulta + o que a fonte afirma; se não houver fonte, escrever "não verificável em AAAA-MM-DD"] |
 | **Modelo servido (fonte externa, URL + data)** | [modelo servido sem login nesta data segundo a fonte — ex.: OpenAI Help Center; colar URL, data de consulta e o trecho literal] |
 | **Sessão** | Deslogada |
-| **Branch / estado do código** | `fase2-gemini-piloto`, \<bug\> ativo (6 greps conferidos) |
+| **Branch / estado do código** | `fase2-chatgpt-reexec` (lib/ = `fase2-gemini-piloto`), \<bug\> ativo (6 greps conferidos) |
 | **Data de acesso** | AAAA-MM-DD |
 | **Conversa nova?** | Sim (cada rodada em conversa limpa) — [URL da conversa] |
 | **Framework de teste** | flutter_test |

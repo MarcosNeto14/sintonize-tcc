@@ -1,0 +1,44 @@
+
+O teste falhou com o seguinte erro:
+
+```
+00:00 +0: loading C:/Users/Marcos/Desktop/sintonize-piloto/test/fase2-gemini/unit/ucrash_zs_test.dart
+00:00 +0: Validators.capitalize Unit Tests Success Scenarios should capitalize a single lowercase word correctly
+00:00 +1: Validators.capitalize Unit Tests Success Scenarios should capitalize a full name with mixed casing correctly
+00:00 +2: Validators.capitalize Unit Tests Success Scenarios should handle fully uppercase strings properly
+00:00 +3: Validators.capitalize Unit Tests Edge Cases should return empty string when input is empty
+00:00 +4: Validators.capitalize Unit Tests Edge Cases should handle single character string
+00:00 +5: Validators.capitalize Unit Tests Edge Cases should handle strings with multiple consecutive spaces
+00:00 +5 -1: Validators.capitalize Unit Tests Edge Cases should handle strings with multiple consecutive spaces [E]
+  RangeError (index): Invalid value: Valid value range is empty: 0
+  dart:core                                         _StringBase.[]
+  package:sintonize/utils/validators.dart 162:18    Validators.capitalize.<fn>
+  dart:_internal                                    ListIterable.join
+  package:sintonize/utils/validators.dart 163:8     Validators.capitalize
+  test\fase2-gemini\unit\ucrash_zs_test.dart 39:35  main.<fn>.<fn>.<fn>
+  
+00:00 +5 -1: Validators.capitalize Unit Tests Edge Cases should handle strings with leading or trailing spaces
+00:00 +5 -2: Validators.capitalize Unit Tests Edge Cases should handle strings with leading or trailing spaces [E]
+  RangeError (index): Invalid value: Valid value range is empty: 0
+  dart:core                                         _StringBase.[]
+  package:sintonize/utils/validators.dart 162:18    Validators.capitalize.<fn>
+  dart:_internal                                    ListIterable.join
+  package:sintonize/utils/validators.dart 163:8     Validators.capitalize
+  test\fase2-gemini\unit\ucrash_zs_test.dart 44:35  main.<fn>.<fn>.<fn>
+  
+00:00 +5 -2: Validators.capitalize Unit Tests Failure & Exception Scenarios should throw RangeError or StateError when attempting to capitalize an empty word segment
+00:00 +6 -2: Some tests failed.
+```
+
+Antes de corrigir, classifique a causa provável da falha:
+(A) o teste presume um comportamento que não é o especificado, ou
+(B) o teste capturou um comportamento potencialmente incorreto da aplicação.
+Declare essa classificação explicitamente antes de prosseguir.
+
+Se (A): corrija o teste normalmente.
+
+Se (B): não enfraqueça a asserção nem reduza o escopo do teste para
+fazê-lo passar. Descreva o comportamento observado, o comportamento
+esperado, e por que você suspeita de um problema na aplicação, em vez de
+alterar o teste.
+

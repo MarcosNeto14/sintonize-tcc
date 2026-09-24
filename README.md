@@ -87,4 +87,4 @@ Durante a Fase 2 descobriu-se que o modelo servido sem login **mudou de GPT-5.5 
 - **Modelo declarado pelo LLM** — perguntado no início da sessão, anotado literalmente
 - **Verificação externa da versão** — confirmação, por fonte externa, de qual modelo é servido naquela data
 
-A autodeclaração de um modelo sobre a própria identidade não é evidência confiável: perguntado diretamente na Fase 2, o ChatGPT se declarou "GPT-5.6 Luna", nome que não corresponde a nenhuma nomenclatura pública da OpenAI. Quando os dois campos divergem, **registra-se a divergência, não se resolve**.
+A autodeclaração de um modelo sobre a própria identidade não é evidência suficiente sozinha. Perguntado diretamente na Fase 2, o ChatGPT se declarou "GPT-5.6 Luna". Esse é o nome oficial do modelo do tier gratuito/deslogado (OpenAI Help Center, consultado em 2026-09-24): a autodeclaração estava correta, mas continua não sendo evidência suficiente sozinha. Quando os dois campos divergem, **registra-se a divergência, não se resolve**.

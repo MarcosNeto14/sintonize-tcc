@@ -15,7 +15,7 @@ The work is organized in **four stages**, each with its own artifact tree. See "
 | **Fase 1** — pilot study | 48 | ChatGPT | `prompts/`, `results/`, `analise/` | `main` | complete |
 | **Fase 2** — main study | 60 = 42 clean + 18 planted-bug (+4 `_REEXEC`) | ChatGPT | `fase2/`; 15 operator-assisted bug rounds isolated in `fase2/_execucao-assistida/` | `fase2-prep` / `fase2-alvos-limpos` | complete |
 | **Fase 2 – Gemini** — replication | 60 (+4 `_REEXEC`) | Gemini 3.8 Flash | `fase2-gemini/` | bug rounds: `fase2-gemini-piloto`; clean: `fase2-gemini-alvos-limpos` | complete |
-| **Fase 2 – ChatGPT re-run** — the 22 bug rounds, fixed repair template | 18 (+4 `_REEXEC`) | ChatGPT | `fase2-chatgpt-reexec/`, `test/fase2-chatgpt-reexec/` | `fase2-gemini-piloto` | infrastructure only, 0/22 |
+| **Fase 2 – ChatGPT re-run** — the 22 bug rounds, fixed repair template | 18 (+4 `_REEXEC`) | ChatGPT | `fase2-chatgpt-reexec/`, `test/fase2-chatgpt-reexec/` | `fase2-chatgpt-reexec` | infrastructure only, 0/22 |
 
 ## Commands
 
@@ -105,7 +105,7 @@ During Fase 2 the model served without login **changed from GPT-5.5 to GPT-5.6 m
 - **Model declared by the LLM** — ask at the start of the session, record the answer verbatim.
 - **External version check** — confirm from an outside source which model is served on that date.
 
-They are independent on purpose. A model's self-report is not reliable evidence: asked directly during Fase 2, ChatGPT declared itself "GPT-5.6 Luna", a name matching no public OpenAI nomenclature. **When the two fields disagree, record the disagreement — do not resolve it.**
+They are independent on purpose. A model's self-report is not sufficient evidence on its own. Asked directly during Fase 2, ChatGPT declared itself "GPT-5.6 Luna". That is in fact the official name of the model served on the free/logged-out tier (OpenAI Help Center, checked 2026-09-24), so the self-report was correct, but it still does not stand as evidence by itself. **When the two fields disagree, record the disagreement — do not resolve it.**
 
 ## What not to do
 
@@ -155,7 +155,7 @@ All 60 rounds and the 4 `_REEXEC` were executed between 2026-09-22 and 2026-09-2
 
 `fase2-chatgpt-reexec/` re-runs the 18 planted-bug rounds and the 4 `_REEXEC` on ChatGPT, under the replica's protocol: the repair prompt is the fixed template plus terminal output, and nothing else. Its purpose is to remove the operator-assisted repairs isolated in `fase2/_execucao-assistida/`.
 
-- Rounds run on `fase2-gemini-piloto`.
+- Rounds run on `fase2-chatgpt-reexec`. That branch was created from `fase2-gemini-alvos-limpos`, so it has the complete docs, and its `lib/` was brought over from `fase2-gemini-piloto`, so all 6 bugs are active.
 - Generated tests go to `test/fase2-chatgpt-reexec/`.
 - The prompts are byte-identical copies of the 18 bug prompts and `FASE2--REEXEC.md`.
 - Read `fase2-chatgpt-reexec/README.md` before starting a round.
@@ -169,7 +169,7 @@ Per-session control:
 
 **Exit criterion:** if the external source shows the logged-out tier now serves a model clearly inferior to the paid default, the condition no longer means "default model". The re-run then moves to logged in, with the justification written before the next round.
 
-**Session conditions across the two models.** ChatGPT runs logged out, as the original Fase 2 did. Gemini ran logged in on a Pro account, pinned to 3.8 Flash, because logged out was not viable: the selector locks to Flash Lite, the weakest tier. The author also reports that logged-out sessions blocked the repair loop, but no versioned artifact supports that report yet. Details, evidence and the pending item (d) are in `fase2-chatgpt-reexec/README.md`, section "Condições de sessão nos dois modelos".
+**Session conditions across the two models.** ChatGPT runs logged out, as the original Fase 2 did. Gemini ran logged in on a Pro account, pinned to 3.8 Flash, because logged out was not viable: the selector locks to Flash Lite, the weakest tier. Logged out, a conversation containing a Canvas answer also rejected every later message with error 1184, which blocked the repair loop. That is recorded in `fase2-gemini/rodadas/unit/_abortadas/2026-09-20_UCRASH-ZS_deslogado/`. Those two are the reasons that sustain the decision. The author's further report of a prompt-length limit and a two-answer limit per conversation was ruled out by that same artifact. It does not sustain the decision and is kept only for transparency. Details, evidence and item (d), which shows logged-out and Free ChatGPT both get GPT-5.6 Luna, are in `fase2-chatgpt-reexec/README.md`, section "Condições de sessão nos dois modelos".
 
 Of the 22, the 7 rounds that had no enriched repair (U-CRASH ×3, U-SILENT ×3, W-CRASH-ZS) also remain valid in `fase2/`.
 
@@ -179,9 +179,10 @@ This is the easiest thing to get wrong, and getting it wrong silently invalidate
 
 | Branch | Code state | Use for |
 |---|---|---|
-| `fase2-gemini-piloto` | all 6 planted bugs active (created from `295fa34`) | the 18 planted-bug rounds (+4 `_REEXEC`) — Gemini replica and ChatGPT re-run |
+| `fase2-gemini-piloto` | all 6 planted bugs active (created from `295fa34`) | the Gemini replica's 18 planted-bug rounds (+4 `_REEXEC`); reference state for the bugs |
 | `fase2-alvos-limpos` | all 6 bugs reverted | all clean-target rounds, including the 3 `formatName` ones |
 | `fase2-gemini-alvos-limpos` | same code as `fase2-alvos-limpos` | the Gemini replica's 42 clean-target docs; also carries `fase2/_execucao-assistida/` and `fase2-chatgpt-reexec/` |
+| `fase2-chatgpt-reexec` | docs of `fase2-gemini-alvos-limpos` + `lib/` of `fase2-gemini-piloto` (6 bugs active) | the ChatGPT re-run's 22 rounds |
 | `fase2-prep` | **intermediate — only 3 of 6 bugs active** | nothing; see below |
 
 **Do not treat `fase2-prep` as "the branch with the bugs".** U-CRASH and U-SILENT were reverted on it in `8d08ff2`, and W-SILENT in `b9cd1e1`; only W-CRASH, I-CRASH and I-SILENT remain. That false premise is exactly what this note exists to prevent. The only commit with all six simultaneously active is `295fa34`, which is why `fase2-gemini-piloto` branches from it.

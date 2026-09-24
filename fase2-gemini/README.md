@@ -78,7 +78,7 @@ sessão a sessão.
 
 > Nota (2026-09-24): a comparação das condições de sessão entre ChatGPT (deslogado) e Gemini (logado), com os motivos e as evidências, está em `fase2-chatgpt-reexec/README.md`, seção "Condições de sessão nos dois modelos".
 
-> Correção (2026-09-24): a premissa de que o ChatGPT deslogado "recebeu GPT-5.5/5.6, o topo do que era servido" não se sustenta — recebeu GPT-5.6 Luna, o modelo mais barato da família GPT-5.6 (OpenAI Help Center, https://help.openai.com/en/articles/20001354-gpt-56-and-gpt-6-pro-in-chatgpt, consultado em 2026-09-24); a fonte externa da época que indicava "Sol" descrevia o plano pago. A decisão de logar o Gemini continua válida pelos motivos a–c de `fase2-chatgpt-reexec/README.md`, seção "Condições de sessão nos dois modelos".
+> Correção (2026-09-24): a premissa de que o ChatGPT deslogado "recebeu GPT-5.5/5.6, o topo do que era servido" não se sustenta — recebeu GPT-5.6 Luna, o modelo mais barato da família GPT-5.6 (OpenAI Help Center, https://help.openai.com/en/articles/20001354-gpt-56-and-gpt-6-pro-in-chatgpt, consultado em 2026-09-24); a indicação de "Sol" vinha do documento de passagem do autor (não versionado) e, pela fonte atual, descreve o plano pago. A decisão de logar o Gemini continua válida pelos motivos a–c de `fase2-chatgpt-reexec/README.md`, seção "Condições de sessão nos dois modelos".
 
 ## Recusas não determinísticas — procedimento
 
@@ -362,7 +362,7 @@ ChatGPT o modelo se autodeclarou "GPT-5.6 Luna", nome que não corresponde a
 nenhuma nomenclatura pública da OpenAI (ver `fase2/rodadas/README.md`).
 Quando os dois campos divergirem, **registre a divergência; não a resolva**.
 
-> Correção (2026-09-24): a autodeclaração "GPT-5.6 Luna" corresponde ao nome oficial do modelo do tier gratuito/deslogado do ChatGPT (OpenAI Help Center, https://help.openai.com/en/articles/20001354-gpt-56-and-gpt-6-pro-in-chatgpt, consultado em 2026-09-24); a fonte externa da época que indicava "Sol" descrevia o plano pago.
+> Correção (2026-09-24): a autodeclaração "GPT-5.6 Luna" corresponde ao nome oficial do modelo do tier gratuito/deslogado do ChatGPT (OpenAI Help Center, https://help.openai.com/en/articles/20001354-gpt-56-and-gpt-6-pro-in-chatgpt, consultado em 2026-09-24); a indicação de "Sol" vinha do documento de passagem do autor (não versionado) e, pela fonte atual, descreve o plano pago.
 
 ---
 

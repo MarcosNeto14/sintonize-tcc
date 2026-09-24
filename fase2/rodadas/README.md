@@ -30,4 +30,4 @@ além do template fixo, e por isso ficam fora da comparação entre modelos. As 
 rodadas de bug plantado sem reparo enriquecido continuam aqui. Detalhes em
 `fase2/_execucao-assistida/README.md`.
 
-> Correção (2026-09-24): a autodeclaração "GPT-5.6 Luna" corresponde ao nome oficial do modelo do tier gratuito/deslogado (OpenAI Help Center, https://help.openai.com/en/articles/20001354-gpt-56-and-gpt-6-pro-in-chatgpt, consultado em 2026-09-24); a fonte externa da época que indicava "Sol" descrevia o plano pago.
+> Correção (2026-09-24): a autodeclaração "GPT-5.6 Luna" corresponde ao nome oficial do modelo do tier gratuito/deslogado (OpenAI Help Center, https://help.openai.com/en/articles/20001354-gpt-56-and-gpt-6-pro-in-chatgpt, consultado em 2026-09-24); a indicação de "Sol" vinha do documento de passagem do autor (não versionado) e, pela fonte atual, descreve o plano pago.

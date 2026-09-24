@@ -1,0 +1,11 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/login_flow_zs_test.dart
+test/fase2-gemini/integration/login_flow_zs_test.dart:14:8: Error: Error when reading 'test/fase2-gemini/integration/login_flow_test.mocks.dart': O sistema não pode encontrar o arquivo especificado
+import 'login_flow_test.mocks.dart';
+       ^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/login_flow_zs_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/login_flow_zs_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/login_flow_zs_test.dart: test/fase2-gemini/integration/login_flow_zs_test.dart:14:8: Error: Error when reading 'test/fase2-gemini/integration/login_flow_test.mocks.dart': O sistema não pode encontrar o arquivo especificado
+  import 'login_flow_test.mocks.dart';
+         ^
+  .
+00:00 +0 -1: Some tests failed.

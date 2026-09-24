@@ -1,0 +1,9 @@
+  1s compiling builders/jit
+  2s compiling builders/jit
+  3s compiling builders/jit
+  4s compiling builders/jit
+  0s mockito:mockBuilder on 149 inputs; test/fase2-gemini/integration/login_flow_zs_test.dart
+  13s mockito:mockBuilder on 149 inputs: 1 output; spent 7s analyzing, 4s sdk, 2s resolving; test/fase2-gemini/unit/format_name_cot_test.dart
+  14s mockito:mockBuilder on 149 inputs: 2 output, 45 no-op; spent 8s analyzing, 4s sdk, 2s resolving; test/fase2/integration/login_flow_cot_test.dart
+  14s mockito:mockBuilder on 149 inputs: 2 output, 147 no-op; spent 8s analyzing, 4s sdk, 2s resolving
+  Built with build_runner/jit in 19s; wrote 2 outputs.

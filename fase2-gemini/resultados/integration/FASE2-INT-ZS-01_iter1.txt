@@ -1,0 +1,35 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/login_flow_zs_test.dart
+test/fase2-gemini/integration/login_flow_zs_test.dart:39:24: Error: 'MockFirebaseAuth' is imported from both 'test/fase2-gemini/integration/login_flow_zs_test.mocks.dart' and 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart'.
+      final mockAuth = MockFirebaseAuth(mockUser: mockUser);
+                       ^^^^^^^^^^^^^^^^
+test/fase2-gemini/integration/login_flow_zs_test.dart:72:24: Error: 'MockFirebaseAuth' is imported from both 'test/fase2-gemini/integration/login_flow_zs_test.mocks.dart' and 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart'.
+      final mockAuth = MockFirebaseAuth();
+                       ^^^^^^^^^^^^^^^^
+test/fase2-gemini/integration/login_flow_zs_test.dart:92:24: Error: 'MockFirebaseAuth' is imported from both 'test/fase2-gemini/integration/login_flow_zs_test.mocks.dart' and 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart'.
+      final mockAuth = MockFirebaseAuth();
+                       ^^^^^^^^^^^^^^^^
+test/fase2-gemini/integration/login_flow_zs_test.dart:14:1: Error: 'MockFirebaseAuth' is imported from both 'test/fase2-gemini/integration/login_flow_zs_test.mocks.dart' and 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart'.
+import 'login_flow_zs_test.mocks.dart';
+^^^^^^^^^^^^^^^^
+test/fase2-gemini/integration/login_flow_zs_test.dart:114:33: Error: 'MockFirebaseAuth' is imported from both 'test/fase2-gemini/integration/login_flow_zs_test.mocks.dart' and 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart'.
+      mockFirebaseAuthMockito = MockFirebaseAuth();
+                                ^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/login_flow_zs_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/login_flow_zs_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/login_flow_zs_test.dart: test/fase2-gemini/integration/login_flow_zs_test.dart:39:24: Error: 'MockFirebaseAuth' is imported from both 'test/fase2-gemini/integration/login_flow_zs_test.mocks.dart' and 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart'.
+        final mockAuth = MockFirebaseAuth(mockUser: mockUser);
+                         ^^^^^^^^^^^^^^^^
+  test/fase2-gemini/integration/login_flow_zs_test.dart:72:24: Error: 'MockFirebaseAuth' is imported from both 'test/fase2-gemini/integration/login_flow_zs_test.mocks.dart' and 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart'.
+        final mockAuth = MockFirebaseAuth();
+                         ^^^^^^^^^^^^^^^^
+  test/fase2-gemini/integration/login_flow_zs_test.dart:92:24: Error: 'MockFirebaseAuth' is imported from both 'test/fase2-gemini/integration/login_flow_zs_test.mocks.dart' and 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart'.
+        final mockAuth = MockFirebaseAuth();
+                         ^^^^^^^^^^^^^^^^
+  test/fase2-gemini/integration/login_flow_zs_test.dart:14:1: Error: 'MockFirebaseAuth' is imported from both 'test/fase2-gemini/integration/login_flow_zs_test.mocks.dart' and 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart'.
+  import 'login_flow_zs_test.mocks.dart';
+  ^^^^^^^^^^^^^^^^
+  test/fase2-gemini/integration/login_flow_zs_test.dart:114:33: Error: 'MockFirebaseAuth' is imported from both 'test/fase2-gemini/integration/login_flow_zs_test.mocks.dart' and 'package:firebase_auth_mocks/src/firebase_auth_mocks_base.dart'.
+        mockFirebaseAuthMockito = MockFirebaseAuth();
+                                  ^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

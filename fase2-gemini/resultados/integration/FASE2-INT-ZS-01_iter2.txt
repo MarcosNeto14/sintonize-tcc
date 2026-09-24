@@ -1,0 +1,46 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/login_flow_zs_test.dart
+00:00 +0: Fluxo de Integração - Login (Sucesso e Navegação) Deve autenticar com sucesso e navegar para TelaInicialScreen
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following IndexError was thrown running a test:
+RangeError (index): Index out of range: index should be less than 1: 1
+
+When the exception was thrown, this was the stack:
+#0      Iterable.elementAt (dart:core/iterable.dart:827:5)
+#1      _IndexFinderMixin.filter (package:flutter_test/src/finders.dart:1396:28)
+#3      ExpandIterator.moveNext (dart:_internal/iterable.dart:506:21)
+#4      SetBase.addAll (dart:collection/set.dart:58:23)
+#5      _Set.addAll (dart:_compact_hash:1190:11)
+#6      new LinkedHashSet.of (dart:collection/linked_hash_set.dart:193:27)
+#7      Iterable.toSet (dart:core/iterable.dart:532:21)
+#8      _DescendantFinderMixin.allCandidates (package:flutter_test/src/finders.dart:1739:10)
+#9      FinderBase.evaluate (package:flutter_test/src/finders.dart:987:76)
+#10     WidgetController.state (package:flutter_test/src/controller.dart:927:31)
+#11     WidgetTester.showKeyboard.<anonymous closure> (package:flutter_test/src/widget_tester.dart:1125:42)
+#14     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#15     WidgetTester.showKeyboard (package:flutter_test/src/widget_tester.dart:1124:27)
+#16     WidgetTester.enterText.<anonymous closure> (package:flutter_test/src/widget_tester.dart:1160:13)
+#19     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#20     WidgetTester.enterText (package:flutter_test/src/widget_tester.dart:1159:27)
+#21     main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/login_flow_zs_test.dart:49:20)
+<asynchronous suspension>
+#22     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#23     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 6 frames from dart:async, dart:async-patch, and package:stack_trace)
+
+The test description was:
+  Deve autenticar com sucesso e navegar para TelaInicialScreen
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: Fluxo de Integração - Login (Sucesso e Navegação) Deve autenticar com sucesso e navegar para TelaInicialScreen [E]
+  Test failed. See exception logs above.
+  The test description was: Deve autenticar com sucesso e navegar para TelaInicialScreen
+  
+00:01 +0 -1: Validações de Formulário Local (Campos vazios / inválidos) Exibe mensagens de validação quando campos estão vazios e bloqueia chamada ao Firebase
+00:01 +1 -1: Validações de Formulário Local (Campos vazios / inválidos) Exibe erro quando e-mail é malformatado ou senha tem menos de 6 caracteres
+00:01 +2 -1: Cenários de Erro no Firebase (SnackBars de Falha) Exibe mensagem adequada quando código é "user-not-found"
+00:01 +3 -1: Cenários de Erro no Firebase (SnackBars de Falha) Exibe mensagem adequada quando código é "wrong-password"
+00:01 +4 -1: Cenários de Erro no Firebase (SnackBars de Falha) Exibe mensagem adequada quando código é "invalid-credential"
+00:02 +5 -1: Cenários de Erro no Firebase (SnackBars de Falha) Exibe mensagem genérica quando código for desconhecido/inesperado
+00:02 +6 -1: Some tests failed.

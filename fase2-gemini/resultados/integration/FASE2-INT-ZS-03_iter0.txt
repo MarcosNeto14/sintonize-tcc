@@ -1,0 +1,5 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/playlist_flow_zs_test.dart
+00:00 +0: CriarPlaylistScreen - Fluxos de Integração deve carregar músicas, selecionar faixas, preencher nome e salvar no Firestore com sucesso
+00:00 +1: CriarPlaylistScreen - Fluxos de Integração não deve salvar a playlist quando o nome estiver vazio e deve exibir SnackBar de validação
+00:00 +2: CriarPlaylistScreen - Fluxos de Integração não deve salvar documentos quando não houver usuário autenticado no FirebaseAuth
+00:01 +3: All tests passed!

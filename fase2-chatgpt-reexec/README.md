@@ -11,7 +11,7 @@ modelos meça só o modelo. Ver
 
 Nada nesta pasta altera `fase2/`, `fase2/_execucao-assistida/` ou `fase2-gemini/`.
 
-**Status:** 14 rodadas executadas (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`, `FASE2-WSILENT-FS`, `FASE2-WSILENT-COT`, `FASE2-WSILENT-FS_REEXEC`, `FASE2-ICRASH-ZS`, `FASE2-ICRASH-FS`, `FASE2-ICRASH-COT`, `FASE2-ICRASH-ZS_REEXEC`, `FASE2-ICRASH-FS_REEXEC`, `FASE2-ICRASH-COT_REEXEC`, `FASE2-ISILENT-ZS`, `FASE2-ISILENT-FS`).
+**Status:** 15 rodadas executadas (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`, `FASE2-WSILENT-FS`, `FASE2-WSILENT-COT`, `FASE2-WSILENT-FS_REEXEC`, `FASE2-ICRASH-ZS`, `FASE2-ICRASH-FS`, `FASE2-ICRASH-COT`, `FASE2-ICRASH-ZS_REEXEC`, `FASE2-ICRASH-FS_REEXEC`, `FASE2-ICRASH-COT_REEXEC`, `FASE2-ISILENT-ZS`, `FASE2-ISILENT-FS`, `FASE2-ISILENT-COT`).
 
 ---
 
@@ -316,7 +316,7 @@ separador do prompt e a seção de reparo.
 | 15 | FASE2-ICRASH-COT | I-CRASH | COT | original | genérica (`package:sintonize/...`) | **feita (9/15)** — 2/14; I-CRASH visto e canonizado |
 | 16 | FASE2-ISILENT-ZS | I-SILENT | ZS | original | sim (`criar_playlist.dart`) | **feita (13/15)** — 2/2 na geração, sem reparo; I-SILENT visto e canonizado |
 | 17 | FASE2-ISILENT-FS | I-SILENT | FS | original | não | **feita (14/15)** — não compila em nenhuma iteração (pedido de caminho nos 3 reparos); I-SILENT visto e canonizado no código |
-| 18 | FASE2-ISILENT-COT | I-SILENT | COT | original | sim (`criar_playlist.dart`) | pendente |
+| 18 | FASE2-ISILENT-COT | I-SILENT | COT | original | sim (`criar_playlist.dart`) | **feita (15/15)** — 4/4 na geração, sem reparo; I-SILENT visto e canonizado (asserção que proíbe o nome digitado) |
 | 19 | FASE2-WSILENT-FS_REEXEC | W-SILENT | FS | corrigido (`FASE2--REEXEC.md`, l. 37–225) | não | **feita (6/15)** — não compila; W-SILENT canonizado sem menção |
 | 20 | FASE2-ICRASH-ZS_REEXEC | I-CRASH | ZS | corrigido (l. 226–1010) | sim (`cadastro.dart`, `generos-cadastro.dart`) | **feita (10/15)** — 1/5; **I-CRASH capturado por asserção**, (B) correto |
 | 21 | FASE2-ICRASH-FS_REEXEC | I-CRASH | FS | corrigido (l. 1011–1841) | não | **feita (11/15)** — 1/2 após 3 iterações; I-CRASH não testado |

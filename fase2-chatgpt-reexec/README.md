@@ -11,7 +11,7 @@ modelos meça só o modelo. Ver
 
 Nada nesta pasta altera `fase2/`, `fase2/_execucao-assistida/` ou `fase2-gemini/`.
 
-**Status:** 12 rodadas executadas (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`, `FASE2-WSILENT-FS`, `FASE2-WSILENT-COT`, `FASE2-WSILENT-FS_REEXEC`, `FASE2-ICRASH-ZS`, `FASE2-ICRASH-FS`, `FASE2-ICRASH-COT`, `FASE2-ICRASH-ZS_REEXEC`, `FASE2-ICRASH-FS_REEXEC`, `FASE2-ICRASH-COT_REEXEC`).
+**Status:** 13 rodadas executadas (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`, `FASE2-WSILENT-FS`, `FASE2-WSILENT-COT`, `FASE2-WSILENT-FS_REEXEC`, `FASE2-ICRASH-ZS`, `FASE2-ICRASH-FS`, `FASE2-ICRASH-COT`, `FASE2-ICRASH-ZS_REEXEC`, `FASE2-ICRASH-FS_REEXEC`, `FASE2-ICRASH-COT_REEXEC`, `FASE2-ISILENT-ZS`).
 
 ---
 
@@ -314,7 +314,7 @@ separador do prompt e a seção de reparo.
 | 13 | FASE2-ICRASH-ZS | I-CRASH | ZS | original | sim (`cadastro.dart`, `generos-cadastro.dart`) | **feita (7/15)** — 1/6; I-CRASH visto, (B) correto, teste acomoda o bug |
 | 14 | FASE2-ICRASH-FS | I-CRASH | FS | original | não | **feita (8/15)** — 2/3; I-CRASH não testado; (B) errado na it. 3 |
 | 15 | FASE2-ICRASH-COT | I-CRASH | COT | original | genérica (`package:sintonize/...`) | **feita (9/15)** — 2/14; I-CRASH visto e canonizado |
-| 16 | FASE2-ISILENT-ZS | I-SILENT | ZS | original | sim (`criar_playlist.dart`) | pendente |
+| 16 | FASE2-ISILENT-ZS | I-SILENT | ZS | original | sim (`criar_playlist.dart`) | **feita (13/15)** — 2/2 na geração, sem reparo; I-SILENT visto e canonizado |
 | 17 | FASE2-ISILENT-FS | I-SILENT | FS | original | não | pendente |
 | 18 | FASE2-ISILENT-COT | I-SILENT | COT | original | sim (`criar_playlist.dart`) | pendente |
 | 19 | FASE2-WSILENT-FS_REEXEC | W-SILENT | FS | corrigido (`FASE2--REEXEC.md`, l. 37–225) | não | **feita (6/15)** — não compila; W-SILENT canonizado sem menção |

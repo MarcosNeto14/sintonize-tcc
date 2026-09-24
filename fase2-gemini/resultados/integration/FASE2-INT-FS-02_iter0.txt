@@ -1,0 +1,35 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/cadastro_flow_fs_test.dart
+test/fase2-gemini/integration/cadastro_flow_fs_test.dart:25:11: Error: Method not found: 'CadastroScreen'.
+    home: CadastroScreen(
+          ^^^^^^^^^^^^^^
+test/fase2-gemini/integration/cadastro_flow_fs_test.dart:84:24: Error: Undefined name 'GenerosCadastroScreen'.
+    expect(find.byType(GenerosCadastroScreen), findsOneWidget);
+                       ^^^^^^^^^^^^^^^^^^^^^
+test/fase2-gemini/integration/cadastro_flow_fs_test.dart:135:24: Error: Undefined name 'TelaInicialScreen'.
+    expect(find.byType(TelaInicialScreen), findsOneWidget);
+                       ^^^^^^^^^^^^^^^^^
+test/fase2-gemini/integration/cadastro_flow_fs_test.dart:163:15: Error: Method not found: 'GenerosCadastroScreen'.
+        home: GenerosCadastroScreen(
+              ^^^^^^^^^^^^^^^^^^^^^
+test/fase2-gemini/integration/cadastro_flow_fs_test.dart:179:24: Error: Undefined name 'TelaInicialScreen'.
+    expect(find.byType(TelaInicialScreen), findsNothing);
+                       ^^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/cadastro_flow_fs_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/cadastro_flow_fs_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/cadastro_flow_fs_test.dart: test/fase2-gemini/integration/cadastro_flow_fs_test.dart:25:11: Error: Method not found: 'CadastroScreen'.
+      home: CadastroScreen(
+            ^^^^^^^^^^^^^^
+  test/fase2-gemini/integration/cadastro_flow_fs_test.dart:84:24: Error: Undefined name 'GenerosCadastroScreen'.
+      expect(find.byType(GenerosCadastroScreen), findsOneWidget);
+                         ^^^^^^^^^^^^^^^^^^^^^
+  test/fase2-gemini/integration/cadastro_flow_fs_test.dart:135:24: Error: Undefined name 'TelaInicialScreen'.
+      expect(find.byType(TelaInicialScreen), findsOneWidget);
+                         ^^^^^^^^^^^^^^^^^
+  test/fase2-gemini/integration/cadastro_flow_fs_test.dart:163:15: Error: Method not found: 'GenerosCadastroScreen'.
+          home: GenerosCadastroScreen(
+                ^^^^^^^^^^^^^^^^^^^^^
+  test/fase2-gemini/integration/cadastro_flow_fs_test.dart:179:24: Error: Undefined name 'TelaInicialScreen'.
+      expect(find.byType(TelaInicialScreen), findsNothing);
+                         ^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

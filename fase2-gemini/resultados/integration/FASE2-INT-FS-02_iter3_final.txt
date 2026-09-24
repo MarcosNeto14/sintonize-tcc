@@ -1,0 +1,34 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/cadastro_flow_fs_test.dart
+00:00 +0: Fluxo de Cadastro e Seleção de Gêneros - App Sintonize deve completar com sucesso o cadastro, salvar dados no Firestore, navegar para seleção de gêneros e atualizar preferências no Firestore
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.state (package:flutter_test/src/controller.dart:927:42)
+#2      WidgetTester.showKeyboard.<anonymous closure> (package:flutter_test/src/widget_tester.dart:1125:42)
+#5      TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#6      WidgetTester.showKeyboard (package:flutter_test/src/widget_tester.dart:1124:27)
+#7      WidgetTester.enterText.<anonymous closure> (package:flutter_test/src/widget_tester.dart:1160:13)
+#10     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#11     WidgetTester.enterText (package:flutter_test/src/widget_tester.dart:1159:27)
+#12     main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/cadastro_flow_fs_test.dart:57:22)
+<asynchronous suspension>
+#13     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#14     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The test description was:
+  deve completar com sucesso o cadastro, salvar dados no Firestore, navegar para seleção de gêneros
+  e atualizar preferências no Firestore
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: Fluxo de Cadastro e Seleção de Gêneros - App Sintonize deve completar com sucesso o cadastro, salvar dados no Firestore, navegar para seleção de gêneros e atualizar preferências no Firestore [E]
+  Test failed. See exception logs above.
+  The test description was: deve completar com sucesso o cadastro, salvar dados no Firestore, navegar para seleção de gêneros e atualizar preferências no Firestore
+  
+00:01 +0 -1: Fluxo de Cadastro e Seleção de Gêneros - App Sintonize não deve prosseguir em GenerosCadastroScreen se nenhum gênero for selecionado
+00:01 +1 -1: Some tests failed.

@@ -18,7 +18,7 @@ nunca foi o controle de fato — era um proxy para "tier gratuito padrão".
 
 No ChatGPT o proxy funcionou: deslogado, a Fase 2 recebeu GPT-5.5/5.6, o topo
 do que era servido. No Gemini ele aponta para outro lugar: deslogado, o
-seletor **trava em 3.5 Flash Lite**, o tier mais barato, com 3.6 Flash e
+seletor **trava em 3.5 Flash Lite**, o tier mais barato, com 3.8 Flash e
 3.1 Pro atrás de login (print em
 `../evidencias/2026-09-21_gemini_seletor_modelo_sem_login.png`).
 
@@ -27,9 +27,17 @@ a ser "carro-chefe do ChatGPT × modelo mais fraco do Gemini" — uma variável
 não controlada, na direção oposta à que a réplica quer medir.
 
 **Decisão (2026-09-21):** as 60 rodadas passam a rodar **com login, fixadas em
-3.6 Flash**, com print do seletor por sessão. O desvio é a sessão logada; o
+3.8 Flash**, com print do seletor por sessão. O desvio é a sessão logada; o
 ganho é tier comparável e versão do modelo verificável por evidência de UI,
 em vez de autodeclaração. Ver `../README.md`.
+
+> **Correção (2026-09-24).** Este arquivo dizia `3.6 Flash` nos dois pontos
+> acima. Era erro de redação, não de execução: `3.6 Flash` é o que **fontes
+> externas** davam como modelo gratuito do app, mas o seletor real, no mesmo
+> dia, oferecia `3.5 Flash Lite`, `3.8 Flash` e `3.1 Pro` — **sem 3.6**. A
+> divergência entre fonte externa e UI está registrada no `../README.md`, e as
+> 60 rodadas rodaram em **3.8 Flash**, como consta em todos os 64 docs de
+> rodada. Corrigido aqui para não virar ruído na redação.
 
 ## Achado que justifica guardar
 

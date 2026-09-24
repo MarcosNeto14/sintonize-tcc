@@ -1,0 +1,35 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/cadastro_flow_cot_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: Fluxo de Cadastro e Seleção de Gêneros - Integração Cenário 1: Fluxo de sucesso completo ponta a ponta
+00:01 +1: Fluxo de Cadastro e Seleção de Gêneros - Integração Cenário 2: Erros de validação do formulário bloqueiam envio ao Firebase
+00:01 +2: Fluxo de Cadastro e Seleção de Gêneros - Integração Cenário 3: Exibe SnackBar quando o Firebase Auth rejeita o cadastro
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextContainingWidgetFinder:<Found 0 widgets with text containing Erro ao cadastrar: O
+endereço de e-mail já está em uso.: []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/cadastro_flow_cot_test.dart:198:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/cadastro_flow_cot_test.dart line 198
+The test description was:
+  Cenário 3: Exibe SnackBar quando o Firebase Auth rejeita o cadastro
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +2 -1: Fluxo de Cadastro e Seleção de Gêneros - Integração Cenário 3: Exibe SnackBar quando o Firebase Auth rejeita o cadastro [E]
+  Test failed. See exception logs above.
+  The test description was: Cenário 3: Exibe SnackBar quando o Firebase Auth rejeita o cadastro
+  
+00:02 +2 -1: Fluxo de Cadastro e Seleção de Gêneros - Integração Cenário 4: Exibe aviso caso nenhum gênero seja selecionado
+00:02 +3 -1: Fluxo de Cadastro e Seleção de Gêneros - Integração Cenário 5: Tratamento de erro quando Firestore falha ao salvar gêneros
+00:02 +4 -1: (tearDownAll)
+00:02 +4 -1: Some tests failed.

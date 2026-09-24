@@ -11,7 +11,7 @@ modelos meça só o modelo. Ver
 
 Nada nesta pasta altera `fase2/`, `fase2/_execucao-assistida/` ou `fase2-gemini/`.
 
-**Status:** infraestrutura pronta, **0 de 22 rodadas executadas**.
+**Status:** 1 rodada executada (`FASE2-WCRASH-FS`).
 
 ---
 
@@ -77,6 +77,45 @@ Vale o procedimento de `fase2-gemini/README.md`, seção "Extração do código
 gerado". Se a extração automática perder a indentação, o operador cola a resposta
 manualmente e o arquivo verbatim substitui a versão reconstruída. O doc registra
 qual caminho foi usado.
+
+---
+
+## Ameaças à validade — pedidos de informação de ambiente
+
+**Decisão (2026-09-24, após a rodada 1):** quando o modelo pede informação de
+ambiente, como o caminho real de um arquivo, o pedido **não é respondido**,
+conforme a regra 2 do reparo. Não há braço secundário com contexto
+padronizado. A decisão vale para as 22 rodadas.
+
+**Por que não responder.** Responder caso a caso foi o que contaminou a Fase 2
+original, isolada em `fase2/_execucao-assistida/`. Responder só quando o
+modelo pergunta também premiaria o modelo que pergunta em relação ao que
+chuta: na mesma rodada, o Gemini não perguntou e colou o widget no teste. E a
+réplica Gemini já foi executada sem essa ajuda.
+
+**Ameaça a declarar na redação.** Um import inexistente não tem relação com o
+que o estudo mede. Quando a rodada trava nesse erro, o resultado vira
+"compila / não compila", e o bug plantado nem chega a ser testado. A ameaça
+não se distribui ao acaso:
+- **Construto:** a métrica de reparo passa a medir se o modelo conhece o layout
+  do repositório, e não se ele gera bons testes ou detecta o bug.
+- **Interna, entre estratégias:** nenhum prompt FS traz a linha de import, e
+  todos os COT trazem (ver a tabela "As 22 rodadas"). A regra de não responder
+  pesa sobre o FS, e isso confunde a comparação ZS × FS × COT.
+- **Entre modelos:** um modelo que pede a informação fica travado; um que
+  inventa um caminho ou cola o widget no teste pode "passar" testando uma cópia,
+  não a aplicação.
+
+**Tratamento na análise:**
+- classificar essas rodadas como **"bloqueio por informação de ambiente
+  ausente"**, separadas de "erro de teste";
+- reportar duas métricas: compilação e detecção do bug **entre as rodadas que
+  chegaram a executar**.
+
+**Primeira ocorrência:** `FASE2-WCRASH-FS`, rodada 1. O modelo pediu o
+caminho nos reparos 1, 2 e 3 e a rodada terminou sem compilar. Na Fase 2
+original, com o caminho fornecido pelo operador, a mesma rodada fechou em
+15/15.
 
 ---
 
@@ -265,7 +304,7 @@ separador do prompt e a seção de reparo.
 | 5 | FASE2-USILENT-FS | U-SILENT | FS | original | não | pendente |
 | 6 | FASE2-USILENT-COT | U-SILENT | COT | original | sim (`utils/validators.dart`) | pendente |
 | 7 | FASE2-WCRASH-ZS | W-CRASH | ZS | original | sim (`criar_playlist.dart`) | pendente |
-| 8 | FASE2-WCRASH-FS | W-CRASH | FS | original | não | pendente |
+| 8 | FASE2-WCRASH-FS | W-CRASH | FS | original | não | **feita (1/15)** — não compila, 3 iterações |
 | 9 | FASE2-WCRASH-COT | W-CRASH | COT | original | sim (`criar_playlist.dart`) | pendente |
 | 10 | FASE2-WSILENT-ZS | W-SILENT | ZS | original | sim (`login.dart`) | pendente |
 | 11 | FASE2-WSILENT-FS | W-SILENT | FS | original | não | pendente |

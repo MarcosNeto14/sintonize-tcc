@@ -11,7 +11,7 @@ modelos meça só o modelo. Ver
 
 Nada nesta pasta altera `fase2/`, `fase2/_execucao-assistida/` ou `fase2-gemini/`.
 
-**Status:** 3 rodadas executadas (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`).
+**Status:** 4 rodadas executadas (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`, `FASE2-WSILENT-FS`).
 
 ---
 
@@ -111,6 +111,8 @@ não se distribui ao acaso:
   ausente"**, separadas de "erro de teste";
 - reportar duas métricas: compilação e detecção do bug **entre as rodadas que
   chegaram a executar**.
+
+**Ocorrências:** `FASE2-WSILENT-FS` (rodada 4) repetiu o padrão: pedido de caminho nos três reparos, cópia do widget colada no teste na iteração 2, nenhuma iteração compilada.
 
 **Primeira ocorrência:** `FASE2-WCRASH-FS`, rodada 1. O modelo pediu o
 caminho nos reparos 1, 2 e 3 e a rodada terminou sem compilar. Na Fase 2
@@ -307,7 +309,7 @@ separador do prompt e a seção de reparo.
 | 8 | FASE2-WCRASH-FS | W-CRASH | FS | original | não | **feita (1/15)** — não compila, 3 iterações |
 | 9 | FASE2-WCRASH-COT | W-CRASH | COT | original | sim (`criar_playlist.dart`) | **feita (2/15)** — 20/21, 3 iterações |
 | 10 | FASE2-WSILENT-ZS | W-SILENT | ZS | original | sim (`login.dart`) | **feita (3/15)** — 7/8 (melhor 12/14), W-SILENT visto e canonizado |
-| 11 | FASE2-WSILENT-FS | W-SILENT | FS | original | não | pendente |
+| 11 | FASE2-WSILENT-FS | W-SILENT | FS | original | não | **feita (4/15)** — não compila; W-SILENT visto e canonizado |
 | 12 | FASE2-WSILENT-COT | W-SILENT | COT | original | sim (`login.dart`) | pendente |
 | 13 | FASE2-ICRASH-ZS | I-CRASH | ZS | original | sim (`cadastro.dart`, `generos-cadastro.dart`) | pendente |
 | 14 | FASE2-ICRASH-FS | I-CRASH | FS | original | não | pendente |

@@ -15,7 +15,7 @@ The work is organized in **four stages**, each with its own artifact tree. See "
 | **Fase 1** — pilot study | 48 | ChatGPT | `prompts/`, `results/`, `analise/` | `main` | complete |
 | **Fase 2** — main study | 60 = 42 clean + 18 planted-bug (+4 `_REEXEC`) | ChatGPT | `fase2/`; 15 operator-assisted bug rounds isolated in `fase2/_execucao-assistida/` | `fase2-prep` / `fase2-alvos-limpos` | complete |
 | **Fase 2 – Gemini** — replication | 60 (+4 `_REEXEC`) | Gemini 3.8 Flash | `fase2-gemini/` | bug rounds: `fase2-gemini-piloto`; clean: `fase2-gemini-alvos-limpos` | complete |
-| **Fase 2 – ChatGPT re-run** — the 22 bug rounds, fixed repair template | 18 (+4 `_REEXEC`) | ChatGPT | `fase2-chatgpt-reexec/`, `test/fase2-chatgpt-reexec/` | `fase2-chatgpt-reexec` | infrastructure only, 0/22 |
+| **Fase 2 – ChatGPT re-run** — the 22 bug rounds, fixed repair template | 18 (+4 `_REEXEC`) | ChatGPT | `fase2-chatgpt-reexec/`, `test/fase2-chatgpt-reexec/` | `fase2-chatgpt-reexec` | 15/22 done (the 15 operator-assisted rounds); the other 7 not re-run |
 
 ## Commands
 
@@ -151,10 +151,11 @@ Artifacts in `fase2-gemini/`. It uses the same prompts, targets, planted bugs an
 
 All 60 rounds and the 4 `_REEXEC` were executed between 2026-09-22 and 2026-09-24. The docs are split across two branches, and neither branch holds all of them. The 18 bug rounds and 4 `_REEXEC` are on `fase2-gemini-piloto`; the 42 clean-target rounds are on `fase2-gemini-alvos-limpos`.
 
-### Fase 2 – ChatGPT re-run (22 rounds, not started)
+### Fase 2 – ChatGPT re-run (22 rounds, 15 executed)
 
 `fase2-chatgpt-reexec/` re-runs the 18 planted-bug rounds and the 4 `_REEXEC` on ChatGPT, under the replica's protocol: the repair prompt is the fixed template plus terminal output, and nothing else. Its purpose is to remove the operator-assisted repairs isolated in `fase2/_execucao-assistida/`.
 
+- **Status (2026-09-24):** the 15 rounds isolated in `fase2/_execucao-assistida/` were re-run, one commit per round (`Reexecução ChatGPT N/15: ...`). The 7 rounds that never had an enriched repair (U-CRASH ×3, U-SILENT ×3, W-CRASH-ZS) were not re-run; their Fase 2 originals stay valid. Per-round results are in the table "As 22 rodadas" in `fase2-chatgpt-reexec/README.md`.
 - Rounds run on `fase2-chatgpt-reexec`. That branch was created from `fase2-gemini-alvos-limpos`, so it has the complete docs, and its `lib/` was brought over from `fase2-gemini-piloto`, so all 6 bugs are active.
 - Generated tests go to `test/fase2-chatgpt-reexec/`.
 - The prompts are byte-identical copies of the 18 bug prompts and `FASE2--REEXEC.md`.

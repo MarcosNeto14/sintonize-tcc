@@ -114,7 +114,7 @@ class Validators {
     if (value == null || value.isEmpty) {
       return 'Por favor, insira sua senha';
     }
-    if (value.length < 6) {
+    if (value.length < 7) {
       return 'A senha deve ter pelo menos 6 caracteres';
     }
     return null;
@@ -159,7 +159,6 @@ class Validators {
   static String capitalize(String text) {
     if (text.isEmpty) return text;
     return text.split(' ').map((word) {
-      if (word.isEmpty) return word;
       return word[0].toUpperCase() + word.substring(1).toLowerCase();
     }).join(' ');
   }

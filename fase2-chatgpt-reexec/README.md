@@ -11,7 +11,7 @@ modelos meça só o modelo. Ver
 
 Nada nesta pasta altera `fase2/`, `fase2/_execucao-assistida/` ou `fase2-gemini/`.
 
-**Status:** 1 rodada executada (`FASE2-WCRASH-FS`).
+**Status:** 2 rodadas executadas (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`).
 
 ---
 
@@ -305,7 +305,7 @@ separador do prompt e a seção de reparo.
 | 6 | FASE2-USILENT-COT | U-SILENT | COT | original | sim (`utils/validators.dart`) | pendente |
 | 7 | FASE2-WCRASH-ZS | W-CRASH | ZS | original | sim (`criar_playlist.dart`) | pendente |
 | 8 | FASE2-WCRASH-FS | W-CRASH | FS | original | não | **feita (1/15)** — não compila, 3 iterações |
-| 9 | FASE2-WCRASH-COT | W-CRASH | COT | original | sim (`criar_playlist.dart`) | pendente |
+| 9 | FASE2-WCRASH-COT | W-CRASH | COT | original | sim (`criar_playlist.dart`) | **feita (2/15)** — 20/21, 3 iterações |
 | 10 | FASE2-WSILENT-ZS | W-SILENT | ZS | original | sim (`login.dart`) | pendente |
 | 11 | FASE2-WSILENT-FS | W-SILENT | FS | original | não | pendente |
 | 12 | FASE2-WSILENT-COT | W-SILENT | COT | original | sim (`login.dart`) | pendente |

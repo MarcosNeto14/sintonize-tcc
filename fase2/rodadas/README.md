@@ -19,3 +19,13 @@ verificada.
 Esse desvio se aplica a todas as rodadas da Fase 2 e é análogo (mas não
 idêntico) ao desvio já documentado em WIDGET-COT-03 (GPT-4o) na Fase 1.
 Deve ser considerado na análise comparativa entre Fase 1 e Fase 2.
+
+## Rodadas isoladas — reparo enriquecido pelo operador
+
+Em 2026-09-24, 15 rodadas de bug plantado (`WCRASH-{FS,COT}`,
+`WSILENT-{ZS,FS,COT}`, `WSILENT-FS_REEXEC`, `ICRASH-{ZS,FS,COT}` e os três
+`_REEXEC`, `ISILENT-{ZS,FS,COT}`) foram movidas sem alteração para
+`fase2/_execucao-assistida/`. Nelas o prompt de reparo levou informação do operador
+além do template fixo, e por isso ficam fora da comparação entre modelos. As 7
+rodadas de bug plantado sem reparo enriquecido continuam aqui. Detalhes em
+`fase2/_execucao-assistida/README.md`.

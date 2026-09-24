@@ -213,3 +213,5 @@ plantado para detectar neste alvo.
 | Ambíguo | Não é possível determinar com certeza qual das categorias acima se aplica |
 | Falha de ambiente | Problema de configuração, versão de dependência, ou ambiente de execução |
 | Bug capturado sem necessidade de reparo (C) | O modelo já identificou e se ajustou ao bug real na geração inicial, sem falha nem ciclo de reparo |
+
+> Nota (2026-09-24): a rodada `FASE2-WSILENT-FS_REEXEC` citada acima está agora em `fase2/_execucao-assistida/rodadas/widget/FASE2-WSILENT-FS_REEXEC.md`.

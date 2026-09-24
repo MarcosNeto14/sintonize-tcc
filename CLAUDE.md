@@ -142,6 +142,8 @@ Artifacts in `fase2/`. Repeats the ZS/FS/COT comparison, now against six deliber
 
 Four `_REEXEC` rounds (corrected prompts for `WSILENT-FS` and `ICRASH-{ZS,FS,COT}`) exist alongside the originals and are not part of the 60.
 
+**Isolated, operator-assisted rounds.** In 15 planted-bug rounds (the 4 `_REEXEC` included), the operator added information to the repair prompt beyond the fixed template: real paths, real API signatures, the real `build()`, and findings from earlier rounds. The Gemini replica used the bare template, so these 15 rounds are excluded from the cross-model comparison. Their artifacts, including their 15 test files, were moved unchanged to `fase2/_execucao-assistida/`, which sits outside `test/`. The clean re-run goes in `fase2-chatgpt-reexec/`. The other 7 planted-bug rounds had no enriched repair and stay in `fase2/`. See `fase2/_execucao-assistida/README.md`.
+
 ### Fase 2 – Gemini — replication (60 rounds, in progress)
 
 Artifacts in `fase2-gemini/`. Same prompts, same targets, same planted bugs, same protocol (max 3 repair iterations, A/B/C self-classification, logged-out session). **The model is the only variable that changes.** The prompts are byte-identical copies, verified by `diff -r` and per-file `sha256sum`.

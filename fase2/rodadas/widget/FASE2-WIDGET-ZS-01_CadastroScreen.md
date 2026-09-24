@@ -211,3 +211,5 @@ test/fase2/widget/cadastro_screen_zs_test.dart:354:20: Error: The getter 'obscur
 | Ambíguo | Não é possível determinar com certeza qual das categorias acima se aplica |
 | Falha de ambiente | Problema de configuração, versão de dependência, ou ambiente de execução |
 | Bug capturado sem necessidade de reparo (C) | O modelo já identificou e se ajustou ao bug real na geração inicial, sem falha nem ciclo de reparo |
+
+> Nota (2026-09-24): as rodadas do piloto W-SILENT citadas acima estão agora em `fase2/_execucao-assistida/rodadas/widget/`.

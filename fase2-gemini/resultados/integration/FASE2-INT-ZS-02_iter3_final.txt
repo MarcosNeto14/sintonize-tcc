@@ -1,0 +1,11 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/cadastro_flow_zs_test.dart
+test/fase2-gemini/integration/cadastro_flow_zs_test.dart:29:3: Error: Method not found: 'setupFirebaseCoreMocks'.
+  setupFirebaseCoreMocks();
+  ^^^^^^^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/cadastro_flow_zs_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/cadastro_flow_zs_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/cadastro_flow_zs_test.dart: test/fase2-gemini/integration/cadastro_flow_zs_test.dart:29:3: Error: Method not found: 'setupFirebaseCoreMocks'.
+    setupFirebaseCoreMocks();
+    ^^^^^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

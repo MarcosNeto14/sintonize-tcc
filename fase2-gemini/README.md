@@ -15,9 +15,21 @@ Os artefatos do ChatGPT em `fase2/` são o grupo de comparação e
 
 ## Status
 
-**Nenhuma das 60 rodadas executada.** Esta pasta contém a infraestrutura:
-prompts copiados, template de documentação e o mapeamento de estado de
-código. A submissão dos prompts continua manual.
+**As 60 rodadas foram executadas**, entre 2026-09-22 e 2026-09-24, mais as 4
+reexecuções. Todas em **3.8 Flash**, sessão com login. A submissão dos prompts
+foi manual ou por automação de navegador, registrada rodada a rodada.
+
+**⚠ Os artefatos estão divididos em duas branches, por exigência do mapeamento
+de estado do código.** Nenhuma das duas contém as 60 sozinha:
+
+| Branch | Rodadas | Arquivos |
+|---|---|---|
+| `fase2-gemini-piloto` (de `295fa34`, 6 bugs ativos) | **18 de bug plantado + 4 reexecuções** | `rodadas/*/FASE2-{U,W,I}{CRASH,SILENT}-*.md` |
+| `fase2-gemini-alvos-limpos` (de `b150862`) | **42 de alvo limpo** (24 unit + 9 widget + 9 integração) | `rodadas/*/FASE2-{UNIT,WIDGET,INT}-*.md` |
+
+Ao empacotar a pasta para revisão, **exportar das duas branches** — um `.rar`
+tirado de um único working tree sai incompleto. Foi o que aconteceu no envio de
+2026-09-24, que saiu só com os 42 alvos limpos.
 
 Uma rodada foi executada em 2026-09-21 sob a condição antiga (sem login) e
 **descartada**; está preservada em `piloto-flash-lite/`, fora da contagem.
@@ -114,9 +126,9 @@ fase2-gemini/
 ├── prompts_prontos/                       (cópia byte-idêntica de fase2/prompts_prontos/)
 ├── evidencias/                            (prints do seletor de modelo, um por sessão)
 ├── piloto-flash-lite/                     (rodada descartada da condição antiga — fora das 60)
-├── rodadas/{unit,widget,integration}/     (documentação por rodada — vazio)
+├── rodadas/{unit,widget,integration}/     (42 docs aqui; as 22 do piloto na outra branch)
 └── resultados/{unit,widget,integration}/{zero-shot,few-shot,cot}/
-                                           (saídas de flutter test — vazio)
+                                           (saídas de flutter test, uma por iteração)
 ```
 
 ---

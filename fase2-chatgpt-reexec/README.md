@@ -11,7 +11,7 @@ modelos meça só o modelo. Ver
 
 Nada nesta pasta altera `fase2/`, `fase2/_execucao-assistida/` ou `fase2-gemini/`.
 
-**Status:** 10 rodadas executadas (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`, `FASE2-WSILENT-FS`, `FASE2-WSILENT-COT`, `FASE2-WSILENT-FS_REEXEC`, `FASE2-ICRASH-ZS`, `FASE2-ICRASH-FS`, `FASE2-ICRASH-COT`, `FASE2-ICRASH-ZS_REEXEC`).
+**Status:** 11 rodadas executadas (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`, `FASE2-WSILENT-FS`, `FASE2-WSILENT-COT`, `FASE2-WSILENT-FS_REEXEC`, `FASE2-ICRASH-ZS`, `FASE2-ICRASH-FS`, `FASE2-ICRASH-COT`, `FASE2-ICRASH-ZS_REEXEC`, `FASE2-ICRASH-FS_REEXEC`).
 
 ---
 
@@ -319,7 +319,7 @@ separador do prompt e a seção de reparo.
 | 18 | FASE2-ISILENT-COT | I-SILENT | COT | original | sim (`criar_playlist.dart`) | pendente |
 | 19 | FASE2-WSILENT-FS_REEXEC | W-SILENT | FS | corrigido (`FASE2--REEXEC.md`, l. 37–225) | não | **feita (6/15)** — não compila; W-SILENT canonizado sem menção |
 | 20 | FASE2-ICRASH-ZS_REEXEC | I-CRASH | ZS | corrigido (l. 226–1010) | sim (`cadastro.dart`, `generos-cadastro.dart`) | **feita (10/15)** — 1/5; **I-CRASH capturado por asserção**, (B) correto |
-| 21 | FASE2-ICRASH-FS_REEXEC | I-CRASH | FS | corrigido (l. 1011–1841) | não | pendente |
+| 21 | FASE2-ICRASH-FS_REEXEC | I-CRASH | FS | corrigido (l. 1011–1841) | não | **feita (11/15)** — 1/2 após 3 iterações; I-CRASH não testado |
 | 22 | FASE2-ICRASH-COT_REEXEC | I-CRASH | COT | corrigido (l. 1842–2624) | genérica (`package:sintonize/...`) | pendente |
 
 Nenhum prompt FS traz a ajuda de import, e todos os COT trazem. Nos ZS, só os

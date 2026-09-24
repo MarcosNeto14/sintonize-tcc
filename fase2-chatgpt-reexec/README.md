@@ -11,7 +11,7 @@ modelos meça só o modelo. Ver
 
 Nada nesta pasta altera `fase2/`, `fase2/_execucao-assistida/` ou `fase2-gemini/`.
 
-**Status:** 13 rodadas executadas (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`, `FASE2-WSILENT-FS`, `FASE2-WSILENT-COT`, `FASE2-WSILENT-FS_REEXEC`, `FASE2-ICRASH-ZS`, `FASE2-ICRASH-FS`, `FASE2-ICRASH-COT`, `FASE2-ICRASH-ZS_REEXEC`, `FASE2-ICRASH-FS_REEXEC`, `FASE2-ICRASH-COT_REEXEC`, `FASE2-ISILENT-ZS`).
+**Status:** 14 rodadas executadas (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`, `FASE2-WSILENT-FS`, `FASE2-WSILENT-COT`, `FASE2-WSILENT-FS_REEXEC`, `FASE2-ICRASH-ZS`, `FASE2-ICRASH-FS`, `FASE2-ICRASH-COT`, `FASE2-ICRASH-ZS_REEXEC`, `FASE2-ICRASH-FS_REEXEC`, `FASE2-ICRASH-COT_REEXEC`, `FASE2-ISILENT-ZS`, `FASE2-ISILENT-FS`).
 
 ---
 
@@ -112,7 +112,7 @@ não se distribui ao acaso:
 - reportar duas métricas: compilação e detecção do bug **entre as rodadas que
   chegaram a executar**.
 
-**Ocorrências:** `FASE2-WSILENT-FS_REEXEC` (rodada 6): pedido de caminho nos três reparos, placeholder literal como import, nenhuma iteração compilada; na execução assistida, o caminho fornecido no reparo 2 levou a mesma rodada a 10/11. `FASE2-WSILENT-FS` (rodada 4) repetiu o padrão: pedido de caminho nos três reparos, cópia do widget colada no teste na iteração 2, nenhuma iteração compilada.
+**Ocorrências:** `FASE2-WSILENT-FS_REEXEC` (rodada 6): pedido de caminho nos três reparos, placeholder literal como import, nenhuma iteração compilada; na execução assistida, o caminho fornecido no reparo 2 levou a mesma rodada a 10/11. `FASE2-WSILENT-FS` (rodada 4) repetiu o padrão: pedido de caminho nos três reparos, cópia do widget colada no teste na iteração 2, nenhuma iteração compilada. `FASE2-ISILENT-FS` (rodada 14): import para `criar_playlist_screen.dart` (inexistente) desde a geração, pedido de caminho nos três reparos, o modelo recusou-se a inventar um caminho, nenhuma iteração compilada; na execução assistida, com o nome do arquivo fornecido, a mesma rodada fechou em 2/2.
 
 **Primeira ocorrência:** `FASE2-WCRASH-FS`, rodada 1. O modelo pediu o
 caminho nos reparos 1, 2 e 3 e a rodada terminou sem compilar. Na Fase 2
@@ -315,7 +315,7 @@ separador do prompt e a seção de reparo.
 | 14 | FASE2-ICRASH-FS | I-CRASH | FS | original | não | **feita (8/15)** — 2/3; I-CRASH não testado; (B) errado na it. 3 |
 | 15 | FASE2-ICRASH-COT | I-CRASH | COT | original | genérica (`package:sintonize/...`) | **feita (9/15)** — 2/14; I-CRASH visto e canonizado |
 | 16 | FASE2-ISILENT-ZS | I-SILENT | ZS | original | sim (`criar_playlist.dart`) | **feita (13/15)** — 2/2 na geração, sem reparo; I-SILENT visto e canonizado |
-| 17 | FASE2-ISILENT-FS | I-SILENT | FS | original | não | pendente |
+| 17 | FASE2-ISILENT-FS | I-SILENT | FS | original | não | **feita (14/15)** — não compila em nenhuma iteração (pedido de caminho nos 3 reparos); I-SILENT visto e canonizado no código |
 | 18 | FASE2-ISILENT-COT | I-SILENT | COT | original | sim (`criar_playlist.dart`) | pendente |
 | 19 | FASE2-WSILENT-FS_REEXEC | W-SILENT | FS | corrigido (`FASE2--REEXEC.md`, l. 37–225) | não | **feita (6/15)** — não compila; W-SILENT canonizado sem menção |
 | 20 | FASE2-ICRASH-ZS_REEXEC | I-CRASH | ZS | corrigido (l. 226–1010) | sim (`cadastro.dart`, `generos-cadastro.dart`) | **feita (10/15)** — 1/5; **I-CRASH capturado por asserção**, (B) correto |

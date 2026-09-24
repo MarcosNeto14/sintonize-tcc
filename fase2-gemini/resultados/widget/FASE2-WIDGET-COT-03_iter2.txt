@@ -1,0 +1,11 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/widget/criar_playlist_screen_cot_test.dart
+test/fase2-gemini/widget/criar_playlist_screen_cot_test.dart:267:41: Error: Method not found: 'anyThat'.
+        when(mockPlaylistCollection.add(anyThat(isA<Map<String, dynamic>>()))).thenThrow(
+                                        ^^^^^^^
+00:00 +0 -1: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/widget/criar_playlist_screen_cot_test.dart [E]
+  Failed to load "C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/widget/criar_playlist_screen_cot_test.dart":
+  Compilation failed for testPath=C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/widget/criar_playlist_screen_cot_test.dart: test/fase2-gemini/widget/criar_playlist_screen_cot_test.dart:267:41: Error: Method not found: 'anyThat'.
+          when(mockPlaylistCollection.add(anyThat(isA<Map<String, dynamic>>()))).thenThrow(
+                                          ^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

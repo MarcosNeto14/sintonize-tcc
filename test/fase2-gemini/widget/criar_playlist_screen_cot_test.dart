@@ -3,16 +3,25 @@ import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:sintonize/criar_playlist.dart';
 
-import 'criar_playlist_test.mocks.dart';
+// Mocks manuais sem necessidade de code-generation via build_runner
+class MockFirestoreInstance extends Mock implements FirebaseFirestore {}
 
-@GenerateNiceMocks([
-  MockSpec<FirebaseFirestore>(),
-  MockSpec<CollectionReference<Map<String, dynamic>>>(),
-])
+class MockCollectionRef extends Mock
+    implements CollectionReference<Map<String, dynamic>> {}
+
+// Fake para simular falha no salvamento sem problemas de Null Safety do Mockito
+class FakeFailingPlaylistCollection extends Fake
+    implements CollectionReference<Map<String, dynamic>> {
+  @override
+  Future<DocumentReference<Map<String, dynamic>>> add(
+      Map<String, dynamic> data) async {
+    throw FirebaseException(plugin: 'firestore', message: 'Permissão negada');
+  }
+}
+
 void main() {
   late MockFirebaseAuth mockAuth;
   late FakeFirebaseFirestore fakeFirestore;
@@ -164,21 +173,18 @@ void main() {
         await tester.pumpWidget(buildTestableWidget());
         await tester.pumpAndSettle();
 
-        // Informar o nome da playlist
         final nomeField = find.widgetWithText(TextField, 'Nome da Playlist');
         await tester.enterText(nomeField, 'Rock Clássico');
 
-        // Selecionar uma faixa
         final checkboxButton = find.byType(IconButton).last;
         await tester.tap(checkboxButton);
         await tester.pump();
 
-        // Clicar em salvar playlist
-        final salvarButton = find.widgetWithText(ElevatedButton, 'Salvar Playlist');
+        final salvarButton =
+            find.widgetWithText(ElevatedButton, 'Salvar Playlist');
         await tester.tap(salvarButton);
         await tester.pumpAndSettle();
 
-        // Verifica a inserção no FakeFirestore
         final playlistsSnapshot =
             await fakeFirestore.collection('playlists').get();
         expect(playlistsSnapshot.docs.length, 1);
@@ -199,7 +205,8 @@ void main() {
         await tester.pumpWidget(buildTestableWidget());
         await tester.pumpAndSettle();
 
-        final salvarButton = find.widgetWithText(ElevatedButton, 'Salvar Playlist');
+        final salvarButton =
+            find.widgetWithText(ElevatedButton, 'Salvar Playlist');
         await tester.tap(salvarButton);
         await tester.pump();
 
@@ -223,7 +230,8 @@ void main() {
         await tester.enterText(nomeField, 'Playlist Deslogada');
         await tester.pump();
 
-        final salvarButton = find.widgetWithText(ElevatedButton, 'Salvar Playlist');
+        final salvarButton =
+            find.widgetWithText(ElevatedButton, 'Salvar Playlist');
         await tester.tap(salvarButton);
         await tester.pumpAndSettle();
 
@@ -236,8 +244,8 @@ void main() {
     testWidgets(
       'Deve lidar com erro na busca de músicas sem travar a interface',
       (tester) async {
-        final mockFirestore = MockFirebaseFirestore();
-        final mockCollection = MockCollectionReference();
+        final mockFirestore = MockFirestoreInstance();
+        final mockCollection = MockCollectionRef();
 
         when(mockFirestore.collection('musica')).thenReturn(mockCollection);
         when(mockCollection.get()).thenThrow(
@@ -247,7 +255,6 @@ void main() {
         await tester.pumpWidget(buildTestableWidget(firestore: mockFirestore));
         await tester.pumpAndSettle();
 
-        // Como deu erro, lista fica vazia e permanece com CircularProgressIndicator
         expect(find.byType(CircularProgressIndicator), findsOneWidget);
         expect(find.text('Criando Playlist'), findsOneWidget);
       },
@@ -256,21 +263,18 @@ void main() {
     testWidgets(
       'Deve exibir SnackBar de erro quando falhar ao salvar no Firestore',
       (tester) async {
-        final mockFirestore = MockFirebaseFirestore();
-        final mockMusicaCollection = MockCollectionReference();
-        final mockPlaylistCollection = MockCollectionReference();
+        final mockFirestore = MockFirestoreInstance();
+        final mockMusicaCollection = MockCollectionRef();
 
-        // Stub para o carregamento inicial das músicas não estourar erro
+        // Carregamento inicial de músicas sem falhar
         when(mockFirestore.collection('musica')).thenReturn(mockMusicaCollection);
         when(mockMusicaCollection.get()).thenAnswer(
           (_) async => FakeFirebaseFirestore().collection('musica').get(),
         );
 
-        // Stub para simular falha no salvamento
-        when(mockFirestore.collection('playlists')).thenReturn(mockPlaylistCollection);
-        when(mockPlaylistCollection.add(any)).thenThrow(
-          FirebaseException(plugin: 'firestore', message: 'Permissão negada'),
-        );
+        // Retorna a coleção fake configurada para lançar exceção no add()
+        when(mockFirestore.collection('playlists'))
+            .thenReturn(FakeFailingPlaylistCollection());
 
         await tester.pumpWidget(buildTestableWidget(firestore: mockFirestore));
         await tester.pumpAndSettle();
@@ -279,7 +283,8 @@ void main() {
         await tester.enterText(nomeField, 'Playlist com Falha');
         await tester.pump();
 
-        final salvarButton = find.widgetWithText(ElevatedButton, 'Salvar Playlist');
+        final salvarButton =
+            find.widgetWithText(ElevatedButton, 'Salvar Playlist');
         await tester.tap(salvarButton);
         await tester.pump();
 

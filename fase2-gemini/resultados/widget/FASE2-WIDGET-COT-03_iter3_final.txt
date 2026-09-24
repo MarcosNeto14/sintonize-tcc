@@ -1,0 +1,129 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/widget/criar_playlist_screen_cot_test.dart
+00:00 +0: Renderização Básica Deve exibir CircularProgressIndicator enquanto o dataset de músicas estiver vazio
+00:00 +1: Renderização Básica Deve exibir lista de músicas formatadas após carregar do Firestore
+00:00 +2: Interação do Usuário Deve permitir digitar o nome da playlist
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/widget/criar_playlist_screen_cot_test.dart:90:7)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  Deve permitir digitar o nome da playlist
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +2 -1: Interação do Usuário Deve permitir digitar o nome da playlist [E]
+  Test failed. See exception logs above.
+  The test description was: Deve permitir digitar o nome da playlist
+  
+00:07 +2 -1: Interação do Usuário Deve filtrar músicas por nome e por artista
+00:08 +3 -1: Interação do Usuário Deve marcar e desmarcar uma música da seleção
+00:08 +4 -1: Cenários de Sucesso Deve salvar a playlist no Firestore e fechar a tela ao preencher dados corretamente
+00:09 +5 -1: Cenários de Erro e Validação Deve exibir SnackBar de erro ao tentar salvar sem preencher o nome da playlist
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/widget/criar_playlist_screen_cot_test.dart:206:9)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  Deve exibir SnackBar de erro ao tentar salvar sem preencher o nome da playlist
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:17 +5 -2: Cenários de Erro e Validação Deve exibir SnackBar de erro ao tentar salvar sem preencher o nome da playlist [E]
+  Test failed. See exception logs above.
+  The test description was: Deve exibir SnackBar de erro ao tentar salvar sem preencher o nome da playlist
+  
+00:17 +5 -2: Cenários de Erro e Validação Não deve salvar playlist caso o usuário não esteja autenticado
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/widget/criar_playlist_screen_cot_test.dart:227:9)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  Não deve salvar playlist caso o usuário não esteja autenticado
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:24 +5 -3: Cenários de Erro e Validação Não deve salvar playlist caso o usuário não esteja autenticado [E]
+  Test failed. See exception logs above.
+  The test description was: Não deve salvar playlist caso o usuário não esteja autenticado
+  
+00:24 +5 -3: Cenários de Erro e Validação Deve lidar com erro na busca de músicas sem travar a interface
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+type 'Null' is not a subtype of type 'CollectionReference<Map<String, dynamic>>'
+
+When the exception was thrown, this was the stack:
+#0      MockFirestoreInstance.collection (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/widget/criar_playlist_screen_cot_test.dart:10:7)
+#1      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/widget/criar_playlist_screen_cot_test.dart:250:28)
+#2      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:29)
+<asynchronous suspension>
+#3      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  Deve lidar com erro na busca de músicas sem travar a interface
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:24 +5 -4: Cenários de Erro e Validação Deve lidar com erro na busca de músicas sem travar a interface [E]
+  Test failed. See exception logs above.
+  The test description was: Deve lidar com erro na busca de músicas sem travar a interface
+  
+00:24 +5 -4: Cenários de Erro e Validação Deve exibir SnackBar de erro quando falhar ao salvar no Firestore
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Cannot call `when` within a stub response
+
+When the exception was thrown, this was the stack:
+#0      when (package:mockito/src/mock.dart:1300:5)
+#1      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/widget/criar_playlist_screen_cot_test.dart:270:9)
+#2      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:29)
+<asynchronous suspension>
+#3      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  Deve exibir SnackBar de erro quando falhar ao salvar no Firestore
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:24 +5 -5: Cenários de Erro e Validação Deve exibir SnackBar de erro quando falhar ao salvar no Firestore [E]
+  Test failed. See exception logs above.
+  The test description was: Deve exibir SnackBar de erro quando falhar ao salvar no Firestore
+  
+00:24 +5 -5: Some tests failed.

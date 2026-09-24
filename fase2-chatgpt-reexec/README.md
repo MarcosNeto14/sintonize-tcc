@@ -11,7 +11,7 @@ modelos meça só o modelo. Ver
 
 Nada nesta pasta altera `fase2/`, `fase2/_execucao-assistida/` ou `fase2-gemini/`.
 
-**Status:** 6 rodadas executadas (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`, `FASE2-WSILENT-FS`, `FASE2-WSILENT-COT`, `FASE2-WSILENT-FS_REEXEC`).
+**Status:** 7 rodadas executadas (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`, `FASE2-WSILENT-FS`, `FASE2-WSILENT-COT`, `FASE2-WSILENT-FS_REEXEC`, `FASE2-ICRASH-ZS`).
 
 ---
 
@@ -311,7 +311,7 @@ separador do prompt e a seção de reparo.
 | 10 | FASE2-WSILENT-ZS | W-SILENT | ZS | original | sim (`login.dart`) | **feita (3/15)** — 7/8 (melhor 12/14), W-SILENT visto e canonizado |
 | 11 | FASE2-WSILENT-FS | W-SILENT | FS | original | não | **feita (4/15)** — não compila; W-SILENT visto e canonizado |
 | 12 | FASE2-WSILENT-COT | W-SILENT | COT | original | sim (`login.dart`) | **feita (5/15)** — não compila (melhor 10/21); W-SILENT visto e canonizado |
-| 13 | FASE2-ICRASH-ZS | I-CRASH | ZS | original | sim (`cadastro.dart`, `generos-cadastro.dart`) | pendente |
+| 13 | FASE2-ICRASH-ZS | I-CRASH | ZS | original | sim (`cadastro.dart`, `generos-cadastro.dart`) | **feita (7/15)** — 1/6; I-CRASH visto, (B) correto, teste acomoda o bug |
 | 14 | FASE2-ICRASH-FS | I-CRASH | FS | original | não | pendente |
 | 15 | FASE2-ICRASH-COT | I-CRASH | COT | original | genérica (`package:sintonize/...`) | pendente |
 | 16 | FASE2-ISILENT-ZS | I-SILENT | ZS | original | sim (`criar_playlist.dart`) | pendente |

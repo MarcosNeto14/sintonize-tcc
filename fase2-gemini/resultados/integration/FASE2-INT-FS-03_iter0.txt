@@ -1,0 +1,4 @@
+00:00 +0: loading C:/Users/Marcos/Desktop/Sintonize-tcc/test/fase2-gemini/integration/playlist_flow_fs_test.dart
+00:00 +0: Fluxo de Criar Playlist cria e persiste uma nova playlist com sucesso no Firestore
+00:00 +1: Fluxo de Criar Playlist exibe mensagem de erro ao tentar salvar sem preencher o nome
+00:00 +2: All tests passed!

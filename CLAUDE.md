@@ -15,7 +15,8 @@ The work is organized in **four stages**, each with its own artifact tree. See "
 | **Fase 1** — pilot study | 48 | ChatGPT | `prompts/`, `results/`, `analise/` | `main` | complete |
 | **Fase 2** — main study | 60 = 42 clean + 18 planted-bug (+4 `_REEXEC`) | ChatGPT | `fase2/`; 15 operator-assisted bug rounds isolated in `fase2/_execucao-assistida/` | `fase2-prep` / `fase2-alvos-limpos` | complete |
 | **Fase 2 – Gemini** — replication | 60 (+4 `_REEXEC`) | Gemini 3.8 Flash | `fase2-gemini/` | bug rounds: `fase2-gemini-piloto`; clean: `fase2-gemini-alvos-limpos` | complete |
-| **Fase 2 – ChatGPT re-run** — the 22 bug rounds, fixed repair template | 18 (+4 `_REEXEC`) | ChatGPT | `fase2-chatgpt-reexec/`, `test/fase2-chatgpt-reexec/` | `fase2-chatgpt-reexec` | infrastructure only, 0/22 |
+| **Fase 2 – ChatGPT re-run** — the 22 bug rounds, fixed repair template | 18 (+4 `_REEXEC`) | ChatGPT | `fase2-chatgpt-reexec/`, `test/fase2-chatgpt-reexec/` | `fase2-chatgpt-reexec` | 15/15 complete — status and docs live on that branch; this copy of CLAUDE.md predates them |
+| **Fase 3** — E2E (Android emulator + Firebase Emulator Suite) | — | — | `fase3-e2e/`, `integration_test/` | `fase3-e2e` | environment set up, smoke test written, not yet run — read `fase3-e2e/README.md` first |
 
 ## Commands
 
@@ -173,6 +174,10 @@ Per-session control:
 
 Of the 22, the 7 rounds that had no enriched repair (U-CRASH ×3, U-SILENT ×3, W-CRASH-ZS) also remain valid in `fase2/`.
 
+### Fase 3 — E2E (in progress)
+
+Branch `fase3-e2e`, created from `fase2-gemini-alvos-limpos`: same `lib/` as the Fase 2 clean targets, all 6 planted bugs reverted. **`fase3-e2e/README.md` is the source of truth**: base choice, state, the 3 chosen Fase 3 bugs (L4, C3, P2, not yet applied), how to rebuild the environment on a new machine, and next steps. Test code lives in `integration_test/` (Firebase emulator helper, seed, smoke test). Do not touch `lib/` until the smoke test has passed.
+
 ### Branch ↔ round-block map
 
 This is the easiest thing to get wrong, and getting it wrong silently invalidates a round.
@@ -183,6 +188,7 @@ This is the easiest thing to get wrong, and getting it wrong silently invalidate
 | `fase2-alvos-limpos` | all 6 bugs reverted | all clean-target rounds, including the 3 `formatName` ones |
 | `fase2-gemini-alvos-limpos` | same code as `fase2-alvos-limpos` | the Gemini replica's 42 clean-target docs; also carries `fase2/_execucao-assistida/` and `fase2-chatgpt-reexec/` |
 | `fase2-chatgpt-reexec` | docs of `fase2-gemini-alvos-limpos` + `lib/` of `fase2-gemini-piloto` (6 bugs active) | the ChatGPT re-run's 22 rounds |
+| `fase3-e2e` | same `lib/` as `fase2-gemini-alvos-limpos` (6 bugs reverted) + `integration_test/` | Fase 3 E2E |
 | `fase2-prep` | **intermediate — only 3 of 6 bugs active** | nothing; see below |
 
 **Do not treat `fase2-prep` as "the branch with the bugs".** U-CRASH and U-SILENT were reverted on it in `8d08ff2`, and W-SILENT in `b9cd1e1`; only W-CRASH, I-CRASH and I-SILENT remain. That false premise is exactly what this note exists to prevent. The only commit with all six simultaneously active is `295fa34`, which is why `fase2-gemini-piloto` branches from it.

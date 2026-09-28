@@ -473,3 +473,34 @@ exercitasse esse caminho**, então não o encontrou.
 **Correção sugerida (não aplicada):** trocar o acesso por
 `musica.data()` com verificação de chave, ou usar
 `(musica.data() as Map<String, dynamic>?)?['artist_name'] ?? 'Desconhecido'`.
+
+
+## Interação entre bugs vizinhos — W-CRASH e I-SILENT (2026-09-28)
+
+W-CRASH (`_filterMusicas`) e I-SILENT (`_salvarPlaylist`) estão no mesmo
+arquivo, `lib/criar_playlist.dart`. Os arquivos de teste das rodadas W-CRASH do
+ChatGPT, nas duas execuções (Fase 2 original e reexecução de 2026-09-24),
+contêm testes de salvar playlist que asserem `'Nova Playlist'` no campo `nome`.
+Com o I-SILENT ativo, essas asserções passam: elas canonizam o I-SILENT por
+acaso, numa rodada cujo alvo é outro bug. Ao reverter o I-SILENT, esses testes
+passam a falhar.
+
+**Verificação (2026-09-28):** worktree temporária de `fase2-chatgpt-reexec`,
+com só o I-SILENT revertido (`'nome': _playlistName`) e o W-CRASH ativo. Cada
+arquivo foi rodado com `flutter test`, e a worktree foi removida em seguida.
+Nenhum artefato de rodada foi alterado.
+
+| Rodada | Arquivo de teste | Linha | Com o I-SILENT revertido |
+|---|---|---|---|
+| FASE2-WCRASH-ZS (original; não reexecutada) | `test/fase2/widget/wcrash_zs_test.dart` | 328 | falha: esperado `'Nova Playlist'`, obtido `'Playlist de Teste'` (+13 −1; final original +14) |
+| FASE2-WCRASH-FS (original) | `fase2/_execucao-assistida/test/widget/wcrash_fs_test.dart` | 354 | falha: obtido `'Minha Playlist'` (+14 −1; final original +15) |
+| FASE2-WCRASH-COT (original) | `fase2/_execucao-assistida/test/widget/wcrash_cot_test.dart` | 591 | falha: obtido `'Minha Playlist'` (+16 −2; final original +17 −1) |
+| FASE2-WCRASH-FS (reexecução) | `test/fase2-chatgpt-reexec/widget/wcrash_fs_test.dart` | 277 | não compila, asserção nunca roda (import de `lib/criar_playlist_screen.dart`, inexistente) |
+| FASE2-WCRASH-COT (reexecução) | `test/fase2-chatgpt-reexec/widget/wcrash_cot_test.dart` | 583 | falha: obtido `'Minha Playlist'` (+19 −2; final da reexecução +20 −1) |
+
+Em todos os arquivos que compilam, a diferença em relação à saída final da
+rodada é exatamente uma falha a mais, a do teste de salvar playlist.
+
+**Gemini:** nenhuma W-CRASH asseriu o nome; a W-CRASH-FS reproduz o literal
+numa cópia local do widget (`test/fase2-gemini/widget/wcrash_fs_test.dart:187`,
+branch `fase2-gemini-piloto`).

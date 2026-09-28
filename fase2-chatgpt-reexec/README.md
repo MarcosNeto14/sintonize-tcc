@@ -11,7 +11,7 @@ modelos meça só o modelo. Ver
 
 Nada nesta pasta altera `fase2/`, `fase2/_execucao-assistida/` ou `fase2-gemini/`.
 
-**Status:** 15 rodadas executadas (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`, `FASE2-WSILENT-FS`, `FASE2-WSILENT-COT`, `FASE2-WSILENT-FS_REEXEC`, `FASE2-ICRASH-ZS`, `FASE2-ICRASH-FS`, `FASE2-ICRASH-COT`, `FASE2-ICRASH-ZS_REEXEC`, `FASE2-ICRASH-FS_REEXEC`, `FASE2-ICRASH-COT_REEXEC`, `FASE2-ISILENT-ZS`, `FASE2-ISILENT-FS`, `FASE2-ISILENT-COT`).
+**Status: 15/15 concluídas** (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`, `FASE2-WSILENT-FS`, `FASE2-WSILENT-COT`, `FASE2-WSILENT-FS_REEXEC`, `FASE2-ICRASH-ZS`, `FASE2-ICRASH-FS`, `FASE2-ICRASH-COT`, `FASE2-ICRASH-ZS_REEXEC`, `FASE2-ICRASH-FS_REEXEC`, `FASE2-ICRASH-COT_REEXEC`, `FASE2-ISILENT-ZS`, `FASE2-ISILENT-FS`, `FASE2-ISILENT-COT`). As 7 rodadas de bug sem reparo enriquecido (U-CRASH ×3, U-SILENT ×3, W-CRASH-ZS) ficam **válidas na execução original; não reexecutadas por decisão** (modelo servido = GPT-5.6 Luna, critério deste README). Não é pendência.
 
 ---
 
@@ -299,13 +299,13 @@ separador do prompt e a seção de reparo.
 
 | # | ID | Bug | Estratégia | Prompt | Ajuda de import | Status |
 |---|---|---|---|---|---|---|
-| 1 | FASE2-UCRASH-ZS | U-CRASH | ZS | original | não | pendente |
-| 2 | FASE2-UCRASH-FS | U-CRASH | FS | original | não | pendente |
-| 3 | FASE2-UCRASH-COT | U-CRASH | COT | original | sim (`utils/validators.dart`) | pendente |
-| 4 | FASE2-USILENT-ZS | U-SILENT | ZS | original | não | pendente |
-| 5 | FASE2-USILENT-FS | U-SILENT | FS | original | não | pendente |
-| 6 | FASE2-USILENT-COT | U-SILENT | COT | original | sim (`utils/validators.dart`) | pendente |
-| 7 | FASE2-WCRASH-ZS | W-CRASH | ZS | original | sim (`criar_playlist.dart`) | pendente |
+| 1 | FASE2-UCRASH-ZS | U-CRASH | ZS | original | não | válida na execução original; não reexecutada por decisão |
+| 2 | FASE2-UCRASH-FS | U-CRASH | FS | original | não | válida na execução original; não reexecutada por decisão |
+| 3 | FASE2-UCRASH-COT | U-CRASH | COT | original | sim (`utils/validators.dart`) | válida na execução original; não reexecutada por decisão |
+| 4 | FASE2-USILENT-ZS | U-SILENT | ZS | original | não | válida na execução original; não reexecutada por decisão |
+| 5 | FASE2-USILENT-FS | U-SILENT | FS | original | não | válida na execução original; não reexecutada por decisão |
+| 6 | FASE2-USILENT-COT | U-SILENT | COT | original | sim (`utils/validators.dart`) | válida na execução original; não reexecutada por decisão |
+| 7 | FASE2-WCRASH-ZS | W-CRASH | ZS | original | sim (`criar_playlist.dart`) | válida na execução original; não reexecutada por decisão |
 | 8 | FASE2-WCRASH-FS | W-CRASH | FS | original | não | **feita (1/15)** — não compila, 3 iterações |
 | 9 | FASE2-WCRASH-COT | W-CRASH | COT | original | sim (`criar_playlist.dart`) | **feita (2/15)** — 20/21, 3 iterações |
 | 10 | FASE2-WSILENT-ZS | W-SILENT | ZS | original | sim (`login.dart`) | **feita (3/15)** — 7/8 (melhor 12/14), W-SILENT visto e canonizado |

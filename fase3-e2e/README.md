@@ -31,7 +31,8 @@ U-CRASH e U-SILENT não são alcançáveis em E2E: nenhuma tela importa `validat
 | `integration_test/smoke_test.dart` | escrito e com `flutter analyze` limpo; **executado e verde na segunda máquina em 2026-09-28** (ver "Execução da fumaça") |
 | `integration_test/login_flow_test.dart` | **feito e verde (5/5) em 2026-09-28**: espelha o E2E-02 manual — E1..E4 + login válido até a `TelaInicialScreen` com saudação e recomendação (ver "Execução do fluxo de login") |
 | `integration_test/cadastro_flow_test.dart` | **feito e verde (6/6) em 2026-09-28, no 4º run**: espelha o E2E-01 manual — E1..E5 + cadastro válido → gêneros (E6 embutido) → `TelaInicialScreen`, conferindo o doc em `usuarios/{uid}`. E-mail novo por execução (sufixo de timestamp). Ver "Execução do fluxo de cadastro" |
-| `integration_test/pump_helpers.dart` | `pumpAte()` compartilhado (saiu de dentro do `login_flow_test.dart`, sem mudança de comportamento) |
+| `integration_test/playlist_flow_test.dart` | **feito e verde (4/4) em 2026-09-28, no 2º run**: espelha o E2E-03 manual — lista com as 5 músicas do seed, E1 (salvar sem nome), pesquisa por música/artista, criar playlist válida → volta à `UsuarioScreen` com ela listada, conferindo o doc em `playlists`. Ver "Execução do fluxo de playlist" |
+| `integration_test/pump_helpers.dart` | helpers compartilhados pelos três fluxos: `pumpAte()`, `pumpAteSumir()`, `fecharTeclado()` e `tocarQuandoAlcancavel()` (os dois últimos saíram do `cadastro_flow_test.dart` após o run 4, sem mudança de comportamento; o cadastro foi reexecutado depois da mudança) |
 | `android/app/src/debug/AndroidManifest.xml` | **alterado em 2026-09-28**: `<application android:usesCleartextTraffic="true"/>`, só no debug. Sem isso o Auth emulator falha com `Cleartext HTTP traffic to 10.0.2.2 not permitted` (a fumaça não pegou porque não chama o Auth) |
 | Emuladores Firebase | testados na máquina original: subiram em 47 s e 9099/8080 responderam 200. Na segunda máquina, idem (200/200) |
 | AVD `tcc_e2e` | criado na máquina original, **nunca subiu lá**: sem aceleração de hardware (hipervisor habilitado, mas a máquina não foi reiniciada). Na segunda máquina, WHPX usável; subiu em 132 s (boot frio) |
@@ -79,6 +80,8 @@ Resultado: `00:05 +1: All tests passed!`. A fumaça não chama o Auth, então n�
 | 2 | 4/6 — E1 e E3 falham | `unfocus()` + `pumpAndSettle` antes de rolar até "Cadastrar" |
 | 3 | 5/6 — E5 falha | espera explícita por `viewInsets.bottom == 0` (a animação do teclado é do Android; `pumpAndSettle` não a espera) |
 | 4 | **6/6**, 61 s (20 s de Gradle, 30 s de teste) | o toque só sai depois de um hit test real acertar o botão, com até 8 s de repetição e diagnóstico impresso a cada erro |
+| 5 | **travou em `(setUpAll)`** por 11 min, interrompido à mão; ver a ocorrência operacional em "Execução do fluxo de playlist" | `fecharTeclado()` e `tocarQuandoAlcancavel()` movidos para `pump_helpers.dart`, sem mudança de comportamento |
+| 6 | **6/6**, 43 s (11,4 s de Gradle, 25 s de teste), diagnóstico nunca impresso | nada; repetição do run 5 sozinho no comando |
 
 Todas as falhas dos runs 1 a 3 têm a mesma assinatura: `tap()` em "Cadastrar" deriva `Offset(205.7, 748.3)` e o hit test não alcança o botão — o caminho para no `Material` do `Scaffold` sem entrar no `body`, ou seja, naquele instante o corpo estava menor do que a tela. No run 4 o hit test acertou na primeira tentativa em todos os 6 testes e o diagnóstico nunca foi impresso, então **a causa exata não ficou provada**; o que está registrado é (a) a assinatura, (b) que só o teste com uma espera fixa de 3 s antes do toque (o fluxo completo) passou em todos os runs, e (c) que a verificação por hit test estabilizou. Se voltar a falhar, a linha `Cadastrar fora do alvo (...)` traz `rect`, tamanho do `body`, `viewInsets`, `padding` e os 3 primeiros alvos do hit test.
 
@@ -87,6 +90,28 @@ Outros registros:
 - **E6 está dentro do teste do fluxo completo** (Confirmar sem gênero → SnackBar → liga "Rock" → Confirmar), porque a tela de gêneros só existe depois de um cadastro válido.
 - Estado deixado no emulador: um usuário `cadastro-<timestamp>@sintonize.test` por execução, com `generos_favoritos = ['Rock']`. O emulador não persiste entre reinícios.
 - Quando o bug **C3** for aplicado (`_nomeController` → `_emailController` na gravação do `nome`), este teste deve pegá-lo em dois pontos: a saudação esperada "João Silva, ..." e a asserção `doc['nome'] == 'joão silva'`.
+
+### Execução do fluxo de playlist (segunda máquina, 2026-09-28)
+
+`flutter test integration_test/playlist_flow_test.dart -d emulator-5554`. Dois runs; saídas em `resultados/2026-09-28_playlist_flow_test_run{1,2}.txt`. O AVD e os emuladores tinham sido derrubados com o fim da sessão anterior e subiram de novo (AVD em 30 s desta vez, com o snapshot de sistema já aquecido).
+
+| Run | Resultado | O que mudou antes dele |
+|---|---|---|
+| 1 | 2/4 — passam "lista carrega" e E1; falham "pesquisa" e "criar playlist" | primeira versão |
+| 2 | **4/4**, 52 s (22,6 s de Gradle, 18 s de teste) | os dois ajustes abaixo |
+
+As duas falhas do run 1 são **do teste, não do app**, e as duas ensinam algo sobre E2E em dispositivo:
+
+1. **`ListView.builder` é preguiçoso.** Depois de limpar a pesquisa, o teste esperava 5 `ListTile` e achou 3: o teclado ainda estava aberto, o viewport da lista tinha encolhido e só 3 cards cabiam — os outros 2 simplesmente não existem na árvore. `findsNWidgets(5)` só vale com a lista inteira em tela. Correção: `fecharTeclado()` antes de contar.
+2. **A tela de baixo já é encontrada durante o `pop`.** Depois de "Salvar Playlist", `pumpAte(UsuarioScreen)` voltou no meio da transição, com a `CriarPlaylistScreen` ainda saindo, e a asserção `findsNothing` sobre ela falhou. `pumpAndSettle` não serve porque a `UsuarioScreen` tem um `CircularProgressIndicator` enquanto carrega. Correção: `pumpAteSumir(CriarPlaylistScreen)` (novo helper).
+
+Outros registros:
+- **Passo 8 do roteiro manual diz "aparece na TelaInicialScreen"**, mas o `Navigator.pop` de `_salvarPlaylist` volta para a `UsuarioScreen` ("Minha Conta"), que é quem lista as playlists e refaz o fetch no retorno. O teste afirma o que o app faz.
+- **A pesquisa filtra por `track_name` e `artist_name`, não por gênero.** O exemplo do roteiro ("rock") não encontraria nada no seed; o teste usa "queen" e "take".
+- Nome de playlist único por execução (sufixo de timestamp), porque o emulador acumula uma por run e a `UsuarioScreen` lista todas as do usuário. O doc gravado tem `userId`, `nome`, `musicas = ['bohemian rhapsody']` (o `track_name` cru, sem formatação) e `dataCriacao`.
+- Quando o bug **P2** for aplicado (`itemCount: _musicasFiltradas.length + 1`), o teste "lista carrega as 5 músicas do seed" deve pegá-lo: o item de índice 5 lança `RangeError` no `build`, e o framework de teste reporta a exceção como falha.
+
+**Ocorrência operacional:** entre o run 1 do playlist e a reexecução do cadastro (encadeados no mesmo comando), o `flutter test` do cadastro **travou em `(setUpAll)` por 11 min** sem nenhuma saída. O AVD estava em `device`, os emuladores respondiam 200, a rede do AVD estava `VALIDATED`, e o logcat só mostra o app iniciando e o `FirebaseAuth` notificando sign-out — nada depois. Processos `dart` mortos à mão; a repetição (playlist run 2 e cadastro run 6) correu normal. Causa não identificada. Saída em `resultados/2026-09-28_cadastro_flow_test_run5_travado.txt`. Recomendação prática: um `flutter test` por comando, não encadear.
 
 Registro do E4 do login: o Auth emulator devolveu `wrong-password`, e a SnackBar foi "Senha incorreta. Certifique-se de que está digitando a senha corretamente." (ramo `wrong-password` de `login.dart:43`). Em produção o Firebase atual devolve `invalid-credential` para o mesmo caso; o E2E-02 manual (Web, 2026-05-25) só registrou "SnackBar com mensagem de erro do Firebase", sem dizer qual. Quando o bug L4 for aplicado, o teste de login válido é o que deve pegá-lo (espera `TelaInicialScreen`, e L4 abre `CadastroScreen`).
 
@@ -126,10 +151,12 @@ Os passos 1 a 4 da lista original (validar aceleração, rodar a fumaça, cleart
 - subir os emuladores Firebase: `firebase emulators:start --only auth,firestore --project sintonize-fa494`, na raiz do repo (o `--project` tem de ser o `projectId` de `lib/firebase_options.dart`);
 - build e teste: `flutter test integration_test/smoke_test.dart -d emulator-5554`.
 
-Seed, fluxo de login e fluxo de cadastro também estão feitos (2026-09-28, mesma máquina). O que falta:
+Seed e os três fluxos (login, cadastro, playlist) estão feitos e verdes (2026-09-28, mesma máquina). `lib/` continua intocado. O que falta:
 
-1. **Fluxo de playlist** (`e2e-manual/E2E-03`), em `integration_test/playlist_flow_test.dart`, no molde dos outros dois: seed no `setUpAll`, `signOut` no `setUp`, login com o usuário do seed, `pumpAte` depois de rede, e a mesma cautela com o teclado antes de tocar em botões abaixo de campos de texto (ver "Execução do fluxo de cadastro"). É o fluxo que o bug **P2** ataca (`itemCount` + 1 → `RangeError` no item 5 com as 5 músicas do seed).
-2. Só depois disso, a aplicação dos bugs L4, C3 e P2, um de cada vez, com o teste do fluxo correspondente rodando antes e depois.
+1. **Aplicar os bugs L4, C3 e P2, um de cada vez**, cada um num commit próprio, com o teste do fluxo correspondente rodando **antes** (verde, como baseline no mesmo estado do AVD) e **depois** (deve ficar vermelho), guardando as duas saídas em `resultados/`. Onde cada teste deve pegar o bug: L4 → `login_flow_test` ("login válido", espera `TelaInicialScreen`); C3 → `cadastro_flow_test` (saudação "João Silva" e `doc['nome']`); P2 → `playlist_flow_test` ("lista carrega as 5 músicas", `RangeError` no `build`).
+2. Decidir e registrar o que a Fase 3 mede a partir daí (os testes E2E são escritos à mão, não por LLM — isso precisa estar claro na redação).
+
+Operacional: um `flutter test` por comando (ver a ocorrência do travamento em "Execução do fluxo de playlist"); AVD e emuladores Firebase morrem com a sessão e precisam subir de novo (30 s e ~10 s, respectivamente, com tudo em cache).
 
 ## Ambiente da máquina original (2026-09-28)
 

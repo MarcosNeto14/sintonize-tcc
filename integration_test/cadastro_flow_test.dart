@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/gestures.dart' show HitTestResult;
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
@@ -69,48 +68,11 @@ void main() {
     await tester.pump();
   }
 
-  /// Fecha o teclado antes de rolar: com ele aberto o viewport encolhe e o
-  /// `tap` cai fora da área visível (run 1 falhou assim, Offset y=748).
-  /// `pumpAndSettle` não espera o teclado recolher — a animação é do Android,
-  /// não do Flutter (run 2 falhou assim) — então espera `viewInsets` zerar.
-  /// Mesmo com `viewInsets` em 0 o toque ainda falhava às vezes (run 3), por
-  /// isso o toque só sai depois de um hit test real acertar o botão; em cada
-  /// erro imprime a geometria, para registro.
+  /// Runs 1 a 3 falharam no toque em "Cadastrar" (Offset y=748 fora do alvo);
+  /// a história e o porquê de cada passo estão em `pump_helpers.dart`.
   Future<void> tocarCadastrar(WidgetTester tester) async {
-    FocusManager.instance.primaryFocus?.unfocus();
-    final fim = DateTime.now().add(const Duration(seconds: 5));
-    while (tester.view.viewInsets.bottom > 0 && DateTime.now().isBefore(fim)) {
-      await tester.pump(const Duration(milliseconds: 100));
-    }
-    expect(tester.view.viewInsets.bottom, 0, reason: 'teclado não recolheu');
-    await tester.pumpAndSettle();
-
-    final texto = find.text('Cadastrar');
-    final limite = DateTime.now().add(const Duration(seconds: 8));
-    var tentativa = 0;
-    while (true) {
-      tentativa++;
-      await tester.ensureVisible(texto);
-      await tester.pumpAndSettle();
-      final centro = tester.getCenter(texto, warnIfMissed: false);
-      final alvo = tester.renderObject(texto);
-      final hit = HitTestResult();
-      tester.binding.hitTestInView(hit, centro, tester.view.viewId);
-      final acertou = hit.path.any((e) => identical(e.target, alvo));
-      if (acertou) break;
-
-      final mq = MediaQuery.of(tester.element(texto));
-      final corpo = tester.getSize(find.byType(SingleChildScrollView).first);
-      final topo = hit.path.take(3).map((e) => e.target.runtimeType).join(' > ');
-      // ignore: avoid_print
-      print('Cadastrar fora do alvo (tentativa $tentativa): centro=$centro '
-          'rect=${tester.getRect(texto)} corpo=$corpo tela=${mq.size} '
-          'viewInsets=${mq.viewInsets.bottom} padding=${mq.padding} '
-          'hit=[$topo]');
-      if (!DateTime.now().isBefore(limite)) break;
-      await tester.pump(const Duration(milliseconds: 250));
-    }
-    await tester.tap(texto);
+    await fecharTeclado(tester);
+    await tocarQuandoAlcancavel(tester, find.text('Cadastrar'));
   }
 
   group('cenários de erro (validação local, sem rede)', () {

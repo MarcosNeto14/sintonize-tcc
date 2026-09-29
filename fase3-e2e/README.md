@@ -126,7 +126,7 @@ Uma linha cada, no `lib/` desta branch. As linhas foram conferidas em 2026-09-28
 | Bug | Baseline (antes) | Com o bug (depois) | Onde o teste pegou | Commit com o bug |
 |---|---|---|---|---|
 | L4 | `login_flow_test` 5/5, 27 s (`resultados/2026-09-28_L4_antes_login_flow_test.txt`) | **4/5**, 46 s — só "login válido chega à TelaInicialScreen" falha: `não apareceu em 20s: TelaInicialScreen` (`resultados/2026-09-28_L4_depois_login_flow_test.txt`) | `pumpAte(TelaInicialScreen)`, timeout de 20 s | `eb14334`. O commit `41bf190`, rotulado como reversão, **não reverteu** (`git checkout -- lib/login.dart` restaurou do índice, que já tinha o bug); a reversão real é o commit seguinte a ele |
-| C3 | `cadastro_flow_test` 6/6, 78 s (`resultados/2026-09-29_C3_antes_cadastro_flow_test.txt`) | **5/6**, 65 s — só o fluxo completo falha: `não apareceu em 20s: ... João Silva, essa é a nossa recomendação de` (`resultados/2026-09-29_C3_depois_cadastro_flow_test.txt`) | `pumpAte(saudação)` na `TelaInicialScreen`, timeout de 20 s | commit "Fase 3: aplica C3" (revertido no seguinte) |
+| C3 | `cadastro_flow_test` 6/6, 78 s (`resultados/2026-09-29_C3_antes_cadastro_flow_test.txt`) | **5/6**, 65 s — só o fluxo completo falha: `não apareceu em 20s: ... João Silva, essa é a nossa recomendação de` (`resultados/2026-09-29_C3_depois_cadastro_flow_test.txt`) | `pumpAte(saudação)` na `TelaInicialScreen`, timeout de 20 s | `20edaaa` (revertido no commit seguinte, com `git diff ccae44a -- lib/` vazio conferido antes) |
 
 Registro do L4:
 - O baseline precisou de dois runs: o primeiro (run 3 do login) foi vermelho no `lib/` limpo por um defeito de timing do próprio teste, corrigido antes de aplicar o bug. O "depois" usa exatamente o código de teste do "antes".

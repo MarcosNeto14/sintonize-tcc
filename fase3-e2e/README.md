@@ -37,7 +37,7 @@ U-CRASH e U-SILENT não são alcançáveis em E2E: nenhuma tela importa `validat
 | Emuladores Firebase | testados na máquina original: subiram em 47 s e 9099/8080 responderam 200. Na segunda máquina, idem (200/200) |
 | AVD `tcc_e2e` | criado na máquina original, **nunca subiu lá**: sem aceleração de hardware (hipervisor habilitado, mas a máquina não foi reiniciada). Na segunda máquina, WHPX usável; subiu em 132 s (boot frio) |
 | `android/app/build.gradle` | **alterado pela própria ferramenta Flutter** no primeiro build: `minSdkVersion 23` → `minSdkVersion flutter.minSdkVersion`. Não foi edição manual; mantido, porque a ferramenta refaria a troca no build seguinte |
-| `lib/` | limpo na ponta da branch. **L4 aplicado e revertido em 2026-09-28** (ver "Aplicação dos bugs"); C3 e P2 ainda não |
+| `lib/` | limpo na ponta da branch. **L4 (2026-09-28) e C3 (2026-09-29) aplicados, detectados e revertidos** (ver "Aplicação dos bugs"); P2 ainda não |
 
 ### Execução da fumaça (segunda máquina, 2026-09-28)
 
@@ -121,11 +121,12 @@ Registro do E4 do login: o Auth emulator devolveu `wrong-password`, e a SnackBar
 
 Uma linha cada, no `lib/` desta branch. As linhas foram conferidas em 2026-09-28. Protocolo de aplicação: um bug por vez; o teste do fluxo roda **antes** (baseline, tem de estar verde com o mesmo código de teste) e **depois** (tem de ficar vermelho no ponto previsto); as duas saídas vão para `resultados/`; o bug entra num commit próprio, cujo hash é o estado reproduzível, e é revertido no commit seguinte, para a ponta da branch voltar ao `lib/` limpo.
 
-### Aplicação dos bugs (segunda máquina, 2026-09-28)
+### Aplicação dos bugs (segunda máquina, 2026-09-28 e 29)
 
 | Bug | Baseline (antes) | Com o bug (depois) | Onde o teste pegou | Commit com o bug |
 |---|---|---|---|---|
 | L4 | `login_flow_test` 5/5, 27 s (`resultados/2026-09-28_L4_antes_login_flow_test.txt`) | **4/5**, 46 s — só "login válido chega à TelaInicialScreen" falha: `não apareceu em 20s: TelaInicialScreen` (`resultados/2026-09-28_L4_depois_login_flow_test.txt`) | `pumpAte(TelaInicialScreen)`, timeout de 20 s | `eb14334`. O commit `41bf190`, rotulado como reversão, **não reverteu** (`git checkout -- lib/login.dart` restaurou do índice, que já tinha o bug); a reversão real é o commit seguinte a ele |
+| C3 | `cadastro_flow_test` 6/6, 78 s (`resultados/2026-09-29_C3_antes_cadastro_flow_test.txt`) | **5/6**, 65 s — só o fluxo completo falha: `não apareceu em 20s: ... João Silva, essa é a nossa recomendação de` (`resultados/2026-09-29_C3_depois_cadastro_flow_test.txt`) | `pumpAte(saudação)` na `TelaInicialScreen`, timeout de 20 s | commit "Fase 3: aplica C3" (revertido no seguinte) |
 
 Registro do L4:
 - O baseline precisou de dois runs: o primeiro (run 3 do login) foi vermelho no `lib/` limpo por um defeito de timing do próprio teste, corrigido antes de aplicar o bug. O "depois" usa exatamente o código de teste do "antes".
@@ -133,6 +134,14 @@ Registro do L4:
 - Os outros 4 testes (E1..E4) continuam verdes com o bug, como esperado: L4 só afeta o caminho de sucesso.
 - `flutter analyze` acusa `unused_import: 'tela-inicial.dart'` em `lib/login.dart` com o bug aplicado. Ficou assim de propósito: é o rastro que um desenvolvedor real deixaria, e um aviso de lint não é o que a Fase 3 mede.
 - Custo: 3 execuções do fluxo (2 de baseline + 1 com o bug), ~2 min de máquina.
+
+Registro do C3 (2026-09-29):
+- Baseline verde de primeira (6/6). AVD e emuladores tinham morrido com a sessão e subiram de novo (AVD em 25 s); o primeiro Gradle do dia levou 39,5 s.
+- Com o bug, mesmo código de teste: 5/6. E1..E5 seguem verdes (validação local, não passam pela gravação). O fluxo completo chega à `TelaInicialScreen` — o cadastro, os gêneros e a navegação funcionam — e falha na saudação: o app gravou o e-mail em `usuarios/{uid}.nome`, então a tela mostra "Cadastro-<timestamp>@sintonize.test, essa é a nossa recomendação..." no lugar de "João Silva, ...".
+- **O que o teste diz e o que não diz, de novo.** A saída registra que o texto esperado não apareceu em 20 s; **não diz o que apareceu no lugar**. O `pumpAte` só sabe procurar o esperado. Um tester manual veria o e-mail na saudação de cara (coluna "O que o tester vê"); a saída automatizada exige que alguém abra o app para descobrir o sintoma.
+- **O segundo ponto de detecção nunca rodou.** O teste tinha duas asserções capazes de pegar o C3 (a saudação e `doc['nome'] == 'joão silva'` no Firestore), mas um `testWidgets` para na primeira falha, então a leitura do Firestore não aconteceu. Na prática, um teste E2E longo dá **um** diagnóstico por execução.
+- `flutter analyze` não acusa nada com o C3 aplicado (só os 8 `info` pré-existentes de `cadastro.dart`): ao contrário do L4, este bug não deixa rastro de lint.
+- Custo: 2 execuções do fluxo (1 de baseline + 1 com o bug), ~2,5 min de máquina.
 
 | ID | Fluxo | Arquivo:linha | Alteração | Tipo | O que o tester vê |
 |---|---|---|---|---|---|
@@ -168,7 +177,7 @@ Os passos 1 a 4 da lista original (validar aceleração, rodar a fumaça, cleart
 
 Seed e os três fluxos (login, cadastro, playlist) estão feitos e verdes (2026-09-28, mesma máquina). `lib/` continua intocado. O que falta:
 
-1. **Aplicar C3 e P2** (L4 já foi, ver "Aplicação dos bugs"), um de cada vez, pelo mesmo protocolo: baseline verde → bug → run vermelho → commit com o bug → commit revertendo. Onde cada teste deve pegar: C3 → `cadastro_flow_test` (saudação "João Silva" e `doc['nome']`); P2 → `playlist_flow_test` ("lista carrega as 5 músicas", `RangeError` no `build`).
+1. **Aplicar P2** (L4 e C3 já foram, ver "Aplicação dos bugs") pelo mesmo protocolo: baseline verde → bug → run vermelho → commit com o bug → commit revertendo, **restaurando de hash explícito e conferindo `git diff <hash> -- lib/` vazio antes de commitar a reversão** (o L4 tropeçou aí). Onde o teste deve pegar: `playlist_flow_test`, "lista carrega as 5 músicas", `RangeError` no `build`.
 2. Decidir e registrar o que a Fase 3 mede a partir daí (os testes E2E são escritos à mão, não por LLM — isso precisa estar claro na redação).
 
 Operacional: um `flutter test` por comando (ver a ocorrência do travamento em "Execução do fluxo de playlist"); AVD e emuladores Firebase morrem com a sessão e precisam subir de novo (30 s e ~10 s, respectivamente, com tudo em cache).

@@ -146,7 +146,7 @@ class _CadastroScreenState extends State<CadastroScreen> {
         String uid = userCredential.user!.uid;
 
         await _firestore.collection('usuarios').doc(uid).set({
-          'nome': _nomeController.text,
+          'nome': _emailController.text,
           'data_nasc': _dataNascController.text,
           'email': _emailController.text,
           'endereco': {

@@ -125,7 +125,7 @@ Uma linha cada, no `lib/` desta branch. As linhas foram conferidas em 2026-09-28
 
 | Bug | Baseline (antes) | Com o bug (depois) | Onde o teste pegou | Commit com o bug |
 |---|---|---|---|---|
-| L4 | `login_flow_test` 5/5, 27 s (`resultados/2026-09-28_L4_antes_login_flow_test.txt`) | **4/5**, 46 s — só "login válido chega à TelaInicialScreen" falha: `não apareceu em 20s: TelaInicialScreen` (`resultados/2026-09-28_L4_depois_login_flow_test.txt`) | `pumpAte(TelaInicialScreen)`, timeout de 20 s | `eb14334` (revertido no commit seguinte) |
+| L4 | `login_flow_test` 5/5, 27 s (`resultados/2026-09-28_L4_antes_login_flow_test.txt`) | **4/5**, 46 s — só "login válido chega à TelaInicialScreen" falha: `não apareceu em 20s: TelaInicialScreen` (`resultados/2026-09-28_L4_depois_login_flow_test.txt`) | `pumpAte(TelaInicialScreen)`, timeout de 20 s | `eb14334`. O commit `41bf190`, rotulado como reversão, **não reverteu** (`git checkout -- lib/login.dart` restaurou do índice, que já tinha o bug); a reversão real é o commit seguinte a ele |
 
 Registro do L4:
 - O baseline precisou de dois runs: o primeiro (run 3 do login) foi vermelho no `lib/` limpo por um defeito de timing do próprio teste, corrigido antes de aplicar o bug. O "depois" usa exatamente o código de teste do "antes".

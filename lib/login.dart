@@ -33,7 +33,7 @@ class LoginScreen extends StatelessWidget {
 
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => CadastroScreen()),
+          MaterialPageRoute(builder: (context) => const TelaInicialScreen()),
         );
       } on FirebaseAuthException catch (e) {
         String errorMessage;

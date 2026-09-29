@@ -29,7 +29,7 @@ U-CRASH e U-SILENT não são alcançáveis em E2E: nenhuma tela importa `validat
 | `integration_test/seed.dart` | feito: `seedEmulators()`, com usuário `tester@sintonize.test` / `senha123`, o doc `usuarios/{uid}` no formato do cadastro (`nome` = `tester sintonize`, `generos_favoritos` = `[rock, pop]`, endereço) e 5 docs em `musica` (`track_name`, `artist_name`, `genre`), IDs fixos, idempotente. O doc de usuário foi acrescentado em 2026-09-28 porque a `TelaInicialScreen` lê `nome` e `generos_favoritos` |
 | `integration_test/seed_test.dart` | só popula e confere (usuário, doc, 5 músicas); para inspecionar no Emulator UI. Os testes de fluxo chamam o seed sozinhos |
 | `integration_test/smoke_test.dart` | escrito e com `flutter analyze` limpo; **executado e verde na segunda máquina em 2026-09-28** (ver "Execução da fumaça") |
-| `integration_test/login_flow_test.dart` | **feito e verde (5/5) em 2026-09-28**: espelha o E2E-02 manual — E1..E4 + login válido até a `TelaInicialScreen` com saudação e recomendação (ver "Execução do fluxo de login") |
+| `integration_test/login_flow_test.dart` | **feito e verde (5/5) em 2026-09-28**: espelha o E2E-02 manual — E1..E4 + login válido até a `TelaInicialScreen` com saudação e recomendação (ver "Execução do fluxo de login"). Corrigido no run 3 (baseline do L4): espera pela saída da `LoginScreen`, não só pela chegada da `TelaInicialScreen` |
 | `integration_test/cadastro_flow_test.dart` | **feito e verde (6/6) em 2026-09-28, no 4º run**: espelha o E2E-01 manual — E1..E5 + cadastro válido → gêneros (E6 embutido) → `TelaInicialScreen`, conferindo o doc em `usuarios/{uid}`. E-mail novo por execução (sufixo de timestamp). Ver "Execução do fluxo de cadastro" |
 | `integration_test/playlist_flow_test.dart` | **feito e verde (4/4) em 2026-09-28, no 2º run**: espelha o E2E-03 manual — lista com as 5 músicas do seed, E1 (salvar sem nome), pesquisa por música/artista, criar playlist válida → volta à `UsuarioScreen` com ela listada, conferindo o doc em `playlists`. Ver "Execução do fluxo de playlist" |
 | `integration_test/pump_helpers.dart` | helpers compartilhados pelos três fluxos: `pumpAte()`, `pumpAteSumir()`, `fecharTeclado()` e `tocarQuandoAlcancavel()` (os dois últimos saíram do `cadastro_flow_test.dart` após o run 4, sem mudança de comportamento; o cadastro foi reexecutado depois da mudança) |
@@ -37,7 +37,7 @@ U-CRASH e U-SILENT não são alcançáveis em E2E: nenhuma tela importa `validat
 | Emuladores Firebase | testados na máquina original: subiram em 47 s e 9099/8080 responderam 200. Na segunda máquina, idem (200/200) |
 | AVD `tcc_e2e` | criado na máquina original, **nunca subiu lá**: sem aceleração de hardware (hipervisor habilitado, mas a máquina não foi reiniciada). Na segunda máquina, WHPX usável; subiu em 132 s (boot frio) |
 | `android/app/build.gradle` | **alterado pela própria ferramenta Flutter** no primeiro build: `minSdkVersion 23` → `minSdkVersion flutter.minSdkVersion`. Não foi edição manual; mantido, porque a ferramenta refaria a troca no build seguinte |
-| `lib/` | intocado; nenhum bug da Fase 3 aplicado |
+| `lib/` | limpo na ponta da branch. **L4 aplicado e revertido em 2026-09-28** (ver "Aplicação dos bugs"); C3 e P2 ainda não |
 
 ### Execução da fumaça (segunda máquina, 2026-09-28)
 
@@ -69,6 +69,8 @@ Resultado: `00:05 +1: All tests passed!`. A fumaça não chama o Auth, então n�
 | E4 (senha errada, vai ao Auth emulator) | 2 s |
 | Login válido → `TelaInicialScreen` + saudação + recomendação | 4 s |
 | **Total do comando** | **50 s** (21 s de teste) |
+
+Runs posteriores do mesmo arquivo (mesma máquina, mesmo dia): **run 3, 4/5** — baseline do L4 sobre o `lib/` limpo, falhou em "login válido" porque a `TelaInicialScreen` já é encontrada durante a transição do `pushReplacement`, com a `LoginScreen` ainda saindo (a mesma armadilha do pop no fluxo de playlist; o run 2 passou por sorte de timing). Correção no teste: `pumpAteSumir(LoginScreen)` depois de `pumpAte(TelaInicialScreen)`. **Run 4, 5/5**, 27 s — é o baseline válido do L4. Saídas em `resultados/2026-09-28_login_flow_test_run3_baseline_L4_flaky.txt` e `2026-09-28_L4_antes_login_flow_test.txt`.
 
 ### Execução do fluxo de cadastro (segunda máquina, 2026-09-28)
 
@@ -115,9 +117,22 @@ Outros registros:
 
 Registro do E4 do login: o Auth emulator devolveu `wrong-password`, e a SnackBar foi "Senha incorreta. Certifique-se de que está digitando a senha corretamente." (ramo `wrong-password` de `login.dart:43`). Em produção o Firebase atual devolve `invalid-credential` para o mesmo caso; o E2E-02 manual (Web, 2026-05-25) só registrou "SnackBar com mensagem de erro do Firebase", sem dizer qual. Quando o bug L4 for aplicado, o teste de login válido é o que deve pegá-lo (espera `TelaInicialScreen`, e L4 abre `CadastroScreen`).
 
-### Bugs escolhidos para a Fase 3 (não aplicados)
+### Bugs escolhidos para a Fase 3
 
-Uma linha cada, no `lib/` desta branch. As linhas foram conferidas em 2026-09-28.
+Uma linha cada, no `lib/` desta branch. As linhas foram conferidas em 2026-09-28. Protocolo de aplicação: um bug por vez; o teste do fluxo roda **antes** (baseline, tem de estar verde com o mesmo código de teste) e **depois** (tem de ficar vermelho no ponto previsto); as duas saídas vão para `resultados/`; o bug entra num commit próprio, cujo hash é o estado reproduzível, e é revertido no commit seguinte, para a ponta da branch voltar ao `lib/` limpo.
+
+### Aplicação dos bugs (segunda máquina, 2026-09-28)
+
+| Bug | Baseline (antes) | Com o bug (depois) | Onde o teste pegou | Commit com o bug |
+|---|---|---|---|---|
+| L4 | `login_flow_test` 5/5, 27 s (`resultados/2026-09-28_L4_antes_login_flow_test.txt`) | **4/5**, 46 s — só "login válido chega à TelaInicialScreen" falha: `não apareceu em 20s: TelaInicialScreen` (`resultados/2026-09-28_L4_depois_login_flow_test.txt`) | `pumpAte(TelaInicialScreen)`, timeout de 20 s | commit "Fase 3: aplica L4" (revertido no seguinte) |
+
+Registro do L4:
+- O baseline precisou de dois runs: o primeiro (run 3 do login) foi vermelho no `lib/` limpo por um defeito de timing do próprio teste, corrigido antes de aplicar o bug. O "depois" usa exatamente o código de teste do "antes".
+- **O que o teste diz e o que não diz.** A falha registra que a `TelaInicialScreen` não apareceu em 20 s. Ela **não** diz que a `CadastroScreen` apareceu no lugar — o teste não afirma nada sobre para onde o app foi. Um operador lendo só a saída sabe que o login não chegou ao destino, não sabe o sintoma (abrir o Cadastro). Isso é relevante para comparar com o que um tester manual veria (coluna "O que o tester vê" da tabela).
+- Os outros 4 testes (E1..E4) continuam verdes com o bug, como esperado: L4 só afeta o caminho de sucesso.
+- `flutter analyze` acusa `unused_import: 'tela-inicial.dart'` em `lib/login.dart` com o bug aplicado. Ficou assim de propósito: é o rastro que um desenvolvedor real deixaria, e um aviso de lint não é o que a Fase 3 mede.
+- Custo: 3 execuções do fluxo (2 de baseline + 1 com o bug), ~2 min de máquina.
 
 | ID | Fluxo | Arquivo:linha | Alteração | Tipo | O que o tester vê |
 |---|---|---|---|---|---|
@@ -153,7 +168,7 @@ Os passos 1 a 4 da lista original (validar aceleração, rodar a fumaça, cleart
 
 Seed e os três fluxos (login, cadastro, playlist) estão feitos e verdes (2026-09-28, mesma máquina). `lib/` continua intocado. O que falta:
 
-1. **Aplicar os bugs L4, C3 e P2, um de cada vez**, cada um num commit próprio, com o teste do fluxo correspondente rodando **antes** (verde, como baseline no mesmo estado do AVD) e **depois** (deve ficar vermelho), guardando as duas saídas em `resultados/`. Onde cada teste deve pegar o bug: L4 → `login_flow_test` ("login válido", espera `TelaInicialScreen`); C3 → `cadastro_flow_test` (saudação "João Silva" e `doc['nome']`); P2 → `playlist_flow_test` ("lista carrega as 5 músicas", `RangeError` no `build`).
+1. **Aplicar C3 e P2** (L4 já foi, ver "Aplicação dos bugs"), um de cada vez, pelo mesmo protocolo: baseline verde → bug → run vermelho → commit com o bug → commit revertendo. Onde cada teste deve pegar: C3 → `cadastro_flow_test` (saudação "João Silva" e `doc['nome']`); P2 → `playlist_flow_test` ("lista carrega as 5 músicas", `RangeError` no `build`).
 2. Decidir e registrar o que a Fase 3 mede a partir daí (os testes E2E são escritos à mão, não por LLM — isso precisa estar claro na redação).
 
 Operacional: um `flutter test` por comando (ver a ocorrência do travamento em "Execução do fluxo de playlist"); AVD e emuladores Firebase morrem com a sessão e precisam subir de novo (30 s e ~10 s, respectivamente, com tudo em cache).

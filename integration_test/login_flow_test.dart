@@ -99,8 +99,11 @@ void main() {
     await tester.enterText(campoSenha(), seedSenha);
     await tester.tap(find.text('Entrar'));
 
+    // A TelaInicialScreen já é encontrada durante a transição do
+    // pushReplacement, com a LoginScreen ainda saindo (run 3, baseline do
+    // L4, falhou assim); por isso a espera é pela saída da LoginScreen.
     await pumpAte(tester, find.byType(TelaInicialScreen));
-    expect(find.byType(LoginScreen), findsNothing);
+    await pumpAteSumir(tester, find.byType(LoginScreen));
     expect(FirebaseAuth.instance.currentUser?.email, seedEmail);
 
     // Saudação: `_formatName('tester sintonize')` → 'Tester Sintonize'.

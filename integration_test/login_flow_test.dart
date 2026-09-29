@@ -7,6 +7,7 @@ import 'package:sintonize/main.dart';
 import 'package:sintonize/tela-inicial.dart';
 
 import 'firebase_test_helper.dart';
+import 'pump_helpers.dart';
 import 'seed.dart';
 
 /// Fluxo de login (E2E-02 do roteiro manual, `e2e-manual/E2E-02_login_completo.md`):
@@ -38,18 +39,6 @@ void main() {
   /// Os dois TextFormField da LoginScreen, na ordem em que aparecem.
   Finder campoEmail() => find.byType(TextFormField).at(0);
   Finder campoSenha() => find.byType(TextFormField).at(1);
-
-  /// Bombeia até o finder aparecer ou o tempo esgotar. `pumpAndSettle` não
-  /// serve depois do "Entrar": há chamadas de rede e FutureBuilders em série.
-  Future<void> pumpAte(WidgetTester tester, Finder finder,
-      {Duration timeout = const Duration(seconds: 20)}) async {
-    final fim = DateTime.now().add(timeout);
-    while (DateTime.now().isBefore(fim)) {
-      await tester.pump(const Duration(milliseconds: 250));
-      if (finder.evaluate().isNotEmpty) return;
-    }
-    fail('não apareceu em ${timeout.inSeconds}s: $finder');
-  }
 
   group('cenários de erro (validação local, sem rede)', () {
     testWidgets('E1: campos vazios', (tester) async {

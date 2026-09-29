@@ -26,8 +26,11 @@ U-CRASH e U-SILENT não são alcançáveis em E2E: nenhuma tela importa `validat
 | `firebase.json` com a seção `emulators` (auth 9099, firestore 8080, ui 4000) | feito, commitado |
 | Logs dos emuladores no `.gitignore` | feito (`firebase-debug.log`, `ui-debug.log`, `firestore-debug.log`) |
 | `integration_test/firebase_test_helper.dart` | feito: `setupFirebaseEmulators()`, host por `--dart-define=EMU_HOST` (padrão `10.0.2.2`), guarda estática contra dupla inicialização |
-| `integration_test/seed.dart` | feito: `seedEmulators()`, com usuário `tester@sintonize.test` / `senha123` e 5 docs em `musica` (`track_name`, `artist_name`, `genre`), IDs fixos, idempotente |
+| `integration_test/seed.dart` | feito: `seedEmulators()`, com usuário `tester@sintonize.test` / `senha123`, o doc `usuarios/{uid}` no formato do cadastro (`nome` = `tester sintonize`, `generos_favoritos` = `[rock, pop]`, endereço) e 5 docs em `musica` (`track_name`, `artist_name`, `genre`), IDs fixos, idempotente. O doc de usuário foi acrescentado em 2026-09-28 porque a `TelaInicialScreen` lê `nome` e `generos_favoritos` |
+| `integration_test/seed_test.dart` | só popula e confere (usuário, doc, 5 músicas); para inspecionar no Emulator UI. Os testes de fluxo chamam o seed sozinhos |
 | `integration_test/smoke_test.dart` | escrito e com `flutter analyze` limpo; **executado e verde na segunda máquina em 2026-09-28** (ver "Execução da fumaça") |
+| `integration_test/login_flow_test.dart` | **feito e verde (5/5) em 2026-09-28**: espelha o E2E-02 manual — E1..E4 + login válido até a `TelaInicialScreen` com saudação e recomendação (ver "Execução do fluxo de login") |
+| `android/app/src/debug/AndroidManifest.xml` | **alterado em 2026-09-28**: `<application android:usesCleartextTraffic="true"/>`, só no debug. Sem isso o Auth emulator falha com `Cleartext HTTP traffic to 10.0.2.2 not permitted` (a fumaça não pegou porque não chama o Auth) |
 | Emuladores Firebase | testados na máquina original: subiram em 47 s e 9099/8080 responderam 200. Na segunda máquina, idem (200/200) |
 | AVD `tcc_e2e` | criado na máquina original, **nunca subiu lá**: sem aceleração de hardware (hipervisor habilitado, mas a máquina não foi reiniciada). Na segunda máquina, WHPX usável; subiu em 132 s (boot frio) |
 | `android/app/build.gradle` | **alterado pela própria ferramenta Flutter** no primeiro build: `minSdkVersion 23` → `minSdkVersion flutter.minSdkVersion`. Não foi edição manual; mantido, porque a ferramenta refaria a troca no build seguinte |
@@ -45,7 +48,26 @@ U-CRASH e U-SILENT não são alcançáveis em E2E: nenhuma tela importa `validat
 | Teste (`setUpAll` + `fumaça: o app abre e chega à LoginScreen` + `tearDownAll`) | 5 s |
 | **Total do comando** | **390 s** |
 
-Resultado: `00:05 +1: All tests passed!`. O Auth emulator **não** foi bloqueado por cleartext, então o `AndroidManifest.xml` de debug ficou como está (item 3 dos passos anteriores não foi necessário). O seed (`seedEmulators()`) ainda não foi chamado — a fumaça não precisa de dados.
+Resultado: `00:05 +1: All tests passed!`. A fumaça não chama o Auth, então não revelou o bloqueio de cleartext (ver abaixo). O seed não é usado pela fumaça.
+
+### Execução do fluxo de login (segunda máquina, 2026-09-28)
+
+`flutter test integration_test/login_flow_test.dart -d emulator-5554`, AVD e emuladores já no ar.
+
+- **Run 1: falhou no `setUpAll`**, no primeiro `createUserWithEmailAndPassword` do seed: `[firebase_auth/unknown] An internal error has occurred. [ Cleartext HTTP traffic to 10.0.2.2 not permitted`. Exatamente o item 3 da lista original. Saída em `resultados/2026-09-28_login_flow_test_run1.txt`.
+- **Correção:** `<application android:usesCleartextTraffic="true"/>` em `android/app/src/debug/AndroidManifest.xml`. Nada em `lib/`, nada no manifest principal.
+- **Run 2: 5/5.** Saída em `resultados/2026-09-28_login_flow_test_run2.txt`.
+
+| Etapa | Tempo |
+|---|---|
+| Gradle `assembleDebug` (build incremental) | 19,6 s |
+| `setUpAll` (init + seed: usuário, doc, 5 músicas) | 4 s |
+| E1, E2, E3 (validação local) | 6 s, 2 s, 2 s |
+| E4 (senha errada, vai ao Auth emulator) | 2 s |
+| Login válido → `TelaInicialScreen` + saudação + recomendação | 4 s |
+| **Total do comando** | **50 s** (21 s de teste) |
+
+Registro do E4: o Auth emulator devolveu `wrong-password`, e a SnackBar foi "Senha incorreta. Certifique-se de que está digitando a senha corretamente." (ramo `wrong-password` de `login.dart:43`). Em produção o Firebase atual devolve `invalid-credential` para o mesmo caso; o E2E-02 manual (Web, 2026-05-25) só registrou "SnackBar com mensagem de erro do Firebase", sem dizer qual. Quando o bug L4 for aplicado, o teste de login válido é o que deve pegá-lo (espera `TelaInicialScreen`, e L4 abre `CadastroScreen`).
 
 ### Bugs escolhidos para a Fase 3 (não aplicados)
 
@@ -83,11 +105,10 @@ Os passos 1 a 4 da lista original (validar aceleração, rodar a fumaça, cleart
 - subir os emuladores Firebase: `firebase emulators:start --only auth,firestore --project sintonize-fa494`, na raiz do repo (o `--project` tem de ser o `projectId` de `lib/firebase_options.dart`);
 - build e teste: `flutter test integration_test/smoke_test.dart -d emulator-5554`.
 
-O que falta:
+Seed e fluxo de login também estão feitos (2026-09-28, mesma máquina). O que falta:
 
-1. **Seed:** `seedEmulators()` ainda não é chamado por nenhum teste. Chamar no `setUpAll` do teste de fluxo, depois de `setupFirebaseEmulators()`, ou criar um `integration_test/seed_test.dart` que só faça isso. Confirmar no Emulator UI (`http://127.0.0.1:4000`) que o usuário e as 5 músicas apareceram.
-2. **Fluxos reais** (login, cadastro, playlist), um arquivo por fluxo em `integration_test/`, sempre contra os emuladores.
-3. Só depois disso, a aplicação dos bugs L4, C3 e P2.
+1. **Fluxos de cadastro e playlist**, um arquivo por fluxo em `integration_test/`, no molde de `login_flow_test.dart` (seed no `setUpAll`, `signOut` no `setUp`, `pumpAte` em vez de `pumpAndSettle` depois de chamadas de rede). O cadastro cria um usuário novo por execução: usar e-mail com sufixo aleatório ou apagar o usuário no `tearDown`, senão a segunda execução cai em `email-already-in-use`. Espelhar `e2e-manual/E2E-01` e `E2E-03`.
+2. Só depois disso, a aplicação dos bugs L4, C3 e P2, um de cada vez, com o teste do fluxo correspondente rodando antes e depois.
 
 ## Ambiente da máquina original (2026-09-28)
 

@@ -4,4 +4,10 @@
          to allow setting breakpoints, to provide hot reload, etc.
     -->
     <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- Fase 3 (E2E): os emuladores Firebase (Auth 9099, Firestore 8080)
+         falam HTTP em claro com 10.0.2.2, e o Android 9+ bloqueia cleartext
+         por padrão. Só no build de debug; o manifest principal fica intocado.
+    -->
+    <application android:usesCleartextTraffic="true"/>
 </manifest>

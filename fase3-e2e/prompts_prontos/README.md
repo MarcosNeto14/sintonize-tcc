@@ -46,9 +46,8 @@ script é atualizado para gerar os dois.
 
 ## Como os exemplos few-shot foram escolhidos
 
-Registro do critério, conforme o item 5.3 de Baltes indicado pelo autor
-(a verificação da citação é do autor; este arquivo registra o critério
-aplicado):
+Seleção dos exemplos few-shot registrada conforme a diretriz 5.3 de Baltes
+et al. (2026), que exige explicitar o critério de escolha dos exemplos:
 
 1. **Mesma tecnologia do alvo.** Cada exemplo é um teste `integration_test`
    que roda um app real em emulador, chama um helper de emuladores em

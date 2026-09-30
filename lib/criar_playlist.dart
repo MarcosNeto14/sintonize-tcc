@@ -162,7 +162,7 @@ class _CriarPlaylistScreenState extends State<CriarPlaylistScreen> {
               child: _musicasFiltradas.isEmpty
                   ? const Center(child: CircularProgressIndicator())
                   : ListView.builder(
-                      itemCount: _musicasFiltradas.length,
+                      itemCount: _musicasFiltradas.length + 1,
                       itemBuilder: (context, index) {
                         var musica = _musicasFiltradas[index];
                         String musicaNome = _formatName(musica['track_name']);

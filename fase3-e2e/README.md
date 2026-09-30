@@ -37,7 +37,7 @@ U-CRASH e U-SILENT não são alcançáveis em E2E: nenhuma tela importa `validat
 | Emuladores Firebase | testados na máquina original: subiram em 47 s e 9099/8080 responderam 200. Na segunda máquina, idem (200/200) |
 | AVD `tcc_e2e` | criado na máquina original, **nunca subiu lá**: sem aceleração de hardware (hipervisor habilitado, mas a máquina não foi reiniciada). Na segunda máquina, WHPX usável; subiu em 132 s (boot frio) |
 | `android/app/build.gradle` | **alterado pela própria ferramenta Flutter** no primeiro build: `minSdkVersion 23` → `minSdkVersion flutter.minSdkVersion`. Não foi edição manual; mantido, porque a ferramenta refaria a troca no build seguinte |
-| `lib/` | limpo na ponta da branch. **L4 (2026-09-28) e C3 (2026-09-29) aplicados, detectados e revertidos** (ver "Aplicação dos bugs"); P2 ainda não |
+| `lib/` | limpo na ponta da branch. **Os 3 bugs (L4 em 2026-09-28; C3 e P2 em 2026-09-29) aplicados, detectados e revertidos** (ver "Aplicação dos bugs") |
 
 ### Execução da fumaça (segunda máquina, 2026-09-28)
 
@@ -127,6 +127,7 @@ Uma linha cada, no `lib/` desta branch. As linhas foram conferidas em 2026-09-28
 |---|---|---|---|---|
 | L4 | `login_flow_test` 5/5, 27 s (`resultados/2026-09-28_L4_antes_login_flow_test.txt`) | **4/5**, 46 s — só "login válido chega à TelaInicialScreen" falha: `não apareceu em 20s: TelaInicialScreen` (`resultados/2026-09-28_L4_depois_login_flow_test.txt`) | `pumpAte(TelaInicialScreen)`, timeout de 20 s | `eb14334`. O commit `41bf190`, rotulado como reversão, **não reverteu** (`git checkout -- lib/login.dart` restaurou do índice, que já tinha o bug); a reversão real é o commit seguinte a ele |
 | C3 | `cadastro_flow_test` 6/6, 78 s (`resultados/2026-09-29_C3_antes_cadastro_flow_test.txt`) | **5/6**, 65 s — só o fluxo completo falha: `não apareceu em 20s: ... João Silva, essa é a nossa recomendação de` (`resultados/2026-09-29_C3_depois_cadastro_flow_test.txt`) | `pumpAte(saudação)` na `TelaInicialScreen`, timeout de 20 s | `20edaaa` (revertido no commit seguinte, com `git diff ccae44a -- lib/` vazio conferido antes) |
+| P2 | `playlist_flow_test` 4/4, 101 s (`resultados/2026-09-29_P2_antes_playlist_flow_test.txt`) | **0/4**, 64 s — os 4 testes falham com `RangeError (length): Invalid value: Not in inclusive range 0..4: 5`, stack apontando `criar_playlist.dart:167` (`resultados/2026-09-29_P2_depois_playlist_flow_test.txt`) | exceção no `build` do `ListView.builder`, reportada pelo framework em qualquer teste que abre a tela | commit "Fase 3: aplica P2" (revertido no seguinte) |
 
 Registro do L4:
 - O baseline precisou de dois runs: o primeiro (run 3 do login) foi vermelho no `lib/` limpo por um defeito de timing do próprio teste, corrigido antes de aplicar o bug. O "depois" usa exatamente o código de teste do "antes".
@@ -142,6 +143,16 @@ Registro do C3 (2026-09-29):
 - **O segundo ponto de detecção nunca rodou.** O teste tinha duas asserções capazes de pegar o C3 (a saudação e `doc['nome'] == 'joão silva'` no Firestore), mas um `testWidgets` para na primeira falha, então a leitura do Firestore não aconteceu. Na prática, um teste E2E longo dá **um** diagnóstico por execução.
 - `flutter analyze` não acusa nada com o C3 aplicado (só os 8 `info` pré-existentes de `cadastro.dart`): ao contrário do L4, este bug não deixa rastro de lint.
 - Custo: 2 execuções do fluxo (1 de baseline + 1 com o bug), ~2,5 min de máquina.
+
+Registro do P2 (2026-09-29):
+- Baseline verde de primeira (4/4, 101 s — o Gradle levou 50 s porque o `lib/` tinha acabado de voltar ao estado de `ccae44a`). Emuladores Firebase subiram desta vez por `Start-Process` desacoplado, porque a tarefa anterior tinha sido morta pelo limite de 10 min da ferramenta.
+- Com o bug, mesmo código de teste: **0/4**. É o único dos três em que **todos** os testes do fluxo caem, porque o defeito está no `build` da lista: qualquer teste que chega à `CriarPlaylistScreen` com músicas tropeça nele antes de fazer o que ia fazer. L4 e C3 derrubaram 1 teste cada.
+- **Aqui o teste diz exatamente o que aconteceu.** Ao contrário de L4 e C3, a saída traz a exceção com tipo, valor e arquivo:linha (`_CriarPlaylistScreenState.build.<anonymous closure> (package:sintonize/criar_playlist.dart:167:55)`). Um bug CRASH dá diagnóstico de graça; os SILENT só dizem "o esperado não veio". Isso é a diferença central entre os dois tipos para a análise.
+- O valor do erro acompanha o tamanho da lista: `0..4: 5` com as 5 músicas e `Only valid value is 0: 1` com a pesquisa filtrando para 1 item. O bug estoura em qualquer lista não vazia, não só na do seed. Com a lista vazia (`_musicasFiltradas.isEmpty`) a tela mostra o `CircularProgressIndicator` e o `ListView` nem é construído — o bug fica invisível.
+- O `RangeError` aparece 10 vezes na saída para 4 testes: a lista é reconstruída a cada `setState` (pesquisa, seleção) e cada rebuild lança de novo. O reporter do `flutter test` chega a reatribuir exceções tardias ao nome de um teste anterior (linhas `00:19 ... lista carrega as 5 músicas do seed` reaparecendo depois de o teste já ter fechado) — ao ler a saída, contar pelos `[E]`, não pelas exceções.
+- Em debug o app mostra o bloco vermelho de erro no fim da lista (coluna "O que o tester vê"); o teste não precisou de asserção nenhuma para pegar — o framework reporta exceções não tratadas no `build` como falha do teste em curso.
+- Sem rastro de lint (só os 6 `info` pré-existentes).
+- Custo: 2 execuções do fluxo, ~3 min de máquina.
 
 | ID | Fluxo | Arquivo:linha | Alteração | Tipo | O que o tester vê |
 |---|---|---|---|---|---|
@@ -177,8 +188,8 @@ Os passos 1 a 4 da lista original (validar aceleração, rodar a fumaça, cleart
 
 Seed e os três fluxos (login, cadastro, playlist) estão feitos e verdes (2026-09-28, mesma máquina). `lib/` continua intocado. O que falta:
 
-1. **Aplicar P2** (L4 e C3 já foram, ver "Aplicação dos bugs") pelo mesmo protocolo: baseline verde → bug → run vermelho → commit com o bug → commit revertendo, **restaurando de hash explícito e conferindo `git diff <hash> -- lib/` vazio antes de commitar a reversão** (o L4 tropeçou aí). Onde o teste deve pegar: `playlist_flow_test`, "lista carrega as 5 músicas", `RangeError` no `build`.
-2. Decidir e registrar o que a Fase 3 mede a partir daí (os testes E2E são escritos à mão, não por LLM — isso precisa estar claro na redação).
+1. **Os 3 bugs estão aplicados, detectados e revertidos** (ver "Aplicação dos bugs"). Resumo: L4 → login 5/5 → 4/5; C3 → cadastro 6/6 → 5/6; P2 → playlist 4/4 → 0/4. Os hashes com cada bug ativo estão na tabela.
+2. Decidir e registrar o que a Fase 3 mede a partir daí (os testes E2E são escritos à mão, não por LLM — isso precisa estar claro na redação). Material já levantado para essa decisão: (a) SILENT × CRASH — o CRASH entrega arquivo:linha na saída, o SILENT só diz que o esperado não apareceu; (b) um `testWidgets` longo dá um diagnóstico por execução (C3 tinha dois pontos de detecção, só o primeiro rodou); (c) o custo por bug foi de 2 a 3 execuções e 2–3 min de máquina, contra 132 s de boot do AVD e 362 s do primeiro build.
 
 Operacional: um `flutter test` por comando (ver a ocorrência do travamento em "Execução do fluxo de playlist"); AVD e emuladores Firebase morrem com a sessão e precisam subir de novo (30 s e ~10 s, respectivamente, com tudo em cache).
 

@@ -177,6 +177,42 @@ Registro do P2 (2026-09-29):
 | C3 | cadastro | `lib/cadastro.dart:149` | `_nomeController.text` → `_emailController.text` | SILENT | a saudação da tela inicial (`tela-inicial.dart:241`) mostra o e-mail no lugar do nome. O fluxo termina lá: Cadastrar → Gêneros → Confirmar (`generos-cadastro.dart:62`) |
 | P2 | playlist | `lib/criar_playlist.dart:165` | `itemCount: _musicasFiltradas.length` → `length + 1` | CRASH | com as 5 músicas do seed, o item de índice 5 lança `RangeError`: bloco vermelho no fim da lista em debug, cinza em release |
 
+## Verificação de infraestrutura 2026-09-29 — aceitação de tamanho (não é rodada)
+
+Pergunta: o maior prompt (`FASE3-E2E-COT-03_playlistFlow.md`, corpo de 55.879
+caracteres / 1.547 linhas entre os dois `---`) é aceito pelos dois modelos e
+a resposta começa? Fora do protocolo, em conversas descartáveis, sem gerar
+dado: só aceitou/recusou, mensagem de limite e print. Nenhuma resposta foi
+guardada.
+
+| Modelo | Sessão | Entrada aceita? | Mensagem de limite | Resposta começou? | Estado final | Print |
+|---|---|---|---|---|---|---|
+| Gemini | logada, Pro, seletor fixado em **3.8 Flash** (estava em Flash-Lite; trocado antes de colar) | **sim** — 57.525 caracteres no editor, início e fim conferidos | nenhuma | **sim** — após ~16 s: "Abaixo estão as análises detalhadas do fluxo…", "1. Análise do Fluxo", "2. Identificação das Dependências" | segundos depois a resposta foi **substituída pela recusa genérica** "Sou apenas uma IA com base em texto. Não tenho como ajudar nisso." — o padrão já registrado na réplica quando o envio parte da automação (Claude in Chrome), que some ao reenviar com um espaço no fim e **não conta como dado do modelo** | `evidencias/infra/2026-09-29_gemini_38flash_cot03_estado-final.jpg` (estado final; o estado intermediário com a resposta foi visto, não salvo) |
+| ChatGPT | executada pelo autor, à mão; **sessão a confirmar pelo autor (deslogada?)** | **sim** | nenhuma | **sim** — resposta completa, com os 5 passos do CoT e um arquivo de teste | resposta completa | **pendente (autor)** |
+
+Leituras:
+
+- **Tamanho não é impedimento em nenhum dos dois.** O maior dos 9 prompts
+  entrou inteiro e obteve resposta nos dois modelos.
+- **Gemini:** a recusa genérica é artefato do envio automatizado, não do
+  tamanho — a resposta real já tinha começado quando ela apareceu. Nas
+  rodadas, colar à mão (ou reenviar com espaço no fim) e registrar a
+  ocorrência, como na réplica. Uma repetição com o espaço no fim, salvando
+  os dois prints, fica a critério do autor.
+- **ChatGPT:** a resposta trouxe marcadores de citação de fontes externas
+  ("Documentação Flutter", "Firebase"), ou seja, **o modelo consultou a web
+  por conta própria**. Isso é uma condição de sessão a registrar por rodada
+  (a Fase 2 não tinha esse comportamento observado) — o template ganha o
+  campo "Consultou fontes externas?" antes da rodada 1.
+- Ocorrência operacional: entre carregar a área de transferência com o prompt
+  e colar no Gemini, algo (provavelmente a extensão) a sobrescreveu com
+  "109411879"; o conteúdo foi recarregado e conferido por script antes da
+  colagem que valeu. Conferir sempre o tamanho do texto no editor antes de
+  enviar.
+
+Duas conversas descartáveis ficaram nos históricos das contas (Gemini:
+"Testes End-to-End (E2E) com Flutter I…"); nada foi apagado das contas.
+
 ## Plano de rodadas (opção B) — 18 por modelo, 36 no total
 
 Mesmos 9 prompts (`prompts_prontos/`) para as duas condições e os dois

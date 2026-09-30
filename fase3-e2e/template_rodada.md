@@ -42,6 +42,7 @@ Regras que não mudam em relação à Fase 2:
 | **✦ Modelo declarado pelo LLM** | [resposta LITERAL à pergunta feita no início da sessão, antes de colar o prompt — não parafrasear; se recusar ou não souber, registrar isso] |
 | **✦ Verificação externa da versão** | [qual modelo é servido nesta condição de sessão nesta data, segundo fonte externa — URL + data de consulta + o que a fonte afirma; se não houver, "não verificável em AAAA-MM-DD"] |
 | **Sessão** | ChatGPT: deslogada (igual às Fases 2 e reexecução). Gemini: logada, conta Pro, modelo fixado no seletor em 3.8 Flash, com print do seletor em `evidencias/` (igual à réplica) |
+| **Consultou fontes externas?** | Sim (quais marcadores/citações apareceram) / Não — na verificação de 2026-09-29 o ChatGPT citou "Documentação Flutter" e "Firebase" por conta própria |
 | **Data de acesso** | AAAA-MM-DD |
 | **Conversa nova?** | Sim |
 | **Versão do Flutter** | `flutter --version` (esperado 3.41.6 · Dart 3.11.4) |

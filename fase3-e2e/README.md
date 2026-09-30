@@ -177,6 +177,55 @@ Registro do P2 (2026-09-29):
 | C3 | cadastro | `lib/cadastro.dart:149` | `_nomeController.text` → `_emailController.text` | SILENT | a saudação da tela inicial (`tela-inicial.dart:241`) mostra o e-mail no lugar do nome. O fluxo termina lá: Cadastrar → Gêneros → Confirmar (`generos-cadastro.dart:62`) |
 | P2 | playlist | `lib/criar_playlist.dart:165` | `itemCount: _musicasFiltradas.length` → `length + 1` | CRASH | com as 5 músicas do seed, o item de índice 5 lança `RangeError`: bloco vermelho no fim da lista em debug, cinza em release |
 
+## Plano de rodadas (opção B) — 18 por modelo, 36 no total
+
+Mesmos 9 prompts (`prompts_prontos/`) para as duas condições e os dois
+modelos. O que muda por rodada é o modelo, a estratégia e o `lib/` do
+worktree onde o teste gerado roda.
+
+| Bloco | Ordem | Rodadas | Worktree / `lib/` |
+|---|---|---|---|
+| 1 — ZS | 1–6 ChatGPT, 7–12 Gemini | por modelo: 01_loginFlow, 02_cadastroFlow, 03_playlistFlow limpas; depois L4-ZS, C3-ZS, P2-ZS | limpas em `sintonize-fase3` (`fase3-e2e`); L4 em `eb14334`, C3 em `20edaaa`, P2 em `60cbaff` |
+| 2 — FS | 13–18 ChatGPT, 19–24 Gemini | idem com FS | idem |
+| 3 — COT | 25–30 ChatGPT, 31–36 Gemini | idem com COT | idem |
+
+Por que ZS nos dois modelos primeiro: se a ZS já mostrar o padrão, os blocos
+seguintes confirmam ou refutam com o mesmo par de modelos; e o bloco 1 revela
+cedo qualquer problema de infraestrutura (worktrees dos bugs, seed, prints)
+antes de gastar as rodadas FS/COT.
+
+Contagem: 9 limpas + 9 com bug por modelo = 18; 36 no total. As 9 limpas são
+o grupo de controle (o teste gerado também precisa funcionar sem bug); as 9
+com bug são as que recebem a codificação manual-first de `roteiro_manual.md`.
+Não há `_REEXEC` previsto: se um prompt precisar de correção, a rodada é
+refeita como rodada nova com sufixo, como na Fase 2, e a original fica.
+
+### Estimativa de tempo por rodada (a partir dos números medidos)
+
+Medidas em `analise/custo_e_referencia.md`. Por **execução** do teste gerado:
+reiniciar emuladores (~12 s) + seed (`seed_test`, ~25–30 s com Gradle
+incremental) + `flutter test` do arquivo (Gradle incremental 11–23 s + teste
+20–45 s + instalação 1 s) ≈ **1,5–2 min de máquina**, mais o print quando há
+falha. Por **iteração de conversa** (colar, esperar a resposta, extrair o
+código, salvar): ~4–6 min de operação, pelo que a Fase 2 levou.
+
+| Cenário | Iterações (geração + reparos) | Tempo estimado |
+|---|---|---|
+| Verde de primeira | 1 | ~7–9 min |
+| 1 reparo | 2 | ~13–16 min |
+| 3 reparos (teto) | 4 | ~25–32 min |
+
+Com a média da Fase 2 (perto de 1,5 reparo por rodada), **~15 min por rodada
+→ ~9 h para as 36**, entre ~4,5 h (tudo verde de primeira) e ~19 h (tudo no
+teto). Custos fixos fora disso: AVD 25–132 s por sessão; emuladores 12 s;
+**primeiro Gradle em cada worktree novo ≈ 6 min** (3 worktrees de bug → ~18
+min uma vez), e ≈ 40–50 s sempre que o `lib/` de um worktree muda.
+
+Regras operacionais que saíram das medições: um `flutter test` por comando;
+emuladores desacoplados do terminal da sessão; seed limpo antes de **cada**
+execução (o emulador acumula usuários e playlists); print da tela na falha
+antes de tocar em qualquer coisa.
+
 ## Montar o ambiente numa máquina nova (Windows)
 
 Nada de SDK, Node ou emulador vai no repositório. Numa máquina nova, reinstalar nesta ordem:

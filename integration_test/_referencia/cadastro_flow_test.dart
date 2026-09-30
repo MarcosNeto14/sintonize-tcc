@@ -8,9 +8,9 @@ import 'package:sintonize/generos-cadastro.dart';
 import 'package:sintonize/main.dart';
 import 'package:sintonize/tela-inicial.dart';
 
-import 'firebase_test_helper.dart';
+import '../firebase_test_helper.dart';
 import 'pump_helpers.dart';
-import 'seed.dart';
+import '../seed.dart';
 
 /// Fluxo de cadastro (E2E-01 do roteiro manual,
 /// `e2e-manual/E2E-01_cadastro_completo.md`):

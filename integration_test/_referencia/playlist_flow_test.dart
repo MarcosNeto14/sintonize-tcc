@@ -8,9 +8,9 @@ import 'package:sintonize/main.dart';
 import 'package:sintonize/tela-inicial.dart';
 import 'package:sintonize/usuario.dart';
 
-import 'firebase_test_helper.dart';
+import '../firebase_test_helper.dart';
 import 'pump_helpers.dart';
-import 'seed.dart';
+import '../seed.dart';
 
 /// Fluxo de criar playlist (E2E-03 do roteiro manual,
 /// `e2e-manual/E2E-03_criar_playlist.md`):

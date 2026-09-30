@@ -1,5 +1,22 @@
 # Fase 3 — Testes E2E
 
+## Decisão de escopo (2026-09-29) e declaração de autoria
+
+A Fase 3 segue a **mesma comparação das Fases 1 e 2 — ZS/FS/COT × ChatGPT/Gemini —
+agora no nível E2E**, com testes `integration_test` executados no AVD contra os
+emuladores Firebase. Os prompts estão em `prompts_prontos/`, o template de
+rodada em `template_rodada.md`, a rubrica manual-first em `roteiro_manual.md`
+e o plano de rodadas em "Plano de rodadas", abaixo.
+
+**Os três testes em `integration_test/_referencia/` não entram na comparação.**
+Eles foram produzidos com assistência de LLM (Claude Code) em regime
+interativo, com acesso ao código, ao dispositivo e às saídas de cada
+execução, fora do protocolo experimental. Ficam como implementação de
+referência e prova de detectabilidade dos bugs L4, C3 e P2, e **não podem
+aparecer em nenhum prompt, nem de geração nem de reparo**. Os tempos medidos
+e a tabela SILENT × CRASH estão consolidados em
+`analise/custo_e_referencia.md`.
+
 ## Base de código
 
 A branch `fase3-e2e` foi criada em 2026-09-28 a partir de `fase2-gemini-alvos-limpos` (`27f2f69`).

@@ -6,9 +6,9 @@ import 'package:sintonize/login.dart';
 import 'package:sintonize/main.dart';
 import 'package:sintonize/tela-inicial.dart';
 
-import 'firebase_test_helper.dart';
+import '../firebase_test_helper.dart';
 import 'pump_helpers.dart';
-import 'seed.dart';
+import '../seed.dart';
 
 /// Fluxo de login (E2E-02 do roteiro manual, `e2e-manual/E2E-02_login_completo.md`):
 /// HomeScreen → LoginScreen → TelaInicialScreen, com os 4 cenários de erro.

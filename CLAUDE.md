@@ -16,7 +16,7 @@ The work is organized in **four stages**, each with its own artifact tree. See "
 | **Fase 2** — main study | 60 = 42 clean + 18 planted-bug (+4 `_REEXEC`) | ChatGPT | `fase2/`; 15 operator-assisted bug rounds isolated in `fase2/_execucao-assistida/` | `fase2-prep` / `fase2-alvos-limpos` | complete |
 | **Fase 2 – Gemini** — replication | 60 (+4 `_REEXEC`) | Gemini 3.8 Flash | `fase2-gemini/` | bug rounds: `fase2-gemini-piloto`; clean: `fase2-gemini-alvos-limpos` | complete |
 | **Fase 2 – ChatGPT re-run** — the 22 bug rounds, fixed repair template | 18 (+4 `_REEXEC`) | ChatGPT | `fase2-chatgpt-reexec/`, `test/fase2-chatgpt-reexec/` | `fase2-chatgpt-reexec` | 15/15 complete — status and docs live on that branch; this copy of CLAUDE.md predates them |
-| **Fase 3** — E2E (Android emulator + Firebase Emulator Suite) | — | — | `fase3-e2e/`, `integration_test/` | `fase3-e2e` | smoke and all 3 flows green on the AVD + Firebase emulators (2026-09-28); option B: ZS/FS/COT × ChatGPT/Gemini at the E2E level, 36 rounds (18 per model: 9 clean + 9 on the bug hashes); prompts, template, manual-first rubric and plan ready, 0/36 executed — read `fase3-e2e/README.md` first |
+| **Fase 3** — E2E (Android emulator + Firebase Emulator Suite) | — | — | `fase3-e2e/`, `integration_test/` | `fase3-e2e` | smoke and all 3 flows green on the AVD + Firebase emulators (2026-09-28); option B: ZS/FS/COT × ChatGPT/Gemini at the E2E level, 36 rounds (18 per model: 9 clean + 9 on the bug hashes); prompts, template, manual-first rubric and plan ready; round 1 (ZS-01, ChatGPT) generated but not yet executed on 2026-10-02 — see "Estado em 2026-10-02" in `fase3-e2e/README.md` first |
 
 ## Commands
 

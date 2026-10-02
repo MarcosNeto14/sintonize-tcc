@@ -85,9 +85,14 @@ Na conversa:
       ainda assim vier recusa genérica, não conta como iteração: registrar e
       reenviar.
 - [ ] Salvar o código gerado, sem editar, em
-      `integration_test/fase3/<modelo>/<arquivo>_test.dart` **do worktree da
-      rodada** (nomes na "Convenção de IDs"). Se a resposta vier em mais de um
-      bloco de código, registrar como foi montado o arquivo.
+      `integration_test/fase3/<arquivo>_test.dart` **do worktree da rodada**
+      (nomes na "Convenção de IDs"). É de `integration_test/fase3/` que o
+      arquivo roda: o prompt diz ao modelo que ele fica aí e que o helper é
+      importado por `'../firebase_test_helper.dart'`; de uma subpasta
+      `<modelo>/` esse import quebraria (corrigido em 2026-10-02, rodada 1).
+      A cópia arquivada vai para `integration_test/fase3/<modelo>/` no
+      checkout que commita. Se a resposta vier em mais de um bloco de código,
+      registrar como foi montado o arquivo.
 
 A cada execução (geração e cada iteração de reparo):
 
@@ -97,7 +102,7 @@ A cada execução (geração e cada iteração de reparo):
       da rodada. Confirmar no Emulator UI (`http://127.0.0.1:4000`) ou pela saída
       do seed que há 1 usuário e 5 músicas e nada mais.
 - [ ] **Comando exato**, um `flutter test` por comando (encadear dois travou):
-      `flutter test integration_test/fase3/<modelo>/<arquivo>_test.dart -d emulator-5554`
+      `flutter test integration_test/fase3/<arquivo>_test.dart -d emulator-5554`
 - [ ] Guardar a saída íntegra em
       `fase3-e2e/resultados/<modelo>/<ID>_iter<N>.txt` (`iter0` = geração; o
       último recebe também o sufixo `_final`).
@@ -112,8 +117,12 @@ A cada execução (geração e cada iteração de reparo):
 Depois da rodada:
 
 - [ ] Copiar o arquivo de teste final do worktree da rodada para
-      `integration_test/fase3/<modelo>/` do worktree `sintonize-fase3` (é lá que
-      se commita; os worktrees dos bugs ficam sempre no hash, sem commits).
+      `integration_test/fase3/<modelo>/` do checkout que commita (na máquina
+      original, `Desktop\Repositórios\sintonize-tcc`; os worktrees de execução
+      ficam em caminhos ASCII sob `Desktop\` porque o Gradle recusa caminhos
+      com acento, e os dos bugs ficam sempre no hash, sem commits). Remover a
+      cópia de `integration_test/fase3/` do worktree depois de arquivar, para
+      a rodada seguinte não encontrar arquivo alheio.
 - [ ] Preencher este documento em `fase3-e2e/rodadas/<modelo>/<ID>.md` e commitar
       doc + teste + resultados + evidências juntos, na `fase3-e2e`.
 - [ ] Rodada com bug: preencher a "Codificação manual-first" abaixo.

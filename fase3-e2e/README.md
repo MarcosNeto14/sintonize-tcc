@@ -321,6 +321,50 @@ Nada de SDK, Node ou emulador vai no repositório. Numa máquina nova, reinstala
    - O aviso do npm sobre install scripts de `re2`/`protobufjs` não impediu os emuladores de subir.
 6. **Confira:** `flutter doctor -v` (Android toolchain ✓, "All Android licenses accepted"), `flutter emulators` (lista `tcc_e2e`) e `firebase --version`.
 
+## Estado em 2026-10-02 (fim do dia) — rodada 1 iniciada, não concluída
+
+Onde parou, para retomar (na máquina original, `DellT4i51`, ou em outra):
+
+- **Rodada 1 (`FASE3-E2E-ZS-01_loginFlow`, ChatGPT, limpa): geração feita,
+  execução pendente.** Doc em `rodadas/chatgpt/FASE3-E2E-ZS-01_loginFlow.md`
+  (metadados, controles de versão, resposta completa); teste gerado, sem
+  edição, em `integration_test/fase3/chatgpt/login_zs_test.dart`; prints em
+  `evidencias/chatgpt/`. O que falta: seed, `flutter test`, saída em
+  `resultados/chatgpt/`, reparo se houver. **A conversa é deslogada e vive só
+  na aba do Chrome da máquina original.** Para continuar nela: não fechar o
+  Chrome; terminar o download do NDK 28.2 (`sdkmanager "ndk;28.2.13676358"`,
+  estava em andamento); seed; `flutter test integration_test/fase3/login_zs_test.dart -d emulator-5554`
+  no worktree `Desktop\sintonize-fase3`. Para continuar **em outra máquina**:
+  mover o doc e o teste desta tentativa para `rodadas/chatgpt/_abortadas/`
+  (e `integration_test/fase3/chatgpt/_abortadas/`), e refazer a rodada 1 em
+  conversa nova, com os controles (a), (b) e (c).
+- **Máquina original, estado do ambiente:** AVD sobe (WHPX usável após
+  reiniciar o Windows; o AVD exige 12.288 MB livres em disco); emuladores
+  Firebase sobem; **o Gradle recusa caminhos com acento** — a execução é nos
+  worktrees ASCII `Desktop\sintonize-fase3` (detached no commit da ponta de
+  `fase3-e2e`, `lib/` limpo) e `Desktop\sintonize-fase3-{L4,C3,P2}` (nos
+  hashes dos bugs). O checkout que commita continua
+  `Desktop\Repositórios\sintonize-tcc`. **O NDK 28.2 não estava instalado**
+  (`ndkVersion = flutter.ndkVersion`) e a rede desta máquina baixou ~190 MB
+  em 30 min; o primeiro build só termina depois dele.
+- **Controles do dia (válidos para qualquer rodada ChatGPT de 2026-10-02):**
+  autodeclaração "GPT-5.6 Luna" (2 perguntas, prints em `evidencias/chatgpt/`);
+  Help Center, "GPT-5.6 and GPT-6 Pro in ChatGPT", consultado em 2026-10-02:
+  deslogado e Free/Go recebem GPT-5.6 Luna (print salvo). Nenhuma consulta a
+  fontes externas na resposta da rodada 1.
+- **Ocorrências de serviço/ambiente registradas:** uma tentativa de envio do
+  ZS-01 devolveu "O ChatGPT está com problemas temporários", sem resposta nem
+  ID de conversa (print; não é rodada); a área de transferência foi
+  sobrescrita por outro aplicativo duas vezes no dia (sempre conferir o editor
+  por script antes de enviar); 11 min 33 s de build perdidos no checkout com
+  acento no caminho.
+- **Template:** corrigido o caminho de execução (`integration_test/fase3/`,
+  onde o import `'../firebase_test_helper.dart'` do prompt resolve); a cópia
+  arquivada vai para `integration_test/fase3/<modelo>/`.
+- **Pendente do autor:** print da conversa manual do Gemini com o FS-03
+  (verificação de infraestrutura de 2026-10-02, linha 4), em
+  `evidencias/infra/2026-10-02_gemini_38flash_fs03_manual_resposta-completa.jpg`.
+
 ## Próximos passos
 
 Os passos 1 a 4 da lista original (validar aceleração, rodar a fumaça, cleartext, commitar e anotar tempos) foram cumpridos na segunda máquina em 2026-09-28; ver "Execução da fumaça". Receita que funcionou:

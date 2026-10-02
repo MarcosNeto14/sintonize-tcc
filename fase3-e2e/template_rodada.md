@@ -76,7 +76,14 @@ Antes da conversa:
 Na conversa:
 
 - [ ] Perguntar a versão ao modelo; registrar literal (✦).
-- [ ] Colar o prompt exatamente como está entre os `---`.
+- [ ] Colar o prompt exatamente como está entre os `---`. A área de
+      transferência é carregada por script a partir do arquivo e o texto no
+      editor é conferido (tamanho, início e fim) antes do envio. **ChatGPT:**
+      envio automatizado (Claude in Chrome). **Gemini: colagem manual pelo
+      autor** — o envio automatizado faz a resposta ser descartada por uma
+      recusa genérica (verificações de 2026-09-29 e 2026-10-02, 3 em 3). Se
+      ainda assim vier recusa genérica, não conta como iteração: registrar e
+      reenviar.
 - [ ] Salvar o código gerado, sem editar, em
       `integration_test/fase3/<modelo>/<arquivo>_test.dart` **do worktree da
       rodada** (nomes na "Convenção de IDs"). Se a resposta vier em mais de um

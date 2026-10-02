@@ -213,6 +213,47 @@ Leituras:
 Duas conversas descartáveis ficaram nos históricos das contas (Gemini:
 "Testes End-to-End (E2E) com Flutter I…"); nada foi apagado das contas.
 
+## Verificação de infraestrutura 2026-10-02 — aceitação de tamanho do FS-03 (não é rodada)
+
+Repetição da verificação com o maior dos 9 prompts de fato: a medição em
+`prompts_prontos/README.md` mostrou que o maior é o **FS-03** (56.878
+caracteres / 3.783 palavras / 1.598 linhas), não o COT-03 (55.879). Mesmas
+regras: conversas descartáveis, só aceitou/recusou + mensagem de limite +
+print; nenhuma resposta foi guardada nem usada. Antes do envio, o texto do
+editor foi conferido por script (tamanho, início e fim). Prints em
+`evidencias/infra/2026-10-02_*`.
+
+| # | Modelo | Sessão | Envio | Entrada aceita? | Limite | Resposta começou? | Estado final |
+|---|---|---|---|---|---|---|---|
+| 1 | ChatGPT | **deslogada** (botões "Entrar"/"Cadastre-se grátis" no print) | automatizado (Claude in Chrome, Ctrl+V) | sim, 56.878 car. no editor | nenhum | sim | **resposta completa**, teste em `integration_test/fase3/criar_playlist_test.dart`; **sem** marcadores de fontes externas desta vez |
+| 2 | Gemini | logada, Pro, seletor trocado de Flash-Lite para **3.8 Flash** antes de colar | automatizado | sim | nenhum | sim — a geração ocorreu (o título da conversa virou "Como gerar um teste end-to-end no Flutter… Aqui está o código completo do teste") | **substituída pela recusa genérica** "Sou apenas uma IA com base em texto. Não tenho como ajudar nisso." |
+| 3 | Gemini | mesma conversa do #2 | automatizado, **com espaço no fim** (a contramedida de 2026-09-29) | sim | nenhum | sim — "Aqui está a implementação completa do teste end-to-end com integration_test…" chegou a aparecer (print) | **substituída por outra recusa genérica**, com texto diferente: "Não posso te ajudar com isso. Sou apenas um modelo de linguagem e não tenho essas informações ou habilidades necessárias." |
+| 4 | Gemini | conversa nova, 3.8 Flash | **manual** (o autor colou da área de transferência carregada por script) | sim | nenhum | sim | **resposta completa**, com um `testWidgets` para o fluxo; ficou |
+
+Leituras:
+
+- **Tamanho não é impedimento** em nenhum dos dois modelos: o maior prompt
+  entra inteiro e os dois geram resposta. Confirma 2026-09-29.
+- **Gemini rejeita o envio automatizado, e o espaço no fim não resolve.**
+  Nas duas tentativas automatizadas a resposta começou e foi descartada;
+  na manual, ficou. Decisão: **nas 18 rodadas Gemini da Fase 3 a colagem é
+  manual pelo autor**, a partir da área de transferência carregada e
+  conferida por script; isso entra como condição de sessão no doc de cada
+  rodada. No ChatGPT o envio automatizado continua válido (foi assim na
+  reexecução e passou aqui).
+- **ChatGPT não consultou a web** desta vez. O campo "Consultou fontes
+  externas?" do template continua, porque em 2026-09-29 consultou; é uma
+  variável por rodada, não uma constante.
+- Ocorrência operacional, repetida: a área de transferência foi
+  sobrescrita por texto de outro aplicativo entre o carregamento e a
+  primeira colagem no ChatGPT (um aviso de sistema sem relação); a primeira
+  colagem foi descartada, o conteúdo recarregado e conferido no editor
+  antes do envio que valeu. Conferir o editor por script antes de cada
+  envio é regra, não precaução.
+
+Três conversas descartáveis ficaram nos históricos (ChatGPT deslogado não
+guarda); nada foi apagado.
+
 ## Plano de rodadas (opção B) — 18 por modelo, 36 no total
 
 Mesmos 9 prompts (`prompts_prontos/`) para as duas condições e os dois

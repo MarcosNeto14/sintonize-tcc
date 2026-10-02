@@ -75,7 +75,13 @@ et al. (2026), que exige explicitar o critério de escolha dos exemplos:
    dispositivo.** Os exemplos não fecham teclado, não esperam a tela de
    origem sumir nem verificam hit test — as armadilhas encontradas ao
    escrever a referência ficam fora do prompt, para não dar à FS uma
-   vantagem que ZS e COT não têm.
+   vantagem que ZS e COT não têm. **Uma exceção, declarada:** o auxiliar
+   `esperar` (laço de `pump` até o finder aparecer) é a única prática
+   aprendida ao escrever a referência que os exemplos few-shot carregam.
+   ZS e COT não a recebem. É uma assimetria inerente à estratégia — um
+   exemplo de teste E2E que espera resposta de rede precisa de alguma
+   forma de espera — e fica registrada aqui para ser considerada na
+   análise.
 
 ## Verificação
 
@@ -86,3 +92,18 @@ git diff ccae44a -- lib/                                # tem de ser vazio ao (r
 
 O `_sha256.txt` é o que cada doc de rodada confere no campo "Arquivo do
 prompt" do template.
+
+### Tamanho do trecho colado
+
+Medido no trecho entre o segundo e o terceiro `---` de cada arquivo (o que
+é colado no modelo), sem os espaços das pontas; palavras separadas por
+espaço em branco.
+
+| Fluxo | ZS | FS | COT |
+|---|---|---|---|
+| 01 login | 33.976 car. / 2.318 pal. / 899 linhas | 35.008 / 2.372 / 943 | 34.484 / 2.413 / 906 |
+| 02 cadastro | 50.404 / 3.436 / 1.383 | 52.384 / 3.551 / 1.450 | 50.897 / 3.533 / 1.390 |
+| 03 playlist | 55.601 / 3.740 / 1.541 | **56.878 / 3.783 / 1.598** | 55.879 / 3.797 / 1.547 |
+
+O maior é o FS-03 (56.878 caracteres); o COT-03 usado na verificação de
+infraestrutura de 2026-09-29 tem 55.879.

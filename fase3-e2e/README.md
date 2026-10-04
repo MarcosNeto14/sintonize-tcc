@@ -495,6 +495,10 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   geração** (a `TelaInicialScreen` não aparece). O reparo 3 trocou o teste de
   sucesso por uma versão diagnóstica (aplicada por script): autenticado, sem a
   tela de destino.
+- **Rodada 14 (`FASE3-E2E-FS-02_cadastroFlow`):** não compila → 0/1 → 0/1 →
+  0/1; (A) ×3. O reparo 3 achou o nome com dígito ("Usuário E2E", o mesmo da
+  C3-ZS); o teste final chega à tela de gêneros e falha num item fora da
+  parte visível da lista preguiçosa ("Reggae").
 
 ## Próximos passos
 

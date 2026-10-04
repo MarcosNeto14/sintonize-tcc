@@ -528,6 +528,14 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   (A), (A); **Não viu** — o teste parou no spinner antes da lista e o reparo 2
   quebrou a compilação. **Bloco COT do ChatGPT executado (5 de 6; C3-COT
   pendente).**
+- **Pendências do ChatGPT ficam com o autor, em execução manual posterior:**
+  P2-ZS e C3-COT. Ordem combinada: repetir uma vez em outro horário; se a
+  C3-COT falhar de novo, filtro documentado da saída do terminal só acima de
+  um limite de tamanho; se a P2-ZS falhar de novo, sessão logada ou "geração
+  sem código". O prompt de geração não será reduzido. Detalhes no fim de
+  `rodadas/chatgpt/FASE3-C3-COT_PENDENTE.md` e da nota da P2-ZS.
+- **Próximo bloco: Gemini (rodadas 7–12, 19–24, 31–36), 0/18**, com colagem
+  manual pelo autor.
 
 ## Próximos passos
 

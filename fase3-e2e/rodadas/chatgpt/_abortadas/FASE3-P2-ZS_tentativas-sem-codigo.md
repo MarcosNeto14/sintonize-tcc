@@ -38,3 +38,26 @@ mas prompts desse tamanho também foram respondidos por inteiro (ZS-02 na 3ª
 tentativa, C3-ZS, ZS-03). Na verificação de infraestrutura de 2026-10-02, o
 FS-03 (56.878) foi respondido por inteiro. O tamanho aumenta a chance, mas não
 determina o resultado.
+
+## Encaminhamento decidido em 2026-10-04 (autor)
+
+O autor vai executar esta rodada **manualmente, em outro momento**. Ordem
+combinada:
+
+1. Repetir uma vez, sem mudar nada, em outro horário.
+2. Se for a C3-COT e falhar de novo: adotar um filtro determinístico da saída
+   do terminal só para reparos acima de um limite de tamanho, escrito no README
+   **antes** do uso e válido igual para o Gemini (remove as linhas do
+   `pub get` e mantém só a primeira cópia de cada despejo de hit test
+   repetido). Na saída da C3-COT (60.660 caracteres) os despejos de hit test
+   somam ~16.700, as pilhas ~17.000 e o `pub get` ~3.300. O filtro contraria
+   a regra "saída literal" e por isso precisa ser registrado como exceção.
+3. Se for a P2-ZS e falhar de novo: o filtro não ajuda (o problema é a
+   geração). Escolher entre sessão logada, pelo critério de saída do
+   `CLAUDE.md`, e registrar a rodada como "geração sem código".
+
+O prompt de geração **não** será reduzido: é o tratamento do experimento
+(sha256 fixo), as 16 rodadas fechadas usaram a versão completa e o Gemini
+recebe o mesmo texto. O tamanho também não explica sozinho: a ZS-03 usou o
+mesmo prompt da P2-ZS e funcionou, e prompts de 55,9 a 56,9 mil caracteres
+passaram em FS-03, P2-FS, COT-03 e P2-COT.

@@ -513,6 +513,10 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
 - **Rodada 28 (`FASE3-L4-COT`):** 6/7 nas 4 execuções; (A), (A), (B);
   **Capturou** — a asserção ficou cada vez mais direta até
   `find.byType(TelaInicialScreen)`, e o modelo passou a (B) como havia anunciado.
+- **Rodada 26 (`FASE3-E2E-COT-02_cadastroFlow`):** não compila → 6/11 (A) →
+  6/11 (B) → **4/11** (B), com o mesmo arquivo nas três últimas execuções. O
+  toque em "Cadastrar" com o teclado aberto cai fora do alvo; o modelo atribuiu
+  isso ao app (falso positivo). Fontes externas na geração.
 
 ## Próximos passos
 

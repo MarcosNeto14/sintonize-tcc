@@ -503,6 +503,9 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   **Não viu** — de novo o nome "Usuário E2E" recusado pelo validador.
 - **Rodada 15 (`FASE3-E2E-FS-03_playlistFlow`):** não compila → **1/1 verde**
   no reparo 1 (A), só com o import. Segundo verde da Fase 3.
+- **Rodada 18 (`FASE3-P2-FS`):** não compila ×2 → 0/1 ×2; (A), (A), (B);
+  **Capturou** — `RangeError` do P2 com `criar_playlist.dart:167`; (B) com
+  diagnóstico correto. **Bloco FS do ChatGPT concluído (6/6).**
 
 ## Próximos passos
 

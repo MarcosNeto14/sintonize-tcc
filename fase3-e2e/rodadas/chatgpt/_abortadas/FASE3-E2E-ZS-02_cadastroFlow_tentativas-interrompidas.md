@@ -21,3 +21,24 @@ resultado se repetiu. O prompt da ZS-02 (50.404 caracteres) é maior que o da
 ZS-01 (33.976), que funcionou na mesma noite. Mas na verificação de
 infraestrutura de 2026-10-02 o FS-03, o maior prompt, foi aceito e respondido
 por inteiro no ChatGPT deslogado. O tamanho, sozinho, não explica.
+
+## Correção de 2026-10-04 — o status "Chat interrompido inesperadamente" não é prova
+
+Em 2026-10-04, na conversa válida da `FASE3-L4-ZS`
+(`chatgpt.com/uc/6ac1c55b-0288-83ea-af44-a80669773c8f`), a mesma mensagem
+"Chat interrompido inesperadamente" apareceu na região de status (aria-live)
+**de uma resposta completa** (7.072 caracteres, com o arquivo de teste inteiro).
+Portanto essa região de status **não distingue** uma resposta interrompida de
+uma completa e não pode ser usada como evidência de interrupção, como o texto
+acima fez.
+
+O que continua sustentando o tratamento das duas tentativas como ocorrência de
+serviço é só isto: nas duas, a resposta terminou (botões de ação presentes,
+nenhum indicador de geração) com **um único parágrafo de preâmbulo que anuncia
+o arquivo e não o entrega** ("Vou estruturar o arquivo…", "Vou montar um
+arquivo único…"), e a 3ª tentativa, idêntica, entregou o arquivo. Isso é
+compatível com uma interrupção, mas também com uma resposta degenerada do
+próprio modelo. **A classificação fica como ambígua**: as tentativas não
+contam como rodada, mas o motivo registrado passa a ser "resposta sem código,
+causa não determinada", não "interrupção confirmada pelo serviço". A decisão
+sobre contá-las de outro jeito é do autor.

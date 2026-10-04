@@ -455,6 +455,26 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   worktrees dos hashes dos bugs (`git worktree add ../sintonize-fase3-L4 eb14334`,
   idem `-C3 20edaaa`, `-P2 60cbaff`; ainda não criados nesta máquina).
 
+## Estado em 2026-10-04 — rodadas com bug do bloco ZS (ChatGPT), autor ausente
+
+- **Worktrees dos bugs criados nesta máquina** (detached): `Desktop\sintonize-fase3-L4`
+  (`eb14334`), `-C3` (`20edaaa`), `-P2` (`60cbaff`). Helpers e `pubspec.lock`
+  idênticos aos da ponta; primeiro build em 40–55 s cada (Gradle em cache).
+- **Controles de versão:** autodeclaração de 2026-10-04 feita ("GPT-5.6 Luna",
+  print). Em seguida o autor dispensou repetir o controle e o Help Center:
+  "não precisa ficar sempre pedindo auto declaração e indo no help center. a
+  versão é a mesma". Isso **diverge** da regra (b) do `CLAUDE.md` (fonte
+  externa a cada dia); a divergência fica registrada aqui, não resolvida.
+- **Envio voltou a ser automatizado** (Claude in Chrome) com o autor ausente:
+  o Ctrl+V da automação voltou a funcionar; editor conferido por DOM antes de
+  cada envio.
+- **Correção:** a mensagem "Chat interrompido inesperadamente" (região
+  aria-live) aparece também em respostas completas; não prova interrupção.
+  A nota das tentativas da ZS-02 foi corrigida (motivo passa a "resposta sem
+  código, causa não determinada").
+- **Rodada 4 (`FASE3-L4-ZS`):** 4/5 em todas as execuções; (A), (B), (B);
+  **Capturou** (a `TelaInicialScreen` não aparece em 10 s).
+
 ## Próximos passos
 
 Os passos 1 a 4 da lista original (validar aceleração, rodar a fumaça, cleartext, commitar e anotar tempos) foram cumpridos na segunda máquina em 2026-09-28; ver "Execução da fumaça". Receita que funcionou:

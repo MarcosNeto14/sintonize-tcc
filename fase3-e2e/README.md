@@ -440,8 +440,20 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
 - **Seed também confere o Auth:** os testes de cadastro criam contas; antes
   de cada execução, além de 1 doc em `usuarios` e 5 em `musica`, conferir 1
   conta no Auth emulator (`accounts:query`).
-- **Progresso: 2/36.** Próxima: rodada 3, `FASE3-E2E-ZS-03_playlistFlow`,
-  ChatGPT, limpa.
+- **Rodada 3 (`FASE3-E2E-ZS-03_playlistFlow`, ChatGPT, limpa), 2026-10-03/04:**
+  não compila na geração (falta `material.dart`) → reparo 1 (A) → 1/2 →
+  reparo 2 (A)+(B) → **2/2, primeiro verde da Fase 3**. O verde veio trocando
+  a asserção da saudação pós-login (falha de espera, a mesma da rodada 1) por
+  `find.text('Minha Conta')`; registrado como redução do que o login verifica.
+  O reparo 2 caiu em 2026-10-04 na conversa aberta em 2026-10-03; o autor
+  afirmou "a versão é a mesma"; o Help Center não foi consultado em 10-04.
+- **ChatGPT, bloco ZS limpo concluído (3/3):** ZS-01 8/9, ZS-02 2/5, ZS-03 2/2.
+  Padrão: em E2E, o ZS do ChatGPT erra a espera por estado assíncrono
+  (Firestore) nas três; só na ZS-03 o reparo chegou ao verde, e mudando a
+  asserção.
+- **Progresso: 3/36.** Próximas do bloco 1 (ChatGPT): L4-ZS, C3-ZS, P2-ZS, nos
+  worktrees dos hashes dos bugs (`git worktree add ../sintonize-fase3-L4 eb14334`,
+  idem `-C3 20edaaa`, `-P2 60cbaff`; ainda não criados nesta máquina).
 
 ## Próximos passos
 

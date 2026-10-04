@@ -1,0 +1,299 @@
+Classificação: (A) — o teste presume um comportamento que não é o especificado.
+
+A falha ocorre antes de o teste executar qualquer interação com o aplicativo. O compilador não conhece TextFormField, TextField, ListTile, IconButton e Icons porque o arquivo de teste não importou package:flutter/material.dart.
+
+Não há evidência, nesse erro, de comportamento incorreto da aplicação. Portanto, devemos corrigir o teste normalmente, sem alterar seu escopo.
+
+A correção é simplesmente adicionar:
+
+import 'package:flutter/material.dart';
+
+aos imports do teste.
+
+Segue o arquivo completo corrigido:
+
+integration_test/fase3/playlist_zs_test.dart
+
+
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:integration_test/integration_test.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:sintonize/main.dart';
+
+import '../firebase_test_helper.dart';
+
+void main() {
+  IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+
+  setUpAll(() async {
+    await setupFirebaseEmulators();
+  });
+
+  Future<void> login(
+    WidgetTester tester, {
+    String email = 'tester@sintonize.test',
+    String senha = 'senha123',
+  }) async {
+    expect(find.text('Bem-vindo ao Sintonize!'), findsOneWidget);
+
+    await tester.tap(find.text('Login'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Entrar'), findsOneWidget);
+
+    final campos = find.byType(TextFormField);
+    expect(campos, findsNWidgets(2));
+
+    await tester.enterText(campos.at(0), email);
+    await tester.enterText(campos.at(1), senha);
+
+    await tester.tap(find.text('Entrar'));
+    await tester.pumpAndSettle();
+
+    expect(
+      find.textContaining('essa é a nossa recomendação'),
+      findsOneWidget,
+    );
+  }
+
+  Future<void> navegarParaCriarPlaylist(WidgetTester tester) async {
+    await tester.tap(find.text('Minha Conta'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Criar Playlist'), findsOneWidget);
+
+    await tester.tap(find.text('Criar Playlist'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Criando Playlist'), findsOneWidget);
+  }
+
+  testWidgets(
+    'E2E - cria playlist com músicas e persiste no Firestore',
+    (WidgetTester tester) async {
+      await tester.pumpWidget(const MyApp());
+      await tester.pumpAndSettle();
+
+      await login(tester);
+      await navegarParaCriarPlaylist(tester);
+
+      // Aguarda a lista real de músicas carregada do Firestore.
+      expect(
+        find.text('Bohemian Rhapsody - Queen'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('Billie Jean - Michael Jackson'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('Take Five - Dave Brubeck'),
+        findsOneWidget,
+      );
+
+      const nomePlaylist = 'Playlist E2E - Rock e Pop';
+
+      final campos = find.byType(TextField);
+      expect(campos, findsNWidgets(2));
+
+      // Primeiro campo: nome da playlist.
+      await tester.enterText(campos.at(0), nomePlaylist);
+
+      // Localiza o ListTile da primeira música.
+      final bohemianTile = find.ancestor(
+        of: find.text('Bohemian Rhapsody - Queen'),
+        matching: find.byType(ListTile),
+      );
+
+      // Localiza o ListTile da segunda música.
+      final billieJeanTile = find.ancestor(
+        of: find.text('Billie Jean - Michael Jackson'),
+        matching: find.byType(ListTile),
+      );
+
+      expect(bohemianTile, findsOneWidget);
+      expect(billieJeanTile, findsOneWidget);
+
+      // Seleciona Bohemian Rhapsody.
+      await tester.tap(
+        find.descendant(
+          of: bohemianTile,
+          matching: find.byType(IconButton),
+        ),
+      );
+
+      // Seleciona Billie Jean.
+      await tester.tap(
+        find.descendant(
+          of: billieJeanTile,
+          matching: find.byType(IconButton),
+        ),
+      );
+
+      await tester.pumpAndSettle();
+
+      // Confirma que ambas foram selecionadas na UI.
+      expect(
+        find.descendant(
+          of: bohemianTile,
+          matching: find.byIcon(Icons.check_box),
+        ),
+        findsOneWidget,
+      );
+
+      expect(
+        find.descendant(
+          of: billieJeanTile,
+          matching: find.byIcon(Icons.check_box),
+        ),
+        findsOneWidget,
+      );
+
+      // Usuário atualmente autenticado.
+      final user = FirebaseAuth.instance.currentUser;
+      expect(user, isNotNull);
+
+      final uid = user!.uid;
+
+      // Garante que a playlist deste teste ainda não existe.
+      final antes = await FirebaseFirestore.instance
+          .collection('playlists')
+          .where('userId', isEqualTo: uid)
+          .where('nome', isEqualTo: nomePlaylist)
+          .get();
+
+      expect(antes.docs, isEmpty);
+
+      // Salva pela interface da aplicação.
+      await tester.tap(find.text('Salvar Playlist'));
+      await tester.pumpAndSettle();
+
+      // CriarPlaylistScreen executa Navigator.pop() após salvar.
+      expect(find.text('Criando Playlist'), findsNothing);
+
+      // Consulta o Firestore real/emulado para verificar a persistência.
+      final resultado = await FirebaseFirestore.instance
+          .collection('playlists')
+          .where('userId', isEqualTo: uid)
+          .where('nome', isEqualTo: nomePlaylist)
+          .get();
+
+      expect(resultado.docs, hasLength(1));
+
+      final playlist = resultado.docs.single.data();
+
+      // A playlist pertence ao usuário autenticado.
+      expect(playlist['userId'], equals(uid));
+
+      // O nome persistido deve ser exatamente o nome digitado.
+      expect(playlist['nome'], equals(nomePlaylist));
+
+      // As duas músicas selecionadas devem ter sido persistidas.
+      expect(
+        playlist['musicas'],
+        containsAll(<String>[
+          'bohemian rhapsody',
+          'billie jean',
+        ]),
+      );
+
+      expect(playlist['musicas'], hasLength(2));
+
+      // _salvarPlaylist() grava Timestamp.now().
+      expect(playlist['dataCriacao'], isA<Timestamp>());
+    },
+  );
+
+  testWidgets(
+    'E2E - nome vazio não salva playlist',
+    (WidgetTester tester) async {
+      await tester.pumpWidget(const MyApp());
+      await tester.pumpAndSettle();
+
+      await login(tester);
+      await navegarParaCriarPlaylist(tester);
+
+      // Confirma que a tela recebeu as músicas do Firestore.
+      expect(
+        find.text('Bohemian Rhapsody - Queen'),
+        findsOneWidget,
+      );
+
+      final user = FirebaseAuth.instance.currentUser;
+      expect(user, isNotNull);
+
+      final uid = user!.uid;
+
+      // O nome permanece vazio.
+      final nomeVazio = find.byType(TextField).at(0);
+
+      await tester.tap(nomeVazio);
+      await tester.enterText(nomeVazio, '');
+
+      // Seleciona uma música para garantir que o único problema
+      // seja realmente o nome vazio.
+      final bohemianTile = find.ancestor(
+        of: find.text('Bohemian Rhapsody - Queen'),
+        matching: find.byType(ListTile),
+      );
+
+      await tester.tap(
+        find.descendant(
+          of: bohemianTile,
+          matching: find.byType(IconButton),
+        ),
+      );
+
+      // Tenta salvar pela interface.
+      await tester.tap(find.text('Salvar Playlist'));
+      await tester.pumpAndSettle();
+
+      // A aplicação deve impedir o salvamento e exibir o erro.
+      expect(
+        find.text('Nome da playlist é obrigatório'),
+        findsOneWidget,
+      );
+
+      // A tela não deve ter sido fechada.
+      expect(find.text('Criando Playlist'), findsOneWidget);
+
+      // Nenhuma playlist com nome vazio deve ter sido criada.
+      final resultado = await FirebaseFirestore.instance
+          .collection('playlists')
+          .where('userId', isEqualTo: uid)
+          .where('nome', isEqualTo: '')
+          .get();
+
+      expect(resultado.docs, isEmpty);
+    },
+  );
+}
+
+O que mudou
+A única alteração necessária para este erro de compilação foi:
+
+import 'package:flutter/material.dart';
+
+Esse import fornece os símbolos usados pelos Finders:
+
+TextFormField
+
+TextField
+
+ListTile
+
+IconButton
+
+Icons
+
+Os imports flutter_test e integration_test continuam necessários separadamente.
+
+O aviso sobre os 76 pacotes com versões mais novas não é a causa da falha. O erro fatal é especificamente:
+
+Error: Undefined name 'TextFormField'.
+Error: Undefined name 'TextField'.
+...
+
+Depois dessa correção, o teste deve avançar para a execução real no emulator-5554. Se surgir uma nova falha nessa etapa, ela deverá ser analisada separadamente — especialmente porque aí poderemos distinguir uma falha do teste de um possível comportamento incorreto do aplicativo.

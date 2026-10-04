@@ -499,6 +499,8 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   0/1; (A) ×3. O reparo 3 achou o nome com dígito ("Usuário E2E", o mesmo da
   C3-ZS); o teste final chega à tela de gêneros e falha num item fora da
   parte visível da lista preguiçosa ("Reggae").
+- **Rodada 17 (`FASE3-C3-FS`):** não compila → 0/1 ×3; (A), (A), (B);
+  **Não viu** — de novo o nome "Usuário E2E" recusado pelo validador.
 
 ## Próximos passos
 

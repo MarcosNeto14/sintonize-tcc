@@ -479,6 +479,15 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   E2E", recusado pelo validador (dígito), e nunca chega à asserção
   `dados['nome']` que capturaria o C3. A resposta de geração citou
   "Documentação Flutter" (fontes externas).
+- **Rodada 6 (`FASE3-P2-ZS`): PENDENTE, decisão do autor.** Três tentativas
+  seguidas (00:48–00:52) com resposta só de preâmbulo, sem código; nenhuma
+  execução. Regra da 3ª tentativa aplicada. Ver
+  `rodadas/chatgpt/_abortadas/FASE3-P2-ZS_tentativas-sem-codigo.md`, que traz
+  também o padrão da noite por tamanho de prompt.
+- **Ordem do plano alterada (autor ausente):** o bloco ZS do Gemini (rodadas
+  7–12) exige colagem manual pelo autor (decisão de 2026-10-02); para não parar,
+  a execução automatizada seguiu para o bloco FS do ChatGPT (rodadas 13–18).
+  Nenhuma rodada depende da ordem; a mudança só antecipa as do ChatGPT.
 
 ## Próximos passos
 

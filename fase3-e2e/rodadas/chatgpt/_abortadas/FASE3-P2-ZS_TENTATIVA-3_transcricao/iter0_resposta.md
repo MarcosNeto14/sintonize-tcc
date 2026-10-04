@@ -1,0 +1,1 @@
+Vou montar o arquivo completo de teste E2E, incluindo o fluxo feliz e o cenário de nome vazio, usando apenas a interface para navegação e o Firestore real do emulador para a verificação final.

@@ -1,0 +1,1 @@
+Vou montar o arquivo de teste completo, incluindo o fluxo feliz, validação de nome vazio e verificação direta no Firestore Emulator. Há um detalhe importante: como a tela usa `IconButton` para os checkboxes, o teste precisa localizar esses botões pelo contexto visual da música, em vez de depender de uma `Key` que o código de produção não fornece.

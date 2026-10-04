@@ -1,0 +1,1 @@
+Vou montar o arquivo completo de teste, incluindo o fluxo feliz e o cenário de nome vazio, usando apenas a interface para navegação e os emuladores Firebase para as verificações de persistência.

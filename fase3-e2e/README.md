@@ -521,6 +521,9 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   (A), (A), (B). Os 4 testes afirmam o título da tela um quadro após o toque; o
   (B) culpa o `setState()` após `dispose()`, que é efeito da falha (falso
   positivo). Fontes externas na geração. **Bloco COT limpo do ChatGPT concluído.**
+- **Rodada 29 (`FASE3-C3-COT`): PENDENTE.** Iteração 0 com 1/11 (toques fora
+  do alvo); o reparo 1 (57.926 caracteres) recebeu resposta vazia três vezes.
+  Decisão do autor; ver `rodadas/chatgpt/FASE3-C3-COT_PENDENTE.md`.
 
 ## Próximos passos
 

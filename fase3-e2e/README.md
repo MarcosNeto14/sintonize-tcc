@@ -491,6 +491,10 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
 - **Rodada 13 (`FASE3-E2E-FS-01_loginFlow`):** 1/2 nas 4 execuções; (B) ×3
   sem arquivo. Erro de teste (afirma a ausência da `LoginScreen` durante a
   transição) e, numa execução, o `setState` após `dispose` pré-existente.
+- **Rodada 16 (`FASE3-L4-FS`):** 1/2 nas 4 execuções; (B) ×3; **Capturou na
+  geração** (a `TelaInicialScreen` não aparece). O reparo 3 trocou o teste de
+  sucesso por uma versão diagnóstica (aplicada por script): autenticado, sem a
+  tela de destino.
 
 ## Próximos passos
 

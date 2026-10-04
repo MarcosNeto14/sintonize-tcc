@@ -474,6 +474,11 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   código, causa não determinada").
 - **Rodada 4 (`FASE3-L4-ZS`):** 4/5 em todas as execuções; (A), (B), (B);
   **Capturou** (a `TelaInicialScreen` não aparece em 10 s).
+- **Rodada 5 (`FASE3-C3-ZS`):** não compila (sem `material.dart`) → 1/4 → 3/4
+  → 3/4; (A), (A), (B); **Não viu** — o fluxo completo usa o nome "Usuário
+  E2E", recusado pelo validador (dígito), e nunca chega à asserção
+  `dados['nome']` que capturaria o C3. A resposta de geração citou
+  "Documentação Flutter" (fontes externas).
 
 ## Próximos passos
 

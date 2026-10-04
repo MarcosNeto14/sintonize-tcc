@@ -524,6 +524,10 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
 - **Rodada 29 (`FASE3-C3-COT`): PENDENTE.** Iteração 0 com 1/11 (toques fora
   do alvo); o reparo 1 (57.926 caracteres) recebeu resposta vazia três vezes.
   Decisão do autor; ver `rodadas/chatgpt/FASE3-C3-COT_PENDENTE.md`.
+- **Rodada 30 (`FASE3-P2-COT`):** não compila → 0/4 → não compila ×2; (A),
+  (A), (A); **Não viu** — o teste parou no spinner antes da lista e o reparo 2
+  quebrou a compilação. **Bloco COT do ChatGPT executado (5 de 6; C3-COT
+  pendente).**
 
 ## Próximos passos
 

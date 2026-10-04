@@ -1,6 +1,6 @@
 # FASE3-C3-COT — reparo 1 sem resposta; rodada PENDENTE (decisão do autor)
 
-Rodada 29 do plano (bloco 3 — COT, ChatGPT, bug C3). 2026-10-04 (03:13–03:30),
+Rodada 29 do plano (bloco 3 — COT, ChatGPT, bug C3). 2026-10-04 (03:12–03:22),
 segunda máquina, sessão deslogada, envio automatizado (Claude in Chrome), autor
 ausente. Worktree `sintonize-fase3-C3` (`20edaaa`, C3 ativo em
 `cadastro.dart:149`).
@@ -23,7 +23,7 @@ ausente. Worktree `sintonize-fase3-C3` (`20edaaa`, C3 ativo em
   `evidencias/chatgpt/FASE3-C3-COT_iter0.png`.
 - **Reparo 1:** o prompt de reparo (template + saída literal) tem **57.926
   caracteres** (`FASE3-C3-COT_transcricao/prompt_reparo_iter1.txt`). Foi
-  colado e conferido por DOM, e enviado às 03:22. A mensagem do usuário
+  colado e conferido por DOM, e enviado por volta das 03:18. A mensagem do usuário
   aparece na conversa; **a resposta do modelo veio vazia** (nenhum texto), com
   o status "Chat interrompido inesperadamente" e o botão "Repetir", e o editor
   voltou a conter o prompt. Duas tentativas pelo botão "Repetir" (que regenera

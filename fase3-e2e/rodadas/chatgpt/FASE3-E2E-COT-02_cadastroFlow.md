@@ -45,7 +45,7 @@ Rodada 26 do plano (bloco 3 — COT, ChatGPT). 2026-10-04 (02:30–02:57), segun
 
 ## Prompt Enviado
 
-Texto entre o 2º e o 3º `---` de `fase3-e2e/prompts_prontos/cot/FASE3-E2E-COT-02_cadastroFlow.md`, sem alteração (53.383 caracteres). Arquivo e sha256 são o registro.
+Texto entre o 2º e o 3º `---` de `fase3-e2e/prompts_prontos/cot/FASE3-E2E-COT-02_cadastroFlow.md`, sem alteração (50.897 caracteres). Arquivo e sha256 são o registro.
 
 ---
 
@@ -1009,7 +1009,7 @@ Running Gradle task 'assembleDebug'...                              8,8s
 ### Iteração 1
 
 - **Motivo da falha:** não compila.
-- **Prompt de reparo enviado:** template fixo + saída literal da iteração anterior (11.754 caracteres) — `FASE3-E2E-COT-02_cadastroFlow_transcricao/prompt_reparo_iter1.txt`. [x] sem acréscimo.
+- **Prompt de reparo enviado:** template fixo + saída literal da iteração anterior (11.739 caracteres) — `FASE3-E2E-COT-02_cadastroFlow_transcricao/prompt_reparo_iter1.txt`. [x] sem acréscimo.
 - **Resposta do LLM:** `iter1_resposta.md` (16426 caracteres).
 
 `````markdown
@@ -1738,7 +1738,7 @@ void main() {
 ### Iteração 2
 
 - **Motivo da falha:** 6/11; toque fora do alvo.
-- **Prompt de reparo enviado:** template fixo + saída literal da iteração anterior (28.454 caracteres) — `FASE3-E2E-COT-02_cadastroFlow_transcricao/prompt_reparo_iter2.txt`. [x] sem acréscimo.
+- **Prompt de reparo enviado:** template fixo + saída literal da iteração anterior (26.760 caracteres) — `FASE3-E2E-COT-02_cadastroFlow_transcricao/prompt_reparo_iter2.txt`. [x] sem acréscimo.
 - **Resposta do LLM:** `iter2_resposta.md` (4062 caracteres).
 
 `````markdown
@@ -1861,7 +1861,7 @@ AbsorbPointer(
 ### Iteração 3 (máximo)
 
 - **Motivo da falha:** 6/11, idêntico.
-- **Prompt de reparo enviado:** template fixo + saída literal da iteração anterior (28.428 caracteres) — `FASE3-E2E-COT-02_cadastroFlow_transcricao/prompt_reparo_iter3.txt`. [x] sem acréscimo.
+- **Prompt de reparo enviado:** template fixo + saída literal da iteração anterior (26.734 caracteres) — `FASE3-E2E-COT-02_cadastroFlow_transcricao/prompt_reparo_iter3.txt`. [x] sem acréscimo.
 - **Resposta do LLM:** `iter3_resposta.md` (5485 caracteres).
 
 `````markdown

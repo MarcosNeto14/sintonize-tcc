@@ -517,6 +517,10 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   6/11 (B) → **4/11** (B), com o mesmo arquivo nas três últimas execuções. O
   toque em "Cadastrar" com o teclado aberto cai fora do alvo; o modelo atribuiu
   isso ao app (falso positivo). Fontes externas na geração.
+- **Rodada 27 (`FASE3-E2E-COT-03_playlistFlow`):** não compila ×2 → 0/4 ×2;
+  (A), (A), (B). Os 4 testes afirmam o título da tela um quadro após o toque; o
+  (B) culpa o `setState()` após `dispose()`, que é efeito da falha (falso
+  positivo). Fontes externas na geração. **Bloco COT limpo do ChatGPT concluído.**
 
 ## Próximos passos
 

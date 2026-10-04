@@ -1,0 +1,448 @@
+## Classificação: **(A)**
+
+ É novamente **(A)**. O erro acontece durante a compilação do teste, antes de qualquer interação com o aplicativo ou com os emuladores.
+
+ A propriedade `TextField.decoration` é nullable (`InputDecoration?`) na versão do Flutter usada pelo projeto. O teste acessou `widget.decoration.labelText` diretamente, então o analisador exige acesso seguro com `?.`.
+
+ Isso **não indica nenhum problema na aplicação**. A correção é exclusivamente no teste, trocando:
+
+```
+widget.decoration.labelText
+```
+
+ por:
+
+```
+widget.decoration?.labelText
+```
+
+ Não é necessário alterar nenhuma asserção ou reduzir o escopo.
+
+ integration\_test/fase3/playlist\_cot\_test.dart — correção
+
+```
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:integration_test/integration_test.dart';
+import 'package:sintonize/main.dart';
+import 'package:sintonize/tela-inicial.dart';
+import 'package:sintonize/usuario.dart';
+
+import '../firebase_test_helper.dart';
+
+void main() {
+  IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+
+  setUpAll(() async {
+    await setupFirebaseEmulators();
+  });
+
+  tearDown(() async {
+    await FirebaseAuth.instance.signOut();
+  });
+
+  Future<void> iniciarAplicativo(WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+    await tester.pump();
+
+    expect(find.text('Bem-vindo ao Sintonize!'), findsOneWidget);
+  }
+
+  Future<void> fazerLogin(WidgetTester tester) async {
+    await iniciarAplicativo(tester);
+
+    expect(find.text('Login'), findsOneWidget);
+
+    await tester.tap(find.text('Login'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('E-mail'), findsOneWidget);
+    expect(find.text('Senha'), findsOneWidget);
+    expect(find.text('Entrar'), findsOneWidget);
+
+    final emailField = find.byType(TextFormField).first;
+    final senhaField = find.byType(TextFormField).last;
+
+    await tester.enterText(emailField, 'tester@sintonize.test');
+    await tester.enterText(senhaField, 'senha123');
+
+    await tester.tap(find.text('Entrar'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(TelaInicialScreen), findsOneWidget);
+  }
+
+  Future<void> navegarParaCriarPlaylist(WidgetTester tester) async {
+    await fazerLogin(tester);
+
+    expect(find.text('Minha Conta'), findsOneWidget);
+
+    await tester.tap(find.text('Minha Conta'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(UsuarioScreen), findsOneWidget);
+    expect(find.text('Criar Playlist'), findsOneWidget);
+
+    await tester.tap(find.text('Criar Playlist'));
+    await tester.pump();
+
+    expect(find.text('Criando Playlist'), findsOneWidget);
+  }
+
+  Future<void> aguardarMusicasCarregarem(WidgetTester tester) async {
+    const timeout = Duration(seconds: 15);
+    final inicio = DateTime.now();
+
+    while (find.text('Bohemian Rhapsody - Queen').evaluate().isEmpty) {
+      await tester.pump(const Duration(milliseconds: 100));
+
+      if (DateTime.now().difference(inicio) > timeout) {
+        fail(
+          'Timeout aguardando as músicas do Firestore. '
+          'A música "Bohemian Rhapsody - Queen" não apareceu.',
+        );
+      }
+    }
+
+    expect(
+      find.text('Bohemian Rhapsody - Queen'),
+      findsOneWidget,
+    );
+  }
+
+  Future<void> selecionarMusica(
+    WidgetTester tester,
+    String tituloCompleto,
+  ) async {
+    final textoMusica = find.text(tituloCompleto);
+
+    expect(textoMusica, findsOneWidget);
+
+    final listTile = find.ancestor(
+      of: textoMusica,
+      matching: find.byType(ListTile),
+    );
+
+    expect(listTile, findsOneWidget);
+
+    final botaoCheckbox = find.descendant(
+      of: listTile,
+      matching: find.byType(IconButton),
+    );
+
+    expect(botaoCheckbox, findsOneWidget);
+
+    await tester.tap(botaoCheckbox);
+    await tester.pump();
+  }
+
+  testWidgets(
+    'fluxo E2E: cria playlist, seleciona músicas e persiste no Firestore',
+    (tester) async {
+      await navegarParaCriarPlaylist(tester);
+
+      await aguardarMusicasCarregarem(tester);
+
+      final firestore = FirebaseFirestore.instance;
+      final user = FirebaseAuth.instance.currentUser;
+
+      expect(user, isNotNull);
+
+      final userId = user!.uid;
+      const nomePlaylist = 'Playlist E2E Sintonize';
+
+      final playlistsAntes = await firestore
+          .collection('playlists')
+          .where('userId', isEqualTo: userId)
+          .get();
+
+      final quantidadeAntes = playlistsAntes.docs.length;
+
+      final nomeField = find.byWidgetPredicate(
+        (widget) =>
+            widget is TextField &&
+            widget.decoration?.labelText == 'Nome da Playlist',
+      );
+
+      expect(nomeField, findsOneWidget);
+
+      await tester.enterText(nomeField, nomePlaylist);
+
+      await selecionarMusica(
+        tester,
+        'Bohemian Rhapsody - Queen',
+      );
+
+      await selecionarMusica(
+        tester,
+        'Billie Jean - Michael Jackson',
+      );
+
+      await tester.tap(find.text('Salvar Playlist'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(UsuarioScreen), findsOneWidget);
+
+      final query = await firestore
+          .collection('playlists')
+          .where('userId', isEqualTo: userId)
+          .get();
+
+      expect(query.docs.length, quantidadeAntes + 1);
+
+      final documentos = query.docs
+          .where((doc) => doc.data()['nome'] == nomePlaylist)
+          .toList();
+
+      expect(documentos, hasLength(1));
+
+      final playlist = documentos.single.data();
+
+      expect(playlist['userId'], userId);
+      expect(playlist['nome'], nomePlaylist);
+      expect(
+        playlist['musicas'],
+        contains('bohemian rhapsody'),
+      );
+      expect(
+        playlist['musicas'],
+        contains('billie jean'),
+      );
+      expect(
+        (playlist['musicas'] as List).length,
+        2,
+      );
+      expect(
+        playlist['dataCriacao'],
+        isA<Timestamp>(),
+      );
+    },
+  );
+
+  testWidgets(
+    'validação: nome vazio exibe SnackBar e não salva playlist',
+    (tester) async {
+      await navegarParaCriarPlaylist(tester);
+
+      await aguardarMusicasCarregarem(tester);
+
+      final firestore = FirebaseFirestore.instance;
+      final user = FirebaseAuth.instance.currentUser;
+
+      expect(user, isNotNull);
+
+      final userId = user!.uid;
+
+      final playlistsAntes = await firestore
+          .collection('playlists')
+          .where('userId', isEqualTo: userId)
+          .get();
+
+      final quantidadeAntes = playlistsAntes.docs.length;
+
+      await selecionarMusica(
+        tester,
+        'Bohemian Rhapsody - Queen',
+      );
+
+      await tester.tap(find.text('Salvar Playlist'));
+      await tester.pump();
+
+      expect(
+        find.text('Nome da playlist é obrigatório'),
+        findsOneWidget,
+      );
+
+      await tester.pump(const Duration(seconds: 1));
+
+      expect(
+        find.text('Criando Playlist'),
+        findsOneWidget,
+      );
+
+      final playlistsDepois = await firestore
+          .collection('playlists')
+          .where('userId', isEqualTo: userId)
+          .get();
+
+      expect(
+        playlistsDepois.docs.length,
+        quantidadeAntes,
+        reason:
+            'Uma playlist não pode ser criada quando o nome está vazio.',
+      );
+    },
+  );
+
+  testWidgets(
+    'pesquisa e filtragem: filtra músicas por nome ou artista',
+    (tester) async {
+      await navegarParaCriarPlaylist(tester);
+
+      await aguardarMusicasCarregarem(tester);
+
+      expect(
+        find.text('Bohemian Rhapsody - Queen'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('Billie Jean - Michael Jackson'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('Take Five - Dave Brubeck'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('The Thrill Is Gone - B.b. King'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('One Love - Bob Marley'),
+        findsOneWidget,
+      );
+
+      final searchField = find.byWidgetPredicate(
+        (widget) =>
+            widget is TextField &&
+            widget.decoration?.labelText ==
+                'Pesquisar Música ou Artista',
+      );
+
+      expect(searchField, findsOneWidget);
+
+      await tester.enterText(searchField, 'queen');
+      await tester.pump();
+
+      expect(
+        find.text('Bohemian Rhapsody - Queen'),
+        findsOneWidget,
+      );
+
+      expect(
+        find.text('Billie Jean - Michael Jackson'),
+        findsNothing,
+      );
+      expect(
+        find.text('Take Five - Dave Brubeck'),
+        findsNothing,
+      );
+      expect(
+        find.text('The Thrill Is Gone - B.b. King'),
+        findsNothing,
+      );
+      expect(
+        find.text('One Love - Bob Marley'),
+        findsNothing,
+      );
+
+      await tester.enterText(searchField, 'billie');
+      await tester.pump();
+
+      expect(
+        find.text('Billie Jean - Michael Jackson'),
+        findsOneWidget,
+      );
+
+      expect(
+        find.text('Bohemian Rhapsody - Queen'),
+        findsNothing,
+      );
+
+      await tester.enterText(searchField, '');
+      await tester.pump();
+
+      expect(
+        find.text('Bohemian Rhapsody - Queen'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('Billie Jean - Michael Jackson'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('Take Five - Dave Brubeck'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('The Thrill Is Gone - B.b. King'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('One Love - Bob Marley'),
+        findsOneWidget,
+      );
+    },
+  );
+
+  testWidgets(
+    'estado intermediário: exibe carregamento e depois as músicas do Firestore',
+    (tester) async {
+      await fazerLogin(tester);
+
+      await tester.tap(find.text('Minha Conta'));
+      await tester.pumpAndSettle();
+
+      expect(
+        find.byType(UsuarioScreen),
+        findsOneWidget,
+      );
+
+      await tester.tap(find.text('Criar Playlist'));
+      await tester.pump();
+
+      expect(
+        find.text('Criando Playlist'),
+        findsOneWidget,
+      );
+
+      final loadingIndicator = find.byType(
+        CircularProgressIndicator,
+      );
+
+      if (loadingIndicator.evaluate().isNotEmpty) {
+        expect(
+          loadingIndicator,
+          findsOneWidget,
+        );
+      }
+
+      await aguardarMusicasCarregarem(tester);
+
+      expect(
+        find.text('Bohemian Rhapsody - Queen'),
+        findsOneWidget,
+      );
+
+      expect(
+        find.text('Billie Jean - Michael Jackson'),
+        findsOneWidget,
+      );
+
+      expect(
+        find.byType(CircularProgressIndicator),
+        findsNothing,
+      );
+
+      expect(
+        find.text('Salvar Playlist'),
+        findsOneWidget,
+      );
+
+      expect(
+        find.text('Nome da Playlist'),
+        findsOneWidget,
+      );
+
+      expect(
+        find.text('Pesquisar Música ou Artista'),
+        findsOneWidget,
+      );
+    },
+  );
+}
+```
+
+ A única alteração funcional em relação ao arquivo anterior é o uso de `?.labelText` nos dois `find.byWidgetPredicate`. Agora o teste deve passar da etapa de compilação e efetivamente iniciar o aplicativo no `emulator-5554`.

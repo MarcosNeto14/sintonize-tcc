@@ -321,7 +321,11 @@ Nada de SDK, Node ou emulador vai no repositório. Numa máquina nova, reinstala
    - O aviso do npm sobre install scripts de `re2`/`protobufjs` não impediu os emuladores de subir.
 6. **Confira:** `flutter doctor -v` (Android toolchain ✓, "All Android licenses accepted"), `flutter emulators` (lista `tcc_e2e`) e `firebase --version`.
 
-## Estado em 2026-10-02 (fim do dia) — rodada 1 iniciada, não concluída
+## Estado em 2026-10-02 (fim do dia) — rodada 1 iniciada, não concluída (histórico)
+
+> Superado em 2026-10-03: a tentativa descrita aqui foi movida para `_abortadas/`
+> e a rodada 1 foi refeita na segunda máquina — ver "Estado em 2026-10-03".
+> O texto abaixo é mantido como registro.
 
 Onde parou, para retomar (na máquina original, `DellT4i51`, ou em outra):
 
@@ -364,6 +368,55 @@ Onde parou, para retomar (na máquina original, `DellT4i51`, ou em outra):
 - **Pendente do autor:** print da conversa manual do Gemini com o FS-03
   (verificação de infraestrutura de 2026-10-02, linha 4), em
   `evidencias/infra/2026-10-02_gemini_38flash_fs03_manual_resposta-completa.jpg`.
+
+## Estado em 2026-10-03 — rodada 1 concluída na segunda máquina (1/36)
+
+Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
+(`DESKTOP-6ETPO2H`)**. Consequências, aplicadas nesta data:
+
+- **A tentativa de 2026-10-02 virou `_abortadas/`.** Doc em
+  `rodadas/chatgpt/_abortadas/FASE3-E2E-ZS-01_loginFlow_TENTATIVA-1.md`, teste
+  em `integration_test/fase3/chatgpt/_abortadas/login_zs_test.dart`. Geração
+  válida, execução nunca feita, conversa perdida com a aba da máquina original.
+  Não conta. Os prints de 2026-10-02 ficam em `evidencias/chatgpt/` como estão.
+- **Rodada 1 (`FASE3-E2E-ZS-01_loginFlow`, ChatGPT, limpa) refeita por inteiro
+  em conversa nova:** 9 testes gerados, **8/9 na geração e 8/9 no final**;
+  3 iterações de reparo, **(B) nas três, sem nenhuma alteração do teste**
+  pelo modelo (arquivo final byte-idêntico ao gerado). Auditoria: **Erro de
+  teste** (timing — o 8º teste do mesmo arquivo passa com a mesma asserção
+  após um segundo `pumpAndSettle`); o `setState() called after dispose()` que
+  o modelo aponta é real e pré-existente em `lib/tela-inicial.dart:161`
+  (idêntico ao `main`), mas não causa a falha e não é bug plantado. Doc:
+  `rodadas/chatgpt/FASE3-E2E-ZS-01_loginFlow.md`; transcrição literal em
+  `..._transcricao/`; saídas em `resultados/chatgpt/`; teste em
+  `integration_test/fase3/chatgpt/login_zs_test.dart`.
+- **Controles do dia (ChatGPT, 2026-10-03):** autodeclaração "GPT-5.6 Luna"
+  (print `evidencias/chatgpt/2026-10-03_chatgpt_pergunta_versao_deslogado.jpg`);
+  Help Center "GPT-5.6 and GPT-6 Pro in ChatGPT", atualizado em 2026-10-01,
+  consultado em 2026-10-03: deslogado e Free/Go recebem GPT-5.6 Luna (print
+  `2026-10-03_openai_helpcenter_gpt56_luna.jpg`). Concordam. Nenhuma consulta
+  a fontes externas nas 4 respostas.
+- **Sessão:** o Chrome desta máquina estava **logado** no ChatGPT (conta Go).
+  O autor fez logout antes dos controles e da rodada; a condição deslogada foi
+  mantida. Conferir isso antes de cada sessão nesta máquina.
+- **Precedente aplicado — (B) sem patch:** quando o modelo declara (B) e não
+  entrega teste, o arquivo fica inalterado e é **reexecutado** com seed limpo;
+  o resultado vale como o da iteração (como em `FASE2-ICRASH-ZS`, reexecução
+  ChatGPT, iteração 3). As três iterações desta rodada seguiram isso.
+- **Achado de método — print do AVD na falha:** o `screencap` "logo após o
+  `flutter test` terminar em falha" só captura a tela da falha se o teste que
+  falha for o último da suíte. Quando falha o 1º de 9, o app já fechou e o
+  print mostra a home do Android (os 4 prints desta rodada). Mantidos como
+  registro fiel. **Pendente de decisão do autor:** disparar o `screencap` em
+  paralelo ao `flutter test`, na primeira linha de falha da saída, ou aceitar
+  que o print só vale para falha no último teste. Editar o teste gerado para
+  tirar print está fora do protocolo.
+- **Tempos nesta máquina (Gradle em cache):** seed ~40 s; execução do teste
+  gerado 39–43 s (Gradle 15–18 s + 16–18 s de teste); reinício dos emuladores
+  ~30 s. Rodada inteira (controles, geração, 3 reparos, 4 execuções, doc):
+  ~45 min, dos quais ~10 min de máquina.
+- **Progresso: 1/36.** Próxima: rodada 2, `FASE3-E2E-ZS-02_cadastroFlow`,
+  ChatGPT, limpa, mesmo worktree.
 
 ## Próximos passos
 

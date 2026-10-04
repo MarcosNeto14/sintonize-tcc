@@ -1,3 +1,8 @@
+Abaixo está um teste E2E completo para salvar em `integration_test/fase3/login_test.dart`. Ele usa o `MyApp` real, o Firebase Emulator Suite e cobre sucesso, credenciais inexistentes, campos vazios e senha incorreta.
+
+ integration\_test/fase3/login\_test.dart
+
+```
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
@@ -345,3 +350,34 @@ void main() {
     },
   );
 }
+```
+
+ ### Observação importante sobre o teste
+
+ Há um detalhe do código fornecido que merece atenção: `TelaInicialScreen` usa `FirebaseAuth.instance` e `FirebaseFirestore.instance` diretamente, enquanto o `LoginScreen` também usa essas instâncias quando `auth == null`. Isso está **correto para o E2E solicitado**, porque o teste não injeta `auth` nem usa mocks.
+
+ Também deixei a configuração do Emulator Suite exclusivamente no `setUpAll()`:
+
+```
+setUpAll(() async {
+  await setupFirebaseEmulators();
+});
+```
+
+ Assim, o teste não cria nem popula usuários/dados — ele utiliza exatamente o usuário e os documentos que o ambiente prepara antes da execução, conforme especificado.
+
+ ### Executar
+
+ Como o arquivo está em `integration_test/fase3/`, você pode executar todos os testes da fase com:
+
+```
+flutter test integration_test/fase3/ -d emulator-5554
+```
+
+ Ou somente este arquivo:
+
+```
+flutter test integration_test/fase3/login_test.dart -d emulator-5554
+```
+
+ **Nota:** o teste de login bem-sucedido depende de o documento `usuarios/{uid}` realmente existir para o UID criado no Auth Emulator. O próprio teste não deve criar esse documento, pois você especificou que os dados iniciais são responsabilidade da preparação do ambiente.

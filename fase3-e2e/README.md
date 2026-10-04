@@ -501,6 +501,8 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   parte visível da lista preguiçosa ("Reggae").
 - **Rodada 17 (`FASE3-C3-FS`):** não compila → 0/1 ×3; (A), (A), (B);
   **Não viu** — de novo o nome "Usuário E2E" recusado pelo validador.
+- **Rodada 15 (`FASE3-E2E-FS-03_playlistFlow`):** não compila → **1/1 verde**
+  no reparo 1 (A), só com o import. Segundo verde da Fase 3.
 
 ## Próximos passos
 

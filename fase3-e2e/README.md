@@ -510,6 +510,9 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   (A), com o diagnóstico certo (`pumpAndSettle` não espera o Firestore). O
   verde espera a música recomendada e deixa de afirmar a saudação. Fontes
   externas na geração.
+- **Rodada 28 (`FASE3-L4-COT`):** 6/7 nas 4 execuções; (A), (A), (B);
+  **Capturou** — a asserção ficou cada vez mais direta até
+  `find.byType(TelaInicialScreen)`, e o modelo passou a (B) como havia anunciado.
 
 ## Próximos passos
 

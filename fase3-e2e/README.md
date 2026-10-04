@@ -488,6 +488,9 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   7–12) exige colagem manual pelo autor (decisão de 2026-10-02); para não parar,
   a execução automatizada seguiu para o bloco FS do ChatGPT (rodadas 13–18).
   Nenhuma rodada depende da ordem; a mudança só antecipa as do ChatGPT.
+- **Rodada 13 (`FASE3-E2E-FS-01_loginFlow`):** 1/2 nas 4 execuções; (B) ×3
+  sem arquivo. Erro de teste (afirma a ausência da `LoginScreen` durante a
+  transição) e, numa execução, o `setState` após `dispose` pré-existente.
 
 ## Próximos passos
 

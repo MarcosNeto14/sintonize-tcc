@@ -417,6 +417,31 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   ~45 min, dos quais ~10 min de máquina.
 - **Progresso: 1/36.** Próxima: rodada 2, `FASE3-E2E-ZS-02_cadastroFlow`,
   ChatGPT, limpa, mesmo worktree.
+- **Rodada 2 (`FASE3-E2E-ZS-02_cadastroFlow`, ChatGPT, limpa), mesma noite:**
+  1/4 na geração; reparo 1 (A) com arquivo novo → 2/5; reparo 2 (A) só com
+  trecho "conceitual" e pedido do arquivo (não respondido) → inalterado, 2/5;
+  reparo 3 (B) sem código → **2/5 final**. Auditoria: **erro de teste**
+  (asserção da tela de gêneros antes da navegação que segue as chamadas ao
+  Firebase, a mesma falha de espera da rodada 1) e um caso de **ambiente**
+  (toque em "Cadastrar" com o teclado aberto, assinatura `Offset(205.7, 748.3)`
+  igual à da referência em 2026-09-28). O (B) final está errado.
+- **Duas tentativas da ZS-02 interrompidas pelo serviço** antes da conversa
+  válida: o ChatGPT devolveu só um parágrafo de preâmbulo e a página marcou
+  "Chat interrompido inesperadamente" (região aria-live). Uma por automação,
+  uma à mão. Não contam; ver
+  `rodadas/chatgpt/_abortadas/FASE3-E2E-ZS-02_cadastroFlow_tentativas-interrompidas.md`.
+  **Regra adotada:** se a mesma rodada for interrompida 3 vezes, parar e o
+  autor decide (esperar, ou condição logada pelo critério de saída), para não
+  repetir até dar certo.
+- **Envio manual a partir da rodada 2:** o Ctrl+V da automação parou de colar
+  no composer. Prompt e reparos vão para o clipboard por script; o autor cola
+  e envia; a resposta é obtida pelo botão "Copiar resposta" (a cópia por
+  seleção perde o Markdown; o código das duas é comparado).
+- **Seed também confere o Auth:** os testes de cadastro criam contas; antes
+  de cada execução, além de 1 doc em `usuarios` e 5 em `musica`, conferir 1
+  conta no Auth emulator (`accounts:query`).
+- **Progresso: 2/36.** Próxima: rodada 3, `FASE3-E2E-ZS-03_playlistFlow`,
+  ChatGPT, limpa.
 
 ## Próximos passos
 

@@ -1,0 +1,513 @@
+Classificação: (A) — o teste presume um comportamento que não é o especificado.
+
+O problema não está, pelos logs apresentados, na aplicação. A CadastroScreen está dentro de um SingleChildScrollView, e o emulador tem uma área visível de aproximadamente 411 × 890. O teste tentou tocar no DropdownButtonFormField e no botão Cadastrar sem primeiro rolar até eles.
+
+Isso aparece claramente nos avisos:
+
+DropdownButtonFormField em Offset(205.7, 636.9) não recebeu o toque porque estava fora da área efetivamente atingível.
+
+O botão Cadastrar chegou a estar em Offset(205.7, 970.0), explicitamente fora dos limites da tela.
+
+Consequentemente, o toque não aconteceu, o cadastro não foi enviado e a expectativa pela GenerosCadastroScreen falhou como consequência.
+
+Portanto, não devemos alterar as asserções de negócio. Devemos corrigir o teste para navegar/rolar pela interface como um usuário real.
+
+Também há uma melhoria importante: para validação, depois de tocar em Cadastrar, alguns campos de erro podem ficar fora da viewport. O teste deve rolar até cada campo/erro antes de fazer asserções.
+
+Versão corrigida
+Substitua o conteúdo de integration_test/fase3/cadastro_zs_test.dart por:
+
+integration_test/fase3/cadastro_zs_test.dart
+
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:integration_test/integration_test.dart';
+import 'package:sintonize/main.dart';
+
+import '../firebase_test_helper.dart';
+
+void main() {
+  IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+
+  setUpAll(() async {
+    await setupFirebaseEmulators();
+  });
+
+  Future<void> iniciarAplicacao(WidgetTester tester) async {
+    await FirebaseAuth.instance.signOut();
+
+    await tester.pumpWidget(const MyApp());
+    await tester.pumpAndSettle();
+  }
+
+  Future<void> abrirCadastro(WidgetTester tester) async {
+    expect(find.text('Bem-vindo ao Sintonize!'), findsOneWidget);
+
+    await tester.tap(find.text('Cadastro'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(TextFormField), findsNWidgets(10));
+    expect(find.text('Cadastrar'), findsOneWidget);
+  }
+
+  Future<void> rolarAte(
+    WidgetTester tester,
+    Finder finder,
+  ) async {
+    await tester.scrollUntilVisible(
+      finder,
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pumpAndSettle();
+  }
+
+  Future<void> preencherCadastro(
+    WidgetTester tester, {
+    required String nome,
+    required String dataNascimento,
+    required String email,
+    required String senha,
+    required String cep,
+    required String rua,
+    required String numero,
+    required String bairro,
+    required String cidade,
+  }) async {
+    final campos = find.byType(TextFormField);
+
+    expect(campos, findsNWidgets(10));
+
+    await tester.enterText(campos.at(0), nome);
+    await tester.enterText(campos.at(1), dataNascimento);
+    await tester.enterText(campos.at(2), email);
+    await tester.enterText(campos.at(3), senha);
+    await tester.enterText(campos.at(4), senha);
+    await tester.enterText(campos.at(5), cep);
+    await tester.enterText(campos.at(6), rua);
+    await tester.enterText(campos.at(7), numero);
+    await tester.enterText(campos.at(8), bairro);
+    await tester.enterText(campos.at(9), cidade);
+
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
+  }
+
+  Future<void> selecionarEstado(
+    WidgetTester tester,
+    String estado,
+  ) async {
+    final dropdown = find.byType(DropdownButtonFormField<String>);
+
+    expect(dropdown, findsOneWidget);
+
+    // O dropdown está na parte inferior do formulário e pode estar
+    // fora da viewport do emulador.
+    await rolarAte(tester, dropdown);
+
+    await tester.tap(dropdown);
+    await tester.pumpAndSettle();
+
+    // O menu aberto é um overlay. O item passa a estar visível
+    // independentemente da posição original do dropdown.
+    final opcaoEstado = find.text(estado).last;
+
+    expect(opcaoEstado, findsOneWidget);
+
+    await tester.tap(opcaoEstado);
+    await tester.pumpAndSettle();
+  }
+
+  Future<void> clicarCadastrar(WidgetTester tester) async {
+    final botao = find.text('Cadastrar');
+
+    expect(botao, findsOneWidget);
+
+    await rolarAte(tester, botao);
+    await tester.tap(botao);
+    await tester.pumpAndSettle();
+  }
+
+  Future<void> selecionarGenero(
+    WidgetTester tester,
+    String genero,
+  ) async {
+    final texto = find.text(genero);
+
+    expect(texto, findsOneWidget);
+
+    await rolarAte(tester, texto);
+
+    // O Switch está no mesmo Card do gênero. Encontramos o Switch
+    // correspondente ao item pelo ancestral Row/Card.
+    final card = find.ancestor(
+      of: texto,
+      matching: find.byType(Card),
+    );
+
+    expect(card, findsOneWidget);
+
+    final switchFinder = find.descendant(
+      of: card,
+      matching: find.byType(Switch),
+    );
+
+    expect(switchFinder, findsOneWidget);
+
+    await tester.tap(switchFinder);
+    await tester.pumpAndSettle();
+  }
+
+  Future<void> confirmarGeneros(WidgetTester tester) async {
+    final confirmar = find.text('Confirmar');
+
+    expect(confirmar, findsOneWidget);
+
+    await rolarAte(tester, confirmar);
+    await tester.tap(confirmar);
+    await tester.pumpAndSettle(const Duration(seconds: 2));
+  }
+
+  group('Fase 3 - Cadastro e seleção de gêneros', () {
+    testWidgets(
+      'cadastro completo cria usuário, salva dados, seleciona gêneros e chega à TelaInicialScreen',
+      (tester) async {
+        await iniciarAplicacao(tester);
+        await abrirCadastro(tester);
+
+        final email =
+            'e2e-${DateTime.now().microsecondsSinceEpoch}@sintonize.test';
+        const senha = 'senha123';
+
+        await preencherCadastro(
+          tester,
+          nome: 'usuario e2e',
+          dataNascimento: '15/05/2000',
+          email: email,
+          senha: senha,
+          cep: '01001-000',
+          rua: 'Rua Teste',
+          numero: '123',
+          bairro: 'Centro',
+          cidade: 'Sao Paulo',
+        );
+
+        await selecionarEstado(tester, 'SP');
+
+        await clicarCadastrar(tester);
+
+        expect(
+          find.text(
+            'SELECIONE OS GÊNEROS MUSICAIS QUE VOCÊ MAIS GOSTA',
+          ),
+          findsOneWidget,
+        );
+
+        expect(find.text('Confirmar'), findsOneWidget);
+
+        // O usuário seleciona Rock e Pop pela própria interface.
+        await selecionarGenero(tester, 'Rock');
+        await selecionarGenero(tester, 'Pop');
+
+        await confirmarGeneros(tester);
+
+        // Estado final da jornada.
+        expect(
+          find.textContaining(
+            'Usuario e2e, essa é a nossa recomendação de música para você!',
+          ),
+          findsOneWidget,
+        );
+
+        // Verificação do Auth real.
+        final user = FirebaseAuth.instance.currentUser;
+
+        expect(user, isNotNull);
+        expect(user!.email, email);
+
+        // Verificação do documento criado no Firestore real.
+        final userDoc = await FirebaseFirestore.instance
+            .collection('usuarios')
+            .doc(user.uid)
+            .get();
+
+        expect(userDoc.exists, isTrue);
+
+        final data = userDoc.data()!;
+
+        expect(data['nome'], 'usuario e2e');
+        expect(data['data_nasc'], '15/05/2000');
+        expect(data['email'], email);
+
+        expect(data['endereco'], isA<Map<String, dynamic>>());
+
+        final endereco = data['endereco'] as Map<String, dynamic>;
+
+        expect(endereco['rua'], 'Rua Teste');
+        expect(endereco['numero'], '123');
+        expect(endereco['bairro'], 'Centro');
+        expect(endereco['cidade'], 'Sao Paulo');
+        expect(endereco['estado'], 'SP');
+        expect(endereco['cep'], '01001-000');
+
+        // A GenerosCadastroScreen usa update() e grava os valores
+        // exatamente como aparecem na lista da tela.
+        expect(
+          data['generos_favoritos'],
+          containsAll(<String>['Rock', 'Pop']),
+        );
+
+        expect(
+          (data['generos_favoritos'] as List).length,
+          2,
+        );
+      },
+    );
+
+    testWidgets(
+      'CadastroScreen mostra erros de validação quando campos obrigatórios estão vazios',
+      (tester) async {
+        await iniciarAplicacao(tester);
+        await abrirCadastro(tester);
+
+        // O botão está inicialmente abaixo da viewport.
+        await clicarCadastrar(tester);
+
+        // Os validadores devem ter sido executados.
+        expect(
+          find.text('O nome é obrigatório'),
+          findsOneWidget,
+        );
+
+        expect(
+          find.text('A data de nascimento é obrigatória'),
+          findsOneWidget,
+        );
+
+        expect(
+          find.text('O e-mail é obrigatório'),
+          findsOneWidget,
+        );
+
+        expect(
+          find.text('A senha é obrigatória'),
+          findsOneWidget,
+        );
+
+        expect(
+          find.text('O CEP é obrigatório'),
+          findsOneWidget,
+        );
+
+        expect(
+          find.text('O número é obrigatório'),
+          findsOneWidget,
+        );
+
+        // Continua na tela de cadastro.
+        expect(find.text('Cadastrar'), findsOneWidget);
+        expect(
+          find.text(
+            'SELECIONE OS GÊNEROS MUSICAIS QUE VOCÊ MAIS GOSTA',
+          ),
+          findsNothing,
+        );
+      },
+    );
+
+    testWidgets(
+      'CadastroScreen mostra erros de validação para dados inválidos',
+      (tester) async {
+        await iniciarAplicacao(tester);
+        await abrirCadastro(tester);
+
+        final campos = find.byType(TextFormField);
+
+        await tester.enterText(campos.at(0), 'usuario valido');
+        await tester.enterText(campos.at(1), '31/02/2000');
+        await tester.enterText(campos.at(2), 'email-invalido');
+        await tester.enterText(campos.at(3), '123');
+        await tester.enterText(campos.at(4), '456');
+        await tester.enterText(campos.at(5), '123');
+
+        await clicarCadastrar(tester);
+
+        // Os erros ficam associados aos respectivos campos e podem
+        // estar fora da viewport. scrollUntilVisible garante que
+        // a asserção corresponde ao que foi renderizado.
+        final emailErro = find.text('E-mail inválido');
+        await rolarAte(tester, emailErro);
+        expect(emailErro, findsOneWidget);
+
+        final dataErro = find.text('Dia deve ser entre 01 e 29');
+        await rolarAte(tester, dataErro);
+        expect(dataErro, findsOneWidget);
+
+        final senhaErro =
+            find.text('A senha deve ter pelo menos 6 caracteres');
+        await rolarAte(tester, senhaErro);
+        expect(senhaErro, findsOneWidget);
+
+        final confirmacaoErro = find.text('As senhas não coincidem');
+        await rolarAte(tester, confirmacaoErro);
+        expect(confirmacaoErro, findsOneWidget);
+
+        final cepErro =
+            find.text('CEP inválido. Formato correto: XXXXX-XXX');
+        await rolarAte(tester, cepErro);
+        expect(cepErro, findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'CadastroScreen mostra erro quando o e-mail já está cadastrado',
+      (tester) async {
+        await iniciarAplicacao(tester);
+        await abrirCadastro(tester);
+
+        await preencherCadastro(
+          tester,
+          nome: 'outro usuario',
+          dataNascimento: '10/10/1999',
+          email: 'tester@sintonize.test',
+          senha: 'senha123',
+          cep: '01001-000',
+          rua: 'Rua Teste',
+          numero: '100',
+          bairro: 'Centro',
+          cidade: 'Sao Paulo',
+        );
+
+        await selecionarEstado(tester, 'SP');
+
+        await clicarCadastrar(tester);
+
+        // createUserWithEmailAndPassword deve produzir
+        // FirebaseAuthException para o usuário já existente.
+        expect(
+          find.textContaining('Erro ao cadastrar:'),
+          findsOneWidget,
+        );
+
+        // Não houve navegação.
+        expect(find.text('Cadastrar'), findsOneWidget);
+
+        expect(
+          find.text(
+            'SELECIONE OS GÊNEROS MUSICAIS QUE VOCÊ MAIS GOSTA',
+          ),
+          findsNothing,
+        );
+      },
+    );
+
+    testWidgets(
+      'GenerosCadastroScreen impede confirmação sem selecionar gênero',
+      (tester) async {
+        await iniciarAplicacao(tester);
+        await abrirCadastro(tester);
+
+        final email =
+            'e2e-genero-${DateTime.now().microsecondsSinceEpoch}@sintonize.test';
+
+        await preencherCadastro(
+          tester,
+          nome: 'teste genero',
+          dataNascimento: '20/08/2001',
+          email: email,
+          senha: 'senha123',
+          cep: '01001-000',
+          rua: 'Rua Genero',
+          numero: '200',
+          bairro: 'Centro',
+          cidade: 'Sao Paulo',
+        );
+
+        await selecionarEstado(tester, 'SP');
+
+        await clicarCadastrar(tester);
+
+        expect(
+          find.text(
+            'SELECIONE OS GÊNEROS MUSICAIS QUE VOCÊ MAIS GOSTA',
+          ),
+          findsOneWidget,
+        );
+
+        // Confirmar está na parte inferior da tela.
+        await confirmarGeneros(tester);
+
+        expect(
+          find.text('Selecione pelo menos um gênero musical!'),
+          findsOneWidget,
+        );
+
+        // O usuário continua na GenerosCadastroScreen.
+        expect(find.text('Confirmar'), findsOneWidget);
+
+        expect(
+          find.textContaining(
+            'essa é a nossa recomendação de música para você!',
+          ),
+          findsNothing,
+        );
+
+        // O documento foi criado no cadastro, mas a atualização de
+        // generos_favoritos não deve ter acontecido.
+        final user = FirebaseAuth.instance.currentUser;
+
+        expect(user, isNotNull);
+
+        final userDoc = await FirebaseFirestore.instance
+            .collection('usuarios')
+            .doc(user!.uid)
+            .get();
+
+        expect(userDoc.exists, isTrue);
+
+        final data = userDoc.data()!;
+
+        expect(data['nome'], 'teste genero');
+        expect(data['email'], email);
+        expect(data.containsKey('generos_favoritos'), isFalse);
+      },
+    );
+  });
+}
+
+O que foi corrigido
+A correção principal está em rolarAte():
+
+await tester.scrollUntilVisible(
+  finder,
+  300,
+  scrollable: find.byType(Scrollable).first,
+);
+
+Assim, antes de interagir com elementos que podem estar abaixo da viewport, o teste efetivamente rola a SingleChildScrollView.
+
+Isso foi aplicado a:
+
+DropdownButtonFormField → antes de selecionar SP;
+
+Cadastrar → antes de submeter o cadastro;
+
+gêneros → antes de tocar nos Switch;
+
+Confirmar → antes de confirmar;
+
+mensagens de validação → antes das asserções quando necessário.
+
+Também mudei a seleção de gênero para localizar o Switch dentro do Card do gênero, em vez de depender de switches.at(0)/switches.at(1). Isso torna o teste mais resistente à estrutura visual da lista sem deixar de interagir pela UI real.
+
+Um detalhe sobre o erro de e-mail duplicado
+Esse cenário continua dependendo corretamente do dado previamente populado no emulador:
+
+tester@sintonize.test
+
+Portanto, o teste não cria esse usuário. Ele tenta cadastrá-lo pela interface e espera o erro real do Firebase Auth. Isso preserva exatamente a condição que você especificou.
+
+E, principalmente, não reduzi nenhuma asserção para mascarar a falha original: o teste ainda exige que o cadastro navegue para gêneros, que os gêneros sejam persistidos e que a tela final seja TelaInicialScreen.

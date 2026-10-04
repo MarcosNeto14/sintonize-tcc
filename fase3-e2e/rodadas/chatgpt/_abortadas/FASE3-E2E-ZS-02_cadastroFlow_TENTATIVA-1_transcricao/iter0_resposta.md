@@ -1,0 +1,1 @@
+Vou estruturar o arquivo como uma suíte E2E única, reutilizando o app real em cada `testWidgets`, mas sem mocks. Vou considerar que os emuladores são resetados **antes da execução da suíte**, então os testes que criam usuários precisam usar e-mails únicos para não interferirem entre si.

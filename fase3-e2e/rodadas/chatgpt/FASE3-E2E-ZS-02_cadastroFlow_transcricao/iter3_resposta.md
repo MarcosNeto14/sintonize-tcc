@@ -1,0 +1,81 @@
+## Classificação: **(B) — o teste capturou um comportamento potencialmente incorreto da aplicação.**
+
+ Eu **não alteraria as asserções para fazer os testes passarem**.
+
+ O log mostra dois problemas distintos:
+
+ - O teste procura `SELECIONE OS GÊNEROS MUSICAIS QUE VOCÊ MAIS GOSTA`, mas **essa tela/texto não aparece após o fluxo de cadastro**.
+- Antes disso, os `tap()` em `DropdownButtonFormField` e em `SP` estão sendo executados em uma posição que **não recebe eventos**. O próprio Flutter informa que o widget está provavelmente fora da área visível ou está sendo coberto.
+
+ Isso é particularmente importante porque os avisos se repetem em diferentes testes. Portanto, não parece apenas uma asserção excessivamente específica.
+
+ ### Comportamento observado
+
+ No fluxo de cadastro:
+
+ 1. O APK é compilado e instalado normalmente.
+2. O teste encontra o `DropdownButtonFormField<String>`.
+3. Porém, o `tap()` calcula o centro em aproximadamente `y = 679.3`, e esse ponto não passa pelo hit test do widget.
+4. O mesmo acontece ao tentar tocar em `SP`.
+5. Consequentemente, o estado esperado do cadastro não é produzido.
+6. Quando o teste verifica a tela de gêneros, encontra **zero** widgets com o texto esperado.
+7. Os mesmos problemas aparecem também no teste que deveria chegar à `GenerosCadastroScreen` sem selecionar gênero.
+
+ Há ainda um segundo sintoma:
+
+ > `Bad state: No element`
+
+ em `scrollUntilVisible()`. Isso indica que o finder usado pelo helper `rolarAte` não encontrou o widget/scrollable esperado naquele momento. Novamente, isso é compatível com o fluxo não ter chegado ao estado da UI que o teste espera.
+
+ ### Comportamento esperado
+
+ Pelo próprio objetivo dos testes, o fluxo deveria permitir:
+
+ `CadastroScreen → preenchimento/seleção do estado → Cadastrar → GenerosCadastroScreen → seleção/validação de gêneros → TelaInicialScreen`
+
+ e a `GenerosCadastroScreen` deveria disponibilizar o texto:
+
+ `SELECIONE OS GÊNEROS MUSICAIS QUE VOCÊ MAIS GOSTA`
+
+ No estado atual, o teste **não consegue chegar de maneira confiável a esse estado**, porque a interação anterior com o formulário está falhando no hit test.
+
+ ### Por que considero problema potencial da aplicação
+
+ O ponto mais relevante é que o Flutter **encontra os widgets**, mas os centros deles não são interativos:
+
+```
+Found 1 widget with type "DropdownButtonFormField<String>"
+```
+
+ seguido de:
+
+```
+would not hit test on the specified widget
+Maybe the widget is actually off-screen, or another widget is obscuring it
+```
+
+ E o mesmo acontece com:
+
+```
+Found 1 widget with text "SP"
+```
+
+ Isso sugere uma inconsistência entre **onde o widget está no layout** e **onde o teste consegue efetivamente interagir com ele**. Se a aplicação coloca o campo parcialmente fora da viewport, mantém uma camada absorvendo ponteiros, ou apresenta uma estrutura de scroll/layout inadequada, o problema é da UI/fluxo, não da expectativa funcional do teste.
+
+ Além disso, **76 pacotes desatualizados não são a causa aparente da falha**. O projeto compilou, o APK foi instalado e os testes começaram a executar. A falha ocorre durante a interação com a UI.
+
+ ### O que eu corrigiria
+
+ Eu investigaria primeiro a `CadastroScreen`, especialmente:
+
+ - o `DropdownButtonFormField` do estado;
+- o `Scrollable`/`SingleChildScrollView` que contém o formulário;
+- o layout próximo da parte inferior da tela;
+- possíveis `Stack`, `IgnorePointer`, `AbsorbPointer` ou overlays;
+- se o formulário está sendo reposicionado quando o teclado aparece;
+- se o botão `Cadastrar` e o campo de estado ficam realmente dentro da viewport;
+- a navegação para `GenerosCadastroScreen` após o cadastro.
+
+ **Não corrigiria o teste com `warnIfMissed: false`, coordenadas arbitrárias ou removendo a asserção da `GenerosCadastroScreen`**, pois isso esconderia exatamente o comportamento que o teste está detectando.
+
+ O próximo passo correto é corrigir a aplicação para que o `DropdownButtonFormField`, `SP` e `Cadastrar` sejam efetivamente interativos e, depois disso, executar novamente o teste sem enfraquecer suas expectativas.

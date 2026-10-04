@@ -1,0 +1,346 @@
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 93.0.0 (108.0.0 available)
+  _flutterfire_internals 1.3.52 (1.3.77 available)
+  analyzer 10.0.1 (14.4.0 available)
+  async 2.11.0 (2.13.1 available)
+  boolean_selector 2.1.1 (2.1.2 available)
+  build 4.0.5 (4.0.11 available)
+  build_config 1.3.0 (1.3.3 available)
+  build_daemon 4.1.1 (4.1.6 available)
+  build_runner 2.13.1 (2.16.1 available)
+  built_collection 5.1.1 (5.1.2 available)
+  built_value 8.12.5 (8.13.0 available)
+  cel 0.5.4+1 (0.6.0 available)
+  clock 1.1.2 (1.1.3 available)
+  cloud_firestore 5.6.4 (6.10.0 available)
+  cloud_firestore_platform_interface 6.6.4 (8.0.7 available)
+  cloud_firestore_web 4.4.4 (5.7.3 available)
+  code_builder 4.11.1 (4.12.0 available)
+  crypto 3.0.6 (3.0.7 available)
+  dart_style 3.1.7 (3.1.13 available)
+  equatable 2.0.8 (3.0.0 available)
+  fake_cloud_firestore 3.1.0 (4.3.0 available)
+  fake_firebase_security_rules 0.5.4 (0.6.0 available)
+  firebase_auth 5.5.0 (6.7.0 available)
+  firebase_auth_mocks 0.14.2 (0.15.2 available)
+  firebase_auth_platform_interface 7.6.0 (9.1.0 available)
+  firebase_auth_web 5.14.0 (6.3.0 available)
+  firebase_core 3.12.0 (4.15.0 available)
+  firebase_core_platform_interface 5.4.0 (8.1.1 available)
+  firebase_core_web 2.21.0 (3.12.0 available)
+  flutter_lints 5.0.0 (6.0.0 available)
+  flutter_plugin_android_lifecycle 2.0.24 (2.0.35 available)
+  geolocator 13.0.2 (14.1.1 available)
+  geolocator_android 4.6.1 (5.1.1+1 available)
+  geolocator_apple 2.3.9 (2.3.14 available)
+  geolocator_platform_interface 4.2.4 (4.4.0 available)
+  geolocator_web 4.1.1 (4.1.4 available)
+  geolocator_windows 0.2.3 (0.2.5 available)
+  glob 2.1.3 (2.2.0 available)
+  google_maps 8.1.1 (8.3.0 available)
+  google_maps_flutter 2.10.0 (2.18.2 available)
+  google_maps_flutter_android 2.14.12 (2.21.0 available)
+  google_maps_flutter_ios 2.13.2 (2.18.6 available)
+  google_maps_flutter_platform_interface 2.11.0 (2.17.0 available)
+  google_maps_flutter_web 0.5.10 (0.6.4+1 available)
+  html 0.15.5 (0.15.7 available)
+  http 0.13.6 (1.6.0 available)
+  io 1.0.5 (1.1.0 available)
+  json_annotation 4.9.0 (4.12.0 available)
+  lints 5.1.1 (6.1.0 available)
+  logger 2.7.0 (2.8.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.17.0 (1.19.0 available)
+  mime 2.0.0 (2.1.0 available)
+  mockito 5.6.4 (5.8.1 available)
+  package_config 2.2.0 (3.0.0 available)
+  platform 3.1.6 (3.2.0 available)
+  pool 1.5.2 (1.5.3 available)
+  process 5.0.5 (5.0.6 available)
+  pub_semver 2.2.0 (2.2.1 available)
+  pubspec_parse 1.5.0 (1.6.0 available)
+  rx 0.4.0 (0.5.0 available)
+  sanitize_html 2.1.0 (2.2.0 available)
+  source_gen 4.2.2 (4.3.0 available)
+  source_span 1.10.0 (1.10.2 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  stream_transform 2.1.1 (2.1.2 available)
+  string_scanner 1.3.0 (1.4.1 available)
+  term_glyph 1.2.1 (1.2.2 available)
+  test_api 0.7.10 (0.7.14 available)
+  uuid 4.5.1 (4.6.0 available)
+  vector_math 2.2.0 (2.4.3 available)
+  vm_service 14.3.0 (15.3.0 available)
+  web 1.1.0 (1.1.1 available)
+  webdriver 3.1.0 (3.2.0 available)
+  yaml 3.1.3 (3.1.4 available)
+Got dependencies!
+76 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart
+Running Gradle task 'assembleDebug'...                             15,6s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...          873ms
+00:00 +0: (setUpAll)
+00:00 +0: Fase 3 - Cadastro e seleção de gêneros cadastro completo cria usuário, salva dados, seleciona gêneros e chega à TelaInicialScreen
+
+Warning: A call to tap() with finder "Found 1 widget with type "DropdownButtonFormField<String>": [
+  DropdownButtonFormField<String>(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope, _FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#10ed7]], state: _DropdownButtonFormFieldState<String>#a3d85),
+]" derived an Offset (Offset(205.7, 636.9)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#316d8 relayoutBoundary=up25
+The hit test result at that offset is: HitTestResult(_RenderInkFeatures#1ff42@Offset(205.7, 636.9), RenderPhysicalModel#2a5cd@Offset(205.7, 636.9), RenderRepaintBoundary#656b2@Offset(205.7, 636.9), RenderIgnorePointer#aedab@Offset(205.7, 636.9), RenderRepaintBoundary#2e76e@Offset(205.7, 636.9), RenderSemanticsAnnotations#a4736@Offset(205.7, 636.9), RenderOffstage#5d316@Offset(205.7, 636.9), RenderSemanticsAnnotations#27951@Offset(205.7, 636.9), _RenderTheater#9f68d@Offset(205.7, 636.9), RenderAbsorbPointer#34aa1@Offset(205.7, 636.9), RenderPointerListener#54442@Offset(205.7, 636.9), RenderSemanticsAnnotations#038e3@Offset(205.7, 636.9), RenderSemanticsAnnotations#8faf6@Offset(205.7, 636.9), RenderSemanticsAnnotations#6c88b@Offset(205.7, 636.9), RenderSemanticsAnnotations#6300c@Offset(205.7, 636.9), RenderTapRegionSurface#d211a@Offset(205.7, 636.9), RenderSemanticsAnnotations#5cad6@Offset(205.7, 636.9), RenderSemanticsAnnotations#32b4b@Offset(205.7, 636.9), HitTestEntry<HitTestTarget>#bf5c3(_ReusableRenderView#b6b06), HitTestEntry<HitTestTarget>#04d4b(<IntegrationTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.selecionarEstado (file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart:71:18)
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart:121:15)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+
+Warning: A call to tap() with finder "Found 1 widget with text "SP" (ignoring all but last): [
+  Text("SP", dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(63.1, 636.9)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#9caa5 relayoutBoundary=up7
+The hit test result at that offset is: HitTestResult(_RenderInkFeatures#1ff42@Offset(63.1, 636.9), RenderPhysicalModel#2a5cd@Offset(63.1, 636.9), RenderRepaintBoundary#656b2@Offset(63.1, 636.9), RenderIgnorePointer#aedab@Offset(63.1, 636.9), RenderRepaintBoundary#2e76e@Offset(63.1, 636.9), RenderSemanticsAnnotations#a4736@Offset(63.1, 636.9), RenderOffstage#5d316@Offset(63.1, 636.9), RenderSemanticsAnnotations#27951@Offset(63.1, 636.9), _RenderTheater#9f68d@Offset(63.1, 636.9), RenderAbsorbPointer#34aa1@Offset(63.1, 636.9), RenderPointerListener#54442@Offset(63.1, 636.9), RenderSemanticsAnnotations#038e3@Offset(63.1, 636.9), RenderSemanticsAnnotations#8faf6@Offset(63.1, 636.9), RenderSemanticsAnnotations#6c88b@Offset(63.1, 636.9), RenderSemanticsAnnotations#6300c@Offset(63.1, 636.9), RenderTapRegionSurface#d211a@Offset(63.1, 636.9), RenderSemanticsAnnotations#5cad6@Offset(63.1, 636.9), RenderSemanticsAnnotations#32b4b@Offset(63.1, 636.9), HitTestEntry<HitTestTarget>#52036(_ReusableRenderView#b6b06), HitTestEntry<HitTestTarget>#3cd2d(<IntegrationTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.selecionarEstado (file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart:74:18)
+<asynchronous suspension>
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart:121:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(205.7, 705.9)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#2d9f8 relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(_RenderInkFeatures#1ff42@Offset(205.7, 705.9), RenderPhysicalModel#2a5cd@Offset(205.7, 705.9), RenderRepaintBoundary#656b2@Offset(205.7, 705.9), RenderIgnorePointer#aedab@Offset(205.7, 705.9), RenderRepaintBoundary#2e76e@Offset(205.7, 705.9), RenderSemanticsAnnotations#a4736@Offset(205.7, 705.9), RenderOffstage#5d316@Offset(205.7, 705.9), RenderSemanticsAnnotations#27951@Offset(205.7, 705.9), _RenderTheater#9f68d@Offset(205.7, 705.9), RenderAbsorbPointer#34aa1@Offset(205.7, 705.9), RenderPointerListener#54442@Offset(205.7, 705.9), RenderSemanticsAnnotations#038e3@Offset(205.7, 705.9), RenderSemanticsAnnotations#8faf6@Offset(205.7, 705.9), RenderSemanticsAnnotations#6c88b@Offset(205.7, 705.9), RenderSemanticsAnnotations#6300c@Offset(205.7, 705.9), RenderTapRegionSurface#d211a@Offset(205.7, 705.9), RenderSemanticsAnnotations#5cad6@Offset(205.7, 705.9), RenderSemanticsAnnotations#32b4b@Offset(205.7, 705.9), HitTestEntry<HitTestTarget>#3f1e2(_ReusableRenderView#b6b06), HitTestEntry<HitTestTarget>#02c1a(<IntegrationTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart:123:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "SELECIONE OS GÊNEROS MUSICAIS QUE VOCÊ MAIS
+GOSTA": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart:127:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart line 127
+The test description was:
+  cadastro completo cria usuário, salva dados, seleciona gêneros e chega à TelaInicialScreen
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:11 +0 -1: Fase 3 - Cadastro e seleção de gêneros cadastro completo cria usuário, salva dados, seleciona gêneros e chega à TelaInicialScreen [E]
+  Test failed. See exception logs above.
+  The test description was: cadastro completo cria usuário, salva dados, seleciona gêneros e chega à TelaInicialScreen
+  
+00:11 +0 -1: Fase 3 - Cadastro e seleção de gêneros CadastroScreen mostra erros de validação quando campos obrigatórios são inválidos
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(205.7, 970.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(205.7, 970.0) is outside the bounds of the root of the render tree, Size(411.4, 890.3).
+The finder corresponds to this RenderBox: RenderParagraph#55c63 relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#4e55a(_ReusableRenderView#b6b06), HitTestEntry<HitTestTarget>#100b9(<IntegrationTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart:254:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "E-mail inválido": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart:257:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart line 257
+The test description was:
+  CadastroScreen mostra erros de validação quando campos obrigatórios são inválidos
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:14 +0 -2: Fase 3 - Cadastro e seleção de gêneros CadastroScreen mostra erros de validação quando campos obrigatórios são inválidos [E]
+  Test failed. See exception logs above.
+  The test description was: CadastroScreen mostra erros de validação quando campos obrigatórios são inválidos
+  
+00:14 +0 -2: Fase 3 - Cadastro e seleção de gêneros CadastroScreen mostra erro quando o e-mail já está cadastrado
+
+Warning: A call to tap() with finder "Found 1 widget with type "DropdownButtonFormField<String>": [
+  DropdownButtonFormField<String>(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope, _FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#0b8f3]], state: _DropdownButtonFormFieldState<String>#8b228),
+]" derived an Offset (Offset(205.7, 679.3)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#46f34 relayoutBoundary=up25
+The hit test result at that offset is: HitTestResult(_RenderInkFeatures#3fbde@Offset(205.7, 679.3), RenderPhysicalModel#dfb83@Offset(205.7, 679.3), RenderRepaintBoundary#abc12@Offset(205.7, 679.3), RenderIgnorePointer#48e36@Offset(205.7, 679.3), RenderRepaintBoundary#890da@Offset(205.7, 679.3), RenderSemanticsAnnotations#2fe79@Offset(205.7, 679.3), RenderOffstage#4ffdf@Offset(205.7, 679.3), RenderSemanticsAnnotations#8c9e7@Offset(205.7, 679.3), _RenderTheater#ccc7a@Offset(205.7, 679.3), RenderAbsorbPointer#454fc@Offset(205.7, 679.3), RenderPointerListener#39598@Offset(205.7, 679.3), RenderSemanticsAnnotations#b70d9@Offset(205.7, 679.3), RenderSemanticsAnnotations#91ea0@Offset(205.7, 679.3), RenderSemanticsAnnotations#43375@Offset(205.7, 679.3), RenderSemanticsAnnotations#d3dce@Offset(205.7, 679.3), RenderTapRegionSurface#c0723@Offset(205.7, 679.3), RenderSemanticsAnnotations#cad07@Offset(205.7, 679.3), RenderSemanticsAnnotations#a84cf@Offset(205.7, 679.3), HitTestEntry<HitTestTarget>#22795(_ReusableRenderView#b6b06), HitTestEntry<HitTestTarget>#b45d7(<IntegrationTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.selecionarEstado (file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart:71:18)
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart:307:15)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+
+Warning: A call to tap() with finder "Found 1 widget with text "SP" (ignoring all but last): [
+  Text("SP", dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(63.1, 679.3)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#861f8 relayoutBoundary=up7
+The hit test result at that offset is: HitTestResult(_RenderInkFeatures#3fbde@Offset(63.1, 679.3), RenderPhysicalModel#dfb83@Offset(63.1, 679.3), RenderRepaintBoundary#abc12@Offset(63.1, 679.3), RenderIgnorePointer#48e36@Offset(63.1, 679.3), RenderRepaintBoundary#890da@Offset(63.1, 679.3), RenderSemanticsAnnotations#2fe79@Offset(63.1, 679.3), RenderOffstage#4ffdf@Offset(63.1, 679.3), RenderSemanticsAnnotations#8c9e7@Offset(63.1, 679.3), _RenderTheater#ccc7a@Offset(63.1, 679.3), RenderAbsorbPointer#454fc@Offset(63.1, 679.3), RenderPointerListener#39598@Offset(63.1, 679.3), RenderSemanticsAnnotations#b70d9@Offset(63.1, 679.3), RenderSemanticsAnnotations#91ea0@Offset(63.1, 679.3), RenderSemanticsAnnotations#43375@Offset(63.1, 679.3), RenderSemanticsAnnotations#d3dce@Offset(63.1, 679.3), RenderTapRegionSurface#c0723@Offset(63.1, 679.3), RenderSemanticsAnnotations#cad07@Offset(63.1, 679.3), RenderSemanticsAnnotations#a84cf@Offset(63.1, 679.3), HitTestEntry<HitTestTarget>#98b72(_ReusableRenderView#b6b06), HitTestEntry<HitTestTarget>#7faed(<IntegrationTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.selecionarEstado (file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart:74:18)
+<asynchronous suspension>
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart:307:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:20 +1 -2: Fase 3 - Cadastro e seleção de gêneros GenerosCadastroScreen impede confirmação sem selecionar gênero
+
+Warning: A call to tap() with finder "Found 1 widget with text "SP" (ignoring all but last): [
+  Text("SP", dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(63.1, 801.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#ae6c7 relayoutBoundary=up7
+The hit test result at that offset is: HitTestResult(RenderPointerListener#b3170@Offset(40.1, 25.0), RenderSemanticsAnnotations#b7e95@Offset(40.1, 25.0), RenderMouseRegion#bf8ab@Offset(40.1, 25.0), RenderSemanticsAnnotations#b43c0@Offset(40.1, 25.0), RenderAnimatedOpacity#4a485@Offset(40.1, 25.0), RenderSemanticsAnnotations#2010d@Offset(40.1, 25.0), RenderRepaintBoundary#5b6a8@Offset(40.1, 25.0), RenderIndexedSemantics#f3537@Offset(40.1, 25.0), RenderSliverList@(mainAxis: 745.0, crossAxis: 40.09921836853027), RenderSliverPadding@(mainAxis: 753.0, crossAxis: 40.09921836853027), RenderShrinkWrappingViewport#2938e@Offset(40.1, 753.0), RenderIgnorePointer#2021d@Offset(40.1, 753.0), RenderSemanticsAnnotations#4fd78@Offset(40.1, 753.0), RenderPointerListener#61a73@Offset(40.1, 753.0), RenderSemanticsGestureHandler#7d43b@Offset(40.1, 753.0), RenderPointerListener#cbf7d@Offset(40.1, 753.0), _RenderScrollSemantics#1a15f@Offset(40.1, 753.0), RenderRepaintBoundary#fd2f9@Offset(40.1, 753.0), RenderCustomPaint#ab5dc@Offset(40.1, 753.0), RenderMouseRegion#00447@Offset(40.1, 753.0), RenderPointerListener#9beb2@Offset(40.1, 753.0), RenderSemanticsGestureHandler#2c536@Offset(40.1, 753.0), RenderPointerListener#05525@Offset(40.1, 753.0), RenderRepaintBoundary#f87e3@Offset(40.1, 753.0), _RenderInkFeatures#700e4@Offset(40.1, 753.0), RenderCustomPaint#5018c@Offset(40.1, 753.0), RenderClipPath#1aa67@Offset(40.1, 753.0), RenderClipRRect#b2697@Offset(40.1, 753.0), RenderSemanticsAnnotations#0d22c@Offset(40.1, 753.0), RenderCustomPaint#cc080@Offset(40.1, 753.0), RenderAnimatedOpacity#6fd76@Offset(40.1, 753.0), RenderCustomSingleChildLayoutBox#834e7@Offset(63.1, 801.0), _RenderLayoutBuilder#28c57@Offset(63.1, 801.0), RenderRepaintBoundary#a59b3@Offset(63.1, 801.0), RenderIgnorePointer#ded62@Offset(63.1, 801.0), RenderRepaintBoundary#4b58c@Offset(63.1, 801.0), RenderSemanticsAnnotations#3d857@Offset(63.1, 801.0), RenderOffstage#cb6d5@Offset(63.1, 801.0), RenderSemanticsAnnotations#162a0@Offset(63.1, 801.0), _RenderTheater#7196d@Offset(63.1, 801.0), RenderAbsorbPointer#1b160@Offset(63.1, 801.0), RenderPointerListener#705b7@Offset(63.1, 801.0), RenderSemanticsAnnotations#19fb8@Offset(63.1, 801.0), RenderSemanticsAnnotations#f1dd6@Offset(63.1, 801.0), RenderSemanticsAnnotations#e0c00@Offset(63.1, 801.0), RenderSemanticsAnnotations#99746@Offset(63.1, 801.0), RenderTapRegionSurface#bd760@Offset(63.1, 801.0), RenderSemanticsAnnotations#ddce0@Offset(63.1, 801.0), RenderSemanticsAnnotations#32761@Offset(63.1, 801.0), HitTestEntry<HitTestTarget>#f4cba(_ReusableRenderView#b6b06), HitTestEntry<HitTestTarget>#9d209(<IntegrationTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.selecionarEstado (file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart:74:18)
+<asynchronous suspension>
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart:357:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+
+Warning: A call to tap() with finder "Found 1 widget with text "Cadastrar": [
+  Text("Cadastrar", inherit: true, color: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB), size: 18.0, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(205.7, 870.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#68cdc relayoutBoundary=up1
+The hit test result at that offset is: HitTestResult(_RenderInkFeatures#cee3e@Offset(205.7, 870.0), RenderPhysicalModel#6ec65@Offset(205.7, 870.0), RenderRepaintBoundary#57c8d@Offset(205.7, 870.0), RenderIgnorePointer#e1db4@Offset(205.7, 870.0), RenderRepaintBoundary#5f8eb@Offset(205.7, 870.0), RenderSemanticsAnnotations#e6b82@Offset(205.7, 870.0), RenderOffstage#761c5@Offset(205.7, 870.0), RenderSemanticsAnnotations#603e4@Offset(205.7, 870.0), _RenderTheater#7196d@Offset(205.7, 870.0), RenderAbsorbPointer#1b160@Offset(205.7, 870.0), RenderPointerListener#705b7@Offset(205.7, 870.0), RenderSemanticsAnnotations#19fb8@Offset(205.7, 870.0), RenderSemanticsAnnotations#f1dd6@Offset(205.7, 870.0), RenderSemanticsAnnotations#e0c00@Offset(205.7, 870.0), RenderSemanticsAnnotations#99746@Offset(205.7, 870.0), RenderTapRegionSurface#bd760@Offset(205.7, 870.0), RenderSemanticsAnnotations#ddce0@Offset(205.7, 870.0), RenderSemanticsAnnotations#32761@Offset(205.7, 870.0), HitTestEntry<HitTestTarget>#83675(_ReusableRenderView#b6b06), HitTestEntry<HitTestTarget>#be090(<IntegrationTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart:359:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "SELECIONE OS GÊNEROS MUSICAIS QUE VOCÊ MAIS
+GOSTA": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart:362:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/Marcos/Desktop/sintonize-fase3/integration_test/fase3/cadastro_zs_test.dart line 362
+The test description was:
+  GenerosCadastroScreen impede confirmação sem selecionar gênero
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:30 +1 -3: Fase 3 - Cadastro e seleção de gêneros GenerosCadastroScreen impede confirmação sem selecionar gênero [E]
+  Test failed. See exception logs above.
+  The test description was: GenerosCadastroScreen impede confirmação sem selecionar gênero
+  
+00:30 +1 -3: (tearDownAll)
+00:30 +1 -3: Some tests failed.

@@ -506,6 +506,10 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
 - **Rodada 18 (`FASE3-P2-FS`):** não compila ×2 → 0/1 ×2; (A), (A), (B);
   **Capturou** — `RangeError` do P2 com `criar_playlist.dart:167`; (B) com
   diagnóstico correto. **Bloco FS do ChatGPT concluído (6/6).**
+- **Rodada 25 (`FASE3-E2E-COT-01_loginFlow`):** 7/8 → **8/8 verde** no reparo 1
+  (A), com o diagnóstico certo (`pumpAndSettle` não espera o Firestore). O
+  verde espera a música recomendada e deixa de afirmar a saudação. Fontes
+  externas na geração.
 
 ## Próximos passos
 

@@ -537,6 +537,25 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
 - **Próximo bloco: Gemini (rodadas 7–12, 19–24, 31–36), 0/18**, com colagem
   manual pelo autor.
 
+## Estado em 2026-10-05 — bloco Gemini iniciado, máquina original
+
+- **Ambiente da máquina original (`DellT4i51`) montado:** NDK 28.2 e CMake
+  3.22.1 instalados; **o build exige JDK 17** (com o JDK 21 do sistema falha em
+  `JdkImageTransform`/`jlink`) — Temurin 17 em `%LOCALAPPDATA%\jdk17`, usado só
+  via `JAVA_HOME` nos comandos de teste; primeiro build 607 s, depois ~50 s.
+  Disco: o AVD exige 12,3 GB livres; o autor liberou espaço.
+- **Rodada 7 (`FASE3-E2E-ZS-01_loginFlow`, Gemini, limpa):** não compila → 2/5
+  (A) → **5/5 verde** (A), com espera ativa por `pump` e sem reduzir asserções.
+  Doc em `rodadas/gemini/`.
+- **Tentativa 1 da rodada 7 abortada:** seletor em **Flash-Lite**, não 3.8
+  Flash (print em `evidencias/gemini/`); nunca executada. Conferir o seletor
+  antes de cada envio. O autor decidiu não tirar print do seletor por rodada; a
+  confirmação dele fica registrada no doc.
+- **Seed:** uma execução rodou sem seed (o `seed_test` falhou e o script seguiu)
+  e foi descartada como `_INVALIDA-sem-seed`; a conferência 1/1/5 passou a
+  bloquear a execução.
+- **Progresso: Gemini 1/18.** Próxima: rodada 8, `FASE3-E2E-ZS-02_cadastroFlow`.
+
 ## Próximos passos
 
 Os passos 1 a 4 da lista original (validar aceleração, rodar a fumaça, cleartext, commitar e anotar tempos) foram cumpridos na segunda máquina em 2026-09-28; ver "Execução da fumaça". Receita que funcionou:

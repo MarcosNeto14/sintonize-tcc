@@ -626,6 +626,18 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   screenshot; abas podem travar e precisar ser trocadas por uma nova. A
   instabilidade cresceu ao longo da sessão.
 - **Progresso: Gemini 7/18 fechadas + FS-02 pendente.**
+- **Rodada 20 retomada e fechada (mesmo dia, máquina original `DellT4i51`):
+  0/1 → 0/1 → 0/1 → 1/1; (A),(B),(B) — ver doc.** Reparo 1 (A) corrige os
+  toques fora do alvo; iterações 1 e 2 caem pelo `setState()` após `dispose` de
+  `tela-inicial.dart:161` (reparos 2 e 3, (B), corretos); a iteração 3, com o
+  mesmo arquivo, passou 1/1. Verde não conquistado por reparo: o defeito é
+  intermitente e a iteração 3 rodou em outra máquina (confundidor registrado).
+- **Máquina original, operação:** o build exige o worktree
+  `Desktop\sintonize-fase3` (o caminho `Repositórios` tem caractere não-ASCII e
+  o AGP recusa); `firebase` só sobe pelo PowerShell (no Git Bash o shim resolve
+  caminho errado). Na cópia, o "Copiar" certo é o logo abaixo da última
+  resposta — conferir início e fim do clipboard antes de gravar.
+- **Progresso: Gemini 8/18.** Próximo: rodada 21, FS-03 playlistFlow.
 
 ## Próximos passos
 

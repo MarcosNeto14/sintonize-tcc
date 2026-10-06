@@ -1,0 +1,110 @@
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 93.0.0 (108.0.0 available)
+  _flutterfire_internals 1.3.52 (1.3.77 available)
+  analyzer 10.0.1 (14.4.0 available)
+  async 2.11.0 (2.13.1 available)
+  boolean_selector 2.1.1 (2.1.2 available)
+  build 4.0.5 (4.0.11 available)
+  build_config 1.3.0 (1.3.3 available)
+  build_daemon 4.1.1 (4.1.6 available)
+  build_runner 2.13.1 (2.16.1 available)
+  built_collection 5.1.1 (5.1.2 available)
+  built_value 8.12.5 (8.13.0 available)
+  cel 0.5.4+1 (0.6.0 available)
+  clock 1.1.2 (1.1.3 available)
+  cloud_firestore 5.6.4 (6.10.0 available)
+  cloud_firestore_platform_interface 6.6.4 (8.0.7 available)
+  cloud_firestore_web 4.4.4 (5.7.3 available)
+  code_builder 4.11.1 (4.12.0 available)
+  crypto 3.0.6 (3.0.7 available)
+  dart_style 3.1.7 (3.1.13 available)
+  equatable 2.0.8 (3.0.0 available)
+  fake_cloud_firestore 3.1.0 (4.3.0 available)
+  fake_firebase_security_rules 0.5.4 (0.6.0 available)
+  firebase_auth 5.5.0 (6.7.0 available)
+  firebase_auth_mocks 0.14.2 (0.15.2 available)
+  firebase_auth_platform_interface 7.6.0 (9.1.0 available)
+  firebase_auth_web 5.14.0 (6.3.0 available)
+  firebase_core 3.12.0 (4.15.0 available)
+  firebase_core_platform_interface 5.4.0 (8.1.1 available)
+  firebase_core_web 2.21.0 (3.12.0 available)
+  flutter_lints 5.0.0 (6.0.0 available)
+  flutter_plugin_android_lifecycle 2.0.24 (2.0.35 available)
+  geolocator 13.0.2 (14.1.1 available)
+  geolocator_android 4.6.1 (5.1.1+1 available)
+  geolocator_apple 2.3.9 (2.3.14 available)
+  geolocator_platform_interface 4.2.4 (4.4.0 available)
+  geolocator_web 4.1.1 (4.1.4 available)
+  geolocator_windows 0.2.3 (0.2.5 available)
+  glob 2.1.3 (2.2.0 available)
+  google_maps 8.1.1 (8.3.0 available)
+  google_maps_flutter 2.10.0 (2.18.2 available)
+  google_maps_flutter_android 2.14.12 (2.21.0 available)
+  google_maps_flutter_ios 2.13.2 (2.18.6 available)
+  google_maps_flutter_platform_interface 2.11.0 (2.17.0 available)
+  google_maps_flutter_web 0.5.10 (0.6.4+1 available)
+  html 0.15.5 (0.15.7 available)
+  http 0.13.6 (1.6.0 available)
+  io 1.0.5 (1.1.0 available)
+  json_annotation 4.9.0 (4.12.0 available)
+  lints 5.1.1 (6.1.0 available)
+  logger 2.7.0 (2.8.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.17.0 (1.19.0 available)
+  mime 2.0.0 (2.1.0 available)
+  mockito 5.6.4 (5.8.1 available)
+  package_config 2.2.0 (3.0.0 available)
+  platform 3.1.6 (3.2.0 available)
+  pool 1.5.2 (1.5.3 available)
+  process 5.0.5 (5.0.6 available)
+  pub_semver 2.2.0 (2.2.1 available)
+  pubspec_parse 1.5.0 (1.6.0 available)
+  rx 0.4.0 (0.5.0 available)
+  sanitize_html 2.1.0 (2.2.0 available)
+  source_gen 4.2.2 (4.3.0 available)
+  source_span 1.10.0 (1.10.2 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  stream_transform 2.1.1 (2.1.2 available)
+  string_scanner 1.3.0 (1.4.1 available)
+  term_glyph 1.2.1 (1.2.2 available)
+  test_api 0.7.10 (0.7.14 available)
+  uuid 4.5.1 (4.6.0 available)
+  vector_math 2.2.0 (2.4.3 available)
+  vm_service 14.3.0 (15.3.0 available)
+  web 1.1.0 (1.1.1 available)
+  webdriver 3.1.0 (3.2.0 available)
+  yaml 3.1.3 (3.1.4 available)
+Got dependencies!
+76 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/Users/marcos.neto/Desktop/sintonize-fase3/integration_test/fase3/cadastro_fs_test.dart
+Running Gradle task 'assembleDebug'...                             54,5s
+✓ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...           5,9s
+00:00 +0: (setUpAll)
+00:00 +0: Fluxo de cadastro: preenche dados, seleciona gêneros musicais e persiste no Firestore
+
+Warning: A call to tap() with finder "Found 1 widget with type "DropdownMenuItem<String>" that are ancestors of widget with text "AP" (ignoring all but last): [
+  DropdownMenuItem<String>,
+]" derived an Offset (Offset(209.7, 176.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#2c7f8 relayoutBoundary=up36
+The hit test result at that offset is: HitTestResult(RenderPointerListener#d6489@Offset(186.7, 24.0), RenderSemanticsAnnotations#96ff0@Offset(186.7, 24.0), RenderMouseRegion#30d1e@Offset(186.7, 24.0), RenderSemanticsAnnotations#ef122@Offset(186.7, 24.0), RenderAnimatedOpacity#475e4@Offset(186.7, 24.0), RenderSemanticsAnnotations#153e7@Offset(186.7, 24.0), RenderRepaintBoundary#b6881@Offset(186.7, 24.0), RenderIndexedSemantics#0bfc8@Offset(186.7, 24.0), RenderSliverList@(mainAxis: 120.0, crossAxis: 186.71428571428572), RenderSliverPadding@(mainAxis: 128.0, crossAxis: 186.71428571428572), RenderShrinkWrappingViewport#c565b@Offset(186.7, 128.0), RenderIgnorePointer#bee90@Offset(186.7, 128.0), RenderSemanticsAnnotations#83bbd@Offset(186.7, 128.0), RenderPointerListener#c8289@Offset(186.7, 128.0), RenderSemanticsGestureHandler#53c42@Offset(186.7, 128.0), RenderPointerListener#67e4b@Offset(186.7, 128.0), _RenderScrollSemantics#be5d2@Offset(186.7, 128.0), RenderRepaintBoundary#b5403@Offset(186.7, 128.0), RenderCustomPaint#e34d1@Offset(186.7, 128.0), RenderMouseRegion#63845@Offset(186.7, 128.0), RenderPointerListener#f3a32@Offset(186.7, 128.0), RenderSemanticsGestureHandler#7d8f9@Offset(186.7, 128.0), RenderPointerListener#36d97@Offset(186.7, 128.0), RenderRepaintBoundary#fd88e@Offset(186.7, 128.0), _RenderInkFeatures#f6271@Offset(186.7, 128.0), RenderCustomPaint#73da2@Offset(186.7, 128.0), RenderClipPath#79429@Offset(186.7, 128.0), RenderClipRRect#83782@Offset(186.7, 128.0), RenderSemanticsAnnotations#72f71@Offset(186.7, 128.0), RenderCustomPaint#75f1c@Offset(186.7, 128.0), RenderAnimatedOpacity#11b3e@Offset(186.7, 128.0), RenderCustomSingleChildLayoutBox#664b5@Offset(209.7, 176.0), _RenderLayoutBuilder#05ef1@Offset(209.7, 176.0), RenderRepaintBoundary#287b8@Offset(209.7, 176.0), RenderIgnorePointer#07481@Offset(209.7, 176.0), RenderRepaintBoundary#36c30@Offset(209.7, 176.0), RenderSemanticsAnnotations#d356b@Offset(209.7, 176.0), RenderOffstage#6a2bc@Offset(209.7, 176.0), RenderSemanticsAnnotations#8f075@Offset(209.7, 176.0), _RenderTheater#78772@Offset(209.7, 176.0), RenderAbsorbPointer#7e27e@Offset(209.7, 176.0), RenderPointerListener#58688@Offset(209.7, 176.0), RenderSemanticsAnnotations#78ffd@Offset(209.7, 176.0), RenderSemanticsAnnotations#37720@Offset(209.7, 176.0), RenderSemanticsAnnotations#8d6f5@Offset(209.7, 176.0), RenderSemanticsAnnotations#47802@Offset(209.7, 176.0), RenderTapRegionSurface#9fd1b@Offset(209.7, 176.0), RenderSemanticsAnnotations#b4569@Offset(209.7, 176.0), RenderSemanticsAnnotations#1ac66@Offset(209.7, 176.0), HitTestEntry<HitTestTarget>#85785(_ReusableRenderView#33cd1), HitTestEntry<HitTestTarget>#45576(<IntegrationTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure> (file:///C:/Users/marcos.neto/Desktop/sintonize-fase3/integration_test/fase3/cadastro_fs_test.dart:79:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:20 +1: (tearDownAll)
+00:25 +1: All tests passed!

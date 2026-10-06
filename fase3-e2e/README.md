@@ -651,6 +651,14 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   1 voltou com o erro genérico do Gemini e foi reenviado com " ." (orientação
   do autor); não conta como iteração. **Progresso: Gemini 11/18.** Próximo:
   P2-FS.
+- **Rodada 24 (`FASE3-P2-FS`, Gemini, bug P2): não compila → 0/1 ×3 com
+  `RangeError` em `criar_playlist.dart:167`; (A),(A),(A); manual-first Capturou
+  (iteração 1).** A geração teve recusa genérica (reenviada com " .") e depois
+  veio com o código cortado e recomeçado dentro do mesmo bloco — usado como
+  veio, não compilou.
+- **Bloco FS do Gemini completo (6/6). Progresso: Gemini 12/18.** Próximo:
+  bloco COT (rodadas 31–36): COT-01, COT-02, COT-03 limpas, depois L4-COT,
+  C3-COT, P2-COT.
 
 ## Próximos passos
 

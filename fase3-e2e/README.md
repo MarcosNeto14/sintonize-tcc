@@ -592,6 +592,26 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
 - **Progresso: Gemini 5/18.** Próxima: P2-ZS (prompt `FASE3-E2E-ZS-03`), no
   worktree `sintonize-fase3-P2`.
 
+## Estado em 2026-10-06 — envio automatizado ao Gemini
+
+- **Mudança de método, pedida pelo autor em 2026-10-06:** a partir da P2-ZS, o
+  envio ao Gemini e a cópia das respostas passam a ser automatizados (Claude in
+  Chrome), revendo a decisão de 2026-10-02 de colar à mão. O conteúdo enviado
+  não muda. Controles por rodada: seletor aberto e conferido (print
+  `evidencias/gemini/<ID>_seletor_38flash.png`), texto no editor conferido
+  (tamanho, início e fim) antes de enviar, resposta conferida contra os textos
+  de recusa genérica. Recusa genérica, se aparecer, é registrada e não conta
+  como dado do modelo; o autor indicou editar a mensagem acrescentando um
+  espaço ou ponto. As transcrições passam a ser o Markdown do botão "Copiar".
+- **Rodada 12 (`FASE3-P2-ZS`, Gemini, bug P2): 0/2 nas 4 execuções, `RangeError`
+  em `criar_playlist.dart:167`; (B),(B),(B) sem código; manual-first Capturou
+  (iteração 0).** Primeira rodada da Fase 3 sem nenhum (A). O reparo 3 aponta o
+  `itemCount` maior que a lista, a causa real, sem ter visto o bug. Nenhuma
+  recusa genérica com a automação.
+- **Bloco ZS do Gemini completo (6/6).** **Progresso: Gemini 6/18.** Próximo:
+  bloco FS (rodadas 19–24): FS-01, FS-02, FS-03 limpas, depois L4-FS, C3-FS,
+  P2-FS.
+
 ## Próximos passos
 
 Os passos 1 a 4 da lista original (validar aceleração, rodar a fumaça, cleartext, commitar e anotar tempos) foram cumpridos na segunda máquina em 2026-09-28; ver "Execução da fumaça". Receita que funcionou:

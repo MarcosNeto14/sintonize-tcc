@@ -556,6 +556,17 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   bloquear a execução.
 - **Progresso: Gemini 1/18.** Próxima: rodada 8, `FASE3-E2E-ZS-02_cadastroFlow`.
 
+## Estado em 2026-10-05 (noite) — rodada 8, segunda máquina
+
+- **Rodada 8 (`FASE3-E2E-ZS-02_cadastroFlow`, Gemini, limpa)**, executada na
+  `DESKTOP-6ETPO2H` depois de puxar a rodada 7: 2/4 → 1/4 (A) → **4/4 verde**
+  (A). O verde final **removeu a asserção da saudação** na `TelaInicialScreen`.
+  O diagnóstico do reparo 1 (CEP sem hífen) contradiz o código: o campo tem
+  `digitsOnly`, e as duas entradas dão o mesmo texto. Doc em `rodadas/gemini/`.
+- O autor devolveu as respostas colando o texto na conversa com o Claude, não
+  pelo clipboard. Mesmo formato de transcrição da rodada 7.
+- **Progresso: Gemini 2/18.** Próxima: rodada 9, `FASE3-E2E-ZS-03_playlistFlow`.
+
 ## Próximos passos
 
 Os passos 1 a 4 da lista original (validar aceleração, rodar a fumaça, cleartext, commitar e anotar tempos) foram cumpridos na segunda máquina em 2026-09-28; ver "Execução da fumaça". Receita que funcionou:

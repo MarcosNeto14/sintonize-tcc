@@ -700,6 +700,12 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   antes de cada execução.
 - **Progresso: Gemini 14/18.** Próximo: COT-03 playlistFlow, depois L4-COT,
   C3-COT, P2-COT.
+- **Rodada 33 (`FASE3-E2E-COT-03_playlistFlow`, Gemini, limpa): 3/4 na
+  geração → 4/4 na iteração 1; (A) correto** ("Minha Conta" só existe na
+  `TelaInicialScreen`; o `pop` volta à `UsuarioScreen`). O reparo trocou a
+  asserção de retorno e manteve a verificação do documento no Firestore.
+  **Bloco COT limpo do Gemini completo (3/3). Progresso: Gemini 15/18.**
+  Próximo: L4-COT, C3-COT, P2-COT nos worktrees `Desktop\sintonize-fase3-{L4,C3,P2}`.
 
 ## Próximos passos
 

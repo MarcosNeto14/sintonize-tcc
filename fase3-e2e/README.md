@@ -659,6 +659,11 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
 - **Bloco FS do Gemini completo (6/6). Progresso: Gemini 12/18.** Próximo:
   bloco COT (rodadas 31–36): COT-01, COT-02, COT-03 limpas, depois L4-COT,
   C3-COT, P2-COT.
+- **Rodada 31 (`FASE3-E2E-COT-01_loginFlow`) interrompida** antes da iteração
+  2 (4/5 → 4/5; reparos (B) com código e (A)): a execução travou no seed por
+  falta de memória na máquina original e o autor decidiu parar. Estado e passos
+  em `rodadas/gemini/FASE3-E2E-COT-01_PENDENTE.md`. **Progresso: Gemini 12/18 +
+  COT-01 pendente.**
 
 ## Próximos passos
 

@@ -664,6 +664,10 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   falta de memória na máquina original e o autor decidiu parar. Estado e passos
   em `rodadas/gemini/FASE3-E2E-COT-01_PENDENTE.md`. **Progresso: Gemini 12/18 +
   COT-01 pendente.**
+- **Rodada 31 retomada e fechada: 4/5 nas 4 execuções; (B),(A),(B).** Iterações
+  2 e 3 caem pelo `setState()` após `dispose` de `tela-inicial.dart:161`
+  (reparo 3 correto, sem código). Nota `_PENDENTE` removida. **Progresso:
+  Gemini 13/18.** Próximo: COT-02 cadastroFlow.
 
 ## Próximos passos
 

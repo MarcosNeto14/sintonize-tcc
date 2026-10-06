@@ -571,6 +571,16 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   falhou nas rodadas 7 e 8; uma execução não prova estabilidade.
 - **Bloco ZS limpo do Gemini completo.** **Progresso: Gemini 3/18.** Próximas:
   L4-ZS, C3-ZS, P2-ZS (Gemini), nos worktrees `sintonize-fase3-{L4,C3,P2}`.
+- **Rodada 10 (`FASE3-L4-ZS`, Gemini, bug L4): 4/5 nas 4 execuções; (A),(A),(B)
+  sem código; manual-first Capturou (iteração 0).** Os dois (A) são desmentidos
+  pela própria saída (`LoginScreen` ausente antes da falha). O (B) acerta a
+  classe e erra a causa (culpa os controllers no `build()`).
+- **Ambiente:** o AVD estava com o diálogo "System UI isn't responding" aberto
+  desde pelo menos a rodada 8 (aparece nos prints, que saem depois da suíte).
+  Fechado com "Wait"; sem indício de efeito nos resultados. Conferir o AVD antes
+  de cada rodada.
+- **Progresso: Gemini 4/18.** Próxima: C3-ZS (prompt `FASE3-E2E-ZS-02`), no
+  worktree `sintonize-fase3-C3`.
 
 ## Próximos passos
 

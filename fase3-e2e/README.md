@@ -680,6 +680,27 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   apps pesados; o seed já travou por falta de memória).
 - **Progresso: Gemini 13/18 + COT-02 pendente.**
 
+## Estado em 2026-10-06 (noite) — retomada na segunda máquina
+
+- **Rodada 32 (`FASE3-E2E-COT-02_cadastroFlow`, Gemini, limpa) retomada e
+  fechada na segunda máquina (`DESKTOP-6ETPO2H`), na mesma conversa:
+  0/4 → 1/4 → 1/4 → 3/4; (A),(A),(A), sempre com arquivo completo.** A falha
+  que sobra (e-mail já cadastrado) é determinística: o `_CEPInputFormatter`
+  põe o hífen, o `onChanged` do CEP consulta o ViaCEP, que devolve `erro` para
+  `50000000`, e a SnackBar "CEP não encontrado" aparece antes da do Auth; o
+  teste pega a primeira. Isso prova a hipótese que ficou aberta na ZS-02 do
+  Gemini. O reparo 3 dá a classe certa com a causa errada. Nota `_PENDENTE`
+  removida. Uma execução de auditoria (`--name "Cenário 3"`, arquivo
+  inalterado) fica registrada fora do protocolo; o print pós-suíte não captura
+  a SnackBar porque o app já foi encerrado.
+- **Operação nesta máquina:** scripts no scratchpad da sessão (equivalentes
+  aos de `scripts_automacao/`: `clip.sh`, `mk_repair.py`, `save_resp.py`,
+  `run_iter.sh`); envio e cópia pelo Claude in Chrome sem recusa genérica
+  nesta rodada; `run_iter.sh` reinicia os emuladores Firebase e confere 1/1/5
+  antes de cada execução.
+- **Progresso: Gemini 14/18.** Próximo: COT-03 playlistFlow, depois L4-COT,
+  C3-COT, P2-COT.
+
 ## Próximos passos
 
 Os passos 1 a 4 da lista original (validar aceleração, rodar a fumaça, cleartext, commitar e anotar tempos) foram cumpridos na segunda máquina em 2026-09-28; ver "Execução da fumaça". Receita que funcionou:

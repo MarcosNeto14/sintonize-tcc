@@ -1,0 +1,284 @@
+O teste falhou com o seguinte erro:
+
+```
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 93.0.0 (108.0.0 available)
+  _flutterfire_internals 1.3.52 (1.3.77 available)
+  analyzer 10.0.1 (14.4.0 available)
+  async 2.11.0 (2.13.1 available)
+  boolean_selector 2.1.1 (2.1.2 available)
+  build 4.0.5 (4.0.11 available)
+  build_config 1.3.0 (1.3.3 available)
+  build_daemon 4.1.1 (4.1.6 available)
+  build_runner 2.13.1 (2.16.1 available)
+  built_collection 5.1.1 (5.1.2 available)
+  built_value 8.12.5 (8.13.0 available)
+  cel 0.5.4+1 (0.6.0 available)
+  clock 1.1.2 (1.1.3 available)
+  cloud_firestore 5.6.4 (6.10.0 available)
+  cloud_firestore_platform_interface 6.6.4 (8.0.7 available)
+  cloud_firestore_web 4.4.4 (5.7.3 available)
+  code_builder 4.11.1 (4.12.0 available)
+  crypto 3.0.6 (3.0.7 available)
+  dart_style 3.1.7 (3.1.13 available)
+  equatable 2.0.8 (3.0.0 available)
+  fake_cloud_firestore 3.1.0 (4.3.0 available)
+  fake_firebase_security_rules 0.5.4 (0.6.0 available)
+  firebase_auth 5.5.0 (6.7.0 available)
+  firebase_auth_mocks 0.14.2 (0.15.2 available)
+  firebase_auth_platform_interface 7.6.0 (9.1.0 available)
+  firebase_auth_web 5.14.0 (6.3.0 available)
+  firebase_core 3.12.0 (4.15.0 available)
+  firebase_core_platform_interface 5.4.0 (8.1.1 available)
+  firebase_core_web 2.21.0 (3.12.0 available)
+  flutter_lints 5.0.0 (6.0.0 available)
+  flutter_plugin_android_lifecycle 2.0.24 (2.0.35 available)
+  geolocator 13.0.2 (14.1.1 available)
+  geolocator_android 4.6.1 (5.1.1+1 available)
+  geolocator_apple 2.3.9 (2.3.14 available)
+  geolocator_platform_interface 4.2.4 (4.4.0 available)
+  geolocator_web 4.1.1 (4.1.4 available)
+  geolocator_windows 0.2.3 (0.2.5 available)
+  glob 2.1.3 (2.2.0 available)
+  google_maps 8.1.1 (8.3.0 available)
+  google_maps_flutter 2.10.0 (2.18.2 available)
+  google_maps_flutter_android 2.14.12 (2.21.0 available)
+  google_maps_flutter_ios 2.13.2 (2.18.6 available)
+  google_maps_flutter_platform_interface 2.11.0 (2.17.0 available)
+  google_maps_flutter_web 0.5.10 (0.6.4+1 available)
+  html 0.15.5 (0.15.7 available)
+  http 0.13.6 (1.6.0 available)
+  io 1.0.5 (1.1.0 available)
+  json_annotation 4.9.0 (4.12.0 available)
+  lints 5.1.1 (6.1.0 available)
+  logger 2.7.0 (2.8.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.17.0 (1.19.0 available)
+  mime 2.0.0 (2.1.0 available)
+  mockito 5.6.4 (5.8.1 available)
+  package_config 2.2.0 (3.0.0 available)
+  platform 3.1.6 (3.2.0 available)
+  pool 1.5.2 (1.5.3 available)
+  process 5.0.5 (5.0.6 available)
+  pub_semver 2.2.0 (2.2.1 available)
+  pubspec_parse 1.5.0 (1.6.0 available)
+  rx 0.4.0 (0.5.0 available)
+  sanitize_html 2.1.0 (2.2.0 available)
+  source_gen 4.2.2 (4.3.0 available)
+  source_span 1.10.0 (1.10.2 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  stream_transform 2.1.1 (2.1.2 available)
+  string_scanner 1.3.0 (1.4.1 available)
+  term_glyph 1.2.1 (1.2.2 available)
+  test_api 0.7.10 (0.7.14 available)
+  uuid 4.5.1 (4.6.0 available)
+  vector_math 2.2.0 (2.4.3 available)
+  vm_service 14.3.0 (15.3.0 available)
+  web 1.1.0 (1.1.1 available)
+  webdriver 3.1.0 (3.2.0 available)
+  yaml 3.1.3 (3.1.4 available)
+Got dependencies!
+76 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/Users/marcos.neto/Desktop/sintonize-fase3/integration_test/fase3/cadastro_cot_test.dart
+Running Gradle task 'assembleDebug'...                             74,8s
+✓ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...           6,3s
+00:00 +0: (setUpAll)
+00:00 +0: Fluxo E2E - Cadastro e Seleção de Gêneros Cenário 1: Fluxo de sucesso ponta a ponta
+
+Warning: A call to tap() with finder "Found 1 widget with type "DropdownMenuItem<String>" that are ancestors of widget with text "PE" (ignoring all but last): [
+  DropdownMenuItem<String>,
+]" derived an Offset (Offset(209.7, 679.3)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#63e5f relayoutBoundary=up36
+The hit test result at that offset is: HitTestResult(RenderPointerListener#4c09c@Offset(186.7, 24.0), RenderSemanticsAnnotations#bf1df@Offset(186.7, 24.0), RenderMouseRegion#4272e@Offset(186.7, 24.0), RenderSemanticsAnnotations#dd6a0@Offset(186.7, 24.0), RenderAnimatedOpacity#4ac13@Offset(186.7, 24.0), RenderSemanticsAnnotations#698af@Offset(186.7, 24.0), RenderRepaintBoundary#3a8ba@Offset(186.7, 24.0), RenderIndexedSemantics#dd080@Offset(186.7, 24.0), RenderSliverList@(mainAxis: 631.2857142857143, crossAxis: 186.71428571428572), RenderSliverPadding@(mainAxis: 631.2857142857143, crossAxis: 186.71428571428572), RenderShrinkWrappingViewport#c8808@Offset(186.7, 631.3), RenderIgnorePointer#c187c@Offset(186.7, 631.3), RenderSemanticsAnnotations#f5199@Offset(186.7, 631.3), RenderPointerListener#d318e@Offset(186.7, 631.3), RenderSemanticsGestureHandler#3e4e2@Offset(186.7, 631.3), RenderPointerListener#d5ac8@Offset(186.7, 631.3), _RenderScrollSemantics#9836f@Offset(186.7, 631.3), RenderRepaintBoundary#5ab8e@Offset(186.7, 631.3), RenderCustomPaint#85c60@Offset(186.7, 631.3), RenderMouseRegion#a67b4@Offset(186.7, 631.3), RenderPointerListener#4ec42@Offset(186.7, 631.3), RenderSemanticsGestureHandler#61e89@Offset(186.7, 631.3), RenderPointerListener#e0fc9@Offset(186.7, 631.3), RenderRepaintBoundary#22081@Offset(186.7, 631.3), _RenderInkFeatures#91ac2@Offset(186.7, 631.3), RenderCustomPaint#c5c2a@Offset(186.7, 631.3), RenderClipPath#9bdf2@Offset(186.7, 631.3), RenderClipRRect#b49c5@Offset(186.7, 631.3), RenderSemanticsAnnotations#d5abe@Offset(186.7, 631.3), RenderCustomPaint#25cc1@Offset(186.7, 631.3), RenderAnimatedOpacity#88f50@Offset(186.7, 631.3), RenderCustomSingleChildLayoutBox#274cf@Offset(209.7, 679.3), _RenderLayoutBuilder#4da94@Offset(209.7, 679.3), RenderRepaintBoundary#7370f@Offset(209.7, 679.3), RenderIgnorePointer#468a8@Offset(209.7, 679.3), RenderRepaintBoundary#9cc5e@Offset(209.7, 679.3), RenderSemanticsAnnotations#4c21d@Offset(209.7, 679.3), RenderOffstage#6f092@Offset(209.7, 679.3), RenderSemanticsAnnotations#03c8a@Offset(209.7, 679.3), _RenderTheater#10074@Offset(209.7, 679.3), RenderAbsorbPointer#4fb14@Offset(209.7, 679.3), RenderPointerListener#f0a4f@Offset(209.7, 679.3), RenderSemanticsAnnotations#0266c@Offset(209.7, 679.3), RenderSemanticsAnnotations#98ebe@Offset(209.7, 679.3), RenderSemanticsAnnotations#f0850@Offset(209.7, 679.3), RenderSemanticsAnnotations#fce4c@Offset(209.7, 679.3), RenderTapRegionSurface#cdcd8@Offset(209.7, 679.3), RenderSemanticsAnnotations#750e4@Offset(209.7, 679.3), RenderSemanticsAnnotations#0a980@Offset(209.7, 679.3), HitTestEntry<HitTestTarget>#141af(_ReusableRenderView#721ac), HitTestEntry<HitTestTarget>#a0788(<IntegrationTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/Desktop/sintonize-fase3/integration_test/fase3/cadastro_cot_test.dart:79:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "GenerosCadastroScreen": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/Desktop/sintonize-fase3/integration_test/fase3/cadastro_cot_test.dart:89:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/Desktop/sintonize-fase3/integration_test/fase3/cadastro_cot_test.dart line 89
+The test description was:
+  Cenário 1: Fluxo de sucesso ponta a ponta
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:20 +0 -1: Fluxo E2E - Cadastro e Seleção de Gêneros Cenário 1: Fluxo de sucesso ponta a ponta [E]
+  Test failed. See exception logs above.
+  The test description was: Cenário 1: Fluxo de sucesso ponta a ponta
+  
+00:20 +0 -1: Fluxo E2E - Cadastro e Seleção de Gêneros Cenário 2: Erros de validação local no formulário
+00:29 +1 -1: Fluxo E2E - Cadastro e Seleção de Gêneros Cenário 3: Erro do Firebase Auth com e-mail já existente
+00:31 +1 -1: Fluxo E2E - Cadastro e Seleção de Gêneros Cenário 1: Fluxo de sucesso ponta a ponta
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test (but after the test had completed):
+This widget has been unmounted, so the State no longer has a context (and should be considered
+defunct).
+Consider canceling any active work during "dispose" or using the "mounted" getter to determine if
+the State is still active.
+
+When the exception was thrown, this was the stack:
+#0      State.context.<anonymous closure> (package:flutter/src/widgets/framework.dart:952:9)
+#1      State.context (package:flutter/src/widgets/framework.dart:958:6)
+#2      _CadastroScreenState._submit (package:sintonize/cadastro.dart:176:30)
+<asynchronous suspension>
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:31 +1 -1: Fluxo E2E - Cadastro e Seleção de Gêneros Cenário 1: Fluxo de sucesso ponta a ponta [E]
+  Test failed. See exception logs above.
+  The test description was: Cenário 1: Fluxo de sucesso ponta a ponta
+  
+00:37 +1 -1: Fluxo E2E - Cadastro e Seleção de Gêneros Cenário 3: Erro do Firebase Auth com e-mail já existente
+
+Warning: A call to tap() with finder "Found 1 widget with type "DropdownMenuItem<String>" that are ancestors of widget with text "PE" (ignoring all but last): [
+  DropdownMenuItem<String>,
+]" derived an Offset (Offset(209.7, 848.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#8cc74 relayoutBoundary=up36
+The hit test result at that offset is: HitTestResult(RenderMouseRegion#cfca4@Offset(209.7, 848.0), RenderSemanticsAnnotations#41e6c@Offset(209.7, 848.0), RenderPointerListener#856ed@Offset(209.7, 848.0), RenderSemanticsGestureHandler#5cec8@Offset(209.7, 848.0), RenderExcludeSemantics#9f89f@Offset(209.7, 848.0), RenderBlockSemantics#56618@Offset(209.7, 848.0), RenderIgnorePointer#e0cc5@Offset(209.7, 848.0), RenderSemanticsAnnotations#2f77f@Offset(209.7, 848.0), _RenderTheater#bc3fc@Offset(209.7, 848.0), RenderAbsorbPointer#9a7a0@Offset(209.7, 848.0), RenderPointerListener#26d7d@Offset(209.7, 848.0), RenderSemanticsAnnotations#4814a@Offset(209.7, 848.0), RenderSemanticsAnnotations#6521e@Offset(209.7, 848.0), RenderSemanticsAnnotations#91560@Offset(209.7, 848.0), RenderSemanticsAnnotations#b282a@Offset(209.7, 848.0), RenderTapRegionSurface#cffff@Offset(209.7, 848.0), RenderSemanticsAnnotations#83840@Offset(209.7, 848.0), RenderSemanticsAnnotations#0c3d7@Offset(209.7, 848.0), HitTestEntry<HitTestTarget>#0e11c(_ReusableRenderView#721ac), HitTestEntry<HitTestTarget>#e03b4(<IntegrationTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/Desktop/sintonize-fase3/integration_test/fase3/cadastro_cot_test.dart:190:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextContainingWidgetFinder:<Found 0 widgets with text containing Erro ao cadastrar:: []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/Desktop/sintonize-fase3/integration_test/fase3/cadastro_cot_test.dart:200:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/Desktop/sintonize-fase3/integration_test/fase3/cadastro_cot_test.dart line 200
+The test description was:
+  Cenário 3: Erro do Firebase Auth com e-mail já existente
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:41 +1 -2: Fluxo E2E - Cadastro e Seleção de Gêneros Cenário 3: Erro do Firebase Auth com e-mail já existente [E]
+  Test failed. See exception logs above.
+  The test description was: Cenário 3: Erro do Firebase Auth com e-mail já existente
+  
+00:41 +1 -2: Fluxo E2E - Cadastro e Seleção de Gêneros Cenário 4: Validação de seleção obrigatória na GenerosCadastroScreen
+00:41 +1 -2: Fluxo E2E - Cadastro e Seleção de Gêneros Cenário 3: Erro do Firebase Auth com e-mail já existente
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test (but after the test had completed):
+This widget has been unmounted, so the State no longer has a context (and should be considered
+defunct).
+Consider canceling any active work during "dispose" or using the "mounted" getter to determine if
+the State is still active.
+
+When the exception was thrown, this was the stack:
+#0      State.context.<anonymous closure> (package:flutter/src/widgets/framework.dart:952:9)
+#1      State.context (package:flutter/src/widgets/framework.dart:958:6)
+#2      _CadastroScreenState._submit (package:sintonize/cadastro.dart:172:30)
+<asynchronous suspension>
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:41 +1 -2: Fluxo E2E - Cadastro e Seleção de Gêneros Cenário 3: Erro do Firebase Auth com e-mail já existente [E]
+  Test failed. See exception logs above.
+  The test description was: Cenário 3: Erro do Firebase Auth com e-mail já existente
+  
+00:48 +1 -2: Fluxo E2E - Cadastro e Seleção de Gêneros Cenário 4: Validação de seleção obrigatória na GenerosCadastroScreen
+
+Warning: A call to tap() with finder "Found 1 widget with type "DropdownMenuItem<String>" that are ancestors of widget with text "PE" (ignoring all but last): [
+  DropdownMenuItem<String>,
+]" derived an Offset (Offset(209.7, 679.3)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#89fc4 relayoutBoundary=up36
+The hit test result at that offset is: HitTestResult(RenderPointerListener#f2888@Offset(186.7, 24.0), RenderSemanticsAnnotations#2b64c@Offset(186.7, 24.0), RenderMouseRegion#6ee2d@Offset(186.7, 24.0), RenderSemanticsAnnotations#83110@Offset(186.7, 24.0), RenderAnimatedOpacity#61e4e@Offset(186.7, 24.0), RenderSemanticsAnnotations#914af@Offset(186.7, 24.0), RenderRepaintBoundary#6faa1@Offset(186.7, 24.0), RenderIndexedSemantics#a111e@Offset(186.7, 24.0), RenderSliverList@(mainAxis: 631.2857142857143, crossAxis: 186.71428571428572), RenderSliverPadding@(mainAxis: 631.2857142857143, crossAxis: 186.71428571428572), RenderShrinkWrappingViewport#ceddc@Offset(186.7, 631.3), RenderIgnorePointer#1844d@Offset(186.7, 631.3), RenderSemanticsAnnotations#c961d@Offset(186.7, 631.3), RenderPointerListener#df682@Offset(186.7, 631.3), RenderSemanticsGestureHandler#fa965@Offset(186.7, 631.3), RenderPointerListener#824de@Offset(186.7, 631.3), _RenderScrollSemantics#f7b3a@Offset(186.7, 631.3), RenderRepaintBoundary#ca81c@Offset(186.7, 631.3), RenderCustomPaint#f9ab6@Offset(186.7, 631.3), RenderMouseRegion#f1eaf@Offset(186.7, 631.3), RenderPointerListener#c3c83@Offset(186.7, 631.3), RenderSemanticsGestureHandler#68674@Offset(186.7, 631.3), RenderPointerListener#fe963@Offset(186.7, 631.3), RenderRepaintBoundary#924b9@Offset(186.7, 631.3), _RenderInkFeatures#33d8f@Offset(186.7, 631.3), RenderCustomPaint#0260d@Offset(186.7, 631.3), RenderClipPath#bb58d@Offset(186.7, 631.3), RenderClipRRect#cefaa@Offset(186.7, 631.3), RenderSemanticsAnnotations#f320b@Offset(186.7, 631.3), RenderCustomPaint#d866d@Offset(186.7, 631.3), RenderAnimatedOpacity#4d00b@Offset(186.7, 631.3), RenderCustomSingleChildLayoutBox#13ace@Offset(209.7, 679.3), _RenderLayoutBuilder#bcb40@Offset(209.7, 679.3), RenderRepaintBoundary#dacf4@Offset(209.7, 679.3), RenderIgnorePointer#e0d7a@Offset(209.7, 679.3), RenderRepaintBoundary#08b0d@Offset(209.7, 679.3), RenderSemanticsAnnotations#ebc0d@Offset(209.7, 679.3), RenderOffstage#bbaa7@Offset(209.7, 679.3), RenderSemanticsAnnotations#ba164@Offset(209.7, 679.3), _RenderTheater#3615c@Offset(209.7, 679.3), RenderAbsorbPointer#914b3@Offset(209.7, 679.3), RenderPointerListener#1917d@Offset(209.7, 679.3), RenderSemanticsAnnotations#89780@Offset(209.7, 679.3), RenderSemanticsAnnotations#5f4e4@Offset(209.7, 679.3), RenderSemanticsAnnotations#07742@Offset(209.7, 679.3), RenderSemanticsAnnotations#f4ae1@Offset(209.7, 679.3), RenderTapRegionSurface#e5d66@Offset(209.7, 679.3), RenderSemanticsAnnotations#3829a@Offset(209.7, 679.3), RenderSemanticsAnnotations#fedc9@Offset(209.7, 679.3), HitTestEntry<HitTestTarget>#ee3fa(_ReusableRenderView#721ac), HitTestEntry<HitTestTarget>#8c182(<IntegrationTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/Desktop/sintonize-fase3/integration_test/fase3/cadastro_cot_test.dart:233:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "GenerosCadastroScreen": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/Desktop/sintonize-fase3/integration_test/fase3/cadastro_cot_test.dart:242:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/Desktop/sintonize-fase3/integration_test/fase3/cadastro_cot_test.dart line 242
+The test description was:
+  Cenário 4: Validação de seleção obrigatória na GenerosCadastroScreen
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:50 +1 -3: Fluxo E2E - Cadastro e Seleção de Gêneros Cenário 4: Validação de seleção obrigatória na GenerosCadastroScreen [E]
+  Test failed. See exception logs above.
+  The test description was: Cenário 4: Validação de seleção obrigatória na GenerosCadastroScreen
+  
+00:50 +1 -3: (tearDownAll)
+00:53 +1 -3: Some tests failed.
+```
+
+Antes de corrigir, classifique a causa provável da falha:
+(A) o teste presume um comportamento que não é o especificado, ou
+(B) o teste capturou um comportamento potencialmente incorreto da aplicação.
+Declare essa classificação explicitamente antes de prosseguir.
+
+Se (A): corrija o teste normalmente.
+
+Se (B): não enfraqueça a asserção nem reduza o escopo do teste para
+fazê-lo passar. Descreva o comportamento observado, o comportamento
+esperado, e por que você suspeita de um problema na aplicação, em vez de
+alterar o teste.

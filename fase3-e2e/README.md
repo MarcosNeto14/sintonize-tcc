@@ -642,6 +642,10 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   geração, sem reparo** (máquina original, envio e cópia automatizados).
 - **Bloco FS limpo do Gemini completo (3/3). Progresso: Gemini 9/18.** Próximo:
   L4-FS, C3-FS, P2-FS nos worktrees `Desktop\sintonize-fase3-{L4,C3,P2}`.
+- **Rodada 22 (`FASE3-L4-FS`, Gemini, bug L4): 1/2 nas 4 execuções; (A),(A),(B)
+  com causa errada; manual-first Capturou (iteração 0).** O primeiro envio do
+  reparo 1 não chegou à conversa e foi refeito (o modelo o recebeu uma vez).
+  **Progresso: Gemini 10/18.** Próximo: C3-FS.
 
 ## Próximos passos
 

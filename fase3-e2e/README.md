@@ -668,6 +668,17 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   2 e 3 caem pelo `setState()` após `dispose` de `tela-inicial.dart:161`
   (reparo 3 correto, sem código). Nota `_PENDENTE` removida. **Progresso:
   Gemini 13/18.** Próximo: COT-02 cadastroFlow.
+- **Rodada 32 (`FASE3-E2E-COT-02_cadastroFlow`) interrompida** depois da
+  iteração 1 (0/4 → 1/4; reparo 1 (A)), por troca de máquina. Estado e passos
+  em `rodadas/gemini/FASE3-E2E-COT-02_PENDENTE.md`.
+- **Para continuar em outra máquina:** os scripts de automação usados nas
+  rodadas 20–32 estão em `scripts_automacao/` (com README). Faltam no Gemini:
+  COT-02 (pendente), COT-03, L4-COT, C3-COT, P2-COT; no ChatGPT, P2-ZS e
+  C3-COT (execução manual do autor). Na máquina original: build só no
+  worktree `Desktop\sintonize-fase3` (caminho com acento quebra o AGP),
+  `firebase` só via PowerShell, 7,8 GB de RAM (encerrar daemons do Gradle e
+  apps pesados; o seed já travou por falta de memória).
+- **Progresso: Gemini 13/18 + COT-02 pendente.**
 
 ## Próximos passos
 

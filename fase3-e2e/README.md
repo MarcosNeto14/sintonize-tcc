@@ -646,6 +646,11 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   com causa errada; manual-first Capturou (iteração 0).** O primeiro envio do
   reparo 1 não chegou à conversa e foi refeito (o modelo o recebeu uma vez).
   **Progresso: Gemini 10/18.** Próximo: C3-FS.
+- **Rodada 23 (`FASE3-C3-FS`, Gemini, bug C3): 0/1 nas 4 execuções, sempre em
+  `nome` = e-mail; (A),(B),(A); manual-first Capturou (iteração 0).** O reparo
+  1 voltou com o erro genérico do Gemini e foi reenviado com " ." (orientação
+  do autor); não conta como iteração. **Progresso: Gemini 11/18.** Próximo:
+  P2-FS.
 
 ## Próximos passos
 

@@ -1,0 +1,270 @@
+<!-- Resposta do Gemini 3.8 Flash ao reparo 2, rodada 8, 2026-10-05,
+     como devolvida pelo autor (colagem do texto da resposta), sem edição.
+     Mesma conversa: https://gemini.google.com/app/07f6ac9f1e8f70f8 -->
+
+Classificação da Causa Provável
+(A) O teste presume um comportamento que não é o especificado.
+
+Análise dos Problemas
+A Asserção pós-teste (unmounted widget context):
+Observe a stack trace lançada após a finalização dos testes:
+
+#1  State.context (package:flutter/src/widgets/framework.dart:958:6)
+#2  _CadastroScreenState._submit (package:sintonize/cadastro.dart:172:30)
+No código de cadastro.dart:
+
+A linha 172 é o bloco de erro de FirebaseAuthException:
+
+Dart
+ScaffoldMessenger.of(context).showSnackBar(...)
+E a linha 176 é o bloco genérico de catch (e):
+
+Dart
+ScaffoldMessenger.of(context).showSnackBar(...)
+Isso prova que _submit foi chamado e estava em execução assíncrona (await _auth.createUserWithEmailAndPassword), mas o teste chamou await tester.pumpAndSettle() e, como a requisição de rede assíncrona para o emulador do Firebase ainda estava pendente (ou seja, não havia timers ou animações ativas no loop do Flutter), o pumpAndSettle() retornou imediatamente.
+
+Como o pumpAndSettle() funciona:
+
+O pumpAndSettle() apenas aguarda que a árvore de animações e microtarefas imediatas se estabilize.
+
+Ele não espera chamadas I/O assíncronas (como sockets de rede para o Firebase Auth ou Firestore) que não agendem frames contínuos.
+
+Quando o tester.pumpAndSettle() retornou, a requisição do Firebase ainda não havia terminado:
+
+No teste de e-mail duplicado: a asserção expect(find.byType(SnackBar)) rodou antes do Firebase responder. O teste falhou e encerrou. Durante a desmontagem do widget (ou no tearDown), o Firebase finalmente respondeu com o erro e tentou acessar ScaffoldMessenger.of(context) em um widget que já havia sido desmontado pelo fim do teste.
+
+No teste de validação de gêneros e no fluxo de sucesso: a tela ainda não havia navegado para GenerosCadastroScreen e o usuário ainda não estava logado (FirebaseAuth.instance.currentUser retornou null) porque o createUserWithEmailAndPassword ainda não havia resolvido.
+
+Solução correta no teste:
+Substituir chamadas pontuais de pumpAndSettle() após submissões assíncronas de I/O por polling de espera explícita com pump() periódico ou runAsync() aguardando a condição esperada (ex: até o find.byType(SnackBar) ou o find.text('SELECIONE OS GÊNEROS...') aparecer).
+
+Teste Corrigido
+Dart
+// ===== integration_test/fase3/cadastro_fluxo_test.dart =====
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:integration_test/integration_test.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:sintonize/main.dart';
+import '../firebase_test_helper.dart';
+
+/// Helper para aguardar condições assíncronas de I/O (Firebase)
+Future<void> waitForCondition(
+  WidgetTester tester,
+  Finder finder, {
+  Duration timeout = const Duration(seconds: 15),
+}) async {
+  final end = DateTime.now().add(timeout);
+  while (DateTime.now().isBefore(end)) {
+    await tester.pump(const Duration(milliseconds: 100));
+    if (finder.evaluate().isNotEmpty) {
+      return;
+    }
+  }
+  expect(finder, findsOneWidget);
+}
+
+void main() {
+  IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+
+  setUpAll(() async {
+    await setupFirebaseEmulators();
+  });
+
+  setUp(() async {
+    await FirebaseAuth.instance.signOut();
+  });
+
+  tearDown(() async {
+    await FirebaseAuth.instance.signOut();
+  });
+
+  group('E2E - Fluxo de Cadastro e Seleção de Gêneros Musicais', () {
+    testWidgets('Validações de campos obrigatórios e formato inválido na tela de cadastro',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(const MyApp());
+      await tester.pumpAndSettle();
+
+      final cadastroButtonHome = find.widgetWithText(ElevatedButton, 'Cadastro');
+      expect(cadastroButtonHome, findsOneWidget);
+      await tester.tap(cadastroButtonHome);
+      await tester.pumpAndSettle();
+
+      final cadastrarButton = find.widgetWithText(ElevatedButton, 'Cadastrar');
+      await tester.ensureVisible(cadastrarButton);
+      await tester.tap(cadastrarButton);
+      await tester.pumpAndSettle();
+
+      expect(find.text('O nome é obrigatório'), findsOneWidget);
+      expect(find.text('A data de nascimento é obrigatória'), findsOneWidget);
+      expect(find.text('O e-mail é obrigatório'), findsOneWidget);
+      expect(find.text('A senha é obrigatória'), findsOneWidget);
+      expect(find.text('O CEP é obrigatório'), findsOneWidget);
+      expect(find.text('O número é obrigatório'), findsOneWidget);
+
+      final nomeField = find.descendant(
+        of: find.byType(Form),
+        matching: find.byType(TextFormField),
+      ).first;
+      await tester.enterText(nomeField, 'Maria123');
+
+      await tester.tap(cadastrarButton);
+      await tester.pumpAndSettle();
+
+      expect(
+        find.text('O nome não pode conter números ou caracteres especiais'),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('Erro ao tentar cadastrar e-mail já existente no Firebase Auth',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(const MyApp());
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.widgetWithText(ElevatedButton, 'Cadastro'));
+      await tester.pumpAndSettle();
+
+      final textFields = find.byType(TextFormField);
+
+      await tester.enterText(textFields.at(0), 'Usuario Duplicado');
+      await tester.enterText(textFields.at(1), '15/10/1995');
+      await tester.enterText(textFields.at(2), 'tester@sintonize.test');
+      await tester.enterText(textFields.at(3), 'senha123');
+      await tester.enterText(textFields.at(4), 'senha123');
+      await tester.enterText(textFields.at(5), '50000-000');
+      await tester.enterText(textFields.at(6), 'Rua Principal');
+      await tester.enterText(textFields.at(7), '100');
+
+      final cadastrarButton = find.widgetWithText(ElevatedButton, 'Cadastrar');
+      await tester.ensureVisible(cadastrarButton);
+      await tester.tap(cadastrarButton);
+      await tester.pump();
+
+      // Aguarda ativamente a resposta assíncrona do emulador Auth
+      final errorSnackBar = find.textContaining('Erro ao cadastrar:');
+      await waitForCondition(tester, errorSnackBar);
+      expect(errorSnackBar, findsOneWidget);
+    });
+
+    testWidgets('Validação de seleção obrigatória de gêneros na GenerosCadastroScreen',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(const MyApp());
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.widgetWithText(ElevatedButton, 'Cadastro'));
+      await tester.pumpAndSettle();
+
+      final textFields = find.byType(TextFormField);
+      final uniqueEmail = 'semgenero_${DateTime.now().millisecondsSinceEpoch}@sintonize.test';
+
+      await tester.enterText(textFields.at(0), 'Usuario Sem Genero');
+      await tester.enterText(textFields.at(1), '10/10/1998');
+      await tester.enterText(textFields.at(2), uniqueEmail);
+      await tester.enterText(textFields.at(3), 'senha123');
+      await tester.enterText(textFields.at(4), 'senha123');
+      await tester.enterText(textFields.at(5), '50000-000');
+      await tester.enterText(textFields.at(6), 'Rua dos Testes');
+      await tester.enterText(textFields.at(7), '42');
+
+      final cadastrarButton = find.widgetWithText(ElevatedButton, 'Cadastrar');
+      await tester.ensureVisible(cadastrarButton);
+      await tester.tap(cadastrarButton);
+      await tester.pump();
+
+      // Aguarda a criação no Auth/Firestore e a transição para GenerosCadastroScreen
+      final tituloGeneros = find.text('SELECIONE OS GÊNEROS MUSICAIS QUE VOCÊ MAIS GOSTA');
+      await waitForCondition(tester, tituloGeneros);
+      expect(tituloGeneros, findsOneWidget);
+
+      final confirmarButton = find.widgetWithText(ElevatedButton, 'Confirmar');
+      await tester.ensureVisible(confirmarButton);
+      await tester.tap(confirmarButton);
+      await tester.pump();
+
+      final snackBarValidacao = find.text('Selecione pelo menos um gênero musical!');
+      await waitForCondition(tester, snackBarValidacao);
+      expect(snackBarValidacao, findsOneWidget);
+    });
+
+    testWidgets('Fluxo completo com sucesso: Cadastro -> GenerosCadastro -> TelaInicial e persistência no Firestore',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(const MyApp());
+      await tester.pumpAndSettle();
+
+      expect(find.text('Bem-vindo ao Sintonize!'), findsOneWidget);
+      await tester.tap(find.widgetWithText(ElevatedButton, 'Cadastro'));
+      await tester.pumpAndSettle();
+
+      final textFields = find.byType(TextFormField);
+      final timestamp = DateTime.now().millisecondsSinceEpoch;
+      final uniqueEmail = 'novo_usuario_$timestamp@sintonize.test';
+      const nomeUsuario = 'Novo Membro Sintonize';
+
+      await tester.enterText(textFields.at(0), nomeUsuario);
+      await tester.enterText(textFields.at(1), '20/05/2000');
+      await tester.enterText(textFields.at(2), uniqueEmail);
+      await tester.enterText(textFields.at(3), 'segredo123');
+      await tester.enterText(textFields.at(4), 'segredo123');
+      await tester.enterText(textFields.at(5), '50000-000');
+      await tester.enterText(textFields.at(6), 'Rua das Flores');
+      await tester.enterText(textFields.at(7), '777');
+      await tester.enterText(textFields.at(8), 'Boa Viagem');
+      await tester.enterText(textFields.at(9), 'Recife');
+
+      final cadastrarButton = find.widgetWithText(ElevatedButton, 'Cadastrar');
+      await tester.ensureVisible(cadastrarButton);
+      await tester.tap(cadastrarButton);
+      await tester.pump();
+
+      // Aguarda a transição de navegação após Auth e Firestore
+      final tituloGeneros = find.text('SELECIONE OS GÊNEROS MUSICAIS QUE VOCÊ MAIS GOSTA');
+      await waitForCondition(tester, tituloGeneros);
+
+      final currentUser = FirebaseAuth.instance.currentUser;
+      expect(currentUser, isNotNull);
+      expect(currentUser!.email, uniqueEmail);
+
+      final userDocRef = FirebaseFirestore.instance.collection('usuarios').doc(currentUser.uid);
+      final docAntesGeneros = await userDocRef.get();
+      expect(docAntesGeneros.exists, isTrue);
+      expect(docAntesGeneros.data()?['nome'], nomeUsuario);
+      expect(docAntesGeneros.data()?['endereco']['cidade'], 'Recife');
+
+      // Seleciona os gêneros Rock e Pop
+      final switchRock = find.descendant(
+        of: find.ancestor(of: find.text('Rock'), matching: find.byType(Row)),
+        matching: find.byType(Switch),
+      );
+      await tester.tap(switchRock);
+      await tester.pumpAndSettle();
+
+      final switchPop = find.descendant(
+        of: find.ancestor(of: find.text('Pop'), matching: find.byType(Row)),
+        matching: find.byType(Switch),
+      );
+      await tester.tap(switchPop);
+      await tester.pumpAndSettle();
+
+      // Confirma e aguarda a navegação para TelaInicialScreen
+      final confirmarButton = find.widgetWithText(ElevatedButton, 'Confirmar');
+      await tester.ensureVisible(confirmarButton);
+      await tester.tap(confirmarButton);
+      await tester.pump();
+
+      final navBar = find.byType(BottomNavigationBar);
+      await waitForCondition(tester, navBar);
+
+      expect(find.text('Pesquisa Direta'), findsOneWidget);
+      expect(find.text('Minha Conta'), findsOneWidget);
+
+      // Validação final de persistência no Firestore
+      final docAposGeneros = await userDocRef.get();
+      final List<dynamic> generosSalvos = docAposGeneros.data()?['generos_favoritos'] ?? [];
+      expect(generosSalvos, containsAll(['Rock', 'Pop']));
+      expect(generosSalvos.length, 2);
+    });
+  });
+}

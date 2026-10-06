@@ -579,8 +579,18 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   desde pelo menos a rodada 8 (aparece nos prints, que saem depois da suíte).
   Fechado com "Wait"; sem indício de efeito nos resultados. Conferir o AVD antes
   de cada rodada.
-- **Progresso: Gemini 4/18.** Próxima: C3-ZS (prompt `FASE3-E2E-ZS-02`), no
-  worktree `sintonize-fase3-C3`.
+- **Rodada 11 (`FASE3-C3-ZS`, Gemini, bug C3): 1/3 → 1/3 → não compila →
+  1/3; (A),(A),(A); manual-first Não viu.** O fluxo completo nunca passa do
+  formulário: o nome "Novo Usuario E2E" tem dígito e o validador recusa. É o
+  mesmo achado da C3-ZS do ChatGPT ("Usuário E2E"). Os reparos culpam o
+  Dropdown, o ViaCEP e a espera.
+- **Ocorrências:** o autor reenviou sem querer o reparo 3 (resposta guardada
+  como `FORA_DO_PROTOCOLO_…`, não conta). Duas tentativas da iteração 3
+  abortaram no seed por falha do AVD (ANR; depois "No tests were found"), com
+  carga 11,5 após 2h18 ligado; o AVD foi reiniciado a frio. O script agora
+  limita o seed a 5 min. **Reiniciar o AVD a cada ~2 h de uso.**
+- **Progresso: Gemini 5/18.** Próxima: P2-ZS (prompt `FASE3-E2E-ZS-03`), no
+  worktree `sintonize-fase3-P2`.
 
 ## Próximos passos
 

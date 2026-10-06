@@ -565,7 +565,12 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   `digitsOnly`, e as duas entradas dão o mesmo texto. Doc em `rodadas/gemini/`.
 - O autor devolveu as respostas colando o texto na conversa com o Claude, não
   pelo clipboard. Mesmo formato de transcrição da rodada 7.
-- **Progresso: Gemini 2/18.** Próxima: rodada 9, `FASE3-E2E-ZS-03_playlistFlow`.
+- **Rodada 9 (`FASE3-E2E-ZS-03_playlistFlow`, Gemini, limpa): 2/2 verde na
+  geração, sem reparo.** É o primeiro verde de primeira da Fase 3 nos dois
+  modelos. Usa só `pumpAndSettle()` depois do Firebase, a mesma espera que
+  falhou nas rodadas 7 e 8; uma execução não prova estabilidade.
+- **Bloco ZS limpo do Gemini completo.** **Progresso: Gemini 3/18.** Próximas:
+  L4-ZS, C3-ZS, P2-ZS (Gemini), nos worktrees `sintonize-fase3-{L4,C3,P2}`.
 
 ## Próximos passos
 

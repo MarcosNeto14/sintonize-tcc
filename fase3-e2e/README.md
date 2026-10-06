@@ -611,6 +611,21 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
 - **Bloco ZS do Gemini completo (6/6).** **Progresso: Gemini 6/18.** Próximo:
   bloco FS (rodadas 19–24): FS-01, FS-02, FS-03 limpas, depois L4-FS, C3-FS,
   P2-FS.
+- **Rodada 19 (`FASE3-E2E-FS-01_loginFlow`, Gemini, limpa): 1/2 nas 4
+  execuções; (B),(B),(B) corretos.** As asserções passam; o teste de sucesso cai
+  depois de terminar pelo `setState()` após `dispose` pré-existente em
+  `tela-inicial.dart:161` (o mesmo defeito da FS-01 do ChatGPT).
+- **Rodada 20 (`FASE3-E2E-FS-02_cadastroFlow`) interrompida** antes da captura
+  da resposta ao reparo 3 e da iteração 3 (a máquina descarregou; o autor
+  decidiu parar). Estado e passos para retomar em
+  `rodadas/gemini/FASE3-E2E-FS-02_PENDENTE.md`.
+- **Automação, lições (2026-10-06):** com a janela do Chrome em segundo plano a
+  página do Gemini para de atualizar e os timers são estrangulados; esperar a
+  geração e recarregar a conversa antes de copiar; o clipboard do sistema só
+  recebeu o texto por um botão injetado e clicado de verdade, logo depois de um
+  screenshot; abas podem travar e precisar ser trocadas por uma nova. A
+  instabilidade cresceu ao longo da sessão.
+- **Progresso: Gemini 7/18 fechadas + FS-02 pendente.**
 
 ## Próximos passos
 

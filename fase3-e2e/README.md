@@ -638,6 +638,10 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   caminho errado). Na cópia, o "Copiar" certo é o logo abaixo da última
   resposta — conferir início e fim do clipboard antes de gravar.
 - **Progresso: Gemini 8/18.** Próximo: rodada 21, FS-03 playlistFlow.
+- **Rodada 21 (`FASE3-E2E-FS-03_playlistFlow`, Gemini, limpa): 1/1 verde na
+  geração, sem reparo** (máquina original, envio e cópia automatizados).
+- **Bloco FS limpo do Gemini completo (3/3). Progresso: Gemini 9/18.** Próximo:
+  L4-FS, C3-FS, P2-FS nos worktrees `Desktop\sintonize-fase3-{L4,C3,P2}`.
 
 ## Próximos passos
 

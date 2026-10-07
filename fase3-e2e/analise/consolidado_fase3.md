@@ -5,9 +5,9 @@ E2E (`integration_test`, AVD + Firebase Emulator Suite) em dois modelos:
 ChatGPT (GPT-5.6 Luna, sessão deslogada) e Gemini (3.8 Flash, logado/Pro).
 **Desenho:** 3 fluxos × 3 estratégias × 2 modelos × {limpo, com bug} = 36
 rodadas; 3 bugs plantados (L4 login, C3 cadastro, P2 playlist), um por fluxo.
-**Data de consolidação:** 2026-10-06. **Rodadas fechadas: 34/36** — ChatGPT
-16/18 (P2-ZS e C3-COT pendentes, ver README "Limitações e desvios (d)"),
-Gemini 18/18.
+**Data de consolidação:** 2026-10-06. **Rodadas fechadas: 35/36** — ChatGPT
+17/18 (C3-COT pendente; P2-ZS fechada **sem dado por limitação do serviço**,
+ver README "Limitações e desvios (d)"), Gemini 18/18.
 **Fonte:** um doc por rodada em `fase3-e2e/rodadas/<modelo>/`, saídas íntegras
 em `fase3-e2e/resultados/<modelo>/`, testes finais em
 `integration_test/fase3/<modelo>/`. Formato espelha `analise/dados_consolidados.md`
@@ -73,7 +73,7 @@ a mais fiel.
 
 ---
 
-## 2. Rodadas com bug (9 por modelo; 7 fechadas no ChatGPT)
+## 2. Rodadas com bug (9 por modelo; 8 fechadas no ChatGPT, 7 com dado)
 
 ### 2.1 ChatGPT
 
@@ -85,7 +85,7 @@ a mais fiel.
 | C3-ZS | C3 | ZS | 4 | **não** | — | 3/4 | 3 | A,A,B | 0/1 | **sim** | **Não viu** (nome com dígito) |
 | C3-FS | C3 | FS | 1 | **não** | — | 0/1 | 3 | A,A,B | 0/1 | não | **Não viu** (nome com dígito) |
 | C3-COT | C3 | COT | 11 | sim | 1/11 | **pendente** | — | — | — | **sim** | (Não viu provisório) |
-| P2-ZS | P2 | ZS | — | **pendente** (3 gerações sem código) | — | — | — | — | — | — | — |
+| P2-ZS | P2 | ZS | 0 | **sem dado** (4 gerações só com preâmbulo; Opção 4) | — | — | — | — | — | não | sem dado por limitação do serviço |
 | P2-FS | P2 | FS | 1 | **não** | — | 0/1 | 3 | A,A,B | 1/0 | não | **Capturou** (2) |
 | P2-COT | P2 | COT | 4 | **não** | — | não compila | 3 | A,A,A | — | **sim** | **Não viu** |
 
@@ -113,13 +113,13 @@ a mais fiel.
 | **C3** `nome` = e-mail (SILENT, só na saudação / no doc) | ZS | Não viu | Não viu |
 | | FS | Não viu | **Capturou** |
 | | COT | pendente | Viu sem asserção |
-| **P2** `itemCount + 1` (CRASH, `RangeError` no build) | ZS | pendente | Capturou |
+| **P2** `itemCount + 1` (CRASH, `RangeError` no build) | ZS | sem dado (serviço) | Capturou |
 | | FS | Capturou | Capturou |
 | | COT | Não viu | Capturou |
 
 | Modelo | Capturou | Viu sem asserção | Não viu | Canonizou / Caracterizou | Pendentes |
 |---|---|---|---|---|---|
-| ChatGPT (7 fechadas) | 4 (L4 ×3, P2-FS) | 0 | 3 (C3-ZS, C3-FS, P2-COT) | 0 / 0 | 2 |
+| ChatGPT (8 fechadas, 7 com dado) | 4 (L4 ×3, P2-FS) | 0 | 3 (C3-ZS, C3-FS, P2-COT) | 0 / 0 | 1 pendente (C3-COT) + 1 sem dado (P2-ZS) |
 | Gemini (9) | 7 (L4 ×3, C3-FS, P2 ×3) | 1 (C3-COT) | 1 (C3-ZS) | 0 / 0 | 0 |
 
 Leitura por bug: **L4** — 6/6 Capturou: basta afirmar o tipo da tela de

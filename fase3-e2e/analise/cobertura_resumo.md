@@ -60,6 +60,30 @@ regra de não determinismo do README (b) se aplica).
 
 Nenhuma: os 18 arquivos compilaram e geraram `lcov.info`.
 
+## Repetição da medição — playlist × ChatGPT (2026-10-07, mesma tarde)
+
+Os três arquivos de playlist do ChatGPT tiveram 0 testes passando na
+medição. Cada um foi medido **uma segunda vez**, nas mesmas condições
+(emuladores Firebase reiniciados vazios, seed 1/1/5 conferido por REST, AVD
+sem outros processos de build). É repetição de medição, não rodada: nenhum doc
+de rodada muda. Regra aplicada: se a repetição passasse, o `cobertura.csv`
+usaria a repetição; nenhuma passou, então o CSV mantém a 1ª medição.
+
+| Rodada | 1ª medição: pass/fail | 1ª: linhas cobertas | 2ª medição: pass/fail | 2ª: linhas cobertas | Estado |
+|---|---|---|---|---|---|
+| FASE3-E2E-ZS-03_playlistFlow (ChatGPT) | 0 / 2 | 107 / 1657 | 1 / 1 | 384 / 1657 | **instável** — pass/fail e cobertura divergem |
+| FASE3-E2E-FS-03_playlistFlow (ChatGPT) | 0 / 1 | 106 / 1657 | 0 / 1 | 106 / 1657 | estável |
+| FASE3-E2E-COT-03_playlistFlow (ChatGPT) | 0 / 4 | 380 / 1657 | 0 / 4 | 379 / 1657 | estável (−1 linha, mesmo caminho) |
+
+Na ZS-03, o teste que passou na 2ª medição percorreu a tela de playlist
+(384 linhas, próximo das 408 da ZS-03 do Gemini); na 1ª os dois testes caíram
+antes. Isso confirma o caveat acima: a cobertura desta tabela é a da execução
+que a produziu. A média da célula playlist×ZS×ChatGPT e a união da célula
+ZS×ChatGPT no resumo seguem calculadas com a 1ª medição (107). A repetição do
+FS exigiu dois seeds: o primeiro falhou no emulador Auth
+(`[firebase_auth/unknown] unexpected end of stream`, com 0,5 GB livres) e
+foi refeito. Tempo da repetição: 615 s + 204 s.
+
 ## Observações
 
 - Tempo total: 2300 s para 16 arquivos no loop final + 195 s para os 2

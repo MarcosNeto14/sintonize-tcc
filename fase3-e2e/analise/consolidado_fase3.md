@@ -127,7 +127,7 @@ destino, e nenhum reparo (A) trocou essa asserção pelo comportamento com bug
 (Canonizou = 0). **P2** — Capturou em todas as que compilaram até a lista
 (5/5); o CRASH entrega arquivo:linha sem asserção. **C3** — o discriminador:
 só a FS do Gemini afirmou o campo `nome` do documento; a COT do Gemini chegou
-ao sintoma e afirmou a saudação sem o nome; 4 rodadas (5 com a pendente) nem
+ao sintoma e afirmou a saudação sem o nome; 5 rodadas (contando a C3-COT do ChatGPT, sem dado) nem
 chegaram, pelo nome com dígito (README, "Limitações (a)"). Duas células
    do ChatGPT (P2 × ZS, C3 × COT) ficaram sem dado por limitação do serviço
    deslogado (sem geração / sem reparo após tentativas repetidas).
@@ -215,7 +215,8 @@ Gemini quase não (1 de 7) — os (B) corretos das limpas são o `setState()` ap
   **logado**, Pro, 3.8 Flash fixado, print do seletor por rodada.
 - Envio: ChatGPT automatizado (Claude in Chrome), com interrupções do serviço
   registradas em `_abortadas/`; Gemini manual (05/10) e automatizado (06/10);
-  as duas rodadas pendentes seguem a decisão do README "(d)".
+  as duas rodadas fechadas sem dado (P2-ZS, C3-COT) seguiram a decisão do
+  README "(d)".
 - Reparo = template fixo + saída literal, máx. 3; reparo sem código →
   reexecução inalterada (precedente FASE2-ICRASH-ZS). Nenhum operador
   acrescentou informação ao reparo (ao contrário das 15 rodadas isoladas da

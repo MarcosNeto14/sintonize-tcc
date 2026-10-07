@@ -716,6 +716,16 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   saudação mostra o e-mail no lugar do nome e o teste afirma só "essa é a nossa
   recomendação…". Os docs criados têm `nome` = e-mail (REST). **Progresso:
   Gemini 17/18.** Próximo: P2-COT.
+- **Rodada 36 (`FASE3-P2-COT`, Gemini, bug P2): 0/4 nas 4 execuções
+  (`RangeError` em `criar_playlist.dart:167`, 11 por execução); (B),(B),(B)
+  sem código, com arquivo e linha certos e a causa atribuída a corrida de
+  rebuild, não ao `itemCount + 1`; manual-first Capturou (iteração 0).** Os
+  prompts de reparo têm 140.876 caracteres (saída literal com os 11 stacks) e
+  o editor do Gemini aceitou. A partir da cópia do reparo 2 o autor assumiu à
+  mão (colou as respostas no chat; enviou o reparo 3) — registrado no doc.
+- **Bloco COT do Gemini completo (6/6). GEMINI 18/18 — réplica Gemini da
+  Fase 3 CONCLUÍDA.** Faltam no ChatGPT: P2-ZS e C3-COT (pendentes de decisão
+  do autor; execução manual). **Progresso: 34/36.**
 
 ## Próximos passos
 

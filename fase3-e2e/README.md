@@ -743,26 +743,30 @@ formulário porque o nome preenchido tinha um dígito ("Usuário E2E" no ChatGPT
 | FASE3-E2E-FS-02_cadastroFlow | ChatGPT | rodada limpa; 0/1 nas iterações 1 e 2; o reparo 3 identificou o dígito e trocou por "Usuário Teste" |
 | FASE3-C3-ZS | ChatGPT | bug C3; fluxo completo barrado nas 4 execuções → **Não viu** |
 | FASE3-C3-FS | ChatGPT | bug C3; 0/1 ×4; tinha a asserção `data['nome']` que capturaria o C3, nunca alcançada → **Não viu** |
-| FASE3-C3-COT (iteração 0, pendente) | ChatGPT | bug C3; 1/11 → Não viu provisório |
+| FASE3-C3-COT | ChatGPT | bug C3; 1/11 na iteração 0; rodada fechada sem dado por limitação do serviço (informativo: Não viu) |
 | FASE3-C3-ZS | Gemini | bug C3; 1/3 ×3 → **Não viu** |
 
-**Onde está a regra.** `lib/utils/validators.dart` (as 10 funções da Fase 1)
-não faz parte do material de nenhum prompt da Fase 3 (conferido: nenhum
-arquivo de `prompts_prontos/` o cita). Mas o validador que recusou os nomes
-**não é o de `validators.dart`**: é o `validator` inline do campo Nome em
-`lib/cadastro.dart:235–237` (`RegExp(r'[^a-zA-ZÀ-ÿ\s]')` → "O nome não pode
-conter números ou caracteres especiais"); `cadastro.dart` não importa
-`validators.dart`. E `cadastro.dart` inteiro está nos três prompts de cadastro
-(ZS-02, FS-02, COT-02 — a mensagem de erro aparece nos três). Portanto **não
-é lacuna de material do desenho**: a regra foi entregue aos dois modelos, nas
-três estratégias, e foi ignorada ao escolher o dado de teste. É erro do
-modelo, igual para os dois, e assim é codificado nas auditorias (erro de
-teste antes do sintoma → Não viu). A analogia com o caminho de import da
-Fase 2 vale só no efeito (uma causa única derruba várias rodadas antes do
-alvo), não na origem. O prompt não foi corrigido nem reexecutado, para
-preservar a comparabilidade entre rodadas e entre modelos; a ChatGPT FS-02 é
-a prova de que a regra era legível no material: o reparo 3 cita a regex do
-`cadastro.dart` para explicar a falha do próprio teste.
+**Onde está a regra e por que é erro do modelo.** O validador que recusou os
+nomes é o `validator` inline do campo Nome em `lib/cadastro.dart:235–237`:
+`RegExp(r'[^a-zA-ZÀ-ÿ\s]')` → "O nome não pode conter números ou caracteres
+especiais". Nenhuma tela do `lib/` importa `lib/utils/validators.dart`
+(conferido por `grep -rn validators lib/`): `cadastro.dart` tem os seus
+próprios `_validateDate`, `_validateEmail`, `_validateCEP`, `_validateNumero`
+e os validadores inline de Nome, Senha e Confirmação; `login.dart` tem os
+inline de e-mail e senha. `validators.dart` é um artefato da Fase 1 e nunca
+foi material da Fase 3, e isso é irrelevante aqui. O que importa é que
+`cadastro.dart` inteiro, com essa regex e essa mensagem, está colado verbatim
+nos três prompts de cadastro (ZS-02, FS-02, COT-02), que servem às rodadas
+limpas e às de bug C3 nos dois modelos. A regra estava no prompt e foi
+ignorada ao escolher o dado de teste. Não é lacuna de material do desenho:
+é erro de teste do modelo, igual para os dois, e assim é codificado nas
+auditorias e no achado 2 do consolidado (erro de teste antes do sintoma →
+Não viu). A analogia com o caminho de import da Fase 2 vale só no efeito (uma
+causa única derruba várias rodadas antes do alvo), não na origem. O prompt
+não foi corrigido nem reexecutado, para preservar a comparabilidade entre
+rodadas e entre modelos; a ChatGPT FS-02 prova que a regra era legível no
+material: o reparo 3 cita a regex do `cadastro.dart` para explicar a falha do
+próprio teste.
 
 ### (b) Regra de não determinismo
 

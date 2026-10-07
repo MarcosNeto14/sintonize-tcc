@@ -711,6 +711,11 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   asserção; os reparos 2 e 3 dizem que ela "deve ser mantida" e procuram a causa
   em exceções e no `initState` da `TelaInicialScreen` — nunca na rota trocada.
   **Progresso: Gemini 16/18.** Próximo: C3-COT.
+- **Rodada 35 (`FASE3-C3-COT`, Gemini, bug C3): 2/5 → 5/5 na iteração 1, (A)
+  correto; manual-first Viu sem asserção.** O verde é com o bug ativo: a
+  saudação mostra o e-mail no lugar do nome e o teste afirma só "essa é a nossa
+  recomendação…". Os docs criados têm `nome` = e-mail (REST). **Progresso:
+  Gemini 17/18.** Próximo: P2-COT.
 
 ## Próximos passos
 

@@ -819,6 +819,13 @@ variável nova dentro do ChatGPT, onde a comparação entre estratégias é a
 primária; o Gemini aceitou reparos de 140.876 caracteres (P2-COT) no mesmo
 dia, o que situa o limite no serviço, não no desenho.
 
+**P2-ZS — executada a Opção 1 em 2026-10-06 (noite), à mão, deslogado,
+conversa nova `chatgpt.com/uc/6ac59e7f-…`: tentativa 4, de novo só
+preâmbulo (283 caracteres).** Fechada pela Opção 4: `rodadas/chatgpt/FASE3-P2-ZS.md`,
+célula P2 × ZS × ChatGPT = **sem dado por limitação do serviço**. Print em
+`evidencias/chatgpt/2026-10-06_P2-ZS_tentativa4_sem-codigo_deslogado.png`.
+**Progresso: 35/36** (ChatGPT 17/18; falta C3-COT).
+
 ## Próximos passos
 
 Os passos 1 a 4 da lista original (validar aceleração, rodar a fumaça, cleartext, commitar e anotar tempos) foram cumpridos na segunda máquina em 2026-09-28; ver "Execução da fumaça". Receita que funcionou:

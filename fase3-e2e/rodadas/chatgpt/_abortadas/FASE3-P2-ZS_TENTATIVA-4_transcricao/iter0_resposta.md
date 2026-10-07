@@ -1,0 +1,1 @@
+Vou montar um arquivo de teste completo para integration_test/fase3/, cobrindo o caminho real desde o login até a persistência no Firestore Emulator, além do caso de nome vazio. Também vou considerar os detalhes de sincronização assíncrona da busca de músicas para evitar asserts frágeis.

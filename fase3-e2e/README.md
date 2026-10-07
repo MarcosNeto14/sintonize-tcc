@@ -727,6 +727,98 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   Fase 3 CONCLUÍDA.** Faltam no ChatGPT: P2-ZS e C3-COT (pendentes de decisão
   do autor; execução manual). **Progresso: 34/36.**
 
+## Limitações e desvios (registro de 2026-10-06, decisão do autor)
+
+Registrado antes do fechamento das duas rodadas pendentes do ChatGPT, por
+decisão do autor, para valer independentemente do resultado delas.
+
+### (a) Nome com dígito e o validador de `cadastro.dart`
+
+Em cinco rodadas o teste do fluxo completo de cadastro nunca passou do
+formulário porque o nome preenchido tinha um dígito ("Usuário E2E" no ChatGPT,
+"Novo Usuario E2E" no Gemini) e o validador do campo Nome o recusou:
+
+| Rodada | Modelo | Efeito |
+|---|---|---|
+| FASE3-E2E-FS-02_cadastroFlow | ChatGPT | rodada limpa; 0/1 nas iterações 1 e 2; o reparo 3 identificou o dígito e trocou por "Usuário Teste" |
+| FASE3-C3-ZS | ChatGPT | bug C3; fluxo completo barrado nas 4 execuções → **Não viu** |
+| FASE3-C3-FS | ChatGPT | bug C3; 0/1 ×4; tinha a asserção `data['nome']` que capturaria o C3, nunca alcançada → **Não viu** |
+| FASE3-C3-COT (iteração 0, pendente) | ChatGPT | bug C3; 1/11 → Não viu provisório |
+| FASE3-C3-ZS | Gemini | bug C3; 1/3 ×3 → **Não viu** |
+
+**Onde está a regra.** `lib/utils/validators.dart` (as 10 funções da Fase 1)
+não faz parte do material de nenhum prompt da Fase 3 (conferido: nenhum
+arquivo de `prompts_prontos/` o cita). Mas o validador que recusou os nomes
+**não é o de `validators.dart`**: é o `validator` inline do campo Nome em
+`lib/cadastro.dart:235–237` (`RegExp(r'[^a-zA-ZÀ-ÿ\s]')` → "O nome não pode
+conter números ou caracteres especiais"); `cadastro.dart` não importa
+`validators.dart`. E `cadastro.dart` inteiro está nos três prompts de cadastro
+(ZS-02, FS-02, COT-02 — a mensagem de erro aparece nos três). Portanto **não
+é lacuna de material do desenho**: a regra foi entregue aos dois modelos, nas
+três estratégias, e foi ignorada ao escolher o dado de teste. É erro do
+modelo, igual para os dois, e assim é codificado nas auditorias (erro de
+teste antes do sintoma → Não viu). A analogia com o caminho de import da
+Fase 2 vale só no efeito (uma causa única derruba várias rodadas antes do
+alvo), não na origem. O prompt não foi corrigido nem reexecutado, para
+preservar a comparabilidade entre rodadas e entre modelos; a ChatGPT FS-02 é
+a prova de que a regra era legível no material: o reparo 3 cita a regex do
+`cadastro.dart` para explicar a falha do próprio teste.
+
+### (b) Regra de não determinismo
+
+O resultado de uma rodada é a **execução única registrada no doc** (geração
+e cada iteração, uma execução cada, com seed reconferido). Quando a mesma
+suíte, sem alteração, deu resultados diferentes, as duas saídas ficam
+registradas e a rodada é marcada **instável**:
+
+| Rodada | Observado |
+|---|---|
+| FASE3-E2E-COT-02_cadastroFlow (ChatGPT) | mesmo arquivo da iteração 1: **6/11** na iteração 1 e **4/11** na execução final — o número de testes derrubados pelo toque em "Cadastrar" com o teclado aberto varia entre execuções |
+| FASE3-E2E-FS-02_cadastroFlow (Gemini) | mesmo arquivo nas iterações 1, 2 e 3: **0/1, 0/1, 1/1** — o `setState()` após `dispose` pré-existente dispara ou não; a iteração 3 rodou em **outra máquina** (confundidor registrado no doc) |
+| FASE3-E2E-FS-01_loginFlow (ChatGPT) | 1/2 nas 4 execuções, mas por duas causas distintas (transição da `LoginScreen` nas iterações 0, 1 e 3; `setState` após `dispose` na 2) — resultado estável, causa instável |
+
+Nenhuma rodada foi reexecutada para "escolher" um resultado; onde há duas
+execuções do mesmo arquivo, foi porque o reparo veio sem código (regra:
+reexecutar inalterado) ou porque o protocolo pedia a execução final.
+
+### (c) Defeitos reais, não plantados, expostos pela Fase 3 (para o relatório de bugs)
+
+1. **`setState()` após `dispose()` em `lib/tela-inicial.dart:161`**
+   (`_TelaInicialScreenState._loadLastRecommendedMusic`, sem checar `mounted`).
+   Aparece quando o teste termina logo depois que a `TelaInicialScreen` surge
+   e o framework desmonta a tela antes de o Firestore responder. Presente no
+   `lib/` limpo (`ccae44a`) e no `main`. Diagnosticado corretamente como
+   defeito da aplicação por: **Gemini FS-01** (reparos 1–3, com arquivo, linha
+   e correção), **Gemini FS-02** (reparos 2–3), **Gemini COT-01** (reparo 3),
+   **ChatGPT ZS-03** (reparo 2, separou do erro de teste), **ChatGPT FS-01**
+   (iteração 2). Apontado mas tomado pela causa errada (era efeito, não causa,
+   da falha de timing): **ChatGPT ZS-01** (reparos 1–3), **ChatGPT COT-01**
+   (geração). Derrubou o teste de sucesso do login em Gemini FS-01 (4×),
+   FS-02 (2×) e COT-01 (2×).
+2. **`setState()` após `dispose()` em `lib/criar_playlist.dart:41`**
+   (`_fetchMusicas`, sem checar `mounted`). Mesmo padrão, na tela de playlist.
+   Apontado por **ChatGPT COT-03** (reparo 3, tomado pela causa — falso (B)) e
+   **ChatGPT P2-COT** (reparo 2, corretamente como efeito da falha).
+3. Fora do escopo de bug mas registrado: a consulta real ao **ViaCEP** no
+   `onChanged` do CEP (`cadastro.dart:314`) com a SnackBar "CEP não encontrado"
+   — não é defeito, é dependência externa não isolada que derrubou o cenário
+   de e-mail duplicado na Gemini COT-02 (provado por `curl`).
+
+### (d) Rodadas pendentes do ChatGPT — decisão
+
+**P2-ZS** (3 gerações só com preâmbulo) e **C3-COT** (reparo 1 de 57.926
+caracteres sem resposta ×3): **Opção 1, e se falhar, Opção 4** — sem sessão
+logada e sem filtro da saída. Procedimento: uma tentativa manual cada, em
+horário de baixa carga, prompt byte-idêntico, deslogado, print do estado do
+seletor. P2-ZS: conversa nova, tentativa 4 da geração. C3-COT: conversa nova
+= tentativa 2 da rodada; a iteração 0 anterior fica como tentativa 1 nos
+docs. Com código, protocolo normal; sem código (vazio/preâmbulo), fechar com
+a Opção 4 e marcar a célula como **"sem dado por limitação do serviço"**, com
+a nota já escrita em `_PENDENTE`. Razões: logar ou filtrar introduziria uma
+variável nova dentro do ChatGPT, onde a comparação entre estratégias é a
+primária; o Gemini aceitou reparos de 140.876 caracteres (P2-COT) no mesmo
+dia, o que situa o limite no serviço, não no desenho.
+
 ## Próximos passos
 
 Os passos 1 a 4 da lista original (validar aceleração, rodar a fumaça, cleartext, commitar e anotar tempos) foram cumpridos na segunda máquina em 2026-09-28; ver "Execução da fumaça". Receita que funcionou:

@@ -826,6 +826,18 @@ célula P2 × ZS × ChatGPT = **sem dado por limitação do serviço**. Print em
 `evidencias/chatgpt/2026-10-06_P2-ZS_tentativa4_sem-codigo_deslogado.png`.
 **Progresso: 35/36** (ChatGPT 17/18; falta C3-COT).
 
+**C3-COT — executada a Opção 1 em 2026-10-06 (noite), à mão, deslogado.**
+Tentativa 2 (conversa nova): gerou (6 testes, fontes externas), it.0 não
+compila, reparo 1 (A) aplicado → it.1 1/6, e a **conversa foi perdida por
+reload acidental** antes do reparo 2 — erro de operação, registrada em
+`rodadas/chatgpt/_abortadas/FASE3-C3-COT_TENTATIVA-2_conversa-perdida.md`.
+Tentativa 3 (conversa nova `chatgpt.com/uc/6ac5a5be-…`): **só preâmbulo**.
+Fechada pela Opção 4: `rodadas/chatgpt/FASE3-C3-COT.md`, célula
+C3 × COT × ChatGPT = **sem dado por limitação do serviço** (estado
+informativo: 1/11 da tentativa 1, Não viu provisório). Nota `_PENDENTE`
+removida. **Progresso: 36/36 fechadas — 34 com dado, 2 sem dado (ChatGPT
+P2-ZS e C3-COT). FASE 3 CONCLUÍDA.**
+
 ## Próximos passos
 
 Os passos 1 a 4 da lista original (validar aceleração, rodar a fumaça, cleartext, commitar e anotar tempos) foram cumpridos na segunda máquina em 2026-09-28; ver "Execução da fumaça". Receita que funcionou:

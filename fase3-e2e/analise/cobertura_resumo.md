@@ -84,6 +84,14 @@ FS exigiu dois seeds: o primeiro falhou no emulador Auth
 (`[firebase_auth/unknown] unexpected end of stream`, com 0,5 GB livres) e
 foi refeito. Tempo da repetição: 615 s + 204 s.
 
+**Divergência em relação aos docs das rodadas.** A ZS-03 e a FS-03 do ChatGPT
+fecharam **verdes** nas rodadas (docs: 2/2 em 2026-10-04 e 1/1 em 2026-10-04,
+respectivamente) e falharam nas **duas** medições de cobertura de 2026-10-07,
+no mesmo AVD `tcc_e2e` e com o mesmo `lib/`. É instabilidade entre execuções
+em dias diferentes, registrada aqui e **não corrigida**: nem os docs nem os
+arquivos de teste mudam. A COT-03 é consistente (0/4 no doc e nas duas
+medições).
+
 ## Observações
 
 - Tempo total: 2300 s para 16 arquivos no loop final + 195 s para os 2

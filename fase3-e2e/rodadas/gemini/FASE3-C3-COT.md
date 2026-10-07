@@ -11,7 +11,7 @@ iteração 1**, com o C3 ativo. Um reparo, **(A)**: finder do dropdown de estado
 espera pelo `FutureBuilder` da saudação, ViaCEP e SnackBars assíncronas. O
 fluxo completo chega à `TelaInicialScreen` e afirma só o trecho genérico da
 saudação ("essa é a nossa recomendação de música para você!"), nunca o nome —
-e o documento gravado tem `nome` = e-mail. **Manual-first: Viu sem asserção.**
+e o documento gravado tem `nome` = e-mail. **Manual-first: Chegou sem afirmar.**
 
 ---
 
@@ -118,6 +118,6 @@ Iteração 1: `00:27 +5: All tests passed!`
 
 | Campo | Valor |
 |---|---|
-| **Código** | **Viu sem asserção** |
+| **Código** | **Chegou sem afirmar** |
 | **Iteração em que se define** | 0 (não muda na 1) |
 | **Evidência** | O teste de sucesso chega ao passo 14 do roteiro (a `TelaInicialScreen`, onde o sintoma está) nas duas execuções e afirma o tipo da tela e o trecho da saudação que não contém o nome; a asserção passa com "Novo_user_…@sintonize.test, essa é a nossa recomendação…" na tela. O passo 10 (campo `nome` do documento) não é verificado. É exatamente o caso que o roteiro descreve: "chega à TelaInicialScreen e só verifica o tipo da tela" — aqui, o tipo e o sufixo fixo da frase |

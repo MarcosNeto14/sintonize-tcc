@@ -98,7 +98,7 @@ a mais fiel.
 | L4-COT | L4 | COT | 6 | sim | 5/6 | 5/6 | 3 | A,B,B | 2/0 | não | **Capturou** (0) |
 | C3-ZS | C3 | ZS | 3 | sim | 1/3 | 1/3 | 3 | A,A,A | — | não | **Não viu** (nome com dígito; it.2 não compilou) |
 | C3-FS | C3 | FS | 1 | sim | 0/1 | 0/1 | 3 | A,B,A | 1/0 | não | **Capturou** (0) — `expect(dados['nome'], …)` |
-| C3-COT | C3 | COT | 5 | sim | 2/5 | 5/5 | 1 | A | — | não | **Viu sem asserção** (0) — verde com o bug |
+| C3-COT | C3 | COT | 5 | sim | 2/5 | 5/5 | 1 | A | — | não | **Chegou sem afirmar** (0) — verde com o bug |
 | P2-ZS | P2 | ZS | 2 | sim | 0/2 | 0/2 | 3 | B,B,B | 3/0 | não | **Capturou** (0) |
 | P2-FS | P2 | FS | 1 | **não** | — | 0/1 | 3 | A,A,A | — | não | **Capturou** (1) |
 | P2-COT | P2 | COT | 4 | sim | 0/4 | 0/4 | 3 | B,B,B | 3/0 | não | **Capturou** (0) |
@@ -112,15 +112,27 @@ a mais fiel.
 | | COT | Capturou | Capturou |
 | **C3** `nome` = e-mail (SILENT, só na saudação / no doc) | ZS | Não viu | Não viu |
 | | FS | Não viu | **Capturou** |
-| | COT | sem dado (serviço) | Viu sem asserção |
+| | COT | sem dado (serviço) | Chegou sem afirmar |
 | **P2** `itemCount + 1` (CRASH, `RangeError` no build) | ZS | sem dado (serviço) | Capturou |
 | | FS | Capturou | Capturou |
 | | COT | Não viu | Capturou |
 
-| Modelo | Capturou | Viu sem asserção | Não viu | Canonizou / Caracterizou | Pendentes |
+| Modelo | Capturou | Chegou sem afirmar | Não viu | Canonizou / Caracterizou | Pendentes |
 |---|---|---|---|---|---|
 | ChatGPT (9 fechadas, 7 com dado) | 4 (L4 ×3, P2-FS) | 0 | 3 (C3-ZS, C3-FS, P2-COT) | 0 / 0 | 2 sem dado (P2-ZS, C3-COT) |
 | Gemini (9) | 7 (L4 ×3, C3-FS, P2 ×3) | 1 (C3-COT) | 1 (C3-ZS) | 0 / 0 | 0 |
+
+**Nota de equivalência com a codificação da Fase 2** (para a tabela unificada
+da pirâmide): a rubrica da Fase 3 codifica o *teste* (chegou ou não ao ponto do
+sintoma, afirmou ou não), a da Fase 2 codifica a *resposta do modelo*. Mapeamento:
+**Capturou = Capturou**; **Chegou sem afirmar = Não viu** na codificação da Fase 2,
+salvo se a resposta do modelo nomear o defeito na prosa (aí = *Viu sem asserção*
+da Fase 2); **Não viu = Não viu**. A categoria "Viu sem asserção" da Fase 2 não é
+usada na Fase 3 (chamava-se assim até 2026-10-06 e foi renomeada para "Chegou sem
+afirmar" por não ser a mesma coisa). Na Fase 3 só a Gemini C3-COT recebe "Chegou
+sem afirmar"; como a resposta do modelo não nomeia o defeito (o reparo é (A) sobre
+finders e esperas), ela equivale a **Não viu** na tabela unificada. Nenhuma outra
+rodada muda de código.
 
 Leitura por bug: **L4** — 6/6 Capturou: basta afirmar o tipo da tela de
 destino, e nenhum reparo (A) trocou essa asserção pelo comportamento com bug
@@ -198,9 +210,15 @@ Gemini quase não (1 de 7) — os (B) corretos das limpas são o `setState()` ap
    suítes maiores e consultou fontes externas em 6 gerações, todas com
    `material.dart` ou imports faltando em 4 delas.
 5. **Dois defeitos reais não plantados** foram expostos e, em parte,
-   diagnosticados pelos modelos (`setState()` após `dispose` em
-   `tela-inicial.dart:161` e `criar_playlist.dart:41`) — README,
-   "Limitações (c)".
+   diagnosticados pelos modelos — README, "Limitações (c)": (i) `setState()`
+   após `dispose()` em `tela-inicial.dart:161` (`_loadLastRecommendedMusic`,
+   sem `mounted`), diagnosticado por Gemini FS-01/FS-02/COT-01 e ChatGPT
+   ZS-03/FS-01; (ii) `setState()` após `dispose()` em `criar_playlist.dart:41`
+   (`_fetchMusicas`, sem `mounted`; o `catch` engole a exceção e imprime
+   "Erro ao buscar músicas: setState() called after dispose()", sem stack —
+   presente nas saídas ChatGPT COT-03 it.2–3 e P2-COT it.1), apontado por
+   ChatGPT COT-03 (reparo 3, (B) tomado pela causa — falso) e ChatGPT P2-COT
+   (reparo 2, corretamente como efeito da falha).
 6. **Custo:** uma execução E2E leva 20–90 s de teste mais 11–75 s de Gradle
    com cache; uma rodada completa (4 execuções + 3 reparos) ~45 min com envio
    automatizado (`analise/custo_e_referencia.md` para o custo fixo do ambiente).

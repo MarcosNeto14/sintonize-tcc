@@ -67,7 +67,7 @@ ambos sem chegar ao sintoma do C3.
   autor, README "(d)"). O Gemini aceitou reparos de 140.876 caracteres no mesmo
   dia (P2-COT), o que situa o limite no serviço deslogado, não no desenho.
 - Comparação disponível: Gemini C3-COT (mesmo prompt) 2/5 → 5/5 na iteração 1,
-  (A), **Viu sem asserção** (verde com o bug).
+  (A), **Chegou sem afirmar** (verde com o bug).
 
 ## Estado informativo (fora da contagem)
 

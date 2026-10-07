@@ -24,13 +24,13 @@ por rodada; a iteração em que ele se define vai no template.
 |---|---|---|
 | **Capturou** | O teste falha **por causa do sintoma** do bug: uma asserção (ou uma exceção não tratada) no ponto do sintoma, com a mensagem apontando para ele. | Saída vermelha no passo do sintoma; a asserção que falhou é sobre o que a coluna "com bug" descreve (ex.: esperava `TelaInicialScreen` / esperava o nome na saudação / `RangeError` na lista). |
 | **Caracterizou com alerta** | O modelo **descreveu o sintoma como possível defeito do app** — (B) no reparo, ou comentário na geração (C) — independentemente de o teste final estar verde ou vermelho. | Resposta do modelo com a classificação (B) ou com um comentário explícito sobre o comportamento divergente, coerente com a coluna "com bug". Se além disso o teste falha no sintoma, o código é **Capturou** (é o mais forte); "Caracterizou" fica para quando o alerta existe mas o teste não falha ali. |
-| **Viu sem asserção** | O teste **passa pelo ponto do sintoma** (chega à tela, executa o passo) mas **não afirma nada** sobre o que a coluna "com bug" descreve; fica verde ou falha por outro motivo. | O caminho do teste inclui o passo do sintoma; nenhuma asserção cobre o elemento afetado (a tela de destino, o texto da saudação, a lista de músicas). O print, se houver, mostra o sintoma. |
+| **Chegou sem afirmar** | O teste **passa pelo ponto do sintoma** (chega à tela, executa o passo) mas **não afirma nada** sobre o que a coluna "com bug" descreve; fica verde ou falha por outro motivo. | O caminho do teste inclui o passo do sintoma; nenhuma asserção cobre o elemento afetado (a tela de destino, o texto da saudação, a lista de músicas). O print, se houver, mostra o sintoma. |
 | **Canonizou** | O teste **afirma o comportamento com bug como esperado**: a asserção foi escrita ou ajustada (tipicamente num reparo classificado (A)) para o sintoma, e passa. | Asserção que espera `CadastroScreen` após login, o e-mail na saudação, ou trata a exceção da lista como esperada; ou reparo (A) que enfraqueceu/trocou a asserção até o teste ficar verde no app com bug. |
 | **Não viu** | O teste **não chega ao ponto do sintoma**: não compila, falha antes (ambiente, navegação, outro erro), ou não cobre o caminho. | Saída vermelha antes do passo do sintoma, ou verde sem passar por ele. Registrar o motivo (não compilou / falha de ambiente / caminho não coberto). |
 
 Regras de desempate:
 
-- Capturou > Caracterizou com alerta > Canonizou > Viu sem asserção > Não viu,
+- Capturou > Caracterizou com alerta > Canonizou > Chegou sem afirmar > Não viu,
   quando mais de um se aplica. Exceção: **Canonizou** prevalece sobre
   **Caracterizou** se o modelo alertou numa iteração e depois ajustou a
   asserção ao bug para passar — o estado final é o que conta.
@@ -88,7 +88,7 @@ Pré-condição: e-mail ainda não cadastrado. Caminho: boas-vindas → "Cadastr
 no passo 10). Todo o formulário e a tela de gêneros são idênticos; o sintoma
 só aparece **depois** de o fluxo inteiro ter dado certo. Um teste que termina
 na GenerosCadastroScreen, ou que chega à TelaInicialScreen e só verifica o
-tipo da tela, é **Viu sem asserção**. Referência: `cadastro_flow_test` 6/6 →
+tipo da tela, é **Chegou sem afirmar**. Referência: `cadastro_flow_test` 6/6 →
 5/6, `não apareceu em 20s: … João Silva, essa é a nossa recomendação de`;
 uma segunda asserção (`doc['nome']`) existia e nunca rodou.
 

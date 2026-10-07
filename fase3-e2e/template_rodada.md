@@ -242,7 +242,7 @@ bug).
 | **Bug da rodada** | L4 / C3 / P2 |
 | **Sintoma manual de referência** | [copiar a linha "com bug" do passo correspondente em `roteiro_manual.md`] |
 | **O teste chegou ao ponto do sintoma?** | Sim / Não (falhou antes / não compilou / não cobre o caminho) |
-| **Código** | Capturou / Caracterizou com alerta / Viu sem asserção / Canonizou / Não viu |
+| **Código** | Capturou / Caracterizou com alerta / Chegou sem afirmar / Canonizou / Não viu |
 | **Evidência** | [trecho da saída, da asserção ou da resposta do modelo que sustenta o código; print, se houver] |
 | **Iteração em que o código se define** | 0 / 1 / 2 / 3 |
 

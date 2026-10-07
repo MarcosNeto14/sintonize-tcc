@@ -712,7 +712,7 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   em exceções e no `initState` da `TelaInicialScreen` — nunca na rota trocada.
   **Progresso: Gemini 16/18.** Próximo: C3-COT.
 - **Rodada 35 (`FASE3-C3-COT`, Gemini, bug C3): 2/5 → 5/5 na iteração 1, (A)
-  correto; manual-first Viu sem asserção.** O verde é com o bug ativo: a
+  correto; manual-first Chegou sem afirmar.** O verde é com o bug ativo: a
   saudação mostra o e-mail no lugar do nome e o teste afirma só "essa é a nossa
   recomendação…". Os docs criados têm `nome` = e-mail (REST). **Progresso:
   Gemini 17/18.** Próximo: P2-COT.
@@ -796,9 +796,22 @@ reexecutar inalterado) ou porque o protocolo pedia a execução final.
    (geração). Derrubou o teste de sucesso do login em Gemini FS-01 (4×),
    FS-02 (2×) e COT-01 (2×).
 2. **`setState()` após `dispose()` em `lib/criar_playlist.dart:41`**
-   (`_fetchMusicas`, sem checar `mounted`). Mesmo padrão, na tela de playlist.
-   Apontado por **ChatGPT COT-03** (reparo 3, tomado pela causa — falso (B)) e
-   **ChatGPT P2-COT** (reparo 2, corretamente como efeito da falha).
+   (`_fetchMusicas`, linhas 38–47: `await _firestore.collection('musica').get()`
+   seguido de `setState(...)` sem checar `mounted`; o `catch (e)` engole a
+   exceção e só faz `print("Erro ao buscar músicas: $e")`). Mesmo padrão do
+   item 1, na tela de playlist; presente no `lib/` limpo. Dispara quando o
+   teste desmonta a `CriarPlaylistScreen` antes de o Firestore responder.
+   Evidência nas saídas: a linha `Erro ao buscar músicas: setState() called
+   after dispose(): _CriarPlaylistScreenState…` em
+   `resultados/chatgpt/FASE3-E2E-COT-03_playlistFlow_iter2.txt` (2×),
+   `…_iter3_final.txt` (1×) e `resultados/chatgpt/FASE3-P2-COT_iter1.txt` (2×)
+   — sem stack trace (a exceção é capturada), por isso o arquivo:linha vem da
+   leitura do código, não da saída. Apontado por **ChatGPT COT-03** (reparo 3,
+   (B): propõe `if (!mounted) return;`, mas toma o efeito pela causa — a
+   auditoria registra falso (B)) e por **ChatGPT P2-COT** (reparo 2,
+   corretamente como consequência da falha do teste). Nenhuma rodada do Gemini
+   o encontrou (nas rodadas de playlist do Gemini a tela não é desmontada antes
+   da resposta).
 3. Fora do escopo de bug mas registrado: a consulta real ao **ViaCEP** no
    `onChanged` do CEP (`cadastro.dart:314`) com a SnackBar "CEP não encontrado"
    — não é defeito, é dependência externa não isolada que derrubou o cenário

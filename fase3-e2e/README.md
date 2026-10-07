@@ -706,6 +706,11 @@ Decisão do autor em 2026-10-03: **o trabalho segue na segunda máquina
   asserção de retorno e manteve a verificação do documento no Firestore.
   **Bloco COT limpo do Gemini completo (3/3). Progresso: Gemini 15/18.**
   Próximo: L4-COT, C3-COT, P2-COT nos worktrees `Desktop\sintonize-fase3-{L4,C3,P2}`.
+- **Rodada 34 (`FASE3-L4-COT`, Gemini, bug L4): 5/6 nas 4 execuções; (A),(B),(B);
+  manual-first Capturou (iteração 0).** O reparo 1 acrescenta polling e mantém a
+  asserção; os reparos 2 e 3 dizem que ela "deve ser mantida" e procuram a causa
+  em exceções e no `initState` da `TelaInicialScreen` — nunca na rota trocada.
+  **Progresso: Gemini 16/18.** Próximo: C3-COT.
 
 ## Próximos passos
 

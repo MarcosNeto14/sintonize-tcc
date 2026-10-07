@@ -5,9 +5,9 @@ E2E (`integration_test`, AVD + Firebase Emulator Suite) em dois modelos:
 ChatGPT (GPT-5.6 Luna, sessão deslogada) e Gemini (3.8 Flash, logado/Pro).
 **Desenho:** 3 fluxos × 3 estratégias × 2 modelos × {limpo, com bug} = 36
 rodadas; 3 bugs plantados (L4 login, C3 cadastro, P2 playlist), um por fluxo.
-**Data de consolidação:** 2026-10-06. **Rodadas fechadas: 35/36** — ChatGPT
-17/18 (C3-COT pendente; P2-ZS fechada **sem dado por limitação do serviço**,
-ver README "Limitações e desvios (d)"), Gemini 18/18.
+**Data de consolidação:** 2026-10-06. **Rodadas fechadas: 36/36** — Gemini 18/18 com dado;
+ChatGPT 18/18 fechadas, 16 com dado: **P2-ZS e C3-COT fechadas sem dado por
+limitação do serviço** (README "Limitações e desvios (d)").
 **Fonte:** um doc por rodada em `fase3-e2e/rodadas/<modelo>/`, saídas íntegras
 em `fase3-e2e/resultados/<modelo>/`, testes finais em
 `integration_test/fase3/<modelo>/`. Formato espelha `analise/dados_consolidados.md`
@@ -73,7 +73,7 @@ a mais fiel.
 
 ---
 
-## 2. Rodadas com bug (9 por modelo; 8 fechadas no ChatGPT, 7 com dado)
+## 2. Rodadas com bug (9 por modelo; no ChatGPT 7 com dado e 2 sem dado)
 
 ### 2.1 ChatGPT
 
@@ -84,7 +84,7 @@ a mais fiel.
 | L4-COT | L4 | COT | 7 | sim | 6/7 | 6/7 | 3 | A,A,B | 1/0 | não | **Capturou** (1) |
 | C3-ZS | C3 | ZS | 4 | **não** | — | 3/4 | 3 | A,A,B | 0/1 | **sim** | **Não viu** (nome com dígito) |
 | C3-FS | C3 | FS | 1 | **não** | — | 0/1 | 3 | A,A,B | 0/1 | não | **Não viu** (nome com dígito) |
-| C3-COT | C3 | COT | 11 | sim | 1/11 | **pendente** | — | — | — | **sim** | (Não viu provisório) |
+| C3-COT | C3 | COT | 11 | sim | 1/11 | **sem dado** (reparo 1 sem resposta ×3; tent. 2 perdida; tent. 3 só preâmbulo) | — | — | — | **sim** | sem dado por limitação do serviço (informativo: Não viu) |
 | P2-ZS | P2 | ZS | 0 | **sem dado** (4 gerações só com preâmbulo; Opção 4) | — | — | — | — | — | não | sem dado por limitação do serviço |
 | P2-FS | P2 | FS | 1 | **não** | — | 0/1 | 3 | A,A,B | 1/0 | não | **Capturou** (2) |
 | P2-COT | P2 | COT | 4 | **não** | — | não compila | 3 | A,A,A | — | **sim** | **Não viu** |
@@ -112,14 +112,14 @@ a mais fiel.
 | | COT | Capturou | Capturou |
 | **C3** `nome` = e-mail (SILENT, só na saudação / no doc) | ZS | Não viu | Não viu |
 | | FS | Não viu | **Capturou** |
-| | COT | pendente | Viu sem asserção |
+| | COT | sem dado (serviço) | Viu sem asserção |
 | **P2** `itemCount + 1` (CRASH, `RangeError` no build) | ZS | sem dado (serviço) | Capturou |
 | | FS | Capturou | Capturou |
 | | COT | Não viu | Capturou |
 
 | Modelo | Capturou | Viu sem asserção | Não viu | Canonizou / Caracterizou | Pendentes |
 |---|---|---|---|---|---|
-| ChatGPT (8 fechadas, 7 com dado) | 4 (L4 ×3, P2-FS) | 0 | 3 (C3-ZS, C3-FS, P2-COT) | 0 / 0 | 1 pendente (C3-COT) + 1 sem dado (P2-ZS) |
+| ChatGPT (9 fechadas, 7 com dado) | 4 (L4 ×3, P2-FS) | 0 | 3 (C3-ZS, C3-FS, P2-COT) | 0 / 0 | 2 sem dado (P2-ZS, C3-COT) |
 | Gemini (9) | 7 (L4 ×3, C3-FS, P2 ×3) | 1 (C3-COT) | 1 (C3-ZS) | 0 / 0 | 0 |
 
 Leitura por bug: **L4** — 6/6 Capturou: basta afirmar o tipo da tela de
@@ -128,7 +128,9 @@ destino, e nenhum reparo (A) trocou essa asserção pelo comportamento com bug
 (5/5); o CRASH entrega arquivo:linha sem asserção. **C3** — o discriminador:
 só a FS do Gemini afirmou o campo `nome` do documento; a COT do Gemini chegou
 ao sintoma e afirmou a saudação sem o nome; 4 rodadas (5 com a pendente) nem
-chegaram, pelo nome com dígito (README, "Limitações (a)").
+chegaram, pelo nome com dígito (README, "Limitações (a)"). Duas células
+   do ChatGPT (P2 × ZS, C3 × COT) ficaram sem dado por limitação do serviço
+   deslogado (sem geração / sem reparo após tentativas repetidas).
 
 ---
 
@@ -160,7 +162,7 @@ Gemini quase não (1 de 7) — os (B) corretos das limpas são o `setState()` ap
 
 | Modelo | Rodadas fechadas | Não compilou na geração | Causa dominante | Gerações com fontes externas |
 |---|---|---|---|---|
-| ChatGPT | 16 | **9** (ZS-03, FS-02, FS-03, COT-02, COT-03, C3-ZS, C3-FS, P2-FS, P2-COT) | `material.dart` / import de tela faltando (7); ordem de declaração (COT-02); classe não exportada (P2-COT) | **6** (C3-ZS, COT-01, COT-02, COT-03, P2-COT; C3-COT pendente) — todas COT exceto C3-ZS |
+| ChatGPT | 16 com dado | **9** (ZS-03, FS-02, FS-03, COT-02, COT-03, C3-ZS, C3-FS, P2-FS, P2-COT) | `material.dart` / import de tela faltando (7); ordem de declaração (COT-02); classe não exportada (P2-COT) | **6** (C3-ZS, COT-01, COT-02, COT-03, P2-COT, C3-COT — as duas gerações da C3-COT) — todas COT exceto C3-ZS |
 | Gemini | 18 | **2** (ZS-01: `Finder.matches` inexistente; P2-FS: código cortado e recomeçado no bloco) + 1 reparo (C3-ZS r2: `Finder.or`) | API inexistente | **0** |
 
 ---

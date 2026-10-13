@@ -1,0 +1,389 @@
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 93.0.0 (108.0.0 available)
+  _flutterfire_internals 1.3.52 (1.3.77 available)
+  analyzer 10.0.1 (14.4.0 available)
+  async 2.11.0 (2.13.1 available)
+  boolean_selector 2.1.1 (2.1.2 available)
+  build 4.0.5 (4.0.11 available)
+  build_config 1.3.0 (1.3.3 available)
+  build_daemon 4.1.1 (4.1.6 available)
+  build_runner 2.13.1 (2.16.1 available)
+  built_value 8.12.5 (8.13.0 available)
+  cel 0.5.4+1 (0.6.0 available)
+  clock 1.1.2 (1.1.3 available)
+  cloud_firestore 5.6.4 (6.10.0 available)
+  cloud_firestore_platform_interface 6.6.4 (8.0.7 available)
+  cloud_firestore_web 4.4.4 (5.7.3 available)
+  code_builder 4.11.1 (4.12.0 available)
+  crypto 3.0.6 (3.0.7 available)
+  dart_style 3.1.7 (3.1.13 available)
+  equatable 2.0.8 (3.0.0 available)
+  fake_cloud_firestore 3.1.0 (4.3.0 available)
+  fake_firebase_security_rules 0.5.4 (0.6.0 available)
+  firebase_auth 5.5.0 (6.7.0 available)
+  firebase_auth_mocks 0.14.2 (0.15.2 available)
+  firebase_auth_platform_interface 7.6.0 (9.1.0 available)
+  firebase_auth_web 5.14.0 (6.3.0 available)
+  firebase_core 3.12.0 (4.15.0 available)
+  firebase_core_platform_interface 5.4.0 (8.1.1 available)
+  firebase_core_web 2.21.0 (3.12.0 available)
+  flutter_lints 5.0.0 (6.0.0 available)
+  flutter_plugin_android_lifecycle 2.0.24 (2.0.35 available)
+  geolocator 13.0.2 (14.0.3 available)
+  geolocator_android 4.6.1 (5.0.3 available)
+  geolocator_apple 2.3.9 (2.3.14 available)
+  geolocator_platform_interface 4.2.4 (4.3.0 available)
+  geolocator_web 4.1.1 (4.1.4 available)
+  geolocator_windows 0.2.3 (0.2.5 available)
+  glob 2.1.3 (2.2.0 available)
+  google_maps 8.1.1 (8.3.0 available)
+  google_maps_flutter 2.10.0 (2.18.1 available)
+  google_maps_flutter_android 2.14.12 (2.19.13 available)
+  google_maps_flutter_ios 2.13.2 (2.18.6 available)
+  google_maps_flutter_platform_interface 2.11.0 (2.17.0 available)
+  google_maps_flutter_web 0.5.10 (0.6.3+1 available)
+  html 0.15.5 (0.15.7 available)
+  http 0.13.6 (1.6.0 available)
+  io 1.0.5 (1.1.0 available)
+  json_annotation 4.9.0 (4.12.0 available)
+  lints 5.1.1 (6.1.0 available)
+  logger 2.7.0 (2.8.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.17.0 (1.19.0 available)
+  mime 2.0.0 (2.1.0 available)
+  mockito 5.6.4 (5.8.1 available)
+  package_config 2.2.0 (3.0.0 available)
+  platform 3.1.6 (3.2.0 available)
+  pool 1.5.2 (1.5.3 available)
+  process 5.0.5 (5.0.6 available)
+  pub_semver 2.2.0 (2.2.1 available)
+  pubspec_parse 1.5.0 (1.6.0 available)
+  rx 0.4.0 (0.5.0 available)
+  sanitize_html 2.1.0 (2.2.0 available)
+  source_gen 4.2.2 (4.3.0 available)
+  source_span 1.10.0 (1.10.2 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  stream_transform 2.1.1 (2.1.2 available)
+  string_scanner 1.3.0 (1.4.1 available)
+  term_glyph 1.2.1 (1.2.2 available)
+  test_api 0.7.10 (0.7.14 available)
+  uuid 4.5.1 (4.6.0 available)
+  vector_math 2.2.0 (2.4.3 available)
+  vm_service 14.3.0 (15.3.0 available)
+  web 1.1.0 (1.1.1 available)
+  webdriver 3.1.0 (3.2.0 available)
+  yaml 3.1.3 (3.1.4 available)
+Got dependencies!
+75 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2-gemini/integration/icrash_cot_reexec_test.dart
+00:00 +0: Fluxo de Cadastro e Gêneros Musicais - Sintonize 1. Validações de campos obrigatórios antes de acionar Firebase
+00:01 +1: Fluxo de Cadastro e Gêneros Musicais - Sintonize 2. Validação de divergência de senhas
+00:02 +2: Fluxo de Cadastro e Gêneros Musicais - Sintonize 3. Exibe SnackBar quando FirebaseAuth lança FirebaseAuthException
+
+Warning: A call to tap() with finder "Found 1 widget with type "DropdownMenuItem<String>" that are ancestors of widget with text "PE" (ignoring all but last): [
+  DropdownMenuItem<String>,
+]" derived an Offset (Offset(544.0, 1569.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#1c68b relayoutBoundary=up36
+The hit test result at that offset is: HitTestResult(RenderPointerListener#b28b1@Offset(521.0, 24.0), RenderSemanticsAnnotations#1d03f@Offset(521.0, 24.0), RenderMouseRegion#1a173@Offset(521.0, 24.0), RenderSemanticsAnnotations#8ce4f@Offset(521.0, 24.0), RenderAnimatedOpacity#77733@Offset(521.0, 24.0), RenderSemanticsAnnotations#7f531@Offset(521.0, 24.0), RenderRepaintBoundary#7543c@Offset(521.0, 24.0), RenderIndexedSemantics#de933@Offset(521.0, 24.0), RenderSliverList@(mainAxis: 792.0, crossAxis: 521.0), RenderSliverPadding@(mainAxis: 800.0, crossAxis: 521.0), RenderShrinkWrappingViewport#f0f70@Offset(521.0, 800.0), RenderIgnorePointer#820f7@Offset(521.0, 800.0), RenderSemanticsAnnotations#ec618@Offset(521.0, 800.0), RenderPointerListener#98c22@Offset(521.0, 800.0), RenderSemanticsGestureHandler#fbdb9@Offset(521.0, 800.0), RenderPointerListener#6dcab@Offset(521.0, 800.0), _RenderScrollSemantics#85e05@Offset(521.0, 800.0), RenderRepaintBoundary#7d62a@Offset(521.0, 800.0), RenderCustomPaint#4a5fc@Offset(521.0, 800.0), RenderMouseRegion#74fcc@Offset(521.0, 800.0), RenderPointerListener#17bf3@Offset(521.0, 800.0), RenderSemanticsGestureHandler#1281a@Offset(521.0, 800.0), RenderPointerListener#dc2c8@Offset(521.0, 800.0), RenderRepaintBoundary#e2af4@Offset(521.0, 800.0), _RenderInkFeatures#bcb13@Offset(521.0, 800.0), RenderCustomPaint#13f7a@Offset(521.0, 800.0), RenderClipPath#89a2a@Offset(521.0, 800.0), RenderClipRRect#16a74@Offset(521.0, 800.0), RenderSemanticsAnnotations#4acc0@Offset(521.0, 800.0), RenderCustomPaint#72959@Offset(521.0, 800.0), RenderAnimatedOpacity#6ef2d@Offset(521.0, 800.0), RenderCustomSingleChildLayoutBox#2566e@Offset(544.0, 1569.0), _RenderLayoutBuilder#3026b@Offset(544.0, 1569.0), RenderRepaintBoundary#a415a@Offset(544.0, 1569.0), RenderIgnorePointer#26080@Offset(544.0, 1569.0), RenderRepaintBoundary#dc4aa@Offset(544.0, 1569.0), RenderSemanticsAnnotations#892af@Offset(544.0, 1569.0), RenderOffstage#74079@Offset(544.0, 1569.0), RenderSemanticsAnnotations#6035d@Offset(544.0, 1569.0), _RenderTheater#bb4d4@Offset(544.0, 1569.0), RenderAbsorbPointer#5cc85@Offset(544.0, 1569.0), RenderPointerListener#258e6@Offset(544.0, 1569.0), RenderSemanticsAnnotations#74a67@Offset(544.0, 1569.0), RenderCustomPaint#b1279@Offset(544.0, 1569.0), RenderSemanticsAnnotations#a2978@Offset(544.0, 1569.0), RenderSemanticsAnnotations#92f95@Offset(544.0, 1569.0), RenderSemanticsAnnotations#50619@Offset(544.0, 1569.0), RenderTapRegionSurface#8c546@Offset(544.0, 1569.0), RenderSemanticsAnnotations#f4b14@Offset(544.0, 1569.0), RenderSemanticsAnnotations#f3750@Offset(544.0, 1569.0), HitTestEntry<HitTestTarget>#ea50d(_ReusableRenderView#a2093), HitTestEntry<HitTestTarget>#293de(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.preencherFormularioCompleto (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/integration/icrash_cot_reexec_test.dart:74:20)
+<asynchronous suspension>
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/integration/icrash_cot_reexec_test.dart:153:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Erro ao cadastrar: O e-mail informado já
+está em uso.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/integration/icrash_cot_reexec_test.dart:160:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/integration/icrash_cot_reexec_test.dart line 160
+The test description was:
+  3. Exibe SnackBar quando FirebaseAuth lança FirebaseAuthException
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +2 -1: Fluxo de Cadastro e Gêneros Musicais - Sintonize 3. Exibe SnackBar quando FirebaseAuth lança FirebaseAuthException [E]
+  Test failed. See exception logs above.
+  The test description was: 3. Exibe SnackBar quando FirebaseAuth lança FirebaseAuthException
+  
+Warning: At least one test in this suite creates an HttpClient. When running a test suite that uses
+TestWidgetsFlutterBinding, all HTTP requests will return status code 400, and no network request
+will actually be made. Any test expecting a real network connection and status code will fail.
+To test code that needs an HttpClient, provide your own HttpClient implementation to the code under
+test, so that your test can consistently provide a testable response to the code under test.
+00:04 +2 -1: Fluxo de Cadastro e Gêneros Musicais - Sintonize 4. Exibe SnackBar quando Firestore falha ao salvar dados de usuário
+
+Warning: A call to tap() with finder "Found 1 widget with type "DropdownMenuItem<String>" that are ancestors of widget with text "PE" (ignoring all but last): [
+  DropdownMenuItem<String>,
+]" derived an Offset (Offset(544.0, 1569.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#89e23 relayoutBoundary=up36
+The hit test result at that offset is: HitTestResult(RenderPointerListener#1bb66@Offset(521.0, 24.0), RenderSemanticsAnnotations#f73ba@Offset(521.0, 24.0), RenderMouseRegion#ef8d6@Offset(521.0, 24.0), RenderSemanticsAnnotations#be3f4@Offset(521.0, 24.0), RenderAnimatedOpacity#606f2@Offset(521.0, 24.0), RenderSemanticsAnnotations#a175a@Offset(521.0, 24.0), RenderRepaintBoundary#74038@Offset(521.0, 24.0), RenderIndexedSemantics#0fb87@Offset(521.0, 24.0), RenderSliverList@(mainAxis: 792.0, crossAxis: 521.0), RenderSliverPadding@(mainAxis: 800.0, crossAxis: 521.0), RenderShrinkWrappingViewport#06a21@Offset(521.0, 800.0), RenderIgnorePointer#8486a@Offset(521.0, 800.0), RenderSemanticsAnnotations#41942@Offset(521.0, 800.0), RenderPointerListener#5fb21@Offset(521.0, 800.0), RenderSemanticsGestureHandler#15532@Offset(521.0, 800.0), RenderPointerListener#1d6a3@Offset(521.0, 800.0), _RenderScrollSemantics#96a20@Offset(521.0, 800.0), RenderRepaintBoundary#75a79@Offset(521.0, 800.0), RenderCustomPaint#d1a49@Offset(521.0, 800.0), RenderMouseRegion#76d03@Offset(521.0, 800.0), RenderPointerListener#edf50@Offset(521.0, 800.0), RenderSemanticsGestureHandler#40a10@Offset(521.0, 800.0), RenderPointerListener#8354f@Offset(521.0, 800.0), RenderRepaintBoundary#65e10@Offset(521.0, 800.0), _RenderInkFeatures#b6884@Offset(521.0, 800.0), RenderCustomPaint#55c14@Offset(521.0, 800.0), RenderClipPath#83a2d@Offset(521.0, 800.0), RenderClipRRect#0ab90@Offset(521.0, 800.0), RenderSemanticsAnnotations#1db96@Offset(521.0, 800.0), RenderCustomPaint#3e261@Offset(521.0, 800.0), RenderAnimatedOpacity#6811b@Offset(521.0, 800.0), RenderCustomSingleChildLayoutBox#c8770@Offset(544.0, 1569.0), _RenderLayoutBuilder#67a90@Offset(544.0, 1569.0), RenderRepaintBoundary#f93f4@Offset(544.0, 1569.0), RenderIgnorePointer#74f67@Offset(544.0, 1569.0), RenderRepaintBoundary#b51a4@Offset(544.0, 1569.0), RenderSemanticsAnnotations#2cb53@Offset(544.0, 1569.0), RenderOffstage#bfce7@Offset(544.0, 1569.0), RenderSemanticsAnnotations#3324e@Offset(544.0, 1569.0), _RenderTheater#24d35@Offset(544.0, 1569.0), RenderAbsorbPointer#4d383@Offset(544.0, 1569.0), RenderPointerListener#0e4bb@Offset(544.0, 1569.0), RenderSemanticsAnnotations#7b559@Offset(544.0, 1569.0), RenderCustomPaint#6083d@Offset(544.0, 1569.0), RenderSemanticsAnnotations#14eb8@Offset(544.0, 1569.0), RenderSemanticsAnnotations#724aa@Offset(544.0, 1569.0), RenderSemanticsAnnotations#4efdc@Offset(544.0, 1569.0), RenderTapRegionSurface#b5b08@Offset(544.0, 1569.0), RenderSemanticsAnnotations#f24a1@Offset(544.0, 1569.0), RenderSemanticsAnnotations#84c71@Offset(544.0, 1569.0), HitTestEntry<HitTestTarget>#a60b3(_ReusableRenderView#a2093), HitTestEntry<HitTestTarget>#72bc7(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.preencherFormularioCompleto (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/integration/icrash_cot_reexec_test.dart:74:20)
+<asynchronous suspension>
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/integration/icrash_cot_reexec_test.dart:186:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextContainingWidgetFinder:<Found 0 widgets with text containing Erro desconhecido:
+Exception: Falha de conexão Firestore: []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/integration/icrash_cot_reexec_test.dart:193:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/integration/icrash_cot_reexec_test.dart line 193
+The test description was:
+  4. Exibe SnackBar quando Firestore falha ao salvar dados de usuário
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +2 -2: Fluxo de Cadastro e Gêneros Musicais - Sintonize 4. Exibe SnackBar quando Firestore falha ao salvar dados de usuário [E]
+  Test failed. See exception logs above.
+  The test description was: 4. Exibe SnackBar quando Firestore falha ao salvar dados de usuário
+  
+00:05 +2 -2: Fluxo de Cadastro e Gêneros Musicais - Sintonize 5. Fluxo completo com sucesso: Cadastro -> GenerosCadastro -> TelaInicial
+
+Warning: A call to tap() with finder "Found 1 widget with type "DropdownMenuItem<String>" that are ancestors of widget with text "PE" (ignoring all but last): [
+  DropdownMenuItem<String>,
+]" derived an Offset (Offset(544.0, 1569.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#daf5b relayoutBoundary=up36
+The hit test result at that offset is: HitTestResult(RenderPointerListener#d65fe@Offset(521.0, 24.0), RenderSemanticsAnnotations#d7dd3@Offset(521.0, 24.0), RenderMouseRegion#cb131@Offset(521.0, 24.0), RenderSemanticsAnnotations#f3d75@Offset(521.0, 24.0), RenderAnimatedOpacity#94f46@Offset(521.0, 24.0), RenderSemanticsAnnotations#37ce5@Offset(521.0, 24.0), RenderRepaintBoundary#78563@Offset(521.0, 24.0), RenderIndexedSemantics#036f5@Offset(521.0, 24.0), RenderSliverList@(mainAxis: 792.0, crossAxis: 521.0), RenderSliverPadding@(mainAxis: 800.0, crossAxis: 521.0), RenderShrinkWrappingViewport#3f262@Offset(521.0, 800.0), RenderIgnorePointer#480fa@Offset(521.0, 800.0), RenderSemanticsAnnotations#39c01@Offset(521.0, 800.0), RenderPointerListener#a6c34@Offset(521.0, 800.0), RenderSemanticsGestureHandler#6d0b6@Offset(521.0, 800.0), RenderPointerListener#47426@Offset(521.0, 800.0), _RenderScrollSemantics#1ab8b@Offset(521.0, 800.0), RenderRepaintBoundary#922b2@Offset(521.0, 800.0), RenderCustomPaint#416c2@Offset(521.0, 800.0), RenderMouseRegion#4eafe@Offset(521.0, 800.0), RenderPointerListener#f5451@Offset(521.0, 800.0), RenderSemanticsGestureHandler#fbd2d@Offset(521.0, 800.0), RenderPointerListener#1534b@Offset(521.0, 800.0), RenderRepaintBoundary#3104c@Offset(521.0, 800.0), _RenderInkFeatures#f2ef8@Offset(521.0, 800.0), RenderCustomPaint#af3ff@Offset(521.0, 800.0), RenderClipPath#db1ad@Offset(521.0, 800.0), RenderClipRRect#b900e@Offset(521.0, 800.0), RenderSemanticsAnnotations#d24a2@Offset(521.0, 800.0), RenderCustomPaint#5b3eb@Offset(521.0, 800.0), RenderAnimatedOpacity#f49c8@Offset(521.0, 800.0), RenderCustomSingleChildLayoutBox#64724@Offset(544.0, 1569.0), _RenderLayoutBuilder#ebffe@Offset(544.0, 1569.0), RenderRepaintBoundary#d50da@Offset(544.0, 1569.0), RenderIgnorePointer#9e8c5@Offset(544.0, 1569.0), RenderRepaintBoundary#132ed@Offset(544.0, 1569.0), RenderSemanticsAnnotations#ee7ab@Offset(544.0, 1569.0), RenderOffstage#3911b@Offset(544.0, 1569.0), RenderSemanticsAnnotations#ed1c3@Offset(544.0, 1569.0), _RenderTheater#0c461@Offset(544.0, 1569.0), RenderAbsorbPointer#13c66@Offset(544.0, 1569.0), RenderPointerListener#16499@Offset(544.0, 1569.0), RenderSemanticsAnnotations#99be3@Offset(544.0, 1569.0), RenderCustomPaint#c43d8@Offset(544.0, 1569.0), RenderSemanticsAnnotations#1c345@Offset(544.0, 1569.0), RenderSemanticsAnnotations#85a32@Offset(544.0, 1569.0), RenderSemanticsAnnotations#85f69@Offset(544.0, 1569.0), RenderTapRegionSurface#ae9d7@Offset(544.0, 1569.0), RenderSemanticsAnnotations#508d3@Offset(544.0, 1569.0), RenderSemanticsAnnotations#3e30b@Offset(544.0, 1569.0), HitTestEntry<HitTestTarget>#e0b4b(_ReusableRenderView#a2093), HitTestEntry<HitTestTarget>#3da42(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.preencherFormularioCompleto (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/integration/icrash_cot_reexec_test.dart:74:20)
+<asynchronous suspension>
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/integration/icrash_cot_reexec_test.dart:212:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following FirebaseException was thrown running a test:
+[core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+
+When the exception was thrown, this was the stack:
+#0      MethodChannelFirebase.app (package:firebase_core_platform_interface/src/method_channel/method_channel_firebase.dart:195:5)
+#1      Firebase.app (package:firebase_core/src/firebase.dart:79:41)
+#2      FirebaseAuth.instance (package:firebase_auth/src/firebase_auth.dart:38:47)
+#3      _TelaInicialScreenState.fetchLastRecommendedMusic (package:sintonize/tela-inicial.dart:43:31)
+#4      _TelaInicialScreenState._loadLastRecommendedMusic (package:sintonize/tela-inicial.dart:160:29)
+#5      _TelaInicialScreenState.initState (package:sintonize/tela-inicial.dart:156:5)
+#6      StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5950:55)
+#7      ComponentElement.mount (package:flutter/src/widgets/framework.dart:5793:5)
+...     Normal element mounting (260 frames)
+#267    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+#268    MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+#269    Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+#270    Element.updateChildren (package:flutter/src/widgets/framework.dart:4255:32)
+#271    MultiChildRenderObjectElement.update (package:flutter/src/widgets/framework.dart:7295:17)
+#272    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#273    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#274    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#275    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#276    StatefulElement.update (package:flutter/src/widgets/framework.dart:6007:5)
+#277    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#278    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#279    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#280    ProxyElement.update (package:flutter/src/widgets/framework.dart:6149:5)
+#281    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#282    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#283    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#284    ProxyElement.update (package:flutter/src/widgets/framework.dart:6149:5)
+#285    _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#286    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#287    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#288    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#289    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#290    StatefulElement.update (package:flutter/src/widgets/framework.dart:6007:5)
+#291    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#292    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#293    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#294    ProxyElement.update (package:flutter/src/widgets/framework.dart:6149:5)
+#295    _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#296    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#297    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#298    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#299    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#300    StatefulElement.update (package:flutter/src/widgets/framework.dart:6007:5)
+#301    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#302    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#303    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#304    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#305    StatefulElement.update (package:flutter/src/widgets/framework.dart:6007:5)
+#306    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#307    SingleChildRenderObjectElement.update (package:flutter/src/widgets/framework.dart:7122:14)
+#308    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#309    SingleChildRenderObjectElement.update (package:flutter/src/widgets/framework.dart:7122:14)
+#310    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#311    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#312    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#313    ProxyElement.update (package:flutter/src/widgets/framework.dart:6149:5)
+#314    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#315    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#316    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#317    ProxyElement.update (package:flutter/src/widgets/framework.dart:6149:5)
+#318    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#319    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+#320    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+#321    Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+#322    BuildScope._tryRebuild (package:flutter/src/widgets/framework.dart:2750:15)
+#323    BuildScope._flushDirtyElements (package:flutter/src/widgets/framework.dart:2807:11)
+#324    BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3111:18)
+#325    AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:2131:19)
+#326    RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:495:5)
+#327    SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#328    SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)
+#329    AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:1960:9)
+#332    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#333    AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:1949:27)
+#334    WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:719:23)
+#337    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#338    WidgetTester.pumpAndSettle (package:flutter_test/src/widget_tester.dart:712:27)
+#339    main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/integration/icrash_cot_reexec_test.dart:239:20)
+<asynchronous suspension>
+#340    testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#341    TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The test description was:
+  5. Fluxo completo com sucesso: Cadastro -> GenerosCadastro -> TelaInicial
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +2 -3: Fluxo de Cadastro e Gêneros Musicais - Sintonize 5. Fluxo completo com sucesso: Cadastro -> GenerosCadastro -> TelaInicial [E]
+  Test failed. See exception logs above.
+  The test description was: 5. Fluxo completo com sucesso: Cadastro -> GenerosCadastro -> TelaInicial
+  
+00:07 +2 -3: Fluxo de Cadastro e Gêneros Musicais - Sintonize 6. GenerosCadastroScreen: Exibe SnackBar ao tentar confirmar sem seleção
+00:07 +3 -3: Fluxo de Cadastro e Gêneros Musicais - Sintonize 7. GenerosCadastroScreen: Exibe SnackBar ao falhar gravação dos gêneros no Firestore
+00:08 +4 -3: Fluxo de Cadastro e Gêneros Musicais - Sintonize 8. GenerosCadastroScreen: Falha por Null Check se usuário não estiver autenticado
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      _GenerosCadastroScreenState._salvarGeneros (package:sintonize/generos-cadastro.dart:44:34)
+#1      _GenerosCadastroScreenState._confirmar (package:sintonize/generos-cadastro.dart:72:7)
+#2      _InkResponseState.handleTap (package:flutter/src/material/ink_well.dart:1224:21)
+#3      GestureRecognizer.invokeCallback (package:flutter/src/gestures/recognizer.dart:345:24)
+#4      TapGestureRecognizer.handleTapUp (package:flutter/src/gestures/tap.dart:758:11)
+#5      BaseTapGestureRecognizer._checkUp (package:flutter/src/gestures/tap.dart:383:5)
+#6      BaseTapGestureRecognizer.handlePrimaryPointer (package:flutter/src/gestures/tap.dart:314:7)
+#7      PrimaryPointerGestureRecognizer.handleEvent (package:flutter/src/gestures/recognizer.dart:721:9)
+#8      PointerRouter._dispatch (package:flutter/src/gestures/pointer_router.dart:97:12)
+#9      PointerRouter._dispatchEventToRoutes.<anonymous closure> (package:flutter/src/gestures/pointer_router.dart:140:9)
+#10     _LinkedHashMapMixin.forEach (dart:_compact_hash:765:13)
+#11     PointerRouter._dispatchEventToRoutes (package:flutter/src/gestures/pointer_router.dart:138:18)
+#12     PointerRouter.route (package:flutter/src/gestures/pointer_router.dart:128:7)
+#13     GestureBinding.handleEvent (package:flutter/src/gestures/binding.dart:528:19)
+#14     GestureBinding.dispatchEvent (package:flutter/src/gestures/binding.dart:498:22)
+#15     RendererBinding.dispatchEvent (package:flutter/src/rendering/binding.dart:473:11)
+#16     GestureBinding._handlePointerEventImmediately (package:flutter/src/gestures/binding.dart:437:7)
+#17     GestureBinding.handlePointerEvent (package:flutter/src/gestures/binding.dart:394:5)
+#18     TestWidgetsFlutterBinding.handlePointerEventForSource.<anonymous closure> (package:flutter_test/src/binding.dart:1301:42)
+#19     TestWidgetsFlutterBinding.withPointerEventSource (package:flutter_test/src/binding.dart:1311:11)
+#20     TestWidgetsFlutterBinding.handlePointerEventForSource (package:flutter_test/src/binding.dart:1301:5)
+#21     WidgetTester.sendEventToBinding.<anonymous closure> (package:flutter_test/src/widget_tester.dart:869:15)
+#24     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#25     WidgetTester.sendEventToBinding (package:flutter_test/src/widget_tester.dart:868:27)
+#26     TestGesture.up.<anonymous closure> (package:flutter_test/src/test_pointer.dart:587:26)
+#29     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#30     TestGesture.up (package:flutter_test/src/test_pointer.dart:580:27)
+#31     WidgetController.tapAt.<anonymous closure> (package:flutter_test/src/controller.dart:1150:21)
+<asynchronous suspension>
+#32     TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#33     main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/integration/icrash_cot_reexec_test.dart:355:7)
+<asynchronous suspension>
+#34     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#35     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The test description was:
+  8. GenerosCadastroScreen: Falha por Null Check se usuário não estiver autenticado
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:08 +4 -4: Fluxo de Cadastro e Gêneros Musicais - Sintonize 8. GenerosCadastroScreen: Falha por Null Check se usuário não estiver autenticado [E]
+  Test failed. See exception logs above.
+  The test description was: 8. GenerosCadastroScreen: Falha por Null Check se usuário não estiver autenticado
+  
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test (but after the test had completed):
+Expected: <Instance of 'TypeError'>
+  Actual: <null>
+   Which: is not an instance of 'TypeError'
+
+When the exception was thrown, this was the stack:
+#0      fail (package:matcher/src/expect/expect.dart:187:31)
+#1      _expect (package:matcher/src/expect/expect.dart:182:3)
+#2      expect (package:matcher/src/expect/expect.dart:65:3)
+#3      expect (package:flutter_test/src/widget_tester.dart:473:18)
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-gemini/integration/icrash_cot_reexec_test.dart:358:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  Test failed. See exception logs above.
+  The test description was: 8. GenerosCadastroScreen: Falha por Null Check se usuário não estiver autenticado
+  
+00:08 +4 -4: Some tests failed.

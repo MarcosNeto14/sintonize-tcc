@@ -74,9 +74,10 @@ válidas.
   - `fase2/planilha/Fase2_Consolidado_60rodadas_v2.xlsx`
   - `fase2/planilha/Comparacao_ChatGPT_x_Gemini_60rodadas.xlsx`
   - A diferença entre v1 e v2 está em `fase2/planilha/README.md`.
-  - `analise/planilhas/` está reservada para as demais `.xlsx`, incluindo a pirâmide unificada, ainda não enviadas.
+  - `analise/planilhas/`: pirâmide unificada, comparação ChatGPT × Gemini, consolidado Gemini e matriz de rastreabilidade (índice em `analise/planilhas/README.md`).
 - **Análises:**
   - `analise/dados_consolidados.md` (Fase 1)
+  - `analise/textos/`: textos de análise usados no TCC (pirâmide unificada, comparação e análise Gemini, relatório de bugs, limitações por validade, aplicação de Baltes et al. 2026 e Medeiros 2026)
   - `fase2/analise/` (erro por categoria, auditoria dos (B), cobertura)
   - `fase2-gemini/analise/ajuda_import.md`
   - `fase3-e2e/analise/` (consolidado, custo, cobertura)

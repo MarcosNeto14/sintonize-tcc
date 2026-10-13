@@ -152,7 +152,7 @@ Artifacts in `fase2-gemini/`. It uses the same prompts, targets, planted bugs an
 
 All 60 rounds and the 4 `_REEXEC` were executed between 2026-09-22 and 2026-09-24. The docs are split across two branches, and neither branch holds all of them. The 18 bug rounds and 4 `_REEXEC` are on `fase2-gemini-piloto`; the 42 clean-target rounds are on `fase2-gemini-alvos-limpos`.
 
-### Fase 2 – ChatGPT re-run (22 rounds, not started)
+### Fase 2 – ChatGPT re-run (complete 2026-09-24: 15 rounds re-run, 7 originals kept)
 
 `fase2-chatgpt-reexec/` re-runs the 18 planted-bug rounds and the 4 `_REEXEC` on ChatGPT, under the replica's protocol: the repair prompt is the fixed template plus terminal output, and nothing else. Its purpose is to remove the operator-assisted repairs isolated in `fase2/_execucao-assistida/`.
 

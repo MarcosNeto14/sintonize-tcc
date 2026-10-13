@@ -1,0 +1,400 @@
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 93.0.0 (108.0.0 available)
+  _flutterfire_internals 1.3.52 (1.3.77 available)
+  analyzer 10.0.1 (14.4.0 available)
+  async 2.11.0 (2.13.1 available)
+  boolean_selector 2.1.1 (2.1.2 available)
+  build 4.0.5 (4.0.11 available)
+  build_config 1.3.0 (1.3.3 available)
+  build_daemon 4.1.1 (4.1.6 available)
+  build_runner 2.13.1 (2.16.1 available)
+  built_value 8.12.5 (8.13.0 available)
+  cel 0.5.4+1 (0.6.0 available)
+  clock 1.1.2 (1.1.3 available)
+  cloud_firestore 5.6.4 (6.10.0 available)
+  cloud_firestore_platform_interface 6.6.4 (8.0.7 available)
+  cloud_firestore_web 4.4.4 (5.7.3 available)
+  code_builder 4.11.1 (4.12.0 available)
+  crypto 3.0.6 (3.0.7 available)
+  dart_style 3.1.7 (3.1.13 available)
+  equatable 2.0.8 (3.0.0 available)
+  fake_cloud_firestore 3.1.0 (4.3.0 available)
+  fake_firebase_security_rules 0.5.4 (0.6.0 available)
+  firebase_auth 5.5.0 (6.7.0 available)
+  firebase_auth_mocks 0.14.2 (0.15.2 available)
+  firebase_auth_platform_interface 7.6.0 (9.1.0 available)
+  firebase_auth_web 5.14.0 (6.3.0 available)
+  firebase_core 3.12.0 (4.15.0 available)
+  firebase_core_platform_interface 5.4.0 (8.1.1 available)
+  firebase_core_web 2.21.0 (3.12.0 available)
+  flutter_lints 5.0.0 (6.0.0 available)
+  flutter_plugin_android_lifecycle 2.0.24 (2.0.35 available)
+  geolocator 13.0.2 (14.0.3 available)
+  geolocator_android 4.6.1 (5.0.3 available)
+  geolocator_apple 2.3.9 (2.3.14 available)
+  geolocator_platform_interface 4.2.4 (4.3.0 available)
+  geolocator_web 4.1.1 (4.1.4 available)
+  geolocator_windows 0.2.3 (0.2.5 available)
+  glob 2.1.3 (2.2.0 available)
+  google_maps 8.1.1 (8.3.0 available)
+  google_maps_flutter 2.10.0 (2.18.1 available)
+  google_maps_flutter_android 2.14.12 (2.19.13 available)
+  google_maps_flutter_ios 2.13.2 (2.18.6 available)
+  google_maps_flutter_platform_interface 2.11.0 (2.17.0 available)
+  google_maps_flutter_web 0.5.10 (0.6.3+1 available)
+  html 0.15.5 (0.15.7 available)
+  http 0.13.6 (1.6.0 available)
+  io 1.0.5 (1.1.0 available)
+  json_annotation 4.9.0 (4.12.0 available)
+  lints 5.1.1 (6.1.0 available)
+  logger 2.7.0 (2.8.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.17.0 (1.19.0 available)
+  mime 2.0.0 (2.1.0 available)
+  mockito 5.6.4 (5.8.1 available)
+  package_config 2.2.0 (3.0.0 available)
+  platform 3.1.6 (3.2.0 available)
+  pool 1.5.2 (1.5.3 available)
+  process 5.0.5 (5.0.6 available)
+  pub_semver 2.2.0 (2.2.1 available)
+  pubspec_parse 1.5.0 (1.6.0 available)
+  rx 0.4.0 (0.5.0 available)
+  sanitize_html 2.1.0 (2.2.0 available)
+  source_gen 4.2.2 (4.3.0 available)
+  source_span 1.10.0 (1.10.2 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  stream_transform 2.1.1 (2.1.2 available)
+  string_scanner 1.3.0 (1.4.1 available)
+  term_glyph 1.2.1 (1.2.2 available)
+  test_api 0.7.10 (0.7.14 available)
+  uuid 4.5.1 (4.6.0 available)
+  vector_math 2.2.0 (2.4.3 available)
+  vm_service 14.3.0 (15.3.0 available)
+  web 1.1.0 (1.1.1 available)
+  webdriver 3.1.0 (3.2.0 available)
+  yaml 3.1.3 (3.1.4 available)
+Got dependencies!
+75 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/Users/marcos.neto/desktop/Repositórios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart
+00:00 +0: Fluxo de cadastro → gêneros cadastra usuário, navega para gêneros, salva gêneros e chega à tela inicial
+
+Warning: A call to tap() with finder "Found 1 widget with type "DropdownButtonFormField<String>": [
+  DropdownButtonFormField<String>(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope, _FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#91faf]], state: _DropdownButtonFormFieldState<String>#b383f),
+]" derived an Offset (Offset(400.0, 801.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 801.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#39d51 relayoutBoundary=up24
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#9b8d2(_ReusableRenderView#ec63b), HitTestEntry<HitTestTarget>#580eb(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      _selecionarEstado (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:509:16)
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:41:15)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.last (dart:core/iterable.dart:679:7)
+#1      _LastFinderMixin.filter (package:flutter_test/src/finders.dart:1367:28)
+#3      _AncestorFinderMixin.allCandidates (package:flutter_test/src/finders.dart:1814:49)
+#4      FinderBase.evaluate (package:flutter_test/src/finders.dart:987:76)
+#5      WidgetController.widgetList (package:flutter_test/src/controller.dart:843:19)
+#6      WidgetController._maybeViewOf (package:flutter_test/src/controller.dart:790:34)
+#7      WidgetController.tap (package:flutter_test/src/controller.dart:1073:31)
+#8      _selecionarEstado (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:512:16)
+<asynchronous suspension>
+#9      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:41:9)
+<asynchronous suspension>
+#10     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#11     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 2 frames from dart:async-patch and package:stack_trace)
+
+The test description was:
+  cadastra usuário, navega para gêneros, salva gêneros e chega à tela inicial
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -1: Fluxo de cadastro → gêneros cadastra usuário, navega para gêneros, salva gêneros e chega à tela inicial [E]
+  Test failed. See exception logs above.
+  The test description was: cadastra usuário, navega para gêneros, salva gêneros e chega à tela inicial
+  
+Warning: At least one test in this suite creates an HttpClient. When running a test suite that uses
+TestWidgetsFlutterBinding, all HTTP requests will return status code 400, and no network request
+will actually be made. Any test expecting a real network connection and status code will fail.
+To test code that needs an HttpClient, provide your own HttpClient implementation to the code under
+test, so that your test can consistently provide a testable response to the code under test.
+00:02 +0 -1: Fluxo de cadastro → gêneros exibe erro quando Firebase Auth falha e não navega para gêneros
+
+Warning: A call to tap() with finder "Found 1 widget with type "DropdownButtonFormField<String>": [
+  DropdownButtonFormField<String>(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope, _FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#6ff3d]], state: _DropdownButtonFormFieldState<String>#b9519),
+]" derived an Offset (Offset(400.0, 801.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 801.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#27cb5 relayoutBoundary=up24
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#4b0c3(_ReusableRenderView#ec63b), HitTestEntry<HitTestTarget>#e87d1(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      _selecionarEstado (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:509:16)
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:161:15)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.last (dart:core/iterable.dart:679:7)
+#1      _LastFinderMixin.filter (package:flutter_test/src/finders.dart:1367:28)
+#3      _AncestorFinderMixin.allCandidates (package:flutter_test/src/finders.dart:1814:49)
+#4      FinderBase.evaluate (package:flutter_test/src/finders.dart:987:76)
+#5      WidgetController.widgetList (package:flutter_test/src/controller.dart:843:19)
+#6      WidgetController._maybeViewOf (package:flutter_test/src/controller.dart:790:34)
+#7      WidgetController.tap (package:flutter_test/src/controller.dart:1073:31)
+#8      _selecionarEstado (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:512:16)
+<asynchronous suspension>
+#9      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:161:9)
+<asynchronous suspension>
+#10     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#11     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 2 frames from dart:async-patch and package:stack_trace)
+
+The test description was:
+  exibe erro quando Firebase Auth falha e não navega para gêneros
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -2: Fluxo de cadastro → gêneros exibe erro quando Firebase Auth falha e não navega para gêneros [E]
+  Test failed. See exception logs above.
+  The test description was: exibe erro quando Firebase Auth falha e não navega para gêneros
+  
+00:03 +0 -2: Fluxo de cadastro → gêneros exibe erro quando o Firestore falha ao salvar o cadastro
+
+Warning: A call to tap() with finder "Found 1 widget with type "DropdownButtonFormField<String>": [
+  DropdownButtonFormField<String>(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope, _FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#f4d20]], state: _DropdownButtonFormFieldState<String>#7266f),
+]" derived an Offset (Offset(400.0, 801.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 801.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#22bc9 relayoutBoundary=up24
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#bd631(_ReusableRenderView#ec63b), HitTestEntry<HitTestTarget>#9889c(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      _selecionarEstado (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:509:16)
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:232:15)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.last (dart:core/iterable.dart:679:7)
+#1      _LastFinderMixin.filter (package:flutter_test/src/finders.dart:1367:28)
+#3      _AncestorFinderMixin.allCandidates (package:flutter_test/src/finders.dart:1814:49)
+#4      FinderBase.evaluate (package:flutter_test/src/finders.dart:987:76)
+#5      WidgetController.widgetList (package:flutter_test/src/controller.dart:843:19)
+#6      WidgetController._maybeViewOf (package:flutter_test/src/controller.dart:790:34)
+#7      WidgetController.tap (package:flutter_test/src/controller.dart:1073:31)
+#8      _selecionarEstado (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:512:16)
+<asynchronous suspension>
+#9      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:232:9)
+<asynchronous suspension>
+#10     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#11     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 2 frames from dart:async-patch and package:stack_trace)
+
+The test description was:
+  exibe erro quando o Firestore falha ao salvar o cadastro
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +0 -3: Fluxo de cadastro → gêneros exibe erro quando o Firestore falha ao salvar o cadastro [E]
+  Test failed. See exception logs above.
+  The test description was: exibe erro quando o Firestore falha ao salvar o cadastro
+  
+00:04 +0 -3: Fluxo de cadastro → gêneros exibe erro quando Firestore falha ao salvar os gêneros
+
+Warning: A call to tap() with finder "Found 1 widget with type "DropdownButtonFormField<String>": [
+  DropdownButtonFormField<String>(dependencies: [InheritedCupertinoTheme, UnmanagedRestorationScope, _FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#d3496]], state: _DropdownButtonFormFieldState<String>#be003),
+]" derived an Offset (Offset(400.0, 801.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 801.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#7e01e relayoutBoundary=up24
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#bcbfc(_ReusableRenderView#ec63b), HitTestEntry<HitTestTarget>#447b5(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      _selecionarEstado (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:509:16)
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:261:15)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.last (dart:core/iterable.dart:679:7)
+#1      _LastFinderMixin.filter (package:flutter_test/src/finders.dart:1367:28)
+#3      _AncestorFinderMixin.allCandidates (package:flutter_test/src/finders.dart:1814:49)
+#4      FinderBase.evaluate (package:flutter_test/src/finders.dart:987:76)
+#5      WidgetController.widgetList (package:flutter_test/src/controller.dart:843:19)
+#6      WidgetController._maybeViewOf (package:flutter_test/src/controller.dart:790:34)
+#7      WidgetController.tap (package:flutter_test/src/controller.dart:1073:31)
+#8      _selecionarEstado (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:512:16)
+<asynchronous suspension>
+#9      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:261:9)
+<asynchronous suspension>
+#10     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#11     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 2 frames from dart:async-patch and package:stack_trace)
+
+The test description was:
+  exibe erro quando Firestore falha ao salvar os gêneros
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +0 -4: Fluxo de cadastro → gêneros exibe erro quando Firestore falha ao salvar os gêneros [E]
+  Test failed. See exception logs above.
+  The test description was: exibe erro quando Firestore falha ao salvar os gêneros
+  
+00:04 +0 -4: Fluxo de cadastro → gêneros impede confirmação quando nenhum gênero foi selecionado
+
+Warning: A call to tap() with finder "Found 1 widget with type "ElevatedButton" that are ancestors of widget with text "Confirmar": [
+  ElevatedButton(style: ButtonStyle#1627a(textStyle: WidgetStatePropertyAll(null), backgroundColor: WidgetStateMapper<Color?>({WidgetState.disabled: null, WidgetState.any: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB)}), padding: WidgetStatePropertyAll(EdgeInsets(0.0, 15.0, 0.0, 15.0)), shape: WidgetStatePropertyAll(RoundedRectangleBorder(BorderSide(width: 0.0, style: none), BorderRadius.circular(15.0))), mouseCursor: WidgetStateMapper<MouseCursor?>({WidgetState.disabled: null, WidgetState.any: null})), dependencies: [IconTheme, InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#ffd69]], state: _ButtonStyleState#b30fd),
+]" derived an Offset (Offset(400.0, 618.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 618.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#802d8 relayoutBoundary=up13
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#e2543(_ReusableRenderView#ec63b), HitTestEntry<HitTestTarget>#f5a30(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:355:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Selecione pelo menos um gênero musical!":
+[]>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:358:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart line 358
+The test description was:
+  impede confirmação quando nenhum gênero foi selecionado
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +0 -5: Fluxo de cadastro → gêneros impede confirmação quando nenhum gênero foi selecionado [E]
+  Test failed. See exception logs above.
+  The test description was: impede confirmação quando nenhum gênero foi selecionado
+  
+00:05 +0 -5: Fluxo de cadastro → gêneros falha de usuário não autenticado ao confirmar gêneros
+
+Warning: A call to tap() with finder "Found 1 widget with type "ElevatedButton" that are ancestors of widget with text "Confirmar": [
+  ElevatedButton(style: ButtonStyle#1627a(textStyle: WidgetStatePropertyAll(null), backgroundColor: WidgetStateMapper<Color?>({WidgetState.disabled: null, WidgetState.any: Color(alpha: 1.0000, red: 0.9451, green: 0.2745, blue: 0.1294, colorSpace: ColorSpace.sRGB)}), padding: WidgetStatePropertyAll(EdgeInsets(0.0, 15.0, 0.0, 15.0)), shape: WidgetStatePropertyAll(RoundedRectangleBorder(BorderSide(width: 0.0, style: none), BorderRadius.circular(15.0))), mouseCursor: WidgetStateMapper<MouseCursor?>({WidgetState.disabled: null, WidgetState.any: null})), dependencies: [IconTheme, InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#f8d43]], state: _ButtonStyleState#16779),
+]" derived an Offset (Offset(400.0, 618.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 618.0) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#5ba49 relayoutBoundary=up13
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#5937f(_ReusableRenderView#ec63b), HitTestEntry<HitTestTarget>#96c0a(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2158:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1942:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1075:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:407:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Erro ao salvar os gêneros!": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart:413:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/marcos.neto/desktop/Reposit%C3%B3rios/sintonize-tcc/test/fase2-chatgpt-reexec/integration/icrash_zs_reexec_test.dart line 413
+The test description was:
+  falha de usuário não autenticado ao confirmar gêneros
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +0 -6: Fluxo de cadastro → gêneros falha de usuário não autenticado ao confirmar gêneros [E]
+  Test failed. See exception logs above.
+  The test description was: falha de usuário não autenticado ao confirmar gêneros
+  
+00:05 +0 -6: Some tests failed.

@@ -11,7 +11,7 @@ modelos meça só o modelo. Ver
 
 Nada nesta pasta altera `fase2/`, `fase2/_execucao-assistida/` ou `fase2-gemini/`.
 
-**Status:** infraestrutura pronta, **0 de 22 rodadas executadas**.
+**Status: 15/15 concluídas** (`FASE2-WCRASH-FS`, `FASE2-WCRASH-COT`, `FASE2-WSILENT-ZS`, `FASE2-WSILENT-FS`, `FASE2-WSILENT-COT`, `FASE2-WSILENT-FS_REEXEC`, `FASE2-ICRASH-ZS`, `FASE2-ICRASH-FS`, `FASE2-ICRASH-COT`, `FASE2-ICRASH-ZS_REEXEC`, `FASE2-ICRASH-FS_REEXEC`, `FASE2-ICRASH-COT_REEXEC`, `FASE2-ISILENT-ZS`, `FASE2-ISILENT-FS`, `FASE2-ISILENT-COT`). As 7 rodadas de bug sem reparo enriquecido (U-CRASH ×3, U-SILENT ×3, W-CRASH-ZS) ficam **válidas na execução original; não reexecutadas por decisão** (modelo servido = GPT-5.6 Luna, critério deste README). Não é pendência.
 
 ---
 
@@ -77,6 +77,47 @@ Vale o procedimento de `fase2-gemini/README.md`, seção "Extração do código
 gerado". Se a extração automática perder a indentação, o operador cola a resposta
 manualmente e o arquivo verbatim substitui a versão reconstruída. O doc registra
 qual caminho foi usado.
+
+---
+
+## Ameaças à validade — pedidos de informação de ambiente
+
+**Decisão (2026-09-24, após a rodada 1):** quando o modelo pede informação de
+ambiente, como o caminho real de um arquivo, o pedido **não é respondido**,
+conforme a regra 2 do reparo. Não há braço secundário com contexto
+padronizado. A decisão vale para as 22 rodadas.
+
+**Por que não responder.** Responder caso a caso foi o que contaminou a Fase 2
+original, isolada em `fase2/_execucao-assistida/`. Responder só quando o
+modelo pergunta também premiaria o modelo que pergunta em relação ao que
+chuta: na mesma rodada, o Gemini não perguntou e colou o widget no teste. E a
+réplica Gemini já foi executada sem essa ajuda.
+
+**Ameaça a declarar na redação.** Um import inexistente não tem relação com o
+que o estudo mede. Quando a rodada trava nesse erro, o resultado vira
+"compila / não compila", e o bug plantado nem chega a ser testado. A ameaça
+não se distribui ao acaso:
+- **Construto:** a métrica de reparo passa a medir se o modelo conhece o layout
+  do repositório, e não se ele gera bons testes ou detecta o bug.
+- **Interna, entre estratégias:** nenhum prompt FS traz a linha de import, e
+  todos os COT trazem (ver a tabela "As 22 rodadas"). A regra de não responder
+  pesa sobre o FS, e isso confunde a comparação ZS × FS × COT.
+- **Entre modelos:** um modelo que pede a informação fica travado; um que
+  inventa um caminho ou cola o widget no teste pode "passar" testando uma cópia,
+  não a aplicação.
+
+**Tratamento na análise:**
+- classificar essas rodadas como **"bloqueio por informação de ambiente
+  ausente"**, separadas de "erro de teste";
+- reportar duas métricas: compilação e detecção do bug **entre as rodadas que
+  chegaram a executar**.
+
+**Ocorrências:** `FASE2-WSILENT-FS_REEXEC` (rodada 6): pedido de caminho nos três reparos, placeholder literal como import, nenhuma iteração compilada; na execução assistida, o caminho fornecido no reparo 2 levou a mesma rodada a 10/11. `FASE2-WSILENT-FS` (rodada 4) repetiu o padrão: pedido de caminho nos três reparos, cópia do widget colada no teste na iteração 2, nenhuma iteração compilada. `FASE2-ISILENT-FS` (rodada 14): import para `criar_playlist_screen.dart` (inexistente) desde a geração, pedido de caminho nos três reparos, o modelo recusou-se a inventar um caminho, nenhuma iteração compilada; na execução assistida, com o nome do arquivo fornecido, a mesma rodada fechou em 2/2.
+
+**Primeira ocorrência:** `FASE2-WCRASH-FS`, rodada 1. O modelo pediu o
+caminho nos reparos 1, 2 e 3 e a rodada terminou sem compilar. Na Fase 2
+original, com o caminho fornecido pelo operador, a mesma rodada fechou em
+15/15.
 
 ---
 
@@ -258,28 +299,28 @@ separador do prompt e a seção de reparo.
 
 | # | ID | Bug | Estratégia | Prompt | Ajuda de import | Status |
 |---|---|---|---|---|---|---|
-| 1 | FASE2-UCRASH-ZS | U-CRASH | ZS | original | não | pendente |
-| 2 | FASE2-UCRASH-FS | U-CRASH | FS | original | não | pendente |
-| 3 | FASE2-UCRASH-COT | U-CRASH | COT | original | sim (`utils/validators.dart`) | pendente |
-| 4 | FASE2-USILENT-ZS | U-SILENT | ZS | original | não | pendente |
-| 5 | FASE2-USILENT-FS | U-SILENT | FS | original | não | pendente |
-| 6 | FASE2-USILENT-COT | U-SILENT | COT | original | sim (`utils/validators.dart`) | pendente |
-| 7 | FASE2-WCRASH-ZS | W-CRASH | ZS | original | sim (`criar_playlist.dart`) | pendente |
-| 8 | FASE2-WCRASH-FS | W-CRASH | FS | original | não | pendente |
-| 9 | FASE2-WCRASH-COT | W-CRASH | COT | original | sim (`criar_playlist.dart`) | pendente |
-| 10 | FASE2-WSILENT-ZS | W-SILENT | ZS | original | sim (`login.dart`) | pendente |
-| 11 | FASE2-WSILENT-FS | W-SILENT | FS | original | não | pendente |
-| 12 | FASE2-WSILENT-COT | W-SILENT | COT | original | sim (`login.dart`) | pendente |
-| 13 | FASE2-ICRASH-ZS | I-CRASH | ZS | original | sim (`cadastro.dart`, `generos-cadastro.dart`) | pendente |
-| 14 | FASE2-ICRASH-FS | I-CRASH | FS | original | não | pendente |
-| 15 | FASE2-ICRASH-COT | I-CRASH | COT | original | genérica (`package:sintonize/...`) | pendente |
-| 16 | FASE2-ISILENT-ZS | I-SILENT | ZS | original | sim (`criar_playlist.dart`) | pendente |
-| 17 | FASE2-ISILENT-FS | I-SILENT | FS | original | não | pendente |
-| 18 | FASE2-ISILENT-COT | I-SILENT | COT | original | sim (`criar_playlist.dart`) | pendente |
-| 19 | FASE2-WSILENT-FS_REEXEC | W-SILENT | FS | corrigido (`FASE2--REEXEC.md`, l. 37–225) | não | pendente |
-| 20 | FASE2-ICRASH-ZS_REEXEC | I-CRASH | ZS | corrigido (l. 226–1010) | sim (`cadastro.dart`, `generos-cadastro.dart`) | pendente |
-| 21 | FASE2-ICRASH-FS_REEXEC | I-CRASH | FS | corrigido (l. 1011–1841) | não | pendente |
-| 22 | FASE2-ICRASH-COT_REEXEC | I-CRASH | COT | corrigido (l. 1842–2624) | genérica (`package:sintonize/...`) | pendente |
+| 1 | FASE2-UCRASH-ZS | U-CRASH | ZS | original | não | válida na execução original; não reexecutada por decisão |
+| 2 | FASE2-UCRASH-FS | U-CRASH | FS | original | não | válida na execução original; não reexecutada por decisão |
+| 3 | FASE2-UCRASH-COT | U-CRASH | COT | original | sim (`utils/validators.dart`) | válida na execução original; não reexecutada por decisão |
+| 4 | FASE2-USILENT-ZS | U-SILENT | ZS | original | não | válida na execução original; não reexecutada por decisão |
+| 5 | FASE2-USILENT-FS | U-SILENT | FS | original | não | válida na execução original; não reexecutada por decisão |
+| 6 | FASE2-USILENT-COT | U-SILENT | COT | original | sim (`utils/validators.dart`) | válida na execução original; não reexecutada por decisão |
+| 7 | FASE2-WCRASH-ZS | W-CRASH | ZS | original | sim (`criar_playlist.dart`) | válida na execução original; não reexecutada por decisão |
+| 8 | FASE2-WCRASH-FS | W-CRASH | FS | original | não | **feita (1/15)** — não compila, 3 iterações |
+| 9 | FASE2-WCRASH-COT | W-CRASH | COT | original | sim (`criar_playlist.dart`) | **feita (2/15)** — 20/21, 3 iterações |
+| 10 | FASE2-WSILENT-ZS | W-SILENT | ZS | original | sim (`login.dart`) | **feita (3/15)** — 7/8 (melhor 12/14), W-SILENT visto e canonizado |
+| 11 | FASE2-WSILENT-FS | W-SILENT | FS | original | não | **feita (4/15)** — não compila; W-SILENT visto e canonizado |
+| 12 | FASE2-WSILENT-COT | W-SILENT | COT | original | sim (`login.dart`) | **feita (5/15)** — não compila (melhor 10/21); W-SILENT visto e canonizado |
+| 13 | FASE2-ICRASH-ZS | I-CRASH | ZS | original | sim (`cadastro.dart`, `generos-cadastro.dart`) | **feita (7/15)** — 1/6; I-CRASH visto, (B) correto, teste acomoda o bug |
+| 14 | FASE2-ICRASH-FS | I-CRASH | FS | original | não | **feita (8/15)** — 2/3; I-CRASH não testado; (B) errado na it. 3 |
+| 15 | FASE2-ICRASH-COT | I-CRASH | COT | original | genérica (`package:sintonize/...`) | **feita (9/15)** — 2/14; I-CRASH visto e canonizado |
+| 16 | FASE2-ISILENT-ZS | I-SILENT | ZS | original | sim (`criar_playlist.dart`) | **feita (13/15)** — 2/2 na geração, sem reparo; I-SILENT visto e canonizado |
+| 17 | FASE2-ISILENT-FS | I-SILENT | FS | original | não | **feita (14/15)** — não compila em nenhuma iteração (pedido de caminho nos 3 reparos); I-SILENT visto e canonizado no código |
+| 18 | FASE2-ISILENT-COT | I-SILENT | COT | original | sim (`criar_playlist.dart`) | **feita (15/15)** — 4/4 na geração, sem reparo; I-SILENT visto e canonizado (asserção que proíbe o nome digitado) |
+| 19 | FASE2-WSILENT-FS_REEXEC | W-SILENT | FS | corrigido (`FASE2--REEXEC.md`, l. 37–225) | não | **feita (6/15)** — não compila; W-SILENT canonizado sem menção |
+| 20 | FASE2-ICRASH-ZS_REEXEC | I-CRASH | ZS | corrigido (l. 226–1010) | sim (`cadastro.dart`, `generos-cadastro.dart`) | **feita (10/15)** — 1/5; **I-CRASH capturado por asserção**, (B) correto |
+| 21 | FASE2-ICRASH-FS_REEXEC | I-CRASH | FS | corrigido (l. 1011–1841) | não | **feita (11/15)** — 1/2 após 3 iterações; I-CRASH não testado |
+| 22 | FASE2-ICRASH-COT_REEXEC | I-CRASH | COT | corrigido (l. 1842–2624) | genérica (`package:sintonize/...`) | **feita (12/15)** — 0/13 após 3 iterações; I-CRASH canonizado no teste dedicado e capturado por acidente em outro, (B) correto no reparo 3 |
 
 Nenhum prompt FS traz a ajuda de import, e todos os COT trazem. Nos ZS, só os
 de widget e integração trazem. A assimetria vem dos prompts originais e é

@@ -24,7 +24,7 @@ em chain-of-thought — completa a estratégia CoT.
 
 **Nota de infraestrutura:** durante o envio do prompt de reparo, o
 clipboard do sistema foi sobrescrito por conteúdo externo
-(`admin@unigas.com.br`, aparentemente de um autofill do navegador) entre a
+([e-mail removido: preenchimento automático do navegador], aparentemente de um autofill do navegador) entre a
 cópia do texto e o paste. Detectado antes do envio (o campo de texto
 continha um valor visivelmente incorreto), corrigido recopiando e colando
 imediatamente antes do envio. Não afetou o conteúdo enviado ao modelo.

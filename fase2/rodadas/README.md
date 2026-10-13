@@ -31,3 +31,12 @@ rodadas de bug plantado sem reparo enriquecido continuam aqui. Detalhes em
 `fase2/_execucao-assistida/README.md`.
 
 > Correção (2026-09-24): a autodeclaração "GPT-5.6 Luna" corresponde ao nome oficial do modelo do tier gratuito/deslogado (OpenAI Help Center, https://help.openai.com/en/articles/20001354-gpt-56-and-gpt-6-pro-in-chatgpt, consultado em 2026-09-24); a indicação de "Sol" vinha do documento de passagem do autor (não versionado) e, pela fonte atual, descreve o plano pago.
+
+## Alteração posterior em artefato de rodada — dado pessoal removido (2026-10-13)
+
+Em 2026-10-13, na nota de infraestrutura de `unit/FASE2-UNIT-COT-10_validateDate.md`
+(linha 27), o endereço de e-mail que o preenchimento automático do navegador
+colocou no clipboard foi substituído por `[e-mail removido: preenchimento
+automático do navegador]`. Era dado pessoal de terceiro, sem relação com o
+estudo: não fez parte de prompt, resposta ou saída de teste. É a única
+alteração feita em artefato de rodada depois da execução.

@@ -34,7 +34,7 @@ Regras: taxa = passando ÷ (passando + falhando) nas rodadas cujo arquivo final 
 | Todos | ChatGPT | 25 | 82,5% | 8 | 13 | 5 | 5 | 10 | 1 | 2 | 7 |
 | Todos | Gemini | 27 | 80,8% | 12 | 20 | 1 | 7 | 5 | 3 | 5 | 7 |
 
-Por bug (aba "Detecção por bug"): U-CRASH/U-SILENT caracterizados por quase todos; W-CRASH invisível nos 2 modelos × 3 estratégias; W-SILENT caracterizado ×3 no ChatGPT, canonizado ×3 no Gemini; I-CRASH nunca capturado nas originais; I-SILENT caracterizado (ChatGPT) / visto em prosa (Gemini), canonizado em COT nos dois; L4 capturado 6/6; P2 capturado 5/5 das que chegaram à lista; C3 capturado só pela FS do Gemini.
+Por bug (aba "Detecção por bug"): U-CRASH/U-SILENT caracterizados por quase todos; W-CRASH invisível nos 2 modelos × 3 estratégias; W-SILENT caracterizado ×3 no ChatGPT, canonizado ×3 no Gemini; I-CRASH nunca capturado nas originais; I-SILENT caracterizado (ChatGPT) / visto em prosa (Gemini), canonizado em COT nos dois; L4 capturado 6/6; P2 capturado 4/4 das que chegaram à lista; C3 capturado só pela FS do Gemini.
 
 ## 3. Por estratégia (todos os níveis)
 

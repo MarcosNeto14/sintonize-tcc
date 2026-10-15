@@ -41,11 +41,11 @@ n.c. = arquivo final não compila. REEXEC (fora das 60): ChatGPT capturou o I-CR
 - **U-CRASH / U-SILENT:** vistos por todos; quase sempre *caracterizados* (teste passa fixando o bug, resposta avisa). O único Capturou da Fase 2 (ChatGPT U-CRASH-FS) veio de um teste que falhou e foi mantido.
 - **W-CRASH:** 0/6 — nenhum teste de busca usou documento sem `artist_name`. É o bug que mede cobertura de dado, não de código.
 - **W-SILENT:** divisor entre modelos — ChatGPT disse "as mensagens parecem invertidas" em 10/12 respostas; Gemini nunca; os dois fixaram o par trocado.
-- **I-CRASH:** 0/6 exercitado nas originais (material do prompt divergente); capturado só nas REEXEC do ChatGPT.
+- **I-CRASH:** 0/6 capturado nas originais (material do prompt divergente); em COT os dois modelos viram o `currentUser!.uid` fora do `try` e fixaram a exceção como esperada (canonizaram); capturado só nas REEXEC do ChatGPT.
 - **I-SILENT:** COT canonizou nos dois (ChatGPT ainda acrescentou `isNot(nome digitado)`).
 - **L4:** 6/6 — basta afirmar o tipo da tela de destino. Nenhum reparo (A) retirou essa asserção.
-- **C3:** 1/8 — só a FS do Gemini afirmou `dados['nome']`. Três rodadas caíram antes do sintoma por "nome com dígito" — regra presente no `cadastro.dart` do prompt, ignorada pelo modelo. Gemini COT chegou à saudação e afirmou o trecho sem o nome.
-- **P2:** 5/5 das que chegaram à lista; CRASH entrega arquivo:linha sem asserção.
+- **C3:** 1/5 com dado — só a FS do Gemini afirmou `dados['nome']`. Três rodadas caíram antes do sintoma por "nome com dígito" — regra presente no `cadastro.dart` do prompt, ignorada pelo modelo. Gemini COT chegou à saudação e afirmou o trecho sem o nome.
+- **P2:** 4/4 das que chegaram à lista (a 5ª com dado, ChatGPT COT, não compilou); CRASH entrega arquivo:linha sem asserção.
 
 ---
 

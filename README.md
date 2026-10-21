@@ -78,7 +78,7 @@ válidas.
   - `analise/planilhas/`: pirâmide unificada, comparação ChatGPT × Gemini, consolidado Gemini e matriz de rastreabilidade (índice em `analise/planilhas/README.md`).
 - **Análises:**
   - `analise/dados_consolidados.md` (Fase 1)
-  - `analise/textos/`: textos de análise usados no TCC (pirâmide unificada, comparação e análise Gemini, relatório de bugs, limitações por validade, aplicação de Baltes et al. 2026 e Medeiros 2026)
+  - `analise/textos/`: textos de análise usados no TCC (pirâmide unificada, comparação e análise Gemini, relatório de bugs, limitações por validade, aplicação de Baltes et al. 2026 e Medeiros 2026). Alinhamento com o texto final: [`analise/textos/ERRATA.md`](analise/textos/ERRATA.md)
   - `fase2/analise/` (erro por categoria, auditoria dos (B), cobertura)
   - `fase2-gemini/analise/ajuda_import.md`
   - `fase3-e2e/analise/` (consolidado, custo, cobertura)

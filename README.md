@@ -43,6 +43,7 @@ separado. Ver o mapa de branches em `CLAUDE.md`.
 | `integration_test/` | Fase 3: testes gerados (`fase3/<modelo>/`), seed e helper do emulador, e as implementações de referência (`_referencia/`, fora do protocolo) |
 | `scripts/` | Scripts de coleta de cobertura de 2026-10-07 (`scripts/cobertura/`) |
 | `docs/` | `README_anterior.md`, o README da raiz antes deste pacote |
+| `tcc/` | Texto do TCC em LaTeX (template SBC, v7): `main.tex`, bibliografia, estilo e figuras. Como compilar em `tcc/README.md` |
 | `CLAUDE.md` | Instruções operacionais usadas pelo Claude Code: fases, branches e regras do protocolo |
 
 ## Como ler uma rodada

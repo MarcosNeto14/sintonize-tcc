@@ -11,5 +11,7 @@
 | R5 "canonizado" | Na mesma rodada (UNIT-COT-06), capturado por um teste e canonizado por outro. |
 | Estado do código com os defeitos | Fase 2: os seis defeitos ativos juntos no commit `295fa34` (limpo `03c9bac`); Fase 3: um worktree por defeito (`eb14334`, `20edaaa`, `60cbaff`; limpo `ccae44a`). Co-atividade verificada sem efeito nas rodadas limpas. |
 | Prompts de reparo da Fase 3 | 86 prompts de reparo arquivados na Fase 3 = 85 iterações com resposta + 1 reparo da C3-COT do ChatGPT sem resposta. |
+| W-CRASH-FS do Gemini registrado como `3/2 n.c.` | O arquivo final compila e executa (`fase2-gemini/resultados/widget/FASE2-WCRASH-FS_iter3_final.txt`: 3 passaram, 2 falharam); o rótulo n.c. era indevido. A taxa de 91,8% de Widget/Gemini com defeito já incluía essa rodada. |
+| Tabela por estratégia com coluna agregada "Viu o defeito" | Desmembrada em Capturou / Caracterizou / Viu sem asserção / Canonizou / Não viu (ChatGPT ZS 1·4·1·0·2, FS 3·3·0·0·3, COT 1·3·0·2·2; Gemini ZS 2·2·1·1·3, FS 3·1·2·1·2, COT 2·2·0·3·2). |
 
 Em caso de divergência, prevalece tcc/main.tex.

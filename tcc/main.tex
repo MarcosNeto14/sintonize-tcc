@@ -9,6 +9,7 @@
 \usepackage{multirow}
 \usepackage{tabularx}
 \usepackage{array}
+\usepackage{longtable}
 \newcolumntype{P}[1]{>{\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000\arraybackslash}p{#1}}
 \usepackage{float}
 \usepackage{amsmath}
@@ -44,15 +45,19 @@ end-to-end on an Android emulator with the Firebase Emulator Suite), with nine
 planted defects as an oracle and a two-way repair template under which the
 model classifies each failure as a test error or a suspected application
 defect. Executability and defect detection were measured separately. Both
-models implement the pyramid (93\% pass rate on clean targets), but the
-resulting tests capture the defect in only 5 and 7 of the 27 exposures per
-model (nine defects $\times$ three strategies; two ChatGPT cells without
-data); of the remainder, most fix the defect by assertion as the expected
+models implement the pyramid (93\% pass rate on clean targets; 29 and 37
+fully green rounds out of 48), but the
+resulting tests capture the defect in only 5 of 25 and 7 of 27 exposures
+with data (54 planned: nine defects $\times$ three strategies $\times$ two
+models --- with the defect visible in the prompt's code at the lower levels
+and hidden in E2E, where the prompt was clean); of the remainder, most fix the defect by assertion as the expected
 behavior --- with a warning in prose (15 cases) or silently, the
-\emph{canonization} (7) --- or never exercise it (14). Canonization arises at
+\emph{canonization} (7) ---, 4 merely name it without a test, and 14 never
+exercise it. Canonization arises at
 generation time, and the repair loop, effective at preventing the model from
-weakening assertions, does not reach it. Prompt strategy does not order the
-results; defect type and the material supplied in the prompt do. The two
+weakening assertions, does not reach it. Prompt strategy did not produce an
+ordering consistent across metrics in this study; what separated the results was the oracle
+regime, the defect type and the material supplied in the prompt. The two
 models exhibit pyramids of different shape, with neither dominating. The study
 also exposed five real defects in the application and is reported following
 the guidelines of Baltes et al. (2026), with a complete replication package.
@@ -75,16 +80,21 @@ Android com o Firebase Emulator Suite), com nove defeitos plantados como
 oráculo e um \textit{template} de reparo em duas vias, sob o qual o modelo
 classifica cada falha como erro do teste ou suspeita de defeito da aplicação.
 Executabilidade e detecção de defeitos foram medidas separadamente. Os dois
-modelos implementam a pirâmide (93\% de aprovação nos alvos limpos), mas os
-testes resultantes capturam o defeito em apenas 5 e 7 das 27 exposições por
-modelo (nove defeitos $\times$ três estratégias; duas do ChatGPT sem dado); do
-restante, a maior parte fixa o defeito por asserção como comportamento
-esperado --- com aviso em prosa (15 casos) ou em silêncio, a
-\emph{canonização} (7) --- ou nem chega a exercitá-lo (14). A canonização
+modelos implementam a pirâmide (93\% de aprovação nos alvos limpos; 29 e 37
+rodadas verdes em 48), mas os
+testes resultantes capturam o defeito em apenas 5 das 25 e 7 das 27
+exposições com dado (54 planejadas: nove defeitos $\times$ três estratégias
+$\times$ dois modelos --- com o defeito visível no código do \textit{prompt}
+nos níveis inferiores e oculto no E2E, onde o \textit{prompt} era limpo); do
+restante, a maior parte fixa o defeito por asserção
+como comportamento esperado --- com aviso em prosa (15 casos) ou em
+silêncio, a \emph{canonização} (7) ---, 4 apenas o nomeiam sem teste e 14 nem
+chegam a exercitá-lo. A canonização
 nasce na geração, e o ciclo de reparo, eficaz em impedir que o modelo
 enfraqueça asserções, não a alcança. A estratégia de
-\textit{prompt} não ordena os resultados; o tipo de defeito e o material
-fornecido no \textit{prompt} ordenam. Os dois modelos exibem pirâmides de
+\textit{prompt} não produziu ordenação consistente entre as métricas neste
+estudo; o que separou os resultados foi o regime do oráculo, o tipo de
+defeito e o material fornecido no \textit{prompt}. Os dois modelos exibem pirâmides de
 forma diferente, sem que um domine o outro. O estudo expôs ainda cinco
 defeitos reais da aplicação e é relatado segundo as diretrizes de Baltes et
 al. (2026), com pacote de replicação completo.
@@ -204,8 +214,9 @@ análise de erro, cobertura e custo. A Seção~\ref{sec:discussao} responde à
 questão de pesquisa, interpreta os resultados e discute as ameaças à
 validade. A Seção~\ref{sec:conclusao} retoma os objetivos, as contribuições,
 as limitações e os trabalhos futuros. Os apêndices reúnem os \textit{prompts}
-representativos, as limitações de testabilidade da aplicação e a lista
-completa de desvios e ocorrências.
+representativos, as limitações de testabilidade da aplicação, a lista
+completa de desvios e ocorrências e a matriz de rastreabilidade dos 14
+casos (nove defeitos plantados e cinco reais).
 
 % ============================================================
 \section{Referencial Teórico}
@@ -539,7 +550,7 @@ Plein et al.\ \cite{plein2023bugreports} & GPT-3.5, CodeGPT & Java (Defects4J); 
 \addlinespace
 Hasan et al.\ \cite{hasan2025highlevel} & GPT-4o, Gemini, LLaMA, Mistral & Casos de teste de alto nível & \textit{One-shot}; \textit{fine-tuning} & Não produz \textit{scripts} \\
 \addlinespace
-GPTDroid \cite{liu2024gptdroid}, DroidAgent \cite{yoon2024droidagent}, QTypist \cite{liu2023qtypist} & GPT-3.5/4 & Android; GUI (exploração) & LLM como agente de exploração & Cobertura de atividades, \textit{bugs}; não gera suíte repetível \\
+GPTDroid \cite{liu2024gptdroid}, DroidAgent \cite{yoon2024droidagent}, QTypist \cite{liu2023qtypist} & GPT-3.5/4 & Android; GUI (exploração) & LLM como agente de exploração & Cobertura de atividades e \textit{bugs} encontrados --- não gera suíte repetível \\
 \addlinespace
 Fonseca et al.\ \cite{fonseca2025atomic} (AToMIC) & LLMs locais & \textbf{Flutter}; aceitação/UI & \textit{Pipeline} multimodelo & Validade dos artefatos; só UI, sem estratégias \\
 \addlinespace
@@ -1025,7 +1036,9 @@ das planilhas consolidadas por fase e da pirâmide unificada, dos \textit{branch
 com os defeitos plantados, dos testes de referência da Fase~3 e do roteiro
 manual. As conversas da sessão deslogada do ChatGPT não são recuperáveis
 após o fechamento da aba; por isso as transcrições foram salvas no momento
-da rodada. O repositório está em
+da rodada. O Apêndice~\ref{sec:apendice-matriz} liga cada um dos 14 casos
+--- nove defeitos plantados e cinco reais --- às rodadas, às tabelas do
+texto e aos artefatos do repositório. O repositório está em
 \url{https://github.com/MarcosNeto14/sintonize-tcc}, sob licença MIT.
 
 % ============================================================
@@ -1086,23 +1099,24 @@ seção.
 \caption{Alvos limpos por nível e modelo (48 rodadas por modelo).}
 \label{tab:piramide-limpos}
 \small
-\begin{tabular}{llrrrrrr}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrrrrrr}
 \toprule
-\textbf{Nível} & \textbf{Modelo} & \textbf{Rod.} & \textbf{Gerados/pass.} & \textbf{Taxa} & \textbf{Verdes} & \textbf{Compilou 1\textsuperscript{a}} & \textbf{Iter.} \\
+\textbf{Nível} & \textbf{Modelo} & \textbf{Rod.} & \textbf{Gerados} & \textbf{Pass./exec.} & \textbf{Taxa} & \textbf{Verdes} & \textbf{Compilou 1\textsuperscript{a}} & \textbf{Iter.} \\
 \midrule
-Unitário   & ChatGPT & 21 & 374 / 373 & 99,7\% & 20 & 21 & 6 \\
-Unitário   & Gemini  & 21 & 264 / 264 & 100\%  & 21 & 21 & 2 \\
-\textit{Widget} & ChatGPT & 9 & 152 / 113 & 89,0\% & 2 & 3 & 24 \\
-\textit{Widget} & Gemini  & 9 & 71 / 55   & 77,5\% & 6 & 6 & 17 \\
-Integração & ChatGPT & 9 & 50 / 43 & 86,0\% & 4 & 1 & 20 \\
-Integração & Gemini  & 9 & 41 / 23 & 79,3\% & 4 & 4 & 20 \\
-E2E        & ChatGPT & 9 & 43 / 26 & \textbf{60,5\%} & 3 & 4 & 22 \\
-E2E        & Gemini  & 9 & 29 / 25 & \textbf{89,3\%} & 6 & 8 & 17 \\
+Unitário   & ChatGPT & 21 & 374 & 373/374 & 99,7\% & 20 & 21 & 6 \\
+Unitário   & Gemini  & 21 & 264 & 264/264 & 100\%  & 21 & 21 & 2 \\
+\textit{Widget} & ChatGPT & 9 & 152 & 113/127 & 89,0\% & 2 & 3 & 24 \\
+\textit{Widget} & Gemini  & 9 & 71 & 55/71   & 77,5\% & 6 & 6 & 17 \\
+Integração & ChatGPT & 9 & 50 & 43/50 & 86,0\% & 4 & 1 & 20 \\
+Integração & Gemini  & 9 & 41 & 23/29 & 79,3\% & 4 & 4 & 20 \\
+E2E        & ChatGPT & 9 & 43 & 26/43 & \textbf{60,5\%} & 3 & 4 & 22 \\
+E2E        & Gemini  & 9 & 29 & 25/28 & \textbf{89,3\%} & 6 & 8 & 17 \\
 \midrule
-Todos & ChatGPT & 48 & 619 / 555 & 93,4\% & 29 & 29 & 72 \\
-Todos & Gemini  & 48 & 405 / 367 & 93,6\% & 37 & 39 & 56 \\
+Todos & ChatGPT & 48 & 619 & 555/594 & 93,4\% & 29 & 29 & 72 \\
+Todos & Gemini  & 48 & 405 & 367/392 & 93,6\% & 37 & 39 & 56 \\
 \bottomrule
-\multicolumn{8}{p{14cm}}{\footnotesize Gerados/pass.\ = testes gerados na primeira resposta / passando na última execução; Verdes = rodadas cujo arquivo final executa sem falhas; Compilou 1\textsuperscript{a} = rodadas cuja primeira geração compilou; Iter.\ = iterações de reparo somadas.} \\
+\multicolumn{9}{p{14cm}}{\footnotesize Gerados = testes na primeira resposta; Pass./exec.\ = passando / (passando + falhando) na última execução dos arquivos que executam (arquivos que não compilam ficam fora); Taxa = razão entre os dois; Verdes = rodadas cujo arquivo final executa sem falhas; Compilou 1\textsuperscript{a} = rodadas cuja primeira geração compilou; Iter.\ = iterações de reparo somadas.} \\
 \end{tabular}
 \end{table}
 
@@ -1110,25 +1124,25 @@ Todos & Gemini  & 48 & 405 / 367 & 93,6\% & 37 & 39 & 56 \\
 \centering
 \caption{Defeitos plantados por nível e modelo: executabilidade e detecção (rubrica da Tabela~\ref{tab:rubrica}).}
 \label{tab:piramide-bugs}
-\small
+\footnotesize
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{llrrrrrrrr}
+\begin{tabular}{llrrrrrrrrr}
 \toprule
-\textbf{Nível} & \textbf{Modelo} & \textbf{Rod.} & \textbf{Taxa} & \textbf{Verdes} & \textbf{Capt.} & \textbf{Caract.} & \textbf{Viu s/a.} & \textbf{Canon.} & \textbf{Não viu} \\
+\textbf{Nível} & \textbf{Modelo} & \textbf{Rod.} & \textbf{Pass./exec.} & \textbf{Taxa} & \textbf{Verdes} & \textbf{Capt.} & \textbf{Caract.} & \textbf{Viu s/a.} & \textbf{Canon.} & \textbf{Não viu} \\
 \midrule
-Unitário   & ChatGPT & 6 & 98,4\% & 5 & 1 & 5 & 0 & 0 & 0 \\
-Unitário   & Gemini  & 6 & 100\%  & 6 & 0 & 5 & 1 & 0 & 0 \\
-\textit{Widget} & ChatGPT & 6 & 95,3\% & 1 & 0 & 3 & 0 & 0 & 3 \\
-\textit{Widget} & Gemini  & 6 & 91,8\% & 3 & 0 & 0 & 0 & 3 & 3 \\
-Integração & ChatGPT & 6 & 37,9\% & 2 & 0 & 2 & 1 & 2 & 1 \\
-Integração & Gemini  & 6 & 47,6\% & 2 & 0 & 0 & 2 & 2 & 2 \\
-E2E        & ChatGPT & 7\textsuperscript{*} & 70,0\% & 0 & \textbf{4} & 0 & 0 & \textbf{0} & 3 \\
-E2E        & Gemini  & 9 & 55,2\% & 1 & \textbf{7} & 0 & 0 & \textbf{0} & 2 \\
+Unitário   & ChatGPT & 6 & 61/62 & 98,4\% & 5 & 1 & 5 & 0 & 0 & 0 \\
+Unitário   & Gemini  & 6 & 47/47 & 100\%  & 6 & 0 & 5 & 1 & 0 & 0 \\
+\textit{Widget} & ChatGPT & 6 & 41/43 & 95,3\% & 1 & 0 & 3 & 0 & 0 & 3 \\
+\textit{Widget} & Gemini  & 6 & 45/49 & 91,8\% & 3 & 0 & 0 & 0 & 3 & 3 \\
+Integração & ChatGPT & 6 & 11/29 & 37,9\% & 2 & 0 & 2 & 1 & 2 & 1 \\
+Integração & Gemini  & 6 & 10/21 & 47,6\% & 2 & 0 & 0 & 2 & 2 & 2 \\
+E2E        & ChatGPT & 7\textsuperscript{*} & 14/20 & 70,0\% & 0 & \textbf{4} & 0 & 0 & \textbf{0} & 3 \\
+E2E        & Gemini  & 9 & 16/29 & 55,2\% & 1 & \textbf{7} & 0 & 0 & \textbf{0} & 2 \\
 \midrule
-Todos & ChatGPT & 25 & 82,5\% & 8 & 5 & 10 & 1 & 2 & 7 \\
-Todos & Gemini  & 27 & 80,8\% & 12 & 7 & 5 & 3 & 5 & 7 \\
+Todos & ChatGPT & 25 & 127/154 & 82,5\% & 8 & 5 & 10 & 1 & 2 & 7 \\
+Todos & Gemini  & 27 & 118/146 & 80,8\% & 12 & 7 & 5 & 3 & 5 & 7 \\
 \bottomrule
-\multicolumn{10}{p{14cm}}{\footnotesize \textsuperscript{*}Mais duas rodadas sem dado por limitação do serviço (Seção~\ref{subsec:sessao}). No E2E o defeito é oculto (\textit{prompt} limpo): Caract., Viu s/a.\ e Canon.\ não se aplicam.}
+\multicolumn{11}{p{14cm}}{\footnotesize \textsuperscript{*}Mais duas rodadas sem dado por limitação do serviço (Seção~\ref{subsec:sessao}). No E2E o defeito é oculto (\textit{prompt} limpo): Caract., Viu s/a.\ e Canon.\ não se aplicam.}
 \end{tabular}
 \end{table}
 
@@ -1217,22 +1231,24 @@ rodadas que viram o defeito em cada bloco de 8 ou 9.
 
 \begin{table}[H]
 \centering
-\caption{Estratégias de \textit{prompt}, todos os níveis (limpos: 16 rodadas por célula; defeitos: 8--9).}
+\caption{Estratégias de \textit{prompt}, todos os níveis (limpos: 16 rodadas por célula; com defeito: 8--9).}
 \label{tab:estrategias-res}
-\small
-\setlength{\tabcolsep}{3.5pt}
-\begin{tabular}{llrrrrrr}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llrrrrrrrrr}
 \toprule
-\textbf{Estr.} & \textbf{Modelo} & \textbf{Taxa (limpos)} & \textbf{Verdes} & \textbf{Compilou 1\textsuperscript{a}} & \textbf{Viu o defeito} & \textbf{Canon.} & \textbf{Não viu} \\
+& & \multicolumn{3}{c}{\textbf{Limpos (16)}} & \multicolumn{6}{c}{\textbf{Com defeito}} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-11}
+\textbf{Estr.} & \textbf{Modelo} & \textbf{Taxa} & \textbf{Verdes} & \textbf{Comp.\ 1\textsuperscript{a}} & \textbf{Rod.} & \textbf{Capt.} & \textbf{Caract.} & \textbf{Viu s/a.} & \textbf{Canon.} & \textbf{Não viu} \\
 \midrule
-ZS  & ChatGPT & 95,9\% & 10 & 11 & 6/8 & 0 & 2 \\
-ZS  & Gemini  & 99,4\% & 14 & 13 & 5/9 & 1 & 3 \\
-FS  & ChatGPT & 88,0\% &  9 &  9 & 6/9 & 0 & 3 \\
-FS  & Gemini  & 93,0\% & 13 & 14 & 6/9 & 1 & 2 \\
-COT & ChatGPT & 93,8\% & 10 &  9 & 4/8 & 2 & 2 \\
-COT & Gemini  & 88,2\% & 10 & 12 & 4/9 & 3 & 2 \\
+ZS  & ChatGPT & 95,9\% & 10 & 11 & 8 & 1 & 4 & 1 & 0 & 2 \\
+ZS  & Gemini  & 99,4\% & 14 & 13 & 9 & 2 & 2 & 1 & 1 & 3 \\
+FS  & ChatGPT & 88,0\% &  9 &  9 & 9 & 3 & 3 & 0 & 0 & 3 \\
+FS  & Gemini  & 93,0\% & 13 & 14 & 9 & 3 & 1 & 2 & 1 & 2 \\
+COT & ChatGPT & 93,8\% & 10 &  9 & 8 & 1 & 3 & 0 & 2 & 2 \\
+COT & Gemini  & 88,2\% & 10 & 12 & 9 & 2 & 2 & 0 & 3 & 2 \\
 \bottomrule
-\multicolumn{8}{p{14cm}}{\footnotesize ``Viu o defeito'' = Capturou + Caracterizou com alerta + Viu sem asserção.}
+\multicolumn{11}{p{14cm}}{\footnotesize Taxa = aprovação nos alvos limpos; Comp.\ 1\textsuperscript{a} = compilou na primeira geração; Rod.\ = rodadas com defeito plantado e dado (ChatGPT: duas sem dado, em ZS e COT); as cinco colunas seguintes são a codificação da Tabela~\ref{tab:rubrica} e somam Rod.}
 \end{tabular}
 \end{table}
 
@@ -1240,7 +1256,9 @@ COT & Gemini  & 88,2\% & 10 & 12 & 4/9 & 3 & 2 \\
 \label{subsec:res-deteccao}
 
 A Tabela~\ref{tab:deteccao-bug} apresenta a codificação de cada uma das 54
-rodadas com defeito (27 por modelo), por defeito e estratégia. A leitura por
+rodadas com defeito (27 por modelo), das quais 52 receberam código --- duas
+do ChatGPT ficaram sem dado por limitação do serviço ---, por defeito e
+estratégia. A leitura por
 defeito é mais informativa que a agregada.
 
 \begin{table}[H]
@@ -1254,8 +1272,8 @@ defeito é mais informativa que a agregada.
 \textbf{Defeito} & \textbf{Tipo} & \textbf{ChatGPT (ZS $\cdot$ FS $\cdot$ COT)} & \textbf{Gemini (ZS $\cdot$ FS $\cdot$ COT)} \\
 \midrule
 U-CRASH  & CRASH  & Caracterizou (12/0) $\cdot$ \textbf{Capturou} (5/1) $\cdot$ Caracterizou (12/0) & Caracterizou (11/0) $\cdot$ Viu s/ asserção (6/0) $\cdot$ Caracterizou (10/0) \\
-U-SILENT & SILENT & Caracterizou $\times$3 & Caracterizou $\times$3 \\
-W-CRASH  & CRASH  & Não viu $\times$3 (14/0, 0/10 n.c., 20/1) & Não viu $\times$3 (5/0, 3/2 n.c., 9/0) \\
+U-SILENT & SILENT & Caracterizou $\times$3 (12/0, 6/0, 14/0) & Caracterizou $\times$3 (7/0, 5/0, 8/0) \\
+W-CRASH  & CRASH  & Não viu $\times$3 (14/0, 0/10 n.c., 20/1) & Não viu $\times$3 (5/0, 3/2, 9/0) \\
 W-SILENT & SILENT & Caracterizou $\times$3 (7/1, 0/9 n.c., 0/20 n.c.) & Canonizou $\times$3 (10/1, 9/0, 9/1) \\
 I-CRASH  & CRASH  & Viu s/ asserção (1/5) $\cdot$ Não viu (2/1) $\cdot$ Canonizou (2/12) & Não viu (1/4) $\cdot$ Não viu (1/3) $\cdot$ Canonizou (2/4) \\
 I-SILENT & SILENT & Caracterizou (2/0) $\cdot$ Caracterizou (0/2 n.c.) $\cdot$ Canonizou (4/0) & Viu s/ asserção (2/0) $\cdot$ Viu s/ asserção (0/2 n.c.) $\cdot$ Canonizou (4/0) \\
@@ -1277,7 +1295,12 @@ veio de um teste que falhou e foi mantido.
 \paragraph{W-CRASH: cobertura de dado.} Nenhuma das seis rodadas exercitou o
 defeito, porque nenhum teste de busca usou um documento sem o campo
 \texttt{artist\_name}. O defeito mede cobertura de dado, não de código, e é
-invisível a um gerador que só conhece o esquema pelos exemplos de uso.
+invisível a um gerador que só conhece o esquema pelos exemplos de uso: no
+nível de \textit{widget} com dublê, os dados existem apenas se o modelo os
+cria no \texttt{FakeFirebaseFirestore}, e nenhum criou um documento
+incompleto; no E2E os dados são semeados pelo protocolo, mas o \textit{seed}
+da Fase~3 tem o campo em todos os documentos, de modo que o W-CRASH tampouco
+seria exercitado ali.
 
 \paragraph{W-SILENT: o divisor entre modelos.} Com o mesmo teste --- um caso
 por código de erro do Firebase ---, o ChatGPT escreveu em 10 das 12
@@ -1572,19 +1595,26 @@ respondida nível a nível na Tabela~\ref{tab:desafios}.
 produziram, em todos os níveis, suítes que compilam e passam --- 93\% de
 aprovação agregada nos alvos limpos, com 29 e 37 rodadas verdes em 48. Mas a
 mesma pirâmide, medida pela capacidade de detectar defeitos conhecidos,
-mostra outra coisa: das 27 exposições a defeito por modelo (nove defeitos
-$\times$ três estratégias), o ChatGPT capturou 5 e o Gemini 7; os demais foram caracterizados com alerta (10 e 5), canonizados
+mostra outra coisa: das 25 e 27 exposições a defeito com dado por modelo
+(nove defeitos $\times$ três estratégias; duas células do ChatGPT sem dado),
+o ChatGPT capturou 5 e o Gemini 7; os demais foram caracterizados com alerta (10 e 5), canonizados
 (2 e 5), vistos apenas em prosa (1 e 3) ou não vistos (7 e 7). Um leitor que
 tivesse apenas a taxa de aprovação concluiria que a pirâmide está pronta;
 um leitor que tivesse apenas a detecção concluiria que ela protege contra
-pouco mais de um quinto das exposições a defeito --- cerca de três em cada
-cinco, se contar os casos em que o modelo apenas avisou em prosa ---, e contra quase nenhum dos
-silenciosos nos níveis intermediários. As duas leituras são verdadeiras e precisam coexistir no
+pouco mais de um quinto das exposições a defeito (12 de 52) --- e que os
+modelos \emph{perceberam} o defeito em cerca de três em cada cinco (31 de 52:
+as 12 capturas mais 15 caracterizações com alerta e 4 menções sem teste), o
+que não é o mesmo que protegê-lo ---, e contra quase nenhum dos silenciosos
+nos níveis intermediários. As duas leituras são verdadeiras e precisam coexistir no
 texto --- é a razão de o estudo medir as duas dimensões em separado.
 
 \paragraph{A estratégia de \textit{prompt} não é o fator decisivo.} ZS, FS e
-COT não produziram ordenação consistente entre os dois modelos em nenhuma
-métrica. FS foi a pior em aprovação no ChatGPT e a segunda pior no Gemini,
+COT não produziram uma ordenação que se mantivesse de uma métrica para outra
+nem, dentro de cada métrica, diferenças maiores que uma ou duas rodadas em
+células sem repetição: ZS teve a melhor aprovação nos alvos limpos nos dois
+modelos (Tabela~\ref{tab:estrategias-res}), FS a maior captura nos dois (3
+de 9 em cada) e COT concentrou as canonizações (5 de 7); nenhuma estratégia
+lidera em mais de uma métrica. FS foi a pior em aprovação no ChatGPT e a segunda pior no Gemini,
 mas por uma razão que não é da estratégia: o exemplo deslocava o modelo para um caminho de
 \textit{import} que não existia (Fase~2) ou para um esqueleto sem
 \texttt{material.dart} (Fase~3). COT concentrou as canonizações e as
@@ -1649,7 +1679,12 @@ especificação. O \textit{template}
 de reparo em duas vias --- a revisão feita após o piloto --- cumpriu o que
 prometia: em 52 rodadas com defeito e dado, nenhum
 reparo (B) enfraqueceu uma asserção, e reparos (B) sem código resultaram em
-reexecução inalterada. Mas o \textit{template} só é acionado quando um teste
+reexecução inalterada. A proteção do \textit{template} é, porém,
+assimétrica: sob (A) o modelo pode reduzir o escopo do teste, e foi o que fez
+em três rodadas limpas do E2E (Seção~\ref{subsec:res-limpos}), removendo ou
+trocando a asserção sobre a saudação --- um modo de falha que o
+\textit{template} não alcança, porque depende da classificação que o
+próprio modelo declara. Mas o \textit{template} só é acionado quando um teste
 falha; nas rodadas ZS e COT do I-SILENT a suíte passou na primeira
 execução, já canonizada, e o reparo nunca entrou. Nas sete canonizações, a
 asserção que fixa o defeito já estava na primeira resposta do modelo
@@ -1903,14 +1938,15 @@ As respostas. Os modelos implementam a pirâmide: 93\% de aprovação agregada
 nos alvos limpos, de 60,5\% (E2E do ChatGPT) a 100\% (unitário do Gemini)
 por nível. A pirâmide que implementam captura 5 e 7 das 25 e 27 exposições a
 defeitos conhecidos --- 1 e 0 nos níveis inferiores, com defeito visível; 4 e
-7 no E2E, com defeito oculto ---, cerca de três em cada cinco se contados os
-avisos em prosa sem asserção, e quase nenhum dos silenciosos nos níveis
-intermediários. O que separa as duas leituras é o teste que fixa o defeito
+7 no E2E, com defeito oculto ---, e os modelos perceberam o defeito, sem
+necessariamente protegê-lo, em cerca de três em cada cinco (31 de 52); quase
+nenhum dos silenciosos nos níveis intermediários foi protegido. O que separa as duas leituras é o teste que fixa o defeito
 como especificação --- com aviso ou, na canonização, sem ele ---, que nasce
 na geração e que o ciclo de reparo revisado, eficaz em impedir que (B)
 enfraqueça asserções, não alcança. A estratégia
-de \textit{prompt} não ordena os resultados; o tipo de defeito e o material
-fornecido no \textit{prompt} ordenam. Os dois modelos têm pirâmides de forma
+de \textit{prompt} não produziu ordenação consistente entre as métricas
+neste estudo; o que separou os resultados foi o regime do oráculo, o tipo de
+defeito e o material fornecido no \textit{prompt}. Os dois modelos têm pirâmides de forma
 diferente --- o ChatGPT cai com o nível e o Gemini volta a subir no E2E ---,
 e nenhum domina o outro; comparações feitas num só nível produziriam
 vencedores diferentes. O estudo expôs ainda cinco defeitos reais do
@@ -2102,6 +2138,7 @@ T4 & Protocolo FS & caminho de \textit{import} não fornecido & 4 (ChatGPT) + 5 
 \end{tabular}
 \end{table}
 
+
 \section{Desvios e Ocorrências Operacionais}
 \label{sec:apendice-desvios}
 
@@ -2125,5 +2162,50 @@ tratamento dado; os itens principais estão na Seção~\ref{subsec:ameacas}.
 \item \textbf{Co-atividade dos defeitos (Fase~2):} os seis defeitos ativos juntos (\texttt{295fa34}); rodadas limpas do ChatGPT em \texttt{fase2-prep} com três defeitos ativos em outros arquivos; verificação posterior (arquivos de teste e saídas arquivadas, versões gravadas em \texttt{f9468fc}) sem nenhuma execução de linha com defeito; rodadas limpas do Gemini no código limpo (\texttt{27f2f69}, idêntico a \texttt{03c9bac}).
 \item \textbf{Medição de cobertura:} duas tentativas interrompidas por memória; três execuções descartadas e refeitas; 3 arquivos da Fase~2 não medidos (não compilam ou não carregam).
 \end{enumerate}
+
+\section{Matriz de Rastreabilidade por Caso}
+\label{sec:apendice-matriz}
+
+Cada caso --- nove defeitos plantados (Tabela~\ref{tab:bugs}) e cinco reais
+(Tabela~\ref{tab:reais}) --- com o local no código, o nível em que é
+alcançável, a codificação de cada rodada que o alcançou (ChatGPT / Gemini,
+na ordem ZS~$\cdot$~FS~$\cdot$~COT), as tabelas do texto que o resumem e os
+artefatos do repositório que o sustentam. Abreviaturas: Capt.\ =
+Capturou; Caract.\ = Caracterizou com alerta; Viu = Viu sem asserção;
+Canon.\ = Canonizou; NV = Não viu; s/d = sem dado (serviço).
+
+{\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{P{1.4cm}P{2.4cm}P{1.6cm}P{3.6cm}P{1.8cm}P{2.9cm}}
+\caption{Matriz de rastreabilidade: caso $\to$ nível $\to$ rodadas $\to$ texto $\to$ repositório.}
+\label{tab:matriz}\\
+\toprule
+\textbf{Caso} & \textbf{Local} & \textbf{Nível} & \textbf{Rodadas e codificação (ChatGPT / Gemini)} & \textbf{No texto} & \textbf{No repositório} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Caso} & \textbf{Local} & \textbf{Nível} & \textbf{Rodadas e codificação (ChatGPT / Gemini)} & \textbf{No texto} & \textbf{No repositório} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+U-CRASH (CRASH, F2) & \path{validators.dart:162}, \path{capitalize} & Unitário (só) & Caract.\ $\cdot$ \textbf{Capt.} $\cdot$ Caract.\ / Caract.\ $\cdot$ Viu $\cdot$ Caract. & Tab.~\ref{tab:piramide-bugs}, \ref{tab:deteccao-bug}; §\ref{subsec:res-deteccao} & \path{fase2/rodadas/unit/FASE2-UCRASH-*}; \path{fase2-gemini/rodadas/unit/} \\
+U-SILENT (SILENT, F2) & \path{validators.dart:117}, \path{validateSenha} & Unitário (só) & Caract.\ $\times$3 / Caract.\ $\times$3 & idem & \path{.../FASE2-USILENT-*} \\
+W-CRASH (CRASH, F2) & \path{criar_playlist.dart:57}, \path{_filterMusicas} & \textit{Widget} (E2E só com documento sem o campo) & NV $\times$3 / NV $\times$3 & Tab.~\ref{tab:deteccao-bug}; §\ref{subsec:res-deteccao}; I7 & \path{fase2/rodadas/widget/FASE2-WCRASH-*}; \path{fase2-gemini/rodadas/widget/} \\
+W-SILENT (SILENT, F2) & \path{login.dart:40--43} & \textit{Widget} (obs.\ no E2E) & Caract.\ $\times$3 / \textbf{Canon.} $\times$3 (FS sobre cópia da tela) & Tab.~\ref{tab:deteccao-bug}; §\ref{subsec:res-deteccao}, \ref{subsec:disc-canon} & \path{.../FASE2-WSILENT-*}; testes finais em \path{test/fase2-gemini/widget/wsilent_*} \\
+I-CRASH (CRASH, F2) & \path{generos-cadastro.dart:33--34}, \path{_salvarGeneros} & Integração (não alc.\ no E2E) & Viu $\cdot$ NV $\cdot$ Canon.\ / NV $\cdot$ NV $\cdot$ Canon.; REEXEC: ChatGPT Capt.\ ZS e COT & Tab.~\ref{tab:deteccao-bug}, \ref{tab:autoclass}; I2; Ap.~\ref{sec:apendice-desvios} & \path{fase2-chatgpt-reexec/rodadas/integration/FASE2-ICRASH-*}; \path{fase2-gemini/rodadas/integration/}; \path{*_REEXEC} \\
+I-SILENT (SILENT, F2) & \path{criar_playlist.dart:241}, \path{_salvarPlaylist} & Integração (obs.\ no E2E) & Caract.\ $\cdot$ Caract.\ $\cdot$ Canon.\ / Viu $\cdot$ Viu $\cdot$ Canon. & Tab.~\ref{tab:deteccao-bug}; §\ref{subsec:disc-canon} & \path{.../FASE2-ISILENT-*} \\
+L4 (SILENT, F3) & \path{login.dart:36} & E2E & \textbf{Capt.} $\times$3 / \textbf{Capt.} $\times$3 & Tab.~\ref{tab:deteccao-bug}, \ref{tab:autoclass} & \path{fase3-e2e/rodadas/{chatgpt,gemini}/FASE3-L4-*}; \textit{worktree} \path{eb14334} \\
+C3 (SILENT, F3) & \path{cadastro.dart:149} & E2E & NV $\cdot$ NV $\cdot$ s/d / NV $\cdot$ \textbf{Capt.} $\cdot$ NV & Tab.~\ref{tab:deteccao-bug}; Ct3; Ap.~\ref{sec:apendice-desvios} & \path{.../FASE3-C3-*}; \path{_abortadas/}; \path{20edaaa} \\
+P2 (CRASH, F3) & \path{criar_playlist.dart:165}, \path{itemCount} & E2E & s/d $\cdot$ \textbf{Capt.} $\cdot$ NV (n.c.) / \textbf{Capt.} $\times$3 & Tab.~\ref{tab:deteccao-bug}; §\ref{subsec:res-custo} & \path{.../FASE3-P2-*}; \path{60cbaff} \\
+\midrule
+R1 (real, piloto) & \path{validators.dart:145--151}, \path{formatName} + 6 cópias & Unitário (cópias nas telas não testadas) & Caract.\ $\cdot$ Viu $\cdot$ Caract.\ / Canon.\ $\cdot$ Viu $\cdot$ Canon. & Tab.~\ref{tab:reais}; §\ref{subsec:disc-reais}; I6 & \path{fase2/rodadas/unit/*formatName*}; \path{fase2-gemini/rodadas/unit/} \\
+R2 (real, F2) & \path{criar_playlist.dart:169--170} & \textit{Widget} & ChatGPT WIDGET-FS-03: (B) correto em 2 iterações, mantido / Gemini: não viu & Tab.~\ref{tab:reais}, \ref{tab:autoclass} & \path{fase2/rodadas/widget/FASE2-WIDGET-FS-03*} \\
+R3 (real, F3) & \path{tela-inicial.dart:161} & E2E (tela não isolável abaixo) & Gemini FS-01, FS-02, COT-01: (B) com arquivo e linha / ChatGPT FS-01, ZS-01: visto & Tab.~\ref{tab:reais}, \ref{tab:autoclass} & \path{fase3-e2e/rodadas/gemini/FASE3-E2E-{FS-01,FS-02,COT-01}*} \\
+R4 (real, F3) & \path{criar_playlist.dart:38--48}, \path{_fetchMusicas} & E2E & ChatGPT COT-03 (reparo 3, pelo efeito) e P2-COT (reparo 2) / Gemini: não viu & Tab.~\ref{tab:reais} & \path{fase3-e2e/rodadas/chatgpt/FASE3-E2E-COT-03*}, \path{FASE3-P2-COT*} \\
+R5 (real, F2) & \path{validators.dart:105}; \path{login.dart:124} & Unitário & ChatGPT UNIT-COT-06: um teste (B) mantido e outro canonizado na mesma suíte / Gemini: não viu & Tab.~\ref{tab:reais}, \ref{tab:autoclass}; §\ref{subsec:disc-canon} & \path{fase2/rodadas/unit/FASE2-UNIT-COT-06*}; \path{test/fase2/unit/validate_email_login_cot_test.dart} \\
+\end{longtable}
+}
 
 \end{document}

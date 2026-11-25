@@ -22,9 +22,9 @@ python -X utf8 -I pacote_replicacao/scripts/build.py <tmp> pacote_replicacao/ind
   script), classifica as diferenças contra a Pirâmide e grava a planilha com as
   abas Leia-me, Prompts e Rodadas.
 
-O `indice.xlsx` commitado foi gerado em 2026-11-25 contra a Pirâmide **antes** da
-correção da célula I155 (Gemini, `FASE3-E2E-ZS-02_cadastroFlow`, 5 → 4), feita em
-commit próprio logo depois; por isso o Leia-me dele ainda lista essa divergência.
-Regenerar com a Pirâmide corrigida remove essa linha e nada mais.
+O `indice.xlsx` commitado foi gerado em 2026-11-25 com a Pirâmide já corrigida e
+recalculada (célula Rodadas!I155, Gemini `FASE3-E2E-ZS-02_cadastroFlow`, 5 → 4;
+ver `analise/textos/ERRATA.md`). Uma primeira versão, gerada antes dessa correção,
+listava essa divergência no Leia-me (commit `1e164a5`).
 
 Os scripts só leem o repositório; não alteram nenhum artefato executado.

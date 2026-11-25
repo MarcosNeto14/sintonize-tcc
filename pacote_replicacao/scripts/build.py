@@ -138,7 +138,7 @@ def sheet(ws, header, rows, widths=None):
 ws = wb.active; ws.title = 'Leia-me'
 lines = [
  ['Índice do pacote de replicação — TCC Sintonize (Fases 2 e 3)'],
- ['Gerado em 2026-11-25 a partir dos arquivos do repositório, branch fase3-e2e (commit b8231c7). Nenhum artefato executado foi alterado.'],
+ ['Gerado em 2026-11-25 a partir dos arquivos do repositório, branch fase3-e2e, depois da correção e do recálculo de Piramide_Unificada_ChatGPT_x_Gemini.xlsx (Rodadas!I155, 5 → 4). Nenhum artefato executado foi alterado.'],
  [''],
  ['Aba "Prompts" (76 linhas)'],
  ['uso: desenho (18 prompts de bug + 42 alvos limpos da Fase 2 + 9 da Fase 3) / reexecução (FASE2--REEXEC.md, 4 prompts corrigidos num só arquivo) / fora de escopo (6 em fase2/prompts_prontos/_fora-de-escopo/).'],
@@ -162,7 +162,7 @@ for d in sorted(div, key=lambda x: (x[0] != 'divergência', x[1], x[2])):
 lines += [[''], ['Conferência das divergências reais contra a saída arquivada do flutter test (sem alterar nenhum doc):'],
  ['- FASE2-UNIT-COT-06_validateEmailLogin (ChatGPT): fase2/resultados/unit/cot/..._iter1_final.txt termina em "+18 -1" (19 testes) e test/fase2/unit/validate_email_login_cot_test.dart tem 19 test(); o doc registra 18 gerados e 17/1. A Pirâmide (19; 18/1) está de acordo com a saída.'],
  ['- FASE2-UNIT-ZS-10_validateDate (ChatGPT): fase2/resultados/unit/zero-shot/..._iter0_final.txt termina em "+33: All tests passed!" e o arquivo de teste tem 33 test(); o doc registra 34/34. A Pirâmide (33/33) está de acordo com a saída.'],
- ['- FASE3-E2E-ZS-02_cadastroFlow (Gemini): fase3-e2e/resultados/gemini/..._iter2_final.txt termina em "+4: All tests passed!" e integration_test/fase3/gemini/cadastro_zs_test.dart tem 4 testWidgets(); o doc registra 4 gerados e 4/0. A Pirâmide registra 5 gerados (4 passando, 0 falhando), que não fecha com a saída.'],
+ ['- FASE3-E2E-ZS-02_cadastroFlow (Gemini): a Pirâmide registrava 5 gerados (4 passando, 0 falhando), o que não fechava com a saída (iteração 0 com 4 testWidgets() em ..._transcricao/iter0_resposta.md; ..._iter2_final.txt termina em "+4: All tests passed!"; o doc registra 4 e 4/0). Corrigido para 4 na célula Rodadas!I155 da Pirâmide (ver analise/textos/ERRATA.md); por isso não aparece mais na lista acima.'],
  ['- Tipos: "divergência" = valores diferentes para o mesmo fato; "convenção" = o doc não tem o campo ou usa outra regra de contagem (ex.: arquivo final que não compila → falhando "—" no doc, N na Pirâmide; "Testes gerados" = geração inicial no doc); "mapeamento documentado" = vocabulário diferente com equivalência registrada na Pirâmide ou no próprio doc.']]
 for l in lines: ws.append(l)
 ws.column_dimensions['A'].width = 180

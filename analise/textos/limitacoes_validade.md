@@ -43,7 +43,7 @@ Junta as listas das três fases (comparação ChatGPT × Gemini §4; README da F
 
 | # | Limitação | Evidência | Mitigação adotada | Em aberto |
 |---|---|---|---|---|
-| R1 ● | **n = 1 por célula** (alvo × estratégia × modelo); sem repetição e sem estatística inferencial | desenho | Declarado como estudo de caso exploratório; nenhum teste de hipótese; leituras por padrão (6/6, 0/6), não por diferença de percentuais | Repetições por célula |
+| R1 ● | **n = 1 por célula** (alvo × estratégia × modelo); sem repetição e sem estatística inferencial | desenho | Declarado como estudo de benchmarking exploratório; nenhum teste de hipótese; leituras por padrão (6/6, 0/6), não por diferença de percentuais | Repetições por célula |
 | R2 ● | **Não determinismo dos modelos**: mesma entrada, saídas diferentes (ZS-01 limpa × L4-ZS Gemini: mesmo prompt, estruturas próximas e asserções diferentes) | docs | Prompts byte-idênticos (sha256); conversa nova por rodada | — |
 | R3 ● | **Não determinismo do E2E**: mesma suíte, resultados diferentes (ChatGPT COT-02 6/11 e 4/11; Gemini FS-02 0/1 → 1/1 entre máquinas) | README Fase 3 (b) | Regra escrita: resultado = execução única registrada; instabilidade anotada | Novo em relação à Fase 2, onde `flutter test` era determinístico |
 | R4 ● | **Limites do serviço gratuito**: 2 células do ChatGPT E2E sem dado (prompt ≥ 50 k chars; reparo de 58 k vazio ×3); recusas do Gemini (21 em 17 rodadas na Fase 2; ZS_REEXEC perdida) | `_PENDENTE` → fechamento, prints | Categoria "sem dado por limitação do serviço", fora da contagem; sem logar nem filtrar para não mudar a condição | A interface gratuita é parte da condição experimental |

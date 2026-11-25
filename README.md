@@ -1,4 +1,4 @@
-# Uso de Modelos de Linguagem de Grande Escala na Implementação da Pirâmide de Testes: Um Estudo de Caso em uma Aplicação Móvel
+# Uso de Modelos de Linguagem na Implementação da Pirâmide de Testes: Um Estudo de Benchmarking em uma Aplicação Móvel
 
 Pacote de replicação do TCC.
 

@@ -18,9 +18,9 @@
 \sloppy
 
 \title{Uso de Modelos de Linguagem na Implementação da Pirâmide de
-Testes: Um Estudo de Caso em uma Aplicação Móvel}
+Testes: Um Estudo de \textit{Benchmarking} em uma Aplicação Móvel}
 
-\author{Marcos Leite Bezerra Neto\inst{1}, Cleyton Magalhães\inst{1}}
+\author{Marcos Leite Bezerra Neto\inst{1}, Cleyton Vanut Cordeiro de Magalhães\inst{1}}
 
 \address{Departamento de Estatística e Informática\\
   Universidade Federal Rural de Pernambuco (UFRPE)\\
@@ -30,74 +30,103 @@ Testes: Um Estudo de Caso em uma Aplicação Móvel}
 
 \begin{document}
 
+% ---------- Capa ----------
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+\vspace*{0.5cm}
+\begin{minipage}[c]{0.42\textwidth}\centering
+\includegraphics[height=2.6cm]{figuras/ufrpe.png}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.42\textwidth}\centering
+\includegraphics[height=2.6cm]{figuras/bsi.png}
+\end{minipage}
+\vspace{1.2cm}
+
+{\large Marcos Leite Bezerra Neto\par}
+\vspace{4cm}
+{\Large\bfseries Uso de Modelos de Linguagem na Implementação da Pirâmide de
+Testes: Um Estudo de \textit{Benchmarking} em uma Aplicação Móvel\par}
+\vfill
+{\large Recife\par 2026\par}
+\vspace{1.5cm}
+\end{titlepage}
+
+% ---------- Folha de rosto ----------
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+\vspace*{1cm}
+{\large Marcos Leite Bezerra Neto\par}
+\vspace{3cm}
+{\Large\bfseries Uso de Modelos de Linguagem na Implementação da Pirâmide de
+Testes: Testes: Um Estudo de \textit{Benchmarking} em uma Aplicação Móvel\par}
+\vspace{2cm}
+\begin{flushright}
+\begin{minipage}{0.55\textwidth}
+\normalsize
+Artigo apresentado ao Curso de Bacharelado em Sistemas de Informação da
+Universidade Federal Rural de Pernambuco, como requisito parcial para
+obtenção do título de Bacharel em Sistemas de Informação.
+\end{minipage}
+\end{flushright}
+\vspace{1.5cm}
+{\normalsize Orientador: Cleyton Vanut Cordeiro de Magalhães\par}
+\vspace{2cm}
+{\large Universidade Federal Rural de Pernambuco -- UFRPE\par
+Departamento de Estatística e Informática\par
+Curso de Bacharelado em Sistemas de Informação\par}
+\vfill
+{\large Recife\par 2026\par}
+\vspace{0.5cm}
+\end{titlepage}
+
 \maketitle
 
 \begin{abstract}
-Implementing tests across every level of the test pyramid is labor-intensive
-and tends to leave coverage uneven. This work asks whether large language
-models, guided by prompt-engineering strategies, can implement a complete test
-pyramid for a real mobile application, and whether the tests they produce
-actually protect the system. A case study on Sintonize (Flutter + Firebase)
-ran 156 rounds under a fixed protocol: three strategies (zero-shot, few-shot,
-chain-of-thought) $\times$ two models accessed through their web interfaces
-(ChatGPT and Gemini) $\times$ four levels (unit, widget, integration and
-end-to-end on an Android emulator with the Firebase Emulator Suite), with nine
-planted defects as an oracle and a two-way repair template under which the
-model classifies each failure as a test error or a suspected application
-defect. Executability and defect detection were measured separately. Both
-models implement the pyramid (93\% pass rate on clean targets; 29 and 37
-fully green rounds out of 48), but the
-resulting tests capture the defect in only 5 of 25 and 7 of 27 exposures
-with data (54 planned: nine defects $\times$ three strategies $\times$ two
-models --- with the defect visible in the prompt's code at the lower levels
-and hidden in E2E, where the prompt was clean); of the remainder, most fix the defect by assertion as the expected
-behavior --- with a warning in prose (15 cases) or silently, the
-\emph{canonization} (7) ---, 4 merely name it without a test, and 14 never
-exercise it. Canonization arises at
-generation time, and the repair loop, effective at preventing the model from
-weakening assertions, does not reach it. Prompt strategy did not produce an
-ordering consistent across metrics in this study; what separated the results was the oracle
-regime, the defect type and the material supplied in the prompt. The two
-models exhibit pyramids of different shape, with neither dominating. The study
-also exposed five real defects in the application and is reported following
-the guidelines of Baltes et al. (2026), with a complete replication package.
+This work investigates whether large language models, guided by
+prompt-engineering strategies, implement a test pyramid that actually protects
+a real mobile application. In a benchmarking study on Sintonize (Flutter + Firebase),
+156 rounds under a fixed protocol combined three strategies (zero-shot,
+few-shot and chain-of-thought), two models (ChatGPT and Gemini) and four
+levels (unit, widget, integration and end-to-end), with nine planted defects
+as an oracle and a repair loop in which the model classifies each failure as a
+test error or an application defect. Both models implement the pyramid (93\%
+pass rate on clean targets; 29 and 37 fully green rounds out of 48), but the
+tests capture the defect in only 5 of 25 and 7 of 27 exposures with data; in
+most of the others, the test fixes the defect as the expected behavior, with a
+warning in prose or silently. The latter case, \emph{canonization}, arises at
+generation time and is not reached by the repair loop. Prompt strategy did
+not produce an ordering consistent across metrics; what separated the results
+was the oracle regime (defect visible or hidden in the prompt), the defect
+type and the material supplied. The study also exposed five real defects in
+the application and follows the guidelines of Baltes et al. (2026), with a
+complete replication package.
 \end{abstract}
 
 \noindent\textbf{Keywords:} Large Language Models; Automated Test Generation; Test Pyramid; Prompt Engineering; Flutter; Planted Defects.
 
 \begin{resumo}
-Implementar testes em todos os níveis da pirâmide de testes é trabalhoso e
-tende a deixar a cobertura desigual. Este trabalho pergunta se modelos de
-linguagem de grande escala, guiados por estratégias de engenharia de
-\textit{prompt}, conseguem implementar uma pirâmide de testes completa para
-uma aplicação móvel real, e se os testes que produzem de fato protegem o
-sistema. Um estudo de caso no Sintonize (Flutter + Firebase) executou 156
-rodadas sob um protocolo fixo: três estratégias (\textit{zero-shot},
-\textit{few-shot}, \textit{chain-of-thought}) $\times$ dois modelos acessados
-pela interface \textit{web} (ChatGPT e Gemini) $\times$ quatro níveis
-(unitário, \textit{widget}, integração e \textit{end-to-end} em emulador
-Android com o Firebase Emulator Suite), com nove defeitos plantados como
-oráculo e um \textit{template} de reparo em duas vias, sob o qual o modelo
-classifica cada falha como erro do teste ou suspeita de defeito da aplicação.
-Executabilidade e detecção de defeitos foram medidas separadamente. Os dois
+Este trabalho investiga se modelos de linguagem de grande escala, guiados por
+estratégias de engenharia de \textit{prompt}, implementam uma pirâmide de
+testes que de fato protege uma aplicação móvel real. Em um \textit{benchmarking} no
+Sintonize (Flutter + Firebase), 156 rodadas sob protocolo fixo combinaram três
+estratégias (\textit{zero-shot}, \textit{few-shot} e
+\textit{chain-of-thought}), dois modelos (ChatGPT e Gemini) e quatro níveis
+(unitário, \textit{widget}, integração e \textit{end-to-end}), com nove
+defeitos plantados como oráculo e um ciclo de reparo em que o modelo
+classifica cada falha como erro do teste ou defeito da aplicação. Os dois
 modelos implementam a pirâmide (93\% de aprovação nos alvos limpos; 29 e 37
-rodadas verdes em 48), mas os
-testes resultantes capturam o defeito em apenas 5 das 25 e 7 das 27
-exposições com dado (54 planejadas: nove defeitos $\times$ três estratégias
-$\times$ dois modelos --- com o defeito visível no código do \textit{prompt}
-nos níveis inferiores e oculto no E2E, onde o \textit{prompt} era limpo); do
-restante, a maior parte fixa o defeito por asserção
-como comportamento esperado --- com aviso em prosa (15 casos) ou em
-silêncio, a \emph{canonização} (7) ---, 4 apenas o nomeiam sem teste e 14 nem
-chegam a exercitá-lo. A canonização
-nasce na geração, e o ciclo de reparo, eficaz em impedir que o modelo
-enfraqueça asserções, não a alcança. A estratégia de
-\textit{prompt} não produziu ordenação consistente entre as métricas neste
-estudo; o que separou os resultados foi o regime do oráculo, o tipo de
-defeito e o material fornecido no \textit{prompt}. Os dois modelos exibem pirâmides de
-forma diferente, sem que um domine o outro. O estudo expôs ainda cinco
-defeitos reais da aplicação e é relatado segundo as diretrizes de Baltes et
-al. (2026), com pacote de replicação completo.
+rodadas verdes em 48), mas os testes capturam o defeito em apenas 5 das 25 e
+7 das 27 exposições com dado; na maior parte das demais, o teste fixa o
+defeito como comportamento esperado, com aviso em prosa ou em silêncio. Este
+último caso, a \emph{canonização}, nasce na geração e não é alcançado pelo
+ciclo de reparo.
+A estratégia de \textit{prompt} não produziu ordenação consistente entre as
+métricas; o que separou os resultados foi o regime do oráculo (defeito visível
+ou oculto no \textit{prompt}), o tipo de defeito e o material fornecido. O
+estudo expôs ainda cinco defeitos reais da aplicação e segue as diretrizes de
+Baltes et al. (2026), com pacote de replicação completo.
 \end{resumo}
 
 \noindent\textbf{Palavras-chave:} Modelos de Linguagem de Grande Escala; Geração Automática de Testes; Pirâmide de Testes; Engenharia de Prompt; Flutter; Defeitos Plantados.
@@ -120,65 +149,80 @@ papel central na garantia da qualidade.
 
 Para estruturar a prática de testes, a indústria adotou amplamente o modelo
 da pirâmide de testes, proposto por Cohn~\cite{cohn2009} e refinado por
-Vocke~\cite{vocke2018}: camadas de quantidade decrescente da base ao topo ---
-unitário, integração, \textit{end-to-end} (E2E) --- que equilibram velocidade de
+Vocke~\cite{vocke2018}. O modelo organiza os testes em camadas de quantidade
+decrescente da base ao topo, dos unitários aos de integração e aos
+\textit{end-to-end} (E2E), de modo a equilibrar velocidade de
 \textit{feedback} e custo de manutenção (Seção~\ref{subsec:piramide}).
 Implementar a pirâmide, porém, é trabalhoso: a criação manual de casos de
 teste em cada nível consome tempo, é suscetível ao viés de quem escreve e
 resulta com frequência em cobertura desigual~\cite{cohn2009}.
 
-Os Modelos de Linguagem de Grande Escala (\textit{Large Language Models} ---
+Os Modelos de Linguagem de Grande Escala (\textit{Large Language Models},
 LLMs) surgiram como candidatos naturais a reduzir esse esforço. Estudos
 recentes documentam seu uso na geração de casos de teste unitários,
 reprodução de defeitos, escrita de \textit{scripts} de automação e criação de
 oráculos~\cite{wang2024survey,santana2025software}. Em um estudo com 15
 profissionais, Santana et al.~\cite{santana2025software} observaram que essa
-adoção segue um processo iterativo e reflexivo --- definir o objetivo,
-aplicar estratégias de engenharia de \textit{prompt}, refinar, avaliar as
-saídas --- sempre mediado por supervisão humana, por causa de alucinações e
-raciocínio inconsistente, e ainda sem padrões estabelecidos para integrar
-essas ferramentas ao ciclo de testes.
+adoção segue um processo iterativo e reflexivo, que passa por definir o
+objetivo, aplicar estratégias de engenharia de \textit{prompt}, refinar e
+avaliar as saídas. Esse processo é sempre mediado por supervisão humana, por
+causa de alucinações e raciocínio inconsistente, e ainda não conta com
+padrões estabelecidos para integrar essas ferramentas ao ciclo de testes.
 
 A pesquisa sobre geração de testes com LLMs distribui-se de forma desigual
-pela pirâmide. Ferramentas como ChatUniTest~\cite{chen2024chatunitest}
-concentram-se no nível unitário, onde os resultados são mais promissores;
-trabalhos conceituais, como o de Desai et al.~\cite{desai2025testpyramid},
-propõem que a Inteligência Artificial pode potencializar todas as camadas,
-mas reconhecem que a evidência empírica é escassa. E há uma segunda lacuna,
-menos visível: a maior parte dos estudos mede a qualidade dos testes gerados
-pela \emph{taxa de aprovação} --- a proporção de testes que compilam e passam
----, uma métrica que não distingue um teste correto de um teste que fixou um
-defeito do sistema como comportamento esperado. Um conjunto de testes gerado
-automaticamente pode estar inteiramente verde e proteger contra muito pouco.
-Separar essas duas coisas exige um oráculo: defeitos conhecidos, contra os
-quais se possa perguntar se o teste gerado falha.
+pela pirâmide, e as revisões da área registram essa concentração. Wang et
+al.~\cite{wang2024survey}, ao analisar 102 estudos, encontram os LLMs
+aplicados sobretudo à geração de testes unitários e de entradas de sistema, e
+não registram estudo que trate explicitamente dos níveis de integração e de
+aceitação. Celik e Mahmoud~\cite{celik2025review} revisam 84 estudos de
+geração automática de casos de teste, concentrados no nível unitário. As
+ferramentas seguem o mesmo padrão: ChatUniTest~\cite{chen2024chatunitest} e
+TestPilot~\cite{schafer2024testpilot} geram testes unitários, e o estudo de
+Plein et al.~\cite{plein2023bugreports} tampouco sai desse nível. No domínio
+móvel, GPTDroid, DroidAgent e
+QTypist~\cite{liu2024gptdroid,yoon2024droidagent,liu2023qtypist} usam o LLM
+para explorar a interface, sem produzir uma suíte repetível, e o
+AToMIC~\cite{fonseca2025atomic} cobre apenas a camada de aceitação. Trabalhos
+conceituais, como o de Desai et al.~\cite{desai2025testpyramid}, propõem que
+a Inteligência Artificial pode potencializar todas as camadas, mas
+reconhecem que a evidência empírica é escassa. Entre os trabalhos levantados
+(Seção~\ref{sec:relacionados}), nenhum avalia os quatro níveis no mesmo
+sistema. Há ainda uma segunda
+lacuna, menos visível: a maior parte dos estudos mede a qualidade dos testes
+gerados pela \emph{taxa de aprovação}, isto é, a proporção de testes que
+compilam e passam. Essa métrica não distingue um teste correto de um teste
+que fixou um defeito do sistema como comportamento esperado, de modo que um
+conjunto de testes gerado automaticamente pode estar inteiramente verde e
+proteger contra muito pouco. Separar essas duas coisas exige um oráculo:
+defeitos conhecidos, contra os quais se possa perguntar se o teste gerado
+falha.
 
 Há, por fim, um problema de método que atravessa toda essa literatura. Baltes
 et al.~\cite{baltes2026guidelines} mostram que estudos empíricos com LLMs em
-Engenharia de Software são difíceis de reproduzir --- de 18 artigos de
+Engenharia de Software são difíceis de reproduzir: de 18 artigos de
 conferências de primeira linha que usaram modelos da OpenAI e publicaram
-artefatos, nenhum teve seus resultados reproduzidos --- por não determinismo,
-modelos comerciais que mudam sem aviso sob o mesmo nome e relato incompleto de
-\textit{prompts}, versões e configurações. Os autores propõem oito diretrizes
-de desenho e relato, que este trabalho adota.
+artefatos, nenhum teve seus resultados reproduzidos. Entre as causas estão o
+não determinismo, os modelos comerciais que mudam sem aviso sob o mesmo nome
+e o relato incompleto de \textit{prompts}, versões e configurações. Os
+autores propõem oito diretrizes de desenho e relato, que este trabalho adota.
 
 Diante dessas lacunas, este trabalho investiga o uso de LLMs na implementação
-de uma pirâmide de testes completa, por meio de um estudo de caso no
+de uma pirâmide de testes completa, por meio de um \textit{benchmarking} no
 Sintonize, uma aplicação móvel de recomendação musical desenvolvida em
 Flutter~\cite{flutter} com \textit{backend} Firebase. Testes unitários, de
-\textit{widget}, de integração e E2E foram gerados por dois
-modelos acessados pela interface \textit{web} --- ChatGPT e Gemini ---, sob
-três estratégias de engenharia de \textit{prompt} --- \textit{zero-shot},
-\textit{few-shot} e \textit{chain-of-thought} --- e um protocolo fixo de
-rodadas com ciclo de reparo. Nove defeitos foram plantados na aplicação, um
-CRASH --- exceção não tratada, que interrompe o fluxo --- e um SILENT ---
-resultado errado sem nenhum erro visível --- por nível (três no E2E), de
-modo que cada teste gerado pudesse ser avaliado em
-duas dimensões independentes: se \emph{executa} e se \emph{detecta}. Nos
-três níveis inferiores o defeito estava no código colado no \textit{prompt};
-no E2E o \textit{prompt} era limpo e o teste rodava contra a versão com
-defeito, no aplicativo real em emulador Android com o pacote
-\texttt{integration\_test} e o Firebase Emulator Suite.
+\textit{widget}, de integração e E2E foram gerados por dois modelos acessados
+pela interface \textit{web}, ChatGPT e Gemini, sob três estratégias de
+engenharia de \textit{prompt} (\textit{zero-shot}, \textit{few-shot} e
+\textit{chain-of-thought}) e um protocolo fixo de rodadas com ciclo de
+reparo. Nove defeitos foram plantados na aplicação, de dois tipos: CRASH, uma
+exceção não tratada que interrompe o fluxo, e SILENT, um resultado errado sem
+nenhum erro visível. Cada um dos três níveis inferiores recebeu um defeito de
+cada tipo e o nível E2E recebeu três, de modo que cada teste gerado pudesse
+ser avaliado em duas dimensões independentes: se \emph{executa} e se
+\emph{detecta}. Nos três níveis inferiores o defeito estava no código colado
+no \textit{prompt}; no E2E o \textit{prompt} era limpo e o teste rodava
+contra a versão com defeito, no aplicativo real em emulador Android com o
+pacote \texttt{integration\_test} e o Firebase Emulator Suite.
 
 O objetivo geral é caracterizar benefícios, dificuldades e limites do uso de
 LLMs na implementação da pirâmide de testes. Os objetivos específicos são:
@@ -201,7 +245,7 @@ detecção feita por um único avaliador. Os resultados descrevem padrões
 nesse contexto e não autorizam inferência estatística; as ameaças à validade
 são tratadas na Seção~\ref{subsec:ameacas}.
 
-O restante do texto está organizado em seis seções e três apêndices. A
+O restante do texto está organizado em seis seções e quatro apêndices. A
 Seção~\ref{sec:referencial} apresenta o referencial teórico: a pirâmide, os
 níveis de teste, os modelos de linguagem na geração de testes, as estratégias
 de \textit{prompt} e os defeitos plantados como oráculo. A
@@ -249,7 +293,7 @@ exemplo, operam sobre uma pirâmide de cinco camadas --- unitário,
 componente, integração, UI/API e exploratório/manual ---, argumentando que
 essa granularidade reflete melhor as metodologias de teste empregadas na
 indústria e na academia atualmente. Essa distinção é relevante para o
-presente trabalho, pois o ecossistema utilizado no estudo de caso, o Flutter,
+presente trabalho, pois o ecossistema utilizado no estudo, o Flutter,
 oferece uma camada de testes de \textit{widget} que se posiciona entre os
 níveis unitário e de integração, alinhando-se a essas formulações mais
 granulares do modelo.
@@ -278,7 +322,7 @@ meio da interface. São os testes de maior escopo e menor isolamento,
 apresentando o ciclo de \textit{feedback} mais lento e o maior custo de
 manutenção.
 
-No contexto do Flutter, \textit{framework} utilizado no estudo de caso, esses
+No contexto do Flutter, \textit{framework} utilizado no estudo, esses
 níveis materializam-se em três tipos de teste nativos. Os \textit{unit tests}
 correspondem aos testes unitários; os \textit{widget tests} verificam
 componentes de interface de forma isolada, sem dispositivo ou emulador,
@@ -295,6 +339,9 @@ serviços locais de Authentication e Firestore que substituem o
 \textbf{E2E}). A distinção importa porque os obstáculos de cada grau são
 diferentes: o primeiro depende de isolar dependências com dublês; o segundo,
 de infraestrutura, sincronização com a interface e dados semeados.
+Chama-se aqui \emph{dublê} (\textit{test double}) o objeto que substitui uma
+dependência real durante o teste, como um Firebase simulado em memória;
+\textit{mocks}, \textit{stubs} e \textit{fakes} são tipos de dublê.
 
 \subsection{Modelos de Linguagem na Geração de Testes}
 \label{subsec:llms}
@@ -493,6 +540,39 @@ mais próximo em tecnologia: gera cenários Gherkin, \textit{Page Objects} e
 locais, mas cobre só a camada de aceitação e usa um \textit{pipeline}
 multimodelo determinístico, sem comparar estratégias de \textit{prompt}.
 
+\begin{table}[!t]
+\centering
+\caption{Comparação entre os trabalhos relacionados e o presente estudo.}
+\label{tab:relacionados}
+\renewcommand{\arraystretch}{1.3}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}P{3.1cm} P{2.2cm} Y Y Y@{}}
+\toprule
+\textbf{Trabalho} & \textbf{Modelo(s)} & \textbf{Alvo e níveis} & \textbf{Método / estratégias} & \textbf{O que mede; lacuna} \\
+\midrule
+Wang et al.\ \cite{wang2024survey} (survey) & ChatGPT, Codex, CodeT5 & Java/Python; sem integração/aceitação & ZS (51), FS (25), COT (7) & Mapeia; expõe a lacuna em integração e aceitação \\
+\addlinespace
+Celik e Mahmoud \cite{celik2025review} (review) & Família GPT & Java/Python; unitário & Quatro categorias de método & Compilação, inconsistência, \textit{leakage} \\
+\addlinespace
+Desai et al.\ \cite{desai2025testpyramid} (conceitual) & Técnicas de IA & Agnóstico; cinco camadas & --- & Sem validação empírica \\
+\addlinespace
+Schäfer et al.\ \cite{schafer2024testpilot} (TestPilot) & Codex/GPT-3.5 & JavaScript; unitário & Geração + reparo por mensagem de erro & Cobertura, aprovação; asserções fracas notadas, sem oráculo \\
+\addlinespace
+Plein et al.\ \cite{plein2023bugreports} & GPT-3.5, CodeGPT & Java (Defects4J); unitário via \textit{bug reports} & ZS com múltiplas gerações & Executáveis e relevantes; só unitário \\
+\addlinespace
+Hasan et al.\ \cite{hasan2025highlevel} & GPT-4o, Gemini, LLaMA, Mistral & Casos de teste de alto nível & \textit{One-shot}; \textit{fine-tuning} & Não produz \textit{scripts} \\
+\addlinespace
+GPTDroid \cite{liu2024gptdroid}, DroidAgent \cite{yoon2024droidagent}, QTypist \cite{liu2023qtypist} & GPT-3.5/4 & Android; GUI (exploração) & LLM como agente de exploração & Cobertura de atividades e \textit{bugs} encontrados --- não gera suíte repetível \\
+\addlinespace
+Fonseca et al.\ \cite{fonseca2025atomic} (AToMIC) & LLMs locais & \textbf{Flutter}; aceitação/UI & \textit{Pipeline} multimodelo & Validade dos artefatos; só UI, sem estratégias \\
+\addlinespace
+Medeiros \cite{medeiros2026acessibilidade} & Gemini 3 Flash & Web (Cypress); E2E de acessibilidade & Prompt estruturado, 3 refinamentos; referência manual & Qualitativo (ajustes manuais, seletores); um modelo, um nível \\
+\midrule
+\textbf{Este trabalho} & ChatGPT, Gemini (interface \textit{web}) & \textbf{Flutter + Firebase}; unitário, \textit{widget}, integração, E2E & \textbf{ZS $\times$ FS $\times$ COT}, prompts idênticos; reparo em duas vias & \textbf{Executabilidade e detecção} contra 9 defeitos plantados; cobertura; 5 defeitos reais \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
 \paragraph{Objeto e orientação compartilhados.} Medeiros
 \cite{medeiros2026acessibilidade}, em trabalho orientado pelo mesmo
 orientador deste, avaliou a geração de \textit{scripts} E2E de acessibilidade
@@ -528,39 +608,6 @@ estratégias e dois modelos sob \textit{prompts} idênticos, nove defeitos
 plantados como oráculo, ciclo de reparo em duas vias com autoclassificação
 auditada, e relato conforme Baltes et al.~\cite{baltes2026guidelines}.
 
-\begin{table}[htbp]
-\centering
-\caption{Comparação entre os trabalhos relacionados e o presente estudo.}
-\label{tab:relacionados}
-\renewcommand{\arraystretch}{1.3}
-\scriptsize
-\begin{tabularx}{\textwidth}{@{}P{3.1cm} P{2.2cm} Y Y Y@{}}
-\toprule
-\textbf{Trabalho} & \textbf{Modelo(s)} & \textbf{Alvo e níveis} & \textbf{Método / estratégias} & \textbf{O que mede; lacuna} \\
-\midrule
-Wang et al.\ \cite{wang2024survey} (survey) & ChatGPT, Codex, CodeT5 & Java/Python; sem integração/aceitação & ZS (51), FS (25), COT (7) & Mapeia; expõe a lacuna em integração e aceitação \\
-\addlinespace
-Celik e Mahmoud \cite{celik2025review} (review) & Família GPT & Java/Python; unitário & Quatro categorias de método & Compilação, inconsistência, \textit{leakage} \\
-\addlinespace
-Desai et al.\ \cite{desai2025testpyramid} (conceitual) & Técnicas de IA & Agnóstico; cinco camadas & --- & Sem validação empírica \\
-\addlinespace
-Schäfer et al.\ \cite{schafer2024testpilot} (TestPilot) & Codex/GPT-3.5 & JavaScript; unitário & Geração + reparo por mensagem de erro & Cobertura, aprovação; asserções fracas notadas, sem oráculo \\
-\addlinespace
-Plein et al.\ \cite{plein2023bugreports} & GPT-3.5, CodeGPT & Java (Defects4J); unitário via \textit{bug reports} & ZS com múltiplas gerações & Executáveis e relevantes; só unitário \\
-\addlinespace
-Hasan et al.\ \cite{hasan2025highlevel} & GPT-4o, Gemini, LLaMA, Mistral & Casos de teste de alto nível & \textit{One-shot}; \textit{fine-tuning} & Não produz \textit{scripts} \\
-\addlinespace
-GPTDroid \cite{liu2024gptdroid}, DroidAgent \cite{yoon2024droidagent}, QTypist \cite{liu2023qtypist} & GPT-3.5/4 & Android; GUI (exploração) & LLM como agente de exploração & Cobertura de atividades e \textit{bugs} encontrados --- não gera suíte repetível \\
-\addlinespace
-Fonseca et al.\ \cite{fonseca2025atomic} (AToMIC) & LLMs locais & \textbf{Flutter}; aceitação/UI & \textit{Pipeline} multimodelo & Validade dos artefatos; só UI, sem estratégias \\
-\addlinespace
-Medeiros \cite{medeiros2026acessibilidade} & Gemini 3 Flash & Web (Cypress); E2E de acessibilidade & Prompt estruturado, 3 refinamentos; referência manual & Qualitativo (ajustes manuais, seletores); um modelo, um nível \\
-\midrule
-\textbf{Este trabalho} & ChatGPT, Gemini (interface \textit{web}) & \textbf{Flutter + Firebase}; unitário, \textit{widget}, integração, E2E & \textbf{ZS $\times$ FS $\times$ COT}, prompts idênticos; reparo em duas vias & \textbf{Executabilidade e detecção} contra 9 defeitos plantados; cobertura; 5 defeitos reais \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
 % ============================================================
 % ============================================================
 % METODOLOGIA — versão reescrita para o estudo revisado (Fases 2 e 3)
@@ -572,15 +619,26 @@ Medeiros \cite{medeiros2026acessibilidade} & Gemini 3 Flash & Web (Cypress); E2E
 \subsection{Classificação e Desenho da Pesquisa}
 \label{subsec:desenho}
 
-Este trabalho é uma pesquisa aplicada conduzida como estudo de caso
-exploratório~\cite{ralph2021empirical}, no qual modelos de linguagem geram,
-sob um protocolo fixo, os testes de uma pirâmide completa --- unitário,
-\textit{widget}, integração e \textit{end-to-end} (E2E) --- para uma aplicação
-móvel real. Segundo a taxonomia de Baltes et al.~\cite{baltes2026guidelines},
-o estudo é do tipo \textit{LLMs for New Software Engineering Tools} (geração
-de testes), com um componente de \textit{benchmarking} (comparação entre dois
-modelos). O relato segue as oito diretrizes propostas por esses autores,
-em especial as de declaração de uso (5.1), versão e configuração (5.2),
+Este trabalho apresenta uma pesquisa do tipo
+\textit{benchmarking}~\cite{ralph2021empirical}, na qual foram gerados, por
+modelos de linguagem de grande escala (LLMs) e sob um protocolo fixo, os
+testes que compõem a pirâmide de testes automatizados, proposta inicialmente
+por Cohn~\cite{cohn2009}. A pirâmide adotada neste projeto tem quatro níveis:
+testes unitários, de \textit{widget}, de integração e \textit{end-to-end}
+(E2E), aplicados a uma aplicação móvel real. Por protocolo fixo entende-se
+que todas as rodadas seguem os mesmos passos, definidos antes da execução:
+conversa nova a cada rodada, \textit{prompt} colado sem alteração e idêntico
+para os dois modelos, execução dos testes gerados, um único \textit{template}
+de reparo e o limite de três iterações de reparo
+(Seção~\ref{subsec:protocolo}). Dois modelos, ChatGPT e Gemini,
+são comparados nas mesmas tarefas, com \textit{prompts} idênticos e os mesmos
+defeitos plantados como referência. Na taxonomia de Baltes et
+al.~\cite{baltes2026guidelines}, o estudo é do tipo \textit{LLMs for New
+Software Engineering Tools} (geração de testes), com um componente de
+\textit{benchmarking} (comparação entre dois modelos). O relato segue as oito diretrizes propostas por esses autores,
+citadas ao longo deste texto pela numeração do artigo original (diretrizes
+5.1 a 5.8 de Baltes et al.), que não corresponde às seções deste trabalho.
+Aplicam-se em especial as de declaração de uso (5.1), versão e configuração (5.2),
 desenho de \textit{prompts} (5.3), \textit{traces} de sessão (5.4), métricas
 (5.5), validação humana (5.7) e limitações (5.8); a Seção~\ref{subsec:ameacas}
 organiza as ameaças à validade pelas categorias da diretriz 5.8.
@@ -597,17 +655,27 @@ dimensões são medidas de forma independente em todo o estudo: a
 \textbf{executabilidade} dos testes gerados e a sua \textbf{capacidade de
 detecção} (Seção~\ref{subsec:metricas}).
 
-O estudo foi executado em duas fases. A \textbf{Fase~2}\footnote{A numeração
-preserva a do repositório. A Fase~1 foi um piloto de 48 rodadas, conduzido
-antes da revisão do protocolo descrita nesta seção; seus artefatos foram
-preservados, mas não compõem o estudo relatado. A principal mudança foi o
-\textit{prompt} de reparo, que no piloto podia induzir o modelo a mascarar
-defeitos da aplicação; a Seção~\ref{subsec:protocolo} descreve a versão
-revisada.} cobre os níveis unitário, de \textit{widget} e de integração, com
-57 rodadas do desenho por modelo mais as 3 de \texttt{formatName} (60
-executadas). A \textbf{Fase~3} estende o mesmo protocolo ao nível
-E2E, com 18 rodadas por modelo. O total é de 156 rodadas, resumidas na
-Tabela~\ref{tab:desenho}.
+O trabalho foi executado em três fases, numeradas como no repositório do
+estudo\footnote{Repositório Git público com o pacote de replicação:
+\url{https://github.com/MarcosNeto14/sintonize-tcc}.} e
+resumidas na Figura~\ref{fig:fases}. A Fase~1 foi um piloto de 48 rodadas,
+conduzido antes da revisão do protocolo descrita nesta seção, cujos artefatos
+foram preservados mas não compõem o estudo relatado; a principal mudança foi
+o \textit{prompt} de reparo, que no piloto podia induzir o modelo a mascarar
+defeitos da aplicação
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{figuras/fases_estudo.pdf}
+\caption{As três fases do trabalho, com o que foi feito e o resultado de cada uma. O estudo relatado corresponde às Fases 2 e 3.}
+\label{fig:fases}
+\end{figure}
+
+(Seção~\ref{subsec:protocolo}). A \textbf{Fase~2} cobre os níveis unitário,
+de \textit{widget} e de integração, com 57 rodadas do desenho por modelo mais
+as 3 de \texttt{formatName} (60 executadas). A \textbf{Fase~3} estende o
+mesmo protocolo ao nível E2E, com 18 rodadas por modelo. O total é de 156
+rodadas, resumidas na Tabela~\ref{tab:desenho}.
 
 \begin{table}[H]
 \centering
@@ -629,20 +697,19 @@ E2E        & os mesmos 3 fluxos, no aplicativo real em emulador & 9 & 9 & 18 \\
 \end{tabular}
 \end{table}
 
-
-\begin{figure}[tbp]
-\centering
-\includegraphics[width=0.95\textwidth]{figuras/fluxograma_metodologia.pdf}
-\caption{Protocolo de uma rodada: geração, execução, reparo em duas vias e codificação.}
-\label{fig:metodologia}
-\end{figure}
-
 A Figura~\ref{fig:metodologia} resume o protocolo de uma rodada, detalhado
 na Seção~\ref{subsec:protocolo}. Cada célula alvo~$\times$~estratégia~$\times$~modelo tem uma única rodada.
 Trata-se, portanto, de um desenho exploratório sem repetição: os resultados
 são descritivos, não se aplicam testes de hipótese e as diferenças entre
 modelos e estratégias são lidas por padrões consistentes (por exemplo, 6/6
 ou 0/6), não por diferenças percentuais~\cite{baltes2026guidelines}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{figuras/fluxograma_metodologia.pdf}
+\caption{Protocolo de uma rodada: geração, execução, reparo em duas vias e codificação.}
+\label{fig:metodologia}
+\end{figure}
 
 \subsection{Declaração de Uso de Modelos de Linguagem}
 \label{subsec:declaracao}
@@ -696,7 +763,8 @@ de \textit{commit} no repositório.
 \texttt{lib/utils/validators.dart} (\texttt{validateNome},
 \texttt{validateNumero}, \texttt{validateCEP}, \texttt{validateEmail},
 \texttt{validateEmailLogin}, \texttt{validateEmailEdit},
-\texttt{validateDate}). A função \texttt{formatName} foi mantida como alvo à
+\texttt{validateDate}). A função \texttt{formatName}, que formata o nome
+digitado pelo usuário, foi mantida como alvo à
 parte porque contém um defeito real pré-existente, identificado no piloto e
 não corrigido; suas três rodadas por modelo não entram na contagem de alvos
 limpos. Nos níveis de \textit{widget} e integração, três alvos cada,
@@ -797,7 +865,7 @@ caminho de \textit{import}, um laço de espera ---, e essa assimetria é
 inerente à estratégia FS; o seu efeito aparece na Seção~\ref{sec:resultados}
 e nas ameaças I3 e T4.}
 
-Todos os \textit{prompts} (68 na Fase~2, 9 na Fase~3) são publicados no
+Todos os \textit{prompts} (67 na Fase~2, 9 na Fase~3) são publicados no
 repositório com \textit{hash} SHA-256, idênticos byte a byte nos dois
 modelos, e cada documento de rodada registra o \textit{hash} do
 \textit{prompt} usado. O texto é colado em uma conversa nova, sem
@@ -907,7 +975,7 @@ Fase 2, 64 rodadas\textsuperscript{\ddag} & Gemini & 3.8 Flash & seletor, \texti
 Fase 3, 18 rodadas & ChatGPT & GPT-5.6 Luna & autodeclaração + Help Center & deslogado, 2--6 out.\ 2026 \\
 Fase 3, 18 rodadas & Gemini & 3.8 Flash & seletor, \textit{print} por rodada & logado (Pro), 5--6 out.\ 2026 \\
 \bottomrule
-\multicolumn{5}{p{13.5cm}}{\footnotesize \textsuperscript{\ddag}64 = as 60 rodadas do desenho mais as 4 reexecuções do I-CRASH com \textit{prompt} corrigido (fora das contagens); no ChatGPT, 15 das 64 foram reexecutadas em 24/09 e são as que contam.} \\
+\multicolumn{5}{p{13.5cm}}{\footnotesize \textsuperscript{\ddag}64 = as 60 rodadas do desenho mais 4 reexecuções com \textit{prompt} corrigido (três do I-CRASH e a FS do W-SILENT; fora das contagens); no ChatGPT, 15 das 64 foram reexecutadas em 24/09 e são as que contam.} \\
 \end{tabular}
 \end{table}
 
@@ -1009,7 +1077,7 @@ não plantados, catalogados à parte (Seção~\ref{sec:resultados}).
 (espera, \textit{finder}, dado inválido), erro de geração (\textit{import},
 API inexistente, código truncado), limitação de testabilidade da aplicação,
 lacuna de material do \textit{prompt} e limitação do serviço; a frequência
-por categoria é reportada, conforme a diretriz 5.5.
+por categoria é reportada, conforme a diretriz 5.5 de Baltes et al.~\cite{baltes2026guidelines}.
 
 \paragraph{Validação e verificação.} Toda codificação de detecção e toda
 auditoria de (B) foram feitas por um único avaliador, o autor; a rubrica e o
@@ -1067,8 +1135,8 @@ Seção~\ref{subsec:metricas}: calculada sobre as rodadas cujo arquivo final
 executa; um arquivo que não compila (``n.c.'' nas tabelas) é contado à parte,
 com zero testes passando. Ficam fora das contagens principais as três rodadas
 de \texttt{formatName} por modelo (alvo com defeito real pré-existente,
-Seção~\ref{subsec:alvos}) e as quatro rodadas do I-CRASH refeitas com o
-\textit{prompt} corrigido (sufixo \texttt{REEXEC};
+Seção~\ref{subsec:alvos}) e as quatro rodadas por modelo refeitas com o
+\textit{prompt} corrigido, três do I-CRASH e a FS do W-SILENT (sufixo \texttt{REEXEC};
 Seção~\ref{subsec:ameacas}, I2); as 15 rodadas do ChatGPT reexecutadas com o
 \textit{template} fixo (Seção~\ref{subsec:protocolo}) substituem as originais
 e contam normalmente. No nível E2E, duas células do ChatGPT (P2-ZS e C3-COT)
@@ -1111,10 +1179,10 @@ Unitário   & Gemini  & 21 & 264 & 264/264 & 100\%  & 21 & 21 & 2 \\
 Integração & ChatGPT & 9 & 50 & 43/50 & 86,0\% & 4 & 1 & 20 \\
 Integração & Gemini  & 9 & 41 & 23/29 & 79,3\% & 4 & 4 & 20 \\
 E2E        & ChatGPT & 9 & 43 & 26/43 & \textbf{60,5\%} & 3 & 4 & 22 \\
-E2E        & Gemini  & 9 & 29 & 25/28 & \textbf{89,3\%} & 6 & 8 & 17 \\
+E2E        & Gemini  & 9 & 28 & 25/28 & \textbf{89,3\%} & 6 & 8 & 17 \\
 \midrule
 Todos & ChatGPT & 48 & 619 & 555/594 & 93,4\% & 29 & 29 & 72 \\
-Todos & Gemini  & 48 & 405 & 367/392 & 93,6\% & 37 & 39 & 56 \\
+Todos & Gemini  & 48 & 404 & 367/392 & 93,6\% & 37 & 39 & 56 \\
 \bottomrule
 \multicolumn{9}{p{14cm}}{\footnotesize Gerados = testes na primeira resposta; Pass./exec.\ = passando / (passando + falhando) na última execução dos arquivos que executam (arquivos que não compilam ficam fora); Taxa = razão entre os dois; Verdes = rodadas cujo arquivo final executa sem falhas; Compilou 1\textsuperscript{a} = rodadas cuja primeira geração compilou; Iter.\ = iterações de reparo somadas.} \\
 \end{tabular}
@@ -1165,7 +1233,7 @@ Seção~\ref{subsec:res-deteccao} examina esse ponto por defeito.
 
 Em volume, o ChatGPT gerou mais testes que o Gemini em todos os níveis ---
 de 1,2 (integração) a 2,1 vezes (\textit{widget}); 1,5 no agregado (619
-contra 405 nos limpos; 207 contra 148 nos defeitos) e, por rodada,
+contra 404 nos limpos; 207 contra 148 nos defeitos) e, por rodada,
 gerou mais em 45 das 60 da Fase~2; o volume adicional não se converteu em
 aprovação nem em detecção, e sim em iterações.
 
@@ -1592,7 +1660,7 @@ encontrados em cada nível. A primeira parte tem três respostas; a segunda é
 respondida nível a nível na Tabela~\ref{tab:desafios}.
 
 \paragraph{Implementar, sim; proteger, nem sempre.} Os dois modelos
-produziram, em todos os níveis, suítes que compilam e passam --- 93\% de
+produziram, em todos os níveis, suítes que compilam e passam: 93\% de
 aprovação agregada nos alvos limpos, com 29 e 37 rodadas verdes em 48. Mas a
 mesma pirâmide, medida pela capacidade de detectar defeitos conhecidos,
 mostra outra coisa: das 25 e 27 exposições a defeito com dado por modelo
@@ -1601,12 +1669,13 @@ o ChatGPT capturou 5 e o Gemini 7; os demais foram caracterizados com alerta (10
 (2 e 5), vistos apenas em prosa (1 e 3) ou não vistos (7 e 7). Um leitor que
 tivesse apenas a taxa de aprovação concluiria que a pirâmide está pronta;
 um leitor que tivesse apenas a detecção concluiria que ela protege contra
-pouco mais de um quinto das exposições a defeito (12 de 52) --- e que os
-modelos \emph{perceberam} o defeito em cerca de três em cada cinco (31 de 52:
-as 12 capturas mais 15 caracterizações com alerta e 4 menções sem teste), o
-que não é o mesmo que protegê-lo ---, e contra quase nenhum dos silenciosos
-nos níveis intermediários. As duas leituras são verdadeiras e precisam coexistir no
-texto --- é a razão de o estudo medir as duas dimensões em separado.
+pouco mais de um quinto das exposições a defeito (12 de 52) e contra quase
+nenhum dos silenciosos nos níveis intermediários. Os modelos
+\emph{perceberam} o defeito em cerca de três em cada cinco exposições (31 de
+52: as 12 capturas mais 15 caracterizações com alerta e 4 menções sem teste),
+o que não é o mesmo que protegê-lo. As duas leituras, a da aprovação e a da
+detecção, são verdadeiras e precisam coexistir no texto; por isso o estudo
+mede as duas dimensões em separado.
 
 \paragraph{A estratégia de \textit{prompt} não é o fator decisivo.} ZS, FS e
 COT não produziram uma ordenação que se mantivesse de uma métrica para outra
@@ -1629,9 +1698,9 @@ foram capturadas em todas as rodadas que as alcançaram, em qualquer
 estratégia e modelo, porque derrubam o teste sem depender de asserção; o
 defeito de texto (C3) só foi capturado onde uma asserção afirmou o campo
 certo. No regime de defeito visível (níveis inferiores), o tipo deixa de
-proteger: os CRASH foram tão fixados quanto os SILENT --- U-CRASH
+proteger: os CRASH foram tão fixados quanto os SILENT (U-CRASH
 caracterizado em 5 de 6, I-CRASH canonizado nas duas COT, W-CRASH nunca
-exercitado ---, porque o modelo, ao ler o código errado, escreve o teste que
+exercitado), porque o modelo, ao ler o código errado, escreve o teste que
 o espera. Isso explica a Tabela~\ref{tab:piramide-bugs} melhor do que
 qualquer diferença entre modelos: no E2E a captura virou a norma e a
 canonização desapareceu por construção, não por mérito do nível.
@@ -1673,27 +1742,27 @@ esperado. O estudo observou sete casos nos defeitos plantados (2 do ChatGPT,
 5 do Gemini), mais o R5 em alvo limpo, e três achados sobre ela importam para quem usa modelos de
 linguagem em testes.
 
-Primeiro, \textbf{ela nasce na geração, não no reparo} --- e nasce porque,
+Primeiro, \textbf{ela nasce na geração, não no reparo}. Nasce porque,
 no regime de defeito visível, o modelo lê o código errado e o toma como
 especificação. O \textit{template}
-de reparo em duas vias --- a revisão feita após o piloto --- cumpriu o que
+de reparo em duas vias, revisão feita após o piloto, cumpriu o que
 prometia: em 52 rodadas com defeito e dado, nenhum
 reparo (B) enfraqueceu uma asserção, e reparos (B) sem código resultaram em
 reexecução inalterada. A proteção do \textit{template} é, porém,
 assimétrica: sob (A) o modelo pode reduzir o escopo do teste, e foi o que fez
 em três rodadas limpas do E2E (Seção~\ref{subsec:res-limpos}), removendo ou
-trocando a asserção sobre a saudação --- um modo de falha que o
+trocando a asserção sobre a saudação. É um modo de falha que o
 \textit{template} não alcança, porque depende da classificação que o
-próprio modelo declara. Mas o \textit{template} só é acionado quando um teste
-falha; nas rodadas ZS e COT do I-SILENT a suíte passou na primeira
+próprio modelo declara. Além disso, o \textit{template} só é acionado quando
+um teste falha; nas rodadas ZS e COT do I-SILENT a suíte passou na primeira
 execução, já canonizada, e o reparo nunca entrou. Nas sete canonizações, a
 asserção que fixa o defeito já estava na primeira resposta do modelo
 (conferido contra as transcrições; em três rodadas do Gemini, contra o
 trecho registrado no documento da rodada, por não haver o arquivo da
 iteração~0); em uma delas (I-CRASH COT do Gemini) a asserção foi
 enfraquecida em um reparo intermediário e restaurada no seguinte. Um protocolo que quisesse
-atacar a canonização teria de agir no \textit{prompt} de geração --- por
-exemplo, pedindo que o modelo liste os comportamentos que considera
+atacar a canonização teria de agir no \textit{prompt} de geração, por
+exemplo pedindo que o modelo liste os comportamentos que considera
 suspeitos antes de escrever as asserções.
 
 Segundo, \textbf{ver e proteger não são a mesma coisa}. O ChatGPT escreveu
@@ -1701,7 +1770,7 @@ que as mensagens do W-SILENT pareciam invertidas em 10 das 12 respostas e,
 nas mesmas respostas, escreveu o teste que as fixa; justificou-se: ``o
 teste deve registrar o comportamento atual''. O Gemini não viu a troca em
 nenhuma. A diferença entre os modelos está na percepção de uma contradição
-semântica, não na ação sobre ela --- e é por isso que a categoria
+semântica, não na ação sobre ela. É por isso que a categoria
 \emph{Caracterizou com alerta} existe na rubrica: sem ela, o ChatGPT e o
 Gemini pareceriam iguais no W-SILENT, quando um deles entregou ao
 desenvolvedor a informação de que algo está errado e o outro não.
@@ -1722,8 +1791,8 @@ alvo (FS) e o material divergente do I-CRASH; na Fase~3, o \textit{import}
 de \texttt{material.dart} e das telas, e um dado de teste que violava uma
 regra presente no próprio código colado. Diante da lacuna, os dois modelos
 reagiram de formas opostas e consistentes (Seção~\ref{subsec:res-limpos}):
-o ChatGPT pediu ou recusou; o Gemini inventou. O resultado foi o mesmo ---
-arquivo que não compila ---, mas o comportamento tem consequências
+o ChatGPT pediu ou recusou; o Gemini inventou. O resultado foi o mesmo,
+um arquivo que não compila, mas o comportamento tem consequências
 diferentes para quem opera: a recusa é
 visível e corrigível com uma linha; a invenção produz um artefato que parece
 um teste e não testa o alvo.
@@ -1737,7 +1806,7 @@ ele inventa ou trava, e o esforço humano migra da escrita do teste para a
 validação do teste.
 
 Há um corolário incômodo para o desenho do estudo. Fornecer o caminho de
-\textit{import} e os campos reais teria aumentado a aprovação --- a execução
+\textit{import} e os campos reais teria aumentado a aprovação, e a execução
 assistida da Fase~2 mostra o tamanho do efeito
 (Seção~\ref{subsec:res-deteccao}). Mas teria medido o par operador~+~modelo,
 e não o modelo; reexecutar as 15 rodadas, com perda de aprovação e
@@ -1765,7 +1834,7 @@ ela pode favorecer ou punir um modelo independentemente da sua capacidade
 de escrever testes.
 
 Esse ponto tem uma consequência metodológica: comparar modelos por um só
-nível da pirâmide --- como faz a maior parte dos trabalhos relacionados ---
+nível da pirâmide, como faz a maior parte dos trabalhos relacionados,
 produziria uma ordenação diferente conforme o nível escolhido. No nível de
 \textit{widget} o ChatGPT ``vence'' em taxa; no E2E o Gemini vence em tudo;
 no unitário, empatam. Só a pirâmide inteira mostra que nenhum dos dois
@@ -1777,13 +1846,13 @@ domina.
 Os cinco defeitos reais não eram o objetivo e são, talvez, o resultado de
 maior utilidade prática: sobreviveram ao processo formal de teste que o
 próprio autor conduziu sobre a versão de produção (Seção~\ref{subsec:sintonize}). Três foram diagnosticados corretamente por pelo
-menos um modelo (R1, R2, R3) --- no caso do R3, com arquivo, linha e a
-palavra \texttt{mounted} ---, um só pelo efeito (R4) e um foi, na mesma rodada, capturado por um teste e
+menos um modelo (R1, R2 e R3; no caso do R3, com arquivo, linha e a
+palavra \texttt{mounted}), um só pelo efeito (R4) e um foi, na mesma rodada, capturado por um teste e
 canonizado por outro (R5). O R1 revelou-se maior do que o piloto indicava: além de
 \texttt{formatName}, seis cópias privadas do mesmo laço, alimentadas por
 dados do Firestore, carregam o mesmo \texttt{RangeError}. O R2 e o R4 têm em
-comum um padrão de tratamento de erro que esconde a causa --- um \texttt{??}
-que nunca executa, um \texttt{catch} que só imprime ---, e foram expostos
+comum um padrão de tratamento de erro que esconde a causa (um \texttt{??}
+que nunca executa, um \texttt{catch} que só imprime), e foram expostos
 porque os testes gerados exercitaram caminhos que o desenvolvimento manual
 não exercitou. Para a equipe do Sintonize, o relatório da
 Tabela~\ref{tab:reais} é um produto direto do estudo; para o estudo, os
@@ -1798,15 +1867,14 @@ O mecanismo de reparo por realimentação de erro é o do
 TestPilot~\cite{schafer2024testpilot}, e os resultados convergem em um ponto
 que aquele trabalho registra de passagem: parte dos testes que passam o
 fazem por asserções fracas. Aqui esse fenômeno foi medido com um oráculo e
-recebeu nome e taxonomia --- sete canonizações em 52 rodadas com defeito e
-dado, mais
-um defeito real transformado em especificação --- e mostrou-se concentrado na
-geração, fora do alcance do reparo. Plein et al.~\cite{plein2023bugreports}
+recebeu nome e taxonomia. Foram sete canonizações em 52 rodadas com defeito e
+dado, mais um defeito real transformado em especificação, e o fenômeno
+mostrou-se concentrado na geração, fora do alcance do reparo. Plein et al.~\cite{plein2023bugreports}
 usam múltiplas gerações como recuperação; o ciclo de reparo deste trabalho
 tem o mesmo papel, com a diferença de que cada iteração é auditada e a
 classe declarada pelo modelo ((A)/(B)) é ela própria um dado. Os trabalhos de
 teste de GUI móvel com LLM~\cite{liu2024gptdroid,yoon2024droidagent,liu2023qtypist}
-medem exploração --- atividades visitadas, \textit{bugs} encontrados --- e
+medem exploração (atividades visitadas, \textit{bugs} encontrados) e
 produzem \textit{traces}, não suítes; o nível E2E deste trabalho pergunta o
 contrário: se uma suíte repetível, gerada de uma vez, protege contra um
 defeito conhecido. A comparação mais direta é com
@@ -1870,7 +1938,7 @@ modelo nunca recebeu \texttt{formatName} nos \textit{prompts} do U-CRASH.
 ativos juntos. W-CRASH e I-SILENT dividem o \texttt{criar\_playlist.dart},
 de modo que o \textit{prompt} de um trazia o outro; nas rodadas W-CRASH do
 ChatGPT há asserções sobre o nome fixo ``Nova Playlist'' que canonizam o
-defeito vizinho --- sem efeito na codificação, que é por defeito-alvo. As
+defeito vizinho, sem efeito na codificação, que é por defeito-alvo. As
 rodadas limpas do ChatGPT de \texttt{CadastroScreen} e do fluxo de
 \textit{login} rodaram com W-CRASH, I-CRASH e I-SILENT ativos em outros
 arquivos; a verificação posterior mostrou que nenhum teste executou uma
@@ -1897,8 +1965,8 @@ por nível e não a distribuição real de defeitos; os cinco defeitos reais sã
 a contraprova. (Ct7)~\emph{Dois regimes de oráculo}, não planejados: defeito
 visível na Fase~2 e oculto na Fase~3 (Seção~\ref{subsec:alvos}). Os dois
 medem detecção,
-mas respondem a perguntas diferentes --- percepção e ação diante do erro
-\textit{versus} sensibilidade do teste ao comportamento ---, de modo que as
+mas respondem a perguntas diferentes (percepção e ação diante do erro
+\textit{versus} sensibilidade do teste ao comportamento), de modo que as
 taxas de captura dos níveis inferiores e do E2E não são diretamente
 comparáveis; a Tabela~\ref{tab:piramide-bugs} deve ser lida por nível, e a
 ausência de canonização no E2E é consequência do regime, não mérito do
@@ -1928,41 +1996,42 @@ Apêndice~\ref{sec:apendice-desvios}.
 Este trabalho perguntou em que medida modelos de linguagem, guiados por
 estratégias de \textit{prompt}, implementam uma pirâmide de testes que de
 fato protege uma aplicação móvel real, e quais são os desafios encontrados em
-cada nível. Para responder, 156
-rodadas sob um protocolo fixo geraram testes unitários, de \textit{widget},
-de integração e \textit{end-to-end} para o Sintonize, em dois modelos
-acessados pela interface \textit{web}, com nove defeitos plantados como
-oráculo e uma rubrica de detecção aplicada a cada rodada.
+cada nível. Para responder, 156 rodadas sob um protocolo fixo geraram testes
+unitários, de \textit{widget}, de integração e E2E para o Sintonize, em dois
+modelos acessados pela interface \textit{web}, com nove defeitos plantados
+como oráculo e uma rubrica de detecção aplicada a cada rodada.
 
-As respostas. Os modelos implementam a pirâmide: 93\% de aprovação agregada
-nos alvos limpos, de 60,5\% (E2E do ChatGPT) a 100\% (unitário do Gemini)
-por nível. A pirâmide que implementam captura 5 e 7 das 25 e 27 exposições a
-defeitos conhecidos --- 1 e 0 nos níveis inferiores, com defeito visível; 4 e
-7 no E2E, com defeito oculto ---, e os modelos perceberam o defeito, sem
-necessariamente protegê-lo, em cerca de três em cada cinco (31 de 52); quase
-nenhum dos silenciosos nos níveis intermediários foi protegido. O que separa as duas leituras é o teste que fixa o defeito
-como especificação --- com aviso ou, na canonização, sem ele ---, que nasce
-na geração e que o ciclo de reparo revisado, eficaz em impedir que (B)
-enfraqueça asserções, não alcança. A estratégia
-de \textit{prompt} não produziu ordenação consistente entre as métricas
-neste estudo; o que separou os resultados foi o regime do oráculo, o tipo de
-defeito e o material fornecido no \textit{prompt}. Os dois modelos têm pirâmides de forma
-diferente --- o ChatGPT cai com o nível e o Gemini volta a subir no E2E ---,
-e nenhum domina o outro; comparações feitas num só nível produziriam
-vencedores diferentes. O estudo expôs ainda cinco defeitos reais do
-aplicativo, um deles transformado em especificação por um teste gerado.
+Os modelos implementam a pirâmide: a aprovação agregada nos alvos limpos foi
+de 93\%, variando por nível de 60,5\% (E2E do ChatGPT) a 100\% (unitário do
+Gemini). Essa pirâmide, porém, captura apenas 5 das 25 exposições a defeitos
+conhecidos no ChatGPT e 7 das 27 no Gemini. Nos níveis inferiores, com
+defeito visível, foram 1 e 0 capturas; no E2E, com defeito oculto, 4 e 7. Os
+modelos perceberam o defeito, sem necessariamente protegê-lo, em cerca de
+três em cada cinco exposições (31 de 52), e quase nenhum dos defeitos
+silenciosos nos níveis intermediários foi protegido. O que separa as duas
+leituras é o teste que fixa o defeito como especificação, com aviso ou, na
+canonização, sem ele. Esse tipo de teste nasce na geração, e o ciclo de
+reparo revisado, eficaz em impedir que um reparo classificado como (B)
+enfraqueça asserções, não o alcança. A estratégia de \textit{prompt} não
+produziu ordenação consistente entre as métricas neste estudo; o que separou
+os resultados foi o regime do oráculo, o tipo de defeito e o material
+fornecido no \textit{prompt}. Os dois modelos têm pirâmides de forma
+diferente, pois o ChatGPT cai com o nível e o Gemini volta a subir no E2E, e
+nenhum domina o outro: comparações feitas num só nível produziriam vencedores
+diferentes. O estudo expôs ainda cinco defeitos reais do aplicativo, um deles
+transformado em especificação por um teste gerado.
 
-Os objetivos específicos foram atendidos assim. (i)~A comparação de
-estratégias e modelos por nível está nas Tabelas~\ref{tab:piramide-limpos},
-\ref{tab:piramide-bugs} e \ref{tab:estrategias-res}: nenhuma estratégia
-ordena os resultados nos dois modelos, e os modelos têm pirâmides de forma
-diferente. (ii)~Os desafios de cada nível e as suas causas estão na
-Tabela~\ref{tab:desafios}: julgamento no unitário, infraestrutura de teste
-nos níveis intermediários, execução no E2E. (iii)~Os modos de falha diante de
-defeitos conhecidos foram codificados pela rubrica da
-Tabela~\ref{tab:rubrica}; a canonização foi medida --- sete casos nos
-defeitos plantados, mais um defeito real --- e localizada na geração. (iv)~Os
-cinco defeitos reais estão catalogados na Tabela~\ref{tab:reais}, com
+Os objetivos específicos foram atendidos da seguinte forma. (i)~A comparação
+de estratégias e modelos por nível está nas
+Tabelas~\ref{tab:piramide-limpos}, \ref{tab:piramide-bugs} e
+\ref{tab:estrategias-res}: nenhuma estratégia lidera em mais de uma métrica,
+e os modelos têm pirâmides de forma diferente. (ii)~Os desafios de cada nível
+e as suas causas estão na Tabela~\ref{tab:desafios}: julgamento no unitário,
+infraestrutura de teste nos níveis intermediários, execução no E2E. (iii)~Os
+modos de falha diante de defeitos conhecidos foram codificados pela rubrica
+da Tabela~\ref{tab:rubrica}; a canonização foi medida, com sete casos nos
+defeitos plantados e mais um em defeito real, e localizada na geração.
+(iv)~Os cinco defeitos reais estão catalogados na Tabela~\ref{tab:reais}, com
 arquivo e linha. (v)~O protocolo e o pacote de replicação estão publicados e
 relatados conforme as diretrizes de Baltes et
 al.~\cite{baltes2026guidelines}. Quanto ao objetivo geral, os benefícios
@@ -1985,15 +2054,15 @@ comparar diretamente a detecção dos níveis inferiores com a do E2E), a
 ausência de repetição por célula e a codificação por um único avaliador. Os
 trabalhos futuros decorrem delas e dos achados: repetir os níveis inferiores
 no regime de defeito oculto, para medir a sensibilidade das suítes sem o
-efeito de ver o defeito; repetições por célula para
-estimar a variância; um modelo de pesos abertos como \textit{baseline}; um
-\textit{prompt} de geração que peça ao modelo os comportamentos suspeitos
-antes das asserções, para atacar a canonização onde ela nasce; e a
-recodificação independente de uma amostra, para reportar concordância. Fica,
-por fim, a conclusão que os dois estudos conduzidos sob a mesma orientação
---- este e o de Medeiros~\cite{medeiros2026acessibilidade} --- alcançaram em
-domínios diferentes: o modelo de linguagem escreve o teste; decidir se o
-teste protege o sistema continua sendo trabalho de quem lê o teste.
+efeito de ver o defeito; repetições por célula para estimar a variância; um
+modelo de pesos abertos como \textit{baseline}; um \textit{prompt} de geração
+que peça ao modelo os comportamentos suspeitos antes das asserções, para
+atacar a canonização onde ela nasce; e a recodificação independente de uma
+amostra, para reportar concordância. Fica, por fim, a conclusão que este
+estudo e o de Medeiros~\cite{medeiros2026acessibilidade}, conduzidos sob a
+mesma orientação, alcançaram em domínios diferentes: o modelo de linguagem
+escreve o teste; decidir se o teste protege o sistema continua sendo trabalho
+de quem lê o teste.
 
 \bibliographystyle{sbc}
 \bibliography{referencias}
@@ -2148,7 +2217,8 @@ tratamento dado; os itens principais estão na Seção~\ref{subsec:ameacas}.
 \begin{enumerate}\small
 \item \textbf{Execução assistida (Fase~2, ChatGPT):} 15 rodadas com defeito receberam informação do operador no reparo; isoladas em \texttt{fase2/\_execucao-assistida/} e reexecutadas em 24/09/2026 com o \textit{template} fixo. Delta: 107 $\to$ 40 testes passando.
 \item \textbf{Três rodadas limpas do ChatGPT} (WIDGET-ZS-02, WIDGET-COT-01, INT-FS-01) com contexto extra no reparo a pedido do modelo; INT-FS-01 com uma iteração revertida. Não reexecutadas (alvos limpos, sem efeito na detecção).
-\item \textbf{Material divergente do I-CRASH:} \textit{prompt} com \texttt{SwitchListTile} e 4 campos quando a tela tinha 10 e \texttt{Switch}; 4 rodadas REEXEC com o \textit{prompt} corrigido, fora das 60.
+\item \textbf{Material divergente do I-CRASH:} \textit{prompt} com \texttt{SwitchListTile} e 4 campos quando a tela tinha 10 e \texttt{Switch}; 3 rodadas REEXEC por modelo com o \textit{prompt} corrigido, fora das 60.
+\item \textbf{Exemplo \textit{few-shot} do W-SILENT:} usava uma API inexistente de \texttt{firebase\_auth\_mocks} 0.14.2; 1 rodada REEXEC por modelo com o exemplo corrigido, fora das 60.
 \item \textbf{Tentativa deslogada do Gemini} (20/09/2026): \textit{prompts} do estudo não aceitos e limite de duas respostas; documentada em \texttt{\_abortadas/}; réplica conduzida logada.
 \item \textbf{Troca de versão do ChatGPT} de 5.5 para 5.6 durante a Fase~2, sem aviso; percebida por autodeclaração e registrada por rodada.
 \item \textbf{Consulta à \textit{web}} pelo ChatGPT por iniciativa própria em reparos da reexecução e em 6 gerações E2E (5 COT); não controlável deslogado.

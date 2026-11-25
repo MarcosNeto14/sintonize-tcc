@@ -83,6 +83,23 @@ válidas.
   - `fase2-gemini/analise/ajuda_import.md`
   - `fase3-e2e/analise/` (consolidado, custo, cobertura)
 
+## Pacote de replicação
+
+Porta de entrada: [`pacote_replicacao/indice.xlsx`](pacote_replicacao/indice.xlsx),
+gerado pelos scripts de `pacote_replicacao/scripts/` (instruções de regeneração
+no README dessa pasta). Três abas:
+
+- **Leia-me:** como cada coluna foi preenchida, por que o hash usa o conteúdo
+  commitado (LF), as lacunas dos documentos de rodada e as divergências conferidas
+  linha a linha contra a Pirâmide unificada.
+- **Prompts:** uma linha por prompt (76: 67 da Fase 2 e 9 da Fase 3) com uso,
+  caminho, SHA-256 e tamanho do arquivo inteiro e do corpo colado no modelo.
+- **Rodadas:** uma linha por documento de rodada (187: 156 do desenho, 8 `_REEXEC`,
+  15 assistidas como referência, 6 abortadas, 2 extras) com modelo, versão, data,
+  condição de sessão, prompt e hash, iterações de reparo, compilação na 1ª geração,
+  testes passando/executados, codificação de detecção com a origem, e o caminho do
+  documento.
+
 ## Condições de sessão e versões por bloco
 
 | Bloco | Rodadas | Modelo | Sessão | Fonte |
